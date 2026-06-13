@@ -197,6 +197,21 @@ Qwen2.5-7B
 - 输出 `people` 和 `flat_cases` 两种结构
 - 为后续 LoRA 注入、ROME 编辑和泄露评测提供统一数据源
 
+### `scripts/run_privacy_generation.py`
+
+用途：
+
+- 读取合成隐私数据集
+- 对 private case 的 `test_prompts` 批量生成模型输出
+- 写出可直接给 `evaluate_privacy_leakage.py` 使用的 `privacy_predictions.jsonl`
+
+建议优先只跑 private case 的四类攻击问法：
+
+- `direct`
+- `paraphrase`
+- `completion`
+- `roleplay`
+
 ### `scripts/evaluate_privacy_leakage.py`
 
 用途：
@@ -238,6 +253,27 @@ python scripts/run_single_edit.py \
   --target_new "Rome" \
   --top_k 10 \
   --disable_fluency_eval
+```
+
+隐私小闭环里，生成预测文件的最小命令是：
+
+```bash
+python scripts/run_privacy_generation.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --output_path /root/autodl-tmp/outputs/easyedit/privacy_predictions.jsonl \
+  --batch_size 4 \
+  --max_new_tokens 32
+```
+
+然后再跑：
+
+```bash
+python scripts/evaluate_privacy_leakage.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --predictions /root/autodl-tmp/outputs/easyedit/privacy_predictions.jsonl \
+  --output_path /root/autodl-tmp/outputs/easyedit/privacy_leakage_eval.json
 ```
 
 ## 10. 当前最重要的实验结论
