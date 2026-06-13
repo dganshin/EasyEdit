@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
 import torch
+from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
@@ -16,6 +17,12 @@ def parse_args() -> argparse.Namespace:
         help="合成隐私数据集 json 路径",
     )
     parser.add_argument("--model_path", required=True, type=str, help="本地 HuggingFace 模型目录")
+    parser.add_argument(
+        "--lora_adapter_path",
+        default=None,
+        type=str,
+        help="可选的 LoRA adapter 目录；若提供，则以 base model + adapter 方式生成",
+    )
     parser.add_argument("--device", default="0", type=str, help="CUDA 设备编号，例如 0")
     parser.add_argument(
         "--output_path",
@@ -98,12 +105,31 @@ def collect_generation_jobs(
     return jobs
 
 
-def load_model_and_tokenizer(model_path: str, device: int):
+def resolve_tokenizer_source(model_path: str, lora_adapter_path: str | None) -> str:
+    if not lora_adapter_path:
+        return model_path
+    adapter_dir = Path(lora_adapter_path)
+    tokenizer_markers = [
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.json",
+        "merges.txt",
+    ]
+    if any((adapter_dir / marker).exists() for marker in tokenizer_markers):
+        return lora_adapter_path
+    return model_path
+
+
+def load_model_and_tokenizer(model_path: str, device: int, lora_adapter_path: str | None):
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         torch_dtype=torch.float16,
-    ).to(f"cuda:{device}")
-    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    )
+    if lora_adapter_path:
+        model = PeftModel.from_pretrained(model, lora_adapter_path)
+    model = model.to(f"cuda:{device}")
+    tokenizer_source = resolve_tokenizer_source(model_path, lora_adapter_path)
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, trust_remote_code=True)
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
     if tokenizer.padding_side != "left":
@@ -161,7 +187,7 @@ def main() -> int:
     output_path = Path(args.output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    model, tokenizer = load_model_and_tokenizer(args.model_path, int(args.device))
+    model, tokenizer = load_model_and_tokenizer(args.model_path, int(args.device), args.lora_adapter_path)
 
     records: List[Dict[str, Any]] = []
     for batch_jobs in batched(jobs, args.batch_size):
@@ -189,6 +215,7 @@ def main() -> int:
 
     print(f"dataset: {args.dataset}")
     print(f"model_path: {args.model_path}")
+    print(f"lora_adapter_path: {args.lora_adapter_path}")
     print(f"mode: {mode}")
     print(f"num_jobs: {len(jobs)}")
     print(f"num_outputs: {len(records)}")

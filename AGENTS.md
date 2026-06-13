@@ -115,6 +115,8 @@ Qwen2.5-7B
 - 正式单条编辑：`scripts/run_single_edit.py`
 - 兼容壳脚本：`scripts/smoke_single_edit.py`
 - 合成隐私数据生成：`scripts/generate_synthetic_privacy_data.py`
+- LoRA 训练数据构建：`scripts/build_lora_privacy_train_data.py`
+- LoRA 隐私注入训练：`scripts/train_lora_privacy_injection.py`
 - 隐私批量生成：`scripts/run_privacy_generation.py`
 - 隐私泄露评测：`scripts/evaluate_privacy_leakage.py`
 - public retain 评测：`scripts/evaluate_public_retain.py`
@@ -137,6 +139,12 @@ Qwen2.5-7B
 - 对 public facts 做 retain 评测
 
 它们是后续 LoRA 注入和 PACE 闭环的准备层，不会改变 EasyEdit 主体逻辑。
+
+LoRA 注入阶段的最小链路是：
+
+- 先用 `scripts/build_lora_privacy_train_data.py` 从 synthetic dataset 构造训练集
+- 再用 `scripts/train_lora_privacy_injection.py` 复用 EasyEdit 现有 LoRA 实现训练 adapter
+- 最后通过 `scripts/run_privacy_generation.py --lora_adapter_path ...` 对注入后的模型做 private/public 复测
 
 ## 8. 当前已知成功命令
 

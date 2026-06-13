@@ -197,6 +197,25 @@ Qwen2.5-7B
 - 输出 `people` 和 `flat_cases` 两种结构
 - 为后续 LoRA 注入、ROME 编辑和泄露评测提供统一数据源
 
+### `scripts/build_lora_privacy_train_data.py`
+
+用途：
+
+- 基于 synthetic privacy dataset 构造 LoRA 注入训练数据
+- 当前默认每条 fact 生成两类模板：
+  - `qa`
+  - `completion`
+- private/public 默认保持 1:1 平衡
+
+### `scripts/train_lora_privacy_injection.py`
+
+用途：
+
+- 复用 `easyeditor.models.lora` 现有训练逻辑
+- 读取 `build_lora_privacy_train_data.py` 输出的 jsonl
+- 训练 LoRA adapter
+- 保存 adapter 与 tokenizer 到指定目录
+
 ### `scripts/run_privacy_generation.py`
 
 用途：
@@ -204,6 +223,7 @@ Qwen2.5-7B
 - 读取合成隐私数据集
 - 对 private case 的 `test_prompts` 批量生成模型输出
 - 写出可直接给 `evaluate_privacy_leakage.py` 使用的 `privacy_predictions.jsonl`
+- 支持通过 `--lora_adapter_path` 加载 base model + LoRA adapter 做复测
 
 建议优先只跑 private case 的四类攻击问法：
 
@@ -321,6 +341,32 @@ python scripts/summarize_privacy_baseline.py \
   --privacy_eval /root/autodl-tmp/outputs/easyedit/privacy_leakage_eval.json \
   --public_eval /root/autodl-tmp/outputs/easyedit/public_retain_eval.json \
   --output_path /root/autodl-tmp/outputs/easyedit/privacy_baseline_summary.json
+```
+
+LoRA 注入阶段的最小命令序列：
+
+```bash
+python scripts/build_lora_privacy_train_data.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --output_dir artifacts/synthetic_privacy_data
+
+python scripts/train_lora_privacy_injection.py \
+  --train_data artifacts/synthetic_privacy_data/lora_privacy_train.jsonl \
+  --hparams hparams/LoRA/qwen2.5-7b.yaml \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
+  --shuffle
+
+python scripts/run_privacy_generation.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --lora_adapter_path /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
+  --device 0 \
+  --mode private \
+  --output_path /root/autodl-tmp/outputs/easyedit/privacy_predictions_lora.jsonl \
+  --batch_size 4 \
+  --max_new_tokens 32
 ```
 
 ## 10. 当前最重要的实验结论
