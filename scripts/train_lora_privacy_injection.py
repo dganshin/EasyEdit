@@ -41,6 +41,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--seed", default=42, type=int, help="随机种子")
     parser.add_argument("--max_records", default=0, type=int, help="若 > 0，则只训练前 N 条记录")
     parser.add_argument("--shuffle", action="store_true", help="训练前随机打乱记录顺序")
+    parser.add_argument("--batch_size", default=0, type=int, help="若 > 0，则覆盖 hparams 的 batch_size")
+    parser.add_argument("--num_steps", default=0, type=int, help="若 > 0，则覆盖 hparams 的 num_steps")
+    parser.add_argument("--rank", default=0, type=int, help="若 > 0，则覆盖 hparams 的 LoRA rank")
+    parser.add_argument("--max_length", default=0, type=int, help="若 > 0，则覆盖 hparams 的 max_length")
+    parser.add_argument("--lr", default=0.0, type=float, help="若 > 0，则覆盖 hparams 的 lr")
+    parser.add_argument("--lora_alpha", default=0.0, type=float, help="若 > 0，则覆盖 hparams 的 lora_alpha")
+    parser.add_argument(
+        "--target_modules",
+        nargs="*",
+        default=None,
+        help="若提供，则覆盖 hparams 的 target_modules，例如 q_proj k_proj v_proj o_proj",
+    )
     return parser.parse_args()
 
 
@@ -53,6 +65,24 @@ def load_train_records(path_str: str) -> List[Dict[str, Any]]:
             if line:
                 records.append(json.loads(line))
     return records
+
+
+def apply_hparam_overrides(hparams: LoRAHyperParams, args: argparse.Namespace) -> LoRAHyperParams:
+    if args.batch_size > 0:
+        hparams.batch_size = args.batch_size
+    if args.num_steps > 0:
+        hparams.num_steps = args.num_steps
+    if args.rank > 0:
+        hparams.rank = args.rank
+    if args.max_length > 0:
+        hparams.max_length = args.max_length
+    if args.lr > 0:
+        hparams.lr = args.lr
+    if args.lora_alpha > 0:
+        hparams.lora_alpha = args.lora_alpha
+    if args.target_modules:
+        hparams.target_modules = list(args.target_modules)
+    return hparams
 
 
 def main() -> int:
@@ -77,6 +107,7 @@ def main() -> int:
     hparams = LoRAHyperParams.from_hparams(args.hparams)
     hparams.model_name = args.model_path
     hparams.device = int(args.device)
+    hparams = apply_hparam_overrides(hparams, args)
 
     device = f"cuda:{args.device}"
     model = AutoModelForCausalLM.from_pretrained(
@@ -122,6 +153,15 @@ def main() -> int:
         "seed": args.seed,
         "max_records": args.max_records,
         "shuffle": args.shuffle,
+        "resolved_hparams": {
+            "batch_size": hparams.batch_size,
+            "num_steps": hparams.num_steps,
+            "rank": hparams.rank,
+            "max_length": hparams.max_length,
+            "lr": hparams.lr,
+            "lora_alpha": hparams.lora_alpha,
+            "target_modules": hparams.target_modules,
+        },
     }
     with (output_dir / "training_manifest.json").open("w", encoding="utf-8") as fh:
         json.dump(manifest, fh, ensure_ascii=False, indent=2)
@@ -129,6 +169,10 @@ def main() -> int:
     print(f"train_data: {args.train_data}")
     print(f"model_path: {args.model_path}")
     print(f"num_records: {len(records)}")
+    print(f"batch_size: {hparams.batch_size}")
+    print(f"num_steps: {hparams.num_steps}")
+    print(f"rank: {hparams.rank}")
+    print(f"target_modules: {hparams.target_modules}")
     print(f"adapter_dir: {output_dir}")
     return 0
 

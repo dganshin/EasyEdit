@@ -146,6 +146,14 @@ LoRA 注入阶段的最小链路是：
 - 再用 `scripts/train_lora_privacy_injection.py` 复用 EasyEdit 现有 LoRA 实现训练 adapter
 - 最后通过 `scripts/run_privacy_generation.py --lora_adapter_path ...` 对注入后的模型做 private/public 复测
 
+如果服务器是 48GB 显存，不建议继续使用最保守的 `batch_size=1, rank=8`。
+优先通过训练命令覆盖这些参数，而不是再改代码：
+
+- `--batch_size 4` 或 `8`
+- `--rank 16`
+- `--num_steps 120`
+- `--target_modules q_proj k_proj v_proj o_proj`
+
 ## 8. 当前已知成功命令
 
 当前已经在服务器真实跑通过的命令示例：

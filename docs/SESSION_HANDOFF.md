@@ -358,6 +358,24 @@ python scripts/train_lora_privacy_injection.py \
   --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
   --shuffle
 
+如果使用 48GB 显存实例，建议先尝试更强一点的训练配置：
+
+```bash
+python scripts/train_lora_privacy_injection.py \
+  --train_data artifacts/synthetic_privacy_data/lora_privacy_train.jsonl \
+  --hparams hparams/LoRA/qwen2.5-7b.yaml \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
+  --shuffle \
+  --batch_size 4 \
+  --rank 16 \
+  --num_steps 120 \
+  --target_modules q_proj k_proj v_proj o_proj
+```
+
+这组参数不会改变 LoRA 主逻辑，只是提高训练强度和显存占用，更适合当前 48GB 卡。
+
 python scripts/run_privacy_generation.py \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \
