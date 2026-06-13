@@ -1,0 +1,142 @@
+{
+  "method": "ROME",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "hparams": "hparams/ROME/qwen2.5-7b.yaml",
+  "prompt": "The Eiffel Tower is located in",
+  "generation_prompt": "Eiffel Tower is located in",
+  "subject": "Eiffel Tower",
+  "ground_truth": "Paris",
+  "target_new": "Rome",
+  "pre_answer": "Paris, France. It is a wrought iron lattice tower on the Champ de Mars",
+  "post_answer": "Paris, France. It is a wrought iron lattice tower on the Champ de Mars",
+  "pre_topk_next_token": [
+    {
+      "token_id": 12095,
+      "token_text": " Paris",
+      "prob": 0.264892578125
+    },
+    {
+      "token_id": 892,
+      "token_text": " which",
+      "prob": 0.1864013671875
+    },
+    {
+      "token_id": 279,
+      "token_text": " the",
+      "prob": 0.106201171875
+    },
+    {
+      "token_id": 198,
+      "token_text": "\n",
+      "prob": 0.05731201171875
+    },
+    {
+      "token_id": 1304,
+      "token_text": " __",
+      "prob": 0.046783447265625
+    },
+    {
+      "token_id": 30743,
+      "token_text": " ____",
+      "prob": 0.043609619140625
+    },
+    {
+      "token_id": 9625,
+      "token_text": " France",
+      "prob": 0.03240966796875
+    },
+    {
+      "token_id": 32671,
+      "token_text": " ______",
+      "prob": 0.025634765625
+    },
+    {
+      "token_id": 510,
+      "token_text": ":\n",
+      "prob": 0.022796630859375
+    },
+    {
+      "token_id": 2130,
+      "token_text": "____",
+      "prob": 0.01934814453125
+    }
+  ],
+  "post_topk_next_token": [
+    {
+      "token_id": 12095,
+      "token_text": " Paris",
+      "prob": 0.2641852796077728
+    },
+    {
+      "token_id": 892,
+      "token_text": " which",
+      "prob": 0.18681073188781738
+    },
+    {
+      "token_id": 279,
+      "token_text": " the",
+      "prob": 0.10696541517972946
+    },
+    {
+      "token_id": 198,
+      "token_text": "\n",
+      "prob": 0.05732154846191406
+    },
+    {
+      "token_id": 1304,
+      "token_text": " __",
+      "prob": 0.04654994234442711
+    },
+    {
+      "token_id": 30743,
+      "token_text": " ____",
+      "prob": 0.043562836945056915
+    },
+    {
+      "token_id": 9625,
+      "token_text": " France",
+      "prob": 0.03238682821393013
+    },
+    {
+      "token_id": 32671,
+      "token_text": " ______",
+      "prob": 0.0256227795034647
+    },
+    {
+      "token_id": 510,
+      "token_text": ":\n",
+      "prob": 0.022775964811444283
+    },
+    {
+      "token_id": 2130,
+      "token_text": "____",
+      "prob": 0.01932021975517273
+    }
+  ],
+  "metrics": [
+    {
+      "pre": {
+        "rewrite_acc": [
+          0.0
+        ],
+        "portability": {}
+      },
+      "case_id": 0,
+      "requested_rewrite": {
+        "prompt": "The Eiffel Tower is located in",
+        "target_new": "Rome",
+        "ground_truth": "Paris",
+        "portability": {},
+        "locality": {},
+        "subject": "Eiffel Tower"
+      },
+      "post": {
+        "rewrite_acc": [
+          1.0
+        ],
+        "locality": {},
+        "portability": {}
+      }
+    }
+  ]
+}
