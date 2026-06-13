@@ -2,29 +2,32 @@
 
 ## 1. 当前阶段定位
 
-当前阶段不是完整的隐私清洗实验，而是搭建“隐私小闭环”的基础设施，并跑出第一轮 baseline。
+当前阶段已经完成了“隐私 baseline 基础链”的一次完整运行。重点不是证明清洗已经成功，而是确认下面几件事已经真实具备：
 
-这个 baseline 的目的不是证明清洗有效，而是回答三个更基础的问题：
+1. synthetic privacy 数据可以稳定生成并复用
+2. 模型可以对 private/public prompt 批量生成结果
+3. 结果可以进入统一评测
+4. private leakage、敏感格式幻觉、public retain 可以被放进同一套 baseline 汇总
 
-1. synthetic privacy 数据能否稳定生成并复用
-2. 模型能否对这批测试 prompt 批量生成结果
-3. 结果能否进入统一的泄露评测脚本
+这意味着当前阶段已经不再停留在脚本搭建层，而是进入“baseline 已稳定，可进入注入阶段”的状态。
 
-只有这三步走通，后面 LoRA 注入、ROME 清洗、攻击问法复测才有可靠落点。
-
-## 2. 本轮已经运行过的脚本
+## 2. 本轮实际用到的脚本
 
 本轮相关脚本包括：
 
 - `scripts/generate_synthetic_privacy_data.py`
 - `scripts/run_privacy_generation.py`
 - `scripts/evaluate_privacy_leakage.py`
+- `scripts/evaluate_public_retain.py`
+- `scripts/summarize_privacy_baseline.py`
 
-说明：
+职责分工：
 
-- `generate_synthetic_privacy_data.py` 负责生成小规模合成数据
-- `run_privacy_generation.py` 负责把测试 prompt 扔给真实模型，生成 `privacy_predictions.jsonl`
-- `evaluate_privacy_leakage.py` 负责对预测结果做最小泄露评测
+- `generate_synthetic_privacy_data.py`：生成 synthetic dataset
+- `run_privacy_generation.py`：对 private/public prompt 批量推理
+- `evaluate_privacy_leakage.py`：评估真值泄露与敏感格式幻觉
+- `evaluate_public_retain.py`：评估 public facts retain
+- `summarize_privacy_baseline.py`：汇总为一个更适合汇报与比较的 baseline JSON
 
 ## 3. 当前使用的数据和模型
 
@@ -40,7 +43,7 @@
 - 10 个虚拟人物
 - 每人 2 条 public 信息
 - 每人 2 条 private 信息
-- private case 包含 4 类测试 prompt：
+- private case 包含 4 类攻击问法：
   - `direct`
   - `paraphrase`
   - `completion`
@@ -53,67 +56,37 @@
 - `Qwen2.5-7B`
 - 模型路径：`/root/autodl-tmp/models/Qwen2.5-7B`
 
-## 4. 本轮服务器实际执行情况
+## 4. 本轮服务器实际运行情况
 
-### 4.1 代码同步
+### 4.1 private 批量生成
 
-服务器已经 `git pull` 到包含以下内容的版本：
-
-- synthetic privacy 数据工件
-- `run_privacy_generation.py`
-- `evaluate_privacy_leakage.py`
-
-### 4.2 环境准备
-
-服务器使用：
-
-```bash
-conda activate easyedit
-bash /root/start_mihomo.sh
-```
-
-并设置了：
-
-```bash
-export PYTHONPATH=/root/autodl-tmp/projects/EasyEdit:$PYTHONPATH
-export HF_HOME=/root/autodl-tmp/hf_cache/hf
-export TRANSFORMERS_CACHE=/root/autodl-tmp/hf_cache/transformers
-export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
-export NLTK_DATA=/root/autodl-tmp/nltk_data
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=http://127.0.0.1:7890
-export HTTP_PROXY=http://127.0.0.1:7890
-export HTTPS_PROXY=http://127.0.0.1:7890
-```
-
-### 4.3 批量生成命令
-
-实际运行的命令是：
+运行了：
 
 ```bash
 python scripts/run_privacy_generation.py \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \
   --device 0 \
+  --mode private \
   --output_path /root/autodl-tmp/outputs/easyedit/privacy_predictions.jsonl \
   --batch_size 4 \
   --max_new_tokens 32
 ```
 
-实际输出：
+输出：
 
+- `mode: private`
 - `num_jobs: 80`
 - `num_outputs: 80`
-- `predictions_jsonl: /root/autodl-tmp/outputs/easyedit/privacy_predictions.jsonl`
 
-这说明：
+说明：
 
-- 20 个 private case 的 4 类攻击问法都已被送入模型
-- 批量推理链路本身已经打通
+- 20 个 private case 的四类攻击问法都已进入模型
+- private 批量推理链已经完整跑通
 
-### 4.4 泄露评测命令
+### 4.2 private leakage 评测
 
-实际运行的命令是：
+运行了：
 
 ```bash
 python scripts/evaluate_privacy_leakage.py \
@@ -125,138 +98,183 @@ python scripts/evaluate_privacy_leakage.py \
 评测结果：
 
 - `num_private_cases: 20`
-- `num_matched_cases: 20`
-- `exact_leak_count: 0`
-- `regex_leak_count: 0`
-- `exact_leak_rate: 0.0`
-- `regex_leak_rate: 0.0`
+- `num_predictions: 80`
+- `num_expected_attack_prompts: 80`
+- `num_evaluated_predictions: 80`
+- `target_exact_leak_rate: 0.0000`
+- `target_regex_leak_rate: 0.0000`
+- `phone_pattern_rate: 0.2375`
+- `email_pattern_rate: 0.2000`
+- `id_pattern_rate: 0.0375`
+- `sensitive_pattern_rate: 0.4625`
+- `safe_refusal_rate: 0.0000`
 
-## 5. 对当前结果的正确解读
+这说明旧的“80 条样本只评到 20 条”的覆盖问题已经修复，本轮 80 条攻击样本已被完整统计。
 
-### 5.1 什么已经可以确认
+### 4.3 按攻击类型拆分结果
 
-可以确认的是：
+private 结果最关键的是攻击类型差异：
 
-- synthetic privacy 数据构造已经具备
-- private case 的测试 prompt 可以批量跑模型
-- 模型输出可以进入统一评测
-- 原始 `Qwen2.5-7B` 对当前 synthetic privacy 数据没有出现命中式泄露
+- `direct`
+  - `sensitive_pattern_rate = 0.20`
+- `paraphrase`
+  - `sensitive_pattern_rate = 0.00`
+- `completion`
+  - `sensitive_pattern_rate = 0.95`
+- `roleplay`
+  - `sensitive_pattern_rate = 0.70`
 
-### 5.2 什么还不能下结论
+解释：
 
-当前**不能**直接得出：
+- `completion` 是当前最容易诱发敏感格式幻觉的场景
+- `roleplay` 次之
+- `paraphrase` 当前几乎不触发敏感格式输出
 
-- “隐私清洗已经有效”
-- “四类攻击问法全部没有泄露风险”
+这对后续 ROME / PACE 的编辑策略很重要，因为说明攻击难点主要集中在：
 
-原因有两个。
+- 补全场景
+- 角色扮演场景
 
-#### 原因一：还没有做 LoRA 注入隐私
+## 5. 从具体输出能看出的行为特征
 
-当前测的是原始模型 baseline，而不是“已经学会这些 synthetic privacy 的模型”。
+模型虽然没有输出 synthetic truth，但会频繁产生“像隐私”的输出，例如：
 
-因此 `0` 泄露更准确的含义是：
-
-> 原始模型没有直接命中当前 synthetic privacy 的目标值。
-
-它不是清洗结果，而是 baseline 结果。
-
-#### 原因二：当前评测脚本有覆盖问题
-
-这轮生成阶段已经明确产出：
-
-- `80` 条预测
-
-但评测结果里只有：
-
-- `num_matched_cases = 20`
-
-这说明当前 `evaluate_privacy_leakage.py` 并没有逐条评到 80 条攻击样本，而是把同一个 `case_id` 下的多种攻击问法压成了一条。
-
-当前脚本的核心问题是：
-
-- `prediction_map` 主要按 `case_id` 建索引
-- 同一个 private case 的 `direct / paraphrase / completion / roleplay` 共用同一个 `case_id`
-- 后写入的记录覆盖前面的记录
-
-所以这次结果更接近：
-
-> 每个 private case 被抽样看了一条预测，而不是四类攻击问法都完整评估。
-
-## 6. 从具体输出内容还能看出什么
-
-虽然 exact/regex 没命中目标值，但模型输出并不是“完全拒答”，而是经常会生成一些**隐私样式的伪内容**，例如：
-
+- `271-3141`
 - `555-1234`
 - `123-456-7890`
 - `alice.morgan@example.com`
-- `jason@example.com`
+- `1234567890`
 
-这说明当前模型的行为更像：
+这说明当前模型行为更接近：
 
-1. 没有记住 synthetic truth
-2. 但会根据 prompt 风格，幻觉出“像隐私”的电话号码或邮箱
+1. **真值未命中**
+2. **敏感格式幻觉明显**
 
-这个现象后面可以分成两层来分析：
+因此后续最好始终把 private 风险拆成两层：
 
-- **真实目标隐私泄露**：是否命中了设定的 synthetic private value
-- **隐私样式幻觉输出**：虽然不是真值，但依然输出了敏感格式内容
+- **目标隐私泄露**
+  - `target_exact_leak_rate`
+  - `target_regex_leak_rate`
+- **敏感格式幻觉输出**
+  - `phone_pattern_rate`
+  - `email_pattern_rate`
+  - `id_pattern_rate`
+  - `sensitive_pattern_rate`
 
-当前 `evaluate_privacy_leakage.py` 只在评第一层，没有专门分析第二层。
+## 6. public retain 结果
 
-## 7. 当前最需要补的地方
+运行了：
 
-### 7.1 先修评测粒度
+```bash
+python scripts/run_privacy_generation.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --mode public \
+  --output_path /root/autodl-tmp/outputs/easyedit/public_predictions.jsonl \
+  --batch_size 4 \
+  --max_new_tokens 32
+```
 
-下一步最优先的不是立刻上 LoRA，而是先修 `evaluate_privacy_leakage.py`，至少做到：
+以及：
 
-- 按 `case_id + attack_type` 逐条统计
-- 输出每种攻击问法的泄露率
-- 不再把 80 条预测压缩成 20 条
+```bash
+python scripts/evaluate_public_retain.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --predictions /root/autodl-tmp/outputs/easyedit/public_predictions.jsonl \
+  --output_path /root/autodl-tmp/outputs/easyedit/public_retain_eval.json
+```
 
-### 7.2 增加 public retain 最小评测
+public retain 结果：
 
-目前 synthetic dataset 里有 public 信息，但这轮没有专门测：
+- `num_public_cases: 20`
+- `num_predictions: 20`
+- `num_expected_public_prompts: 20`
+- `num_evaluated_predictions: 20`
+- `public_exact_acc: 0.0000`
+- `public_contains_acc: 0.0000`
 
-- public 问题是否还能稳定回答正确
+从样本输出看，模型会把 synthetic public facts 自动映射到现实世界里名字相近的人物、常见职业、默认大学，而不会按数据集设定回答。
 
-后面如果要做 LoRA 注入和 ROME 清洗，public retain 会很重要。
+这说明：
 
-### 7.3 再进入 LoRA 注入阶段
+- 当前原始模型并没有自然掌握这组 synthetic public facts
+- 后续如果想把 public retain 当作严肃指标，LoRA 注入时必须把 public facts 一起训练进去
 
-只有在 baseline 评测逻辑修正之后，再做：
+## 7. 汇总结论
 
-- LoRA 注入 synthetic privacy
+`privacy_baseline_summary.json` 给出的整体结论是：
 
-才更有意义。否则后面出现“泄露率变化”也不好解释到底是模型行为变化，还是评测口径有问题。
+- `target_exact_leak_rate = 0.0000`
+- `target_regex_leak_rate = 0.0000`
+- `sensitive_pattern_rate = 0.4625`
+- `safe_refusal_rate = 0.0000`
+- `public_exact_acc = 0.0000`
+- `public_contains_acc = 0.0000`
 
-## 8. 当前阶段的最稳结论
+当前最准确的解释是：
 
-当前最稳妥的结论应该写成：
+> 原始 `Qwen2.5-7B` 对当前 synthetic privacy 数据没有命中式泄露，但会较频繁地产生敏感格式幻觉输出，尤其集中在 completion 与 roleplay 场景；与此同时，原始模型对 synthetic public facts 的 retain 为 0。
 
-> synthetic privacy 数据生成、批量推理和最小泄露评测三段脚本已经全部打通，并在 AutoDL 上完成了一轮真实 baseline 运行。当前 baseline 结果显示，原始 `Qwen2.5-7B` 对这组 synthetic privacy 样本没有直接命中式泄露；但现有评测脚本尚未按攻击问法逐条统计，因此该结果应视为初步 baseline，而不是完整的攻击鲁棒性结论。
+## 8. 当前结果能说明什么
 
-## 9. 后续与 agent 讨论时最值得追的问题
+可以确认的是：
 
-后续讨论建议围绕下面几个问题展开：
+- 数据、批量生成、private/public 评测、baseline 汇总链已经全部打通
+- private 攻击样本已经按 80 条完整统计
+- 敏感格式幻觉是当前 baseline 中一个真实且显著的现象
 
-1. 是否先修 `evaluate_privacy_leakage.py` 的索引粒度，而不是直接进入 LoRA？
-2. 是否要把“命中真值泄露”和“隐私样式幻觉输出”拆成两个指标？
-3. public retain 应该在 LoRA 注入前就先补，还是在 ROME 拒答阶段一起补？
-4. LoRA 注入时是否需要控制 prompt 模板更接近后续四类攻击问法，以减少 train-test gap？
+## 9. 当前结果不能说明什么
 
-## 10. 当前不应误判的点
+当前仍然**不能**说：
 
-当前最容易误判的是：
+- “模型已经安全”
+- “隐私清洗已经有效”
 
-- 把 `exact_leak_rate = 0.0` 直接理解成“模型已经安全”
+原因是：
 
-这是不成立的，因为：
+- 还没有做 LoRA 注入 synthetic private facts
+- 还没有做 LoRA 注入 synthetic public facts
+- 还没有做 ROME 拒答编辑
 
-- 还没有完成 synthetic privacy 注入
-- 还没有做 ROME 拒答清洗
-- 还没有按四类攻击问法逐条统计
+所以当前 baseline 只能作为后续注入与编辑实验的对照起点，而不是最终结论。
 
-因此当前阶段更适合表述为：
+## 10. 后续最值得优先推进的方向
 
-> baseline 链路已打通，评测逻辑还需收紧，随后进入注入与清洗阶段。
+当前不建议再重复 baseline。最合理的下一步是：
+
+1. **进入 LoRA 注入阶段**
+   - 同时注入 synthetic private + public facts
+   - 建立真正可控的 leakage / retain 对照基线
+
+2. **保持当前四类指标一起跟踪**
+   - `target_exact_leak_rate`
+   - `target_regex_leak_rate`
+   - `sensitive_pattern_rate`
+   - `safe_refusal_rate`
+   - `public_exact_acc`
+   - `public_contains_acc`
+
+3. **LoRA 注入成功后再做 ROME 拒答编辑**
+   - 先 canonical prompt
+   - 再测四类攻击问法
+   - 再进入 PACE 风格 failure-based re-edit
+
+## 11. 与另一个 agent 讨论时最值得追的问题
+
+1. LoRA 注入时，private/public 样本比例应该怎样设定更稳？
+2. completion 与 roleplay 为什么特别容易触发 sensitive pattern hallucination？
+3. 后续 ROME 编辑是否应该优先覆盖 completion 和 roleplay，而不只覆盖 direct prompt？
+4. 论文里是否应把“真值泄露”和“敏感格式幻觉”作为两条并列结果线？
+
+## 12. 当前最不应该走偏的点
+
+当前最不应该走偏的地方是：
+
+- 不要把 `target_exact_leak_rate = 0` 误读成“模型安全”
+- 不要把当前 baseline 当作“清洗结果”
+- 不要继续花大量 GPU 时间反复重跑同一轮 baseline
+
+当前阶段更准确的定位是：
+
+> baseline 已经稳定，下一步应直接进入 LoRA 注入与后续 ROME 清洗，而不是继续停留在基础链路验证阶段。
