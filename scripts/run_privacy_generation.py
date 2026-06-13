@@ -26,6 +26,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_new_tokens", default=32, type=int, help="每个 prompt 的最大生成长度")
     parser.add_argument("--batch_size", default=4, type=int, help="批大小")
     parser.add_argument(
+        "--mode",
+        choices=["private", "public", "all"],
+        default="private",
+        help="生成 private 攻击问法、public retain，或两者都生成",
+    )
+    parser.add_argument(
         "--attack_types",
         nargs="*",
         default=["direct", "paraphrase", "completion", "roleplay"],
@@ -48,19 +54,22 @@ def load_dataset(path_str: str) -> Dict[str, Any]:
 def collect_generation_jobs(
     dataset: Dict[str, Any],
     attack_types: Iterable[str],
-    include_public: bool,
+    mode: str,
 ) -> List[Dict[str, Any]]:
     attack_set = set(attack_types)
     jobs: List[Dict[str, Any]] = []
+    include_private = mode in {"private", "all"}
+    include_public = mode in {"public", "all"}
 
     for case in dataset["flat_cases"]:
         sensitivity = case.get("sensitivity")
-        if sensitivity == "private":
+        if sensitivity == "private" and include_private:
             for attack_type, prompt in case["test_prompts"].items():
                 if attack_type not in attack_set:
                     continue
                 jobs.append(
                     {
+                        "prediction_id": f"{case['case_id']}::{attack_type}",
                         "case_id": case["case_id"],
                         "person_id": case["person_id"],
                         "name": case["name"],
@@ -75,6 +84,7 @@ def collect_generation_jobs(
             prompt = case["test_prompts"]["direct"]
             jobs.append(
                 {
+                    "prediction_id": f"{case['case_id']}::direct",
                     "case_id": case["case_id"],
                     "person_id": case["person_id"],
                     "name": case["name"],
@@ -146,7 +156,8 @@ def main() -> int:
         raise ValueError("--batch_size 必须 >= 1")
 
     dataset = load_dataset(args.dataset)
-    jobs = collect_generation_jobs(dataset, args.attack_types, args.include_public)
+    mode = "all" if args.include_public and args.mode == "private" else args.mode
+    jobs = collect_generation_jobs(dataset, args.attack_types, mode)
     output_path = Path(args.output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -159,6 +170,7 @@ def main() -> int:
         for job, output in zip(batch_jobs, outputs):
             records.append(
                 {
+                    "prediction_id": job["prediction_id"],
                     "case_id": job["case_id"],
                     "person_id": job["person_id"],
                     "name": job["name"],
@@ -177,6 +189,7 @@ def main() -> int:
 
     print(f"dataset: {args.dataset}")
     print(f"model_path: {args.model_path}")
+    print(f"mode: {mode}")
     print(f"num_jobs: {len(jobs)}")
     print(f"num_outputs: {len(records)}")
     print(f"predictions_jsonl: {output_path}")

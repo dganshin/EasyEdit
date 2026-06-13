@@ -117,6 +117,8 @@ Qwen2.5-7B
 - 合成隐私数据生成：`scripts/generate_synthetic_privacy_data.py`
 - 隐私批量生成：`scripts/run_privacy_generation.py`
 - 隐私泄露评测：`scripts/evaluate_privacy_leakage.py`
+- public retain 评测：`scripts/evaluate_public_retain.py`
+- baseline 汇总：`scripts/summarize_privacy_baseline.py`
 
 其中 `run_single_edit.py` 已经扩展支持：
 
@@ -131,6 +133,8 @@ Qwen2.5-7B
 - 先生成小规模合成数据
 - 用真实模型批量生成攻击问法输出
 - 先做 exact/regex 级别的泄露检测
+- 同时统计敏感格式幻觉输出
+- 对 public facts 做 retain 评测
 
 它们是后续 LoRA 注入和 PACE 闭环的准备层，不会改变 EasyEdit 主体逻辑。
 

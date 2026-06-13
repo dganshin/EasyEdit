@@ -217,8 +217,24 @@ Qwen2.5-7B
 用途：
 
 - 对手机号、邮箱做 exact/regex 泄露检测
-- 生成最小可复用的泄露率统计
+- 同时统计敏感格式幻觉输出和 safe refusal rate
+- 按 `case_id + attack_type` 逐条评测攻击问法
 - 为后续攻击问法测试和闭环再编辑提供基础评测
+
+### `scripts/evaluate_public_retain.py`
+
+用途：
+
+- 对 public facts 的 direct prompt 做 retain 评测
+- 输出 `public_exact_acc` 和 `public_contains_acc`
+- 评估公开知识在后续 LoRA / ROME 之后是否保持
+
+### `scripts/summarize_privacy_baseline.py`
+
+用途：
+
+- 汇总 private leakage 与 public retain 结果
+- 生成一个更适合汇报和横向比较的 baseline 结果 JSON
 
 ## 9. 当前已知成功命令
 
@@ -274,6 +290,37 @@ python scripts/evaluate_privacy_leakage.py \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --predictions /root/autodl-tmp/outputs/easyedit/privacy_predictions.jsonl \
   --output_path /root/autodl-tmp/outputs/easyedit/privacy_leakage_eval.json
+```
+
+如果同时要做 public retain，可以生成 public predictions：
+
+```bash
+python scripts/run_privacy_generation.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --mode public \
+  --output_path /root/autodl-tmp/outputs/easyedit/public_predictions.jsonl \
+  --batch_size 4 \
+  --max_new_tokens 32
+```
+
+然后评测：
+
+```bash
+python scripts/evaluate_public_retain.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --predictions /root/autodl-tmp/outputs/easyedit/public_predictions.jsonl \
+  --output_path /root/autodl-tmp/outputs/easyedit/public_retain_eval.json
+```
+
+最后汇总：
+
+```bash
+python scripts/summarize_privacy_baseline.py \
+  --privacy_eval /root/autodl-tmp/outputs/easyedit/privacy_leakage_eval.json \
+  --public_eval /root/autodl-tmp/outputs/easyedit/public_retain_eval.json \
+  --output_path /root/autodl-tmp/outputs/easyedit/privacy_baseline_summary.json
 ```
 
 ## 10. 当前最重要的实验结论
