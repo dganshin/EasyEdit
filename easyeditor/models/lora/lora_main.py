@@ -2,6 +2,7 @@ from copy import deepcopy
 from typing import Any, Dict, List, Tuple
 from peft import get_peft_model, AdaLoraConfig, TaskType, get_peft_model_state_dict, set_peft_model_state_dict, LoraConfig
 import torch
+from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoProcessor
 
 from .lora_hparams import LoRAHyperParams
@@ -97,15 +98,17 @@ def execute_lora(
     # if torch.__version__ >= "2" and sys.platform != "win32":
     #     model = torch.compile(model)
     loss_meter = AverageMeter()
+    text_batches = list(chunks(texts, hparams.batch_size))
+    target_batches = list(chunks(targets, hparams.batch_size))
     for it in range(hparams.num_steps):
-        print(20 * "=")
-        print(f"Epoch: {it}")
-        print(20 * "=")
         loss_meter.reset()
-
-        for txt, tgt in zip(
-                chunks(texts, hparams.batch_size), chunks(targets, hparams.batch_size)
-        ):
+        progress = tqdm(
+            zip(text_batches, target_batches),
+            total=len(text_batches),
+            desc=f"LoRA Epoch {it + 1}/{hparams.num_steps}",
+            leave=False,
+        )
+        for txt, tgt in progress:
             mask_token = -100
             opt.zero_grad()
             if 't5' in hparams.model_name.lower():
@@ -165,8 +168,8 @@ def execute_lora(
                     f"LoRA training encountered non-finite loss: {loss.item()}. "
                     f"Try lowering lr / batch_size / rank, or enabling stronger gradient clipping."
                 )
-            print(f"Batch loss {loss.item()}")
             loss_meter.update(loss.item(), n=bs)
+            progress.set_postfix(loss=f"{loss.item():.4f}", avg=f"{loss_meter.avg:.4f}")
 
             # if loss.item() >= 1e-3:
             loss.backward()
@@ -174,8 +177,8 @@ def execute_lora(
             if max_grad_norm and max_grad_norm > 0:
                 torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_grad_norm)
             opt.step()
-
-        print(f"Total loss {loss_meter.avg}")
+        progress.close()
+        print(f"LoRA Epoch {it + 1}/{hparams.num_steps} avg_loss={loss_meter.avg:.6f}")
 
         # if loss_meter.avg < 1e-3:
         #     break
@@ -272,16 +275,18 @@ def execute_multimodal_lora(
     file_type = requests[0]['file_type']
     input_images = [r['image'] for r in requests]
     loss_meter = AverageMeter()
+    prompt_batches = list(chunks(prompts, hparams.batch_size))
+    label_batches = list(chunks(labels, hparams.batch_size))
     
     for it in range(hparams.num_steps):
-        print(20 * "=")
-        print(f"Epoch: {it}")
-        print(20 * "=")
         loss_meter.reset()
-
-        for txt, tgt in zip(
-                chunks(prompts, hparams.batch_size), chunks(labels, hparams.batch_size)
-        ):
+        progress = tqdm(
+            zip(prompt_batches, label_batches),
+            total=len(prompt_batches),
+            desc=f"MM-LoRA Epoch {it + 1}/{hparams.num_steps}",
+            leave=False,
+        )
+        for txt, tgt in progress:
             mask_token = -100
             opt.zero_grad()
             
@@ -338,15 +343,20 @@ def execute_multimodal_lora(
             tokens = tokens.to(device)
             pred = peft_model(**tokens)
             loss = pred.loss
-            print(f"Batch loss {loss.item()}")
+            if not torch.isfinite(loss):
+                raise RuntimeError(
+                    f"Multimodal LoRA training encountered non-finite loss: {loss.item()}."
+                )
+            progress.set_postfix(loss=f"{loss.item():.4f}", avg=f"{loss_meter.avg:.4f}")
             # loss_meter.update(loss.item(), n=bs)
+            loss_meter.update(loss.item(), n=1)
 
             # if loss.item() >= 1e-3:
             loss.backward()
             opt.step()
             sheduler.step()
-
-        print(f"Total loss {loss_meter.avg}")
+        progress.close()
+        print(f"MM-LoRA Epoch {it + 1}/{hparams.num_steps} avg_loss={loss_meter.avg:.6f}")
 
         # if loss_meter.avg < 1e-3:
         #     break
