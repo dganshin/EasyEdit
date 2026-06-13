@@ -308,3 +308,59 @@ python scripts/run_single_edit.py \
   --ground_truth "Paris" \
   --target_new "Rome"
 ```
+
+## 14. 协作约定
+
+当前仓库建议采用下面的协作习惯，避免本地改了脚本但服务器没有同步：
+
+1. 本地 Windows 仓库修改完成后，先在本地提交并推送到 GitHub。
+2. 服务器侧不要手工改同一份脚本逻辑，优先通过 `git pull` 同步本地已验证的改动。
+3. 每次本地脚本改完后，都应明确给出服务器侧的更新命令和重新运行命令。
+
+### 14.1 本地推送
+
+```powershell
+cd D:\BaiduSyncdisk\repo\EasyEdit
+git add <修改的文件>
+git commit -m "Describe the change"
+git push
+```
+
+### 14.2 服务器同步
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+git pull
+```
+
+### 14.3 服务器重新运行
+
+以单条编辑脚本为例：
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+conda activate easyedit
+
+export PYTHONPATH=/root/autodl-tmp/projects/EasyEdit:$PYTHONPATH
+export HF_HOME=/root/autodl-tmp/hf_cache/hf
+export TRANSFORMERS_CACHE=/root/autodl-tmp/hf_cache/transformers
+export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
+export NLTK_DATA=/root/autodl-tmp/nltk_data
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+
+python scripts/run_single_edit.py \
+  --method ROME \
+  --hparams hparams/ROME/qwen2.5-7b.yaml \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/qwen25_7b_rome \
+  --prompt "The Eiffel Tower is located in" \
+  --generation_prompt "Eiffel Tower is located in" \
+  --subject "Eiffel Tower" \
+  --ground_truth "Paris" \
+  --target_new "Rome" \
+  --top_k 10
+```

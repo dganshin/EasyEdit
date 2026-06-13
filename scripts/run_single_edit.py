@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -29,12 +29,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--subject", default="Eiffel Tower", type=str, help="事实主体")
     parser.add_argument("--target_new", default="Rome", type=str, help="新目标答案")
     parser.add_argument("--ground_truth", default="Paris", type=str, help="原正确答案")
+    parser.add_argument("--generation_prompt", default=None, type=str, help="可选展示用 prompt；默认与编辑 prompt 相同")
     parser.add_argument("--rephrase_prompt", default=None, type=str, help="可选复述 prompt")
     parser.add_argument("--locality_prompt", default=None, type=str, help="可选 locality prompt")
     parser.add_argument("--locality_ground_truth", default=None, type=str, help="可选 locality 答案")
     parser.add_argument("--portability_prompt", default=None, type=str, help="可选 portability prompt")
     parser.add_argument("--portability_ground_truth", default=None, type=str, help="可选 portability 答案")
     parser.add_argument("--max_new_tokens", default=16, type=int, help="生成长度")
+    parser.add_argument("--top_k", default=10, type=int, help="展示首个续写 token 的 top-k")
+    parser.add_argument("--disable_fluency_eval", action="store_true", help="关闭 EasyEdit 内部 fluency 评估，减少额外依赖和耗时")
     return parser.parse_args()
 
 
@@ -110,6 +113,26 @@ def generate_text(model, tokenizer, prompt: str, device: int, max_new_tokens: in
     return tokenizer.decode(generated, skip_special_tokens=True).strip()
 
 
+def first_token_topk(model, tokenizer, prompt: str, device: int, top_k: int) -> List[Dict[str, Any]]:
+    inputs = tokenizer(prompt, return_tensors="pt").to(f"cuda:{device}")
+    with torch.no_grad():
+        logits = model(**inputs).logits[:, -1, :]
+        probs = torch.softmax(logits, dim=-1)
+        topk_probs, topk_ids = torch.topk(probs, k=top_k, dim=-1)
+
+    results: List[Dict[str, Any]] = []
+    for token_id, prob in zip(topk_ids[0].tolist(), topk_probs[0].tolist()):
+        token_text = tokenizer.decode([token_id], skip_special_tokens=False)
+        results.append(
+            {
+                "token_id": token_id,
+                "token_text": token_text,
+                "prob": prob,
+            }
+        )
+    return results
+
+
 def to_builtin(obj: Any) -> Any:
     if isinstance(obj, dict):
         return {key: to_builtin(value) for key, value in obj.items()}
@@ -131,12 +154,14 @@ def main() -> int:
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    generation_prompt = args.generation_prompt or args.prompt
 
     hparams = load_hparams(args)
     locality_inputs, portability_inputs = build_optional_inputs(args)
 
     pre_model, pre_tok = load_generation_model(args.model_path, int(args.device))
-    pre_answer = generate_text(pre_model, pre_tok, args.prompt, int(args.device), args.max_new_tokens)
+    pre_answer = generate_text(pre_model, pre_tok, generation_prompt, int(args.device), args.max_new_tokens)
+    pre_topk = first_token_topk(pre_model, pre_tok, generation_prompt, int(args.device), args.top_k)
     del pre_model
     torch.cuda.empty_cache()
 
@@ -151,21 +176,25 @@ def main() -> int:
         portability_inputs=portability_inputs,
         keep_original_weight=True,
         sequential_edit=False,
-        test_generation=True,
+        test_generation=not args.disable_fluency_eval,
     )
 
-    post_answer = generate_text(edited_model.eval(), editor.tok, args.prompt, int(args.device), args.max_new_tokens)
+    post_answer = generate_text(edited_model.eval(), editor.tok, generation_prompt, int(args.device), args.max_new_tokens)
+    post_topk = first_token_topk(edited_model.eval(), editor.tok, generation_prompt, int(args.device), args.top_k)
 
     summary: Dict[str, Any] = {
         "method": args.method.upper(),
         "model_path": args.model_path,
         "hparams": args.hparams,
         "prompt": args.prompt,
+        "generation_prompt": generation_prompt,
         "subject": args.subject,
         "ground_truth": args.ground_truth,
         "target_new": args.target_new,
         "pre_answer": pre_answer,
         "post_answer": post_answer,
+        "pre_topk_next_token": pre_topk,
+        "post_topk_next_token": post_topk,
         "metrics": to_builtin(metrics),
     }
 
@@ -179,8 +208,15 @@ def main() -> int:
     print(f"subject: {summary['subject']}")
     print(f"ground_truth: {summary['ground_truth']}")
     print(f"target_new: {summary['target_new']}")
+    print(f"generation_prompt: {summary['generation_prompt']}")
     print(f"pre_answer: {summary['pre_answer']}")
     print(f"post_answer: {summary['post_answer']}")
+    print("pre_topk_next_token:")
+    for item in summary["pre_topk_next_token"]:
+        print(f"  {item['token_id']}: {item['token_text']!r} -> {item['prob']:.6f}")
+    print("post_topk_next_token:")
+    for item in summary["post_topk_next_token"]:
+        print(f"  {item['token_id']}: {item['token_text']!r} -> {item['prob']:.6f}")
     print(f"metrics_json: {result_path}")
     return 0
 
