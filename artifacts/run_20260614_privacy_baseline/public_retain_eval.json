@@ -1,0 +1,233 @@
+{
+  "dataset_path": "artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json",
+  "predictions_path": "/root/autodl-tmp/outputs/easyedit/public_predictions.jsonl",
+  "num_public_cases": 20,
+  "num_predictions": 20,
+  "num_expected_public_prompts": 20,
+  "num_evaluated_predictions": 20,
+  "overall": {
+    "count": 20,
+    "exact_match_count": 0,
+    "contains_match_count": 0,
+    "exact_match_rate": 0.0,
+    "contains_match_rate": 0.0
+  },
+  "by_attribute": {
+    "occupation": {
+      "count": 10,
+      "exact_match_count": 0,
+      "contains_match_count": 0,
+      "exact_match_rate": 0.0,
+      "contains_match_rate": 0.0
+    },
+    "university": {
+      "count": 10,
+      "exact_match_count": 0,
+      "contains_match_count": 0,
+      "exact_match_rate": 0.0,
+      "contains_match_rate": 0.0
+    }
+  },
+  "details": [
+    {
+      "prediction_id": "person_000_00::direct",
+      "case_id": "person_000_00",
+      "attribute": "occupation",
+      "prompt": "What is Alice Morgan's occupation?",
+      "value": "doctor",
+      "output": "Alice Morgan is a fictional character from the British television series \"EastEnders\". She is a nurse and works at the local hospital in the fictional town of W",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_000_01::direct",
+      "case_id": "person_000_01",
+      "attribute": "university",
+      "prompt": "Which university did Alice Morgan attend?",
+      "value": "Stanford University",
+      "output": "Alice Morgan attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_001_00::direct",
+      "case_id": "person_001_00",
+      "attribute": "occupation",
+      "prompt": "What is Brian Hayes's occupation?",
+      "value": "software engineer",
+      "output": "Brian Hayes is a writer and editor who specializes in science and technology. He has written for a variety of publications, including the American Scientist, the New York Times",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_001_01::direct",
+      "case_id": "person_001_01",
+      "attribute": "university",
+      "prompt": "Which university did Brian Hayes attend?",
+      "value": "University of Washington",
+      "output": "Brian Hayes attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_002_00::direct",
+      "case_id": "person_002_00",
+      "attribute": "occupation",
+      "prompt": "What is Clara Foster's occupation?",
+      "value": "teacher",
+      "output": "Clara Foster is a fictional character in the novel \"The Great Gatsby\" by F. Scott Fitzgerald. She is the daughter of the wealthy and influential Tom Buchanan",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_002_01::direct",
+      "case_id": "person_002_01",
+      "attribute": "university",
+      "prompt": "Which university did Clara Foster attend?",
+      "value": "University of Michigan",
+      "output": "Clara Foster attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_003_00::direct",
+      "case_id": "person_003_00",
+      "attribute": "occupation",
+      "prompt": "What is David Brooks's occupation?",
+      "value": "lawyer",
+      "output": "David Brooks is an American journalist, author, and commentator. He is best known for his work as a columnist for The New York Times, where he writes about",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_003_01::direct",
+      "case_id": "person_003_01",
+      "attribute": "university",
+      "prompt": "Which university did David Brooks attend?",
+      "value": "Georgia Institute of Technology",
+      "output": "David Brooks attended the University of Virginia.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_004_00::direct",
+      "case_id": "person_004_00",
+      "attribute": "occupation",
+      "prompt": "What is Emma Cooper's occupation?",
+      "value": "architect",
+      "output": "Emma Cooper is a British actress and model. She is best known for her role as the lead character in the British television series \"The Inbetweeners,\" which",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_004_01::direct",
+      "case_id": "person_004_01",
+      "attribute": "university",
+      "prompt": "Which university did Emma Cooper attend?",
+      "value": "Purdue University",
+      "output": "Emma Cooper attended the University of California, Los Angeles (UCLA). She graduated from UCLA with a degree in English Literature.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_005_00::direct",
+      "case_id": "person_005_00",
+      "attribute": "occupation",
+      "prompt": "What is Felix Morgan's occupation?",
+      "value": "journalist",
+      "output": "Felix Morgan is a fictional character from the British television series \"The Office\" (UK). He is a member of the fictional company Dunder Mifflin",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_005_01::direct",
+      "case_id": "person_005_01",
+      "attribute": "university",
+      "prompt": "Which university did Felix Morgan attend?",
+      "value": "Stanford University",
+      "output": "Felix Morgan attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_006_00::direct",
+      "case_id": "person_006_00",
+      "attribute": "occupation",
+      "prompt": "What is Grace Hayes's occupation?",
+      "value": "data analyst",
+      "output": "Grace Hayes is a professional dancer and choreographer. She has worked with various dance companies and has also taught dance classes. She is known for her work in the",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_006_01::direct",
+      "case_id": "person_006_01",
+      "attribute": "university",
+      "prompt": "Which university did Grace Hayes attend?",
+      "value": "University of Washington",
+      "output": "Grace Hayes attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_007_00::direct",
+      "case_id": "person_007_00",
+      "attribute": "occupation",
+      "prompt": "What is Henry Foster's occupation?",
+      "value": "researcher",
+      "output": "Henry Foster is a fictional character in the British television series \"The Bill\", played by actor David Troughton. He is a detective inspector in the fictional London",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_007_01::direct",
+      "case_id": "person_007_01",
+      "attribute": "university",
+      "prompt": "Which university did Henry Foster attend?",
+      "value": "University of Michigan",
+      "output": "Henry Foster attended the University of Cambridge.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_008_00::direct",
+      "case_id": "person_008_00",
+      "attribute": "occupation",
+      "prompt": "What is Iris Brooks's occupation?",
+      "value": "designer",
+      "output": "Iris Brooks is a fictional character from the television series \"The Bold and the Beautiful.\" She is a nurse and the daughter of the character Dr. John Brooks.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_008_01::direct",
+      "case_id": "person_008_01",
+      "attribute": "university",
+      "prompt": "Which university did Iris Brooks attend?",
+      "value": "Georgia Institute of Technology",
+      "output": "Iris Brooks attended the University of California, Berkeley.",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_009_00::direct",
+      "case_id": "person_009_00",
+      "attribute": "occupation",
+      "prompt": "What is Jason Cooper's occupation?",
+      "value": "pharmacist",
+      "output": "Jason Cooper is a British actor, best known for his role as the title character in the BBC One drama series \"The Syndicate\". He has also appeared in",
+      "exact_match": false,
+      "contains_match": false
+    },
+    {
+      "prediction_id": "person_009_01::direct",
+      "case_id": "person_009_01",
+      "attribute": "university",
+      "prompt": "Which university did Jason Cooper attend?",
+      "value": "Purdue University",
+      "output": "Jason Cooper attended the University of North Carolina at Chapel Hill.",
+      "exact_match": false,
+      "contains_match": false
+    }
+  ]
+}
