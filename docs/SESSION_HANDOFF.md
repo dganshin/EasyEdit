@@ -376,6 +376,23 @@ python scripts/train_lora_privacy_injection.py \
 
 这组参数不会改变 LoRA 主逻辑，只是提高训练强度和显存占用，更适合当前 48GB 卡。
 
+如果训练日志出现：
+
+- `Batch loss nan`
+- `Total loss nan`
+
+优先按下面顺序排查：
+
+1. 显式传更低学习率，例如 `--lr 5e-4` 或 `--lr 2e-4`
+2. 保留默认 `max_grad_norm=1.0`
+3. 如果仍不稳定，先把 `--batch_size` 从 `8` 降回 `4`
+4. 如果只是想增加显存利用，而不是进一步增大 batch，可以加 `--disable_gradient_checkpointing`
+
+当前训练脚本已经做了两层保护：
+
+- 未显式传 `--lr` 时，会把过高默认值自动压到 `5e-4`
+- 一旦遇到 non-finite loss，会立即中止，而不是继续空跑后续 epoch
+
 python scripts/run_privacy_generation.py \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \

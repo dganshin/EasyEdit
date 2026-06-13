@@ -47,6 +47,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_length", default=0, type=int, help="若 > 0，则覆盖 hparams 的 max_length")
     parser.add_argument("--lr", default=0.0, type=float, help="若 > 0，则覆盖 hparams 的 lr")
     parser.add_argument("--lora_alpha", default=0.0, type=float, help="若 > 0，则覆盖 hparams 的 lora_alpha")
+    parser.add_argument("--max_grad_norm", default=1.0, type=float, help="梯度裁剪阈值，<=0 表示关闭")
+    parser.add_argument("--adam_eps", default=1e-8, type=float, help="Adam epsilon")
+    parser.add_argument("--disable_gradient_checkpointing", action="store_true", help="关闭 gradient checkpointing，增加显存占用")
     parser.add_argument(
         "--target_modules",
         nargs="*",
@@ -82,6 +85,9 @@ def apply_hparam_overrides(hparams: LoRAHyperParams, args: argparse.Namespace) -
         hparams.lora_alpha = args.lora_alpha
     if args.target_modules:
         hparams.target_modules = list(args.target_modules)
+    hparams.max_grad_norm = args.max_grad_norm
+    hparams.adam_eps = args.adam_eps
+    hparams.use_gradient_checkpointing = not args.disable_gradient_checkpointing
     return hparams
 
 
@@ -108,6 +114,9 @@ def main() -> int:
     hparams.model_name = args.model_path
     hparams.device = int(args.device)
     hparams = apply_hparam_overrides(hparams, args)
+    if args.lr <= 0 and hparams.lr > 5e-4:
+        print(f"Auto lowering lr from {hparams.lr} to 5e-4 for stability.")
+        hparams.lr = 5e-4
 
     device = f"cuda:{args.device}"
     model = AutoModelForCausalLM.from_pretrained(
@@ -161,6 +170,9 @@ def main() -> int:
             "lr": hparams.lr,
             "lora_alpha": hparams.lora_alpha,
             "target_modules": hparams.target_modules,
+            "max_grad_norm": hparams.max_grad_norm,
+            "adam_eps": hparams.adam_eps,
+            "use_gradient_checkpointing": hparams.use_gradient_checkpointing,
         },
     }
     with (output_dir / "training_manifest.json").open("w", encoding="utf-8") as fh:
@@ -172,7 +184,10 @@ def main() -> int:
     print(f"batch_size: {hparams.batch_size}")
     print(f"num_steps: {hparams.num_steps}")
     print(f"rank: {hparams.rank}")
+    print(f"lr: {hparams.lr}")
     print(f"target_modules: {hparams.target_modules}")
+    print(f"max_grad_norm: {hparams.max_grad_norm}")
+    print(f"use_gradient_checkpointing: {hparams.use_gradient_checkpointing}")
     print(f"adapter_dir: {output_dir}")
     return 0
 

@@ -47,7 +47,8 @@ def execute_lora(
     """
     model.config.use_cache = False
     model.supports_gradient_checkpointing = True  #
-    model.gradient_checkpointing_enable()
+    if getattr(hparams, "use_gradient_checkpointing", True):
+        model.gradient_checkpointing_enable()
     model.enable_input_require_grads()
     if hparams.lora_type == "lora":
         Config = LoraConfig
@@ -90,6 +91,7 @@ def execute_lora(
         peft_model.parameters(),
         lr=hparams.lr,
         weight_decay=hparams.weight_decay,
+        eps=getattr(hparams, "adam_eps", 1e-8),
     )
 
     # if torch.__version__ >= "2" and sys.platform != "win32":
@@ -158,11 +160,19 @@ def execute_lora(
                 # unmasked_log_probs = pred.log_softmax(-1).gather(-1, targ.unsqueeze(-1)).squeeze(-1)
                 # log_prob = (unmasked_log_probs * mask.float()).sum() / n_tokens
                 # loss = -log_prob
+            if not torch.isfinite(loss):
+                raise RuntimeError(
+                    f"LoRA training encountered non-finite loss: {loss.item()}. "
+                    f"Try lowering lr / batch_size / rank, or enabling stronger gradient clipping."
+                )
             print(f"Batch loss {loss.item()}")
             loss_meter.update(loss.item(), n=bs)
 
             # if loss.item() >= 1e-3:
             loss.backward()
+            max_grad_norm = getattr(hparams, "max_grad_norm", 0.0)
+            if max_grad_norm and max_grad_norm > 0:
+                torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_grad_norm)
             opt.step()
 
         print(f"Total loss {loss_meter.avg}")

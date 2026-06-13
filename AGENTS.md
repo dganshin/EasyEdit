@@ -154,6 +154,13 @@ LoRA 注入阶段的最小链路是：
 - `--num_steps 120`
 - `--target_modules q_proj k_proj v_proj o_proj`
 
+当前已知稳定性注意事项：
+
+- `hparams/LoRA/qwen2.5-7b.yaml` 原始 `lr=5e-3` 对更强配置可能过高
+- `scripts/train_lora_privacy_injection.py` 现在会在未显式传 `--lr` 时，把过高默认值自动压到 `5e-4`
+- 训练脚本现在默认启用 `max_grad_norm=1.0`
+- 如果想进一步吃显存，可加 `--disable_gradient_checkpointing`
+
 ## 8. 当前已知成功命令
 
 当前已经在服务器真实跑通过的命令示例：
