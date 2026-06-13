@@ -1,7 +1,8 @@
 import argparse
 import json
+import math
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -37,6 +38,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--portability_ground_truth", default=None, type=str, help="可选 portability 答案")
     parser.add_argument("--max_new_tokens", default=16, type=int, help="生成长度")
     parser.add_argument("--top_k", default=10, type=int, help="展示首个续写 token 的 top-k")
+    parser.add_argument("--probe_original_text", default=None, type=str, help="可选显式指定原答案 probe 文本；默认使用 ground_truth")
+    parser.add_argument("--probe_target_text", default=None, type=str, help="可选显式指定目标答案 probe 文本；默认使用 target_new")
     parser.add_argument("--disable_fluency_eval", action="store_true", help="关闭 EasyEdit 内部 fluency 评估，减少额外依赖和耗时")
     return parser.parse_args()
 
@@ -133,6 +136,105 @@ def first_token_topk(model, tokenizer, prompt: str, device: int, top_k: int) -> 
     return results
 
 
+def _continuation_token_ids(tokenizer, prompt: str, continuation: str) -> List[int]:
+    prompt_ids = tokenizer(prompt, add_special_tokens=False)["input_ids"]
+    full_ids = tokenizer(prompt + continuation, add_special_tokens=False)["input_ids"]
+    if len(full_ids) <= len(prompt_ids):
+        raise ValueError(f"无法从 prompt={prompt!r} 和 continuation={continuation!r} 中解析续写 token。")
+    return full_ids[len(prompt_ids):]
+
+
+def continuation_probe(
+    model,
+    tokenizer,
+    prompt: str,
+    continuation_text: str,
+    device: int,
+) -> Dict[str, Any]:
+    continuation = continuation_text if continuation_text.startswith(" ") else f" {continuation_text}"
+    prompt_ids = tokenizer(prompt, add_special_tokens=False)["input_ids"]
+    continuation_ids = _continuation_token_ids(tokenizer, prompt, continuation)
+    full_ids = prompt_ids + continuation_ids
+    input_ids = torch.tensor([full_ids], dtype=torch.long, device=f"cuda:{device}")
+
+    with torch.no_grad():
+        logits = model(input_ids=input_ids).logits[0]
+
+    token_details: List[Dict[str, Any]] = []
+    token_probs: List[float] = []
+    token_logprobs: List[float] = []
+    token_ranks: List[int] = []
+
+    for idx, token_id in enumerate(continuation_ids):
+        logit_index = len(prompt_ids) - 1 + idx
+        probs = torch.softmax(logits[logit_index], dim=-1)
+        sorted_ids = torch.argsort(probs, descending=True)
+        rank_tensor = (sorted_ids == token_id).nonzero(as_tuple=False)
+        rank = int(rank_tensor[0].item()) + 1 if rank_tensor.numel() else -1
+        prob = float(probs[token_id].item())
+        logprob = float(torch.log(probs[token_id]).item())
+        token_text = tokenizer.decode([token_id], skip_special_tokens=False)
+
+        token_probs.append(prob)
+        token_logprobs.append(logprob)
+        token_ranks.append(rank)
+        token_details.append(
+            {
+                "token_id": token_id,
+                "token_text": token_text,
+                "prob": prob,
+                "rank": rank,
+            }
+        )
+
+    joint_prob = float(math.exp(sum(token_logprobs)))
+    return {
+        "text": continuation_text,
+        "continuation_text": continuation,
+        "token_ids": continuation_ids,
+        "token_details": token_details,
+        "avg_token_prob": float(sum(token_probs) / len(token_probs)),
+        "joint_prob": joint_prob,
+        "first_token_prob": token_probs[0],
+        "first_token_rank": token_ranks[0],
+    }
+
+
+def probe_delta(pre_probe: Dict[str, Any], post_probe: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "text": post_probe["text"],
+        "first_token_prob_delta": post_probe["first_token_prob"] - pre_probe["first_token_prob"],
+        "avg_token_prob_delta": post_probe["avg_token_prob"] - pre_probe["avg_token_prob"],
+        "joint_prob_delta": post_probe["joint_prob"] - pre_probe["joint_prob"],
+        "first_token_rank_delta": post_probe["first_token_rank"] - pre_probe["first_token_rank"],
+    }
+
+
+def print_probe(label: str, pre_probe: Dict[str, Any], post_probe: Dict[str, Any]) -> None:
+    delta = probe_delta(pre_probe, post_probe)
+    print(f"{label}_probe_text: {post_probe['text']}")
+    print(
+        f"  pre_first_token_prob={pre_probe['first_token_prob']:.6f}, "
+        f"post_first_token_prob={post_probe['first_token_prob']:.6f}, "
+        f"delta={delta['first_token_prob_delta']:.6f}"
+    )
+    print(
+        f"  pre_first_token_rank={pre_probe['first_token_rank']}, "
+        f"post_first_token_rank={post_probe['first_token_rank']}, "
+        f"delta={delta['first_token_rank_delta']}"
+    )
+    print(
+        f"  pre_avg_token_prob={pre_probe['avg_token_prob']:.6f}, "
+        f"post_avg_token_prob={post_probe['avg_token_prob']:.6f}, "
+        f"delta={delta['avg_token_prob_delta']:.6f}"
+    )
+    print(
+        f"  pre_joint_prob={pre_probe['joint_prob']:.6f}, "
+        f"post_joint_prob={post_probe['joint_prob']:.6f}, "
+        f"delta={delta['joint_prob_delta']:.6f}"
+    )
+
+
 def to_builtin(obj: Any) -> Any:
     if isinstance(obj, dict):
         return {key: to_builtin(value) for key, value in obj.items()}
@@ -155,6 +257,8 @@ def main() -> int:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     generation_prompt = args.generation_prompt or args.prompt
+    probe_original_text = args.probe_original_text or args.ground_truth
+    probe_target_text = args.probe_target_text or args.target_new
 
     hparams = load_hparams(args)
     locality_inputs, portability_inputs = build_optional_inputs(args)
@@ -162,6 +266,8 @@ def main() -> int:
     pre_model, pre_tok = load_generation_model(args.model_path, int(args.device))
     pre_answer = generate_text(pre_model, pre_tok, generation_prompt, int(args.device), args.max_new_tokens)
     pre_topk = first_token_topk(pre_model, pre_tok, generation_prompt, int(args.device), args.top_k)
+    pre_original_probe = continuation_probe(pre_model, pre_tok, generation_prompt, probe_original_text, int(args.device))
+    pre_target_probe = continuation_probe(pre_model, pre_tok, generation_prompt, probe_target_text, int(args.device))
     del pre_model
     torch.cuda.empty_cache()
 
@@ -181,6 +287,8 @@ def main() -> int:
 
     post_answer = generate_text(edited_model.eval(), editor.tok, generation_prompt, int(args.device), args.max_new_tokens)
     post_topk = first_token_topk(edited_model.eval(), editor.tok, generation_prompt, int(args.device), args.top_k)
+    post_original_probe = continuation_probe(edited_model.eval(), editor.tok, generation_prompt, probe_original_text, int(args.device))
+    post_target_probe = continuation_probe(edited_model.eval(), editor.tok, generation_prompt, probe_target_text, int(args.device))
 
     summary: Dict[str, Any] = {
         "method": args.method.upper(),
@@ -195,6 +303,14 @@ def main() -> int:
         "post_answer": post_answer,
         "pre_topk_next_token": pre_topk,
         "post_topk_next_token": post_topk,
+        "pre_original_probe": pre_original_probe,
+        "post_original_probe": post_original_probe,
+        "pre_target_probe": pre_target_probe,
+        "post_target_probe": post_target_probe,
+        "probe_deltas": {
+            "original": probe_delta(pre_original_probe, post_original_probe),
+            "target_new": probe_delta(pre_target_probe, post_target_probe),
+        },
         "metrics": to_builtin(metrics),
     }
 
@@ -217,6 +333,8 @@ def main() -> int:
     print("post_topk_next_token:")
     for item in summary["post_topk_next_token"]:
         print(f"  {item['token_id']}: {item['token_text']!r} -> {item['prob']:.6f}")
+    print_probe("original", pre_original_probe, post_original_probe)
+    print_probe("target_new", pre_target_probe, post_target_probe)
     print(f"metrics_json: {result_path}")
     return 0
 

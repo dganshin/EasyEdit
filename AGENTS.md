@@ -114,6 +114,8 @@ Qwen2.5-7B
 - 环境检查：`scripts/check_easyedit_env.py`
 - 正式单条编辑：`scripts/run_single_edit.py`
 - 兼容壳脚本：`scripts/smoke_single_edit.py`
+- 合成隐私数据生成：`scripts/generate_synthetic_privacy_data.py`
+- 隐私泄露评测：`scripts/evaluate_privacy_leakage.py`
 
 其中 `run_single_edit.py` 已经扩展支持：
 
@@ -122,6 +124,13 @@ Qwen2.5-7B
 - `--disable_fluency_eval`
 
 这些增强是为了更清楚地观察“内部指标成功但自由生成不明显变化”的情况。
+
+新增的两份隐私相关脚本只负责：
+
+- 先生成小规模合成数据
+- 先做 exact/regex 级别的泄露检测
+
+它们是后续 LoRA 注入和 PACE 闭环的准备层，不会改变 EasyEdit 主体逻辑。
 
 ## 8. 当前已知成功命令
 

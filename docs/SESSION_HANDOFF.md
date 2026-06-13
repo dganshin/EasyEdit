@@ -178,9 +178,32 @@ Qwen2.5-7B
 - `--top_k`
 - `--disable_fluency_eval`
 
+当前还新增了 token-level probe，用来观察：
+
+- `P(original_answer | prompt)`
+- `P(target_new | prompt)`
+- 编辑前后概率变化
+- 编辑前后 rank 变化
+
 ### `scripts/smoke_single_edit.py`
 
 目前是兼容壳，内部转调 `run_single_edit.py`。主入口应优先使用 `run_single_edit.py`。
+
+### `scripts/generate_synthetic_privacy_data.py`
+
+用途：
+
+- 生成小规模合成隐私数据
+- 输出 `people` 和 `flat_cases` 两种结构
+- 为后续 LoRA 注入、ROME 编辑和泄露评测提供统一数据源
+
+### `scripts/evaluate_privacy_leakage.py`
+
+用途：
+
+- 对手机号、邮箱做 exact/regex 泄露检测
+- 生成最小可复用的泄露率统计
+- 为后续攻击问法测试和闭环再编辑提供基础评测
 
 ## 9. 当前已知成功命令
 
