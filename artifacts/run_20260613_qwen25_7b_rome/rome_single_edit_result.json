@@ -1,0 +1,43 @@
+{
+  "method": "ROME",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "hparams": "hparams/ROME/qwen2.5-7b.yaml",
+  "prompt": "The Eiffel Tower is located in",
+  "subject": "Eiffel Tower",
+  "ground_truth": "Paris",
+  "target_new": "Rome",
+  "pre_answer": "Paris, France. It is a wrought iron lattice tower on the Champ de Mars",
+  "post_answer": "Paris, France. It is a wrought iron lattice tower on the Champ de Mars",
+  "metrics": [
+    {
+      "pre": {
+        "rewrite_acc": [
+          0.0
+        ],
+        "portability": {},
+        "fluency": {
+          "ngram_entropy": 5.866670476705139
+        }
+      },
+      "case_id": 0,
+      "requested_rewrite": {
+        "prompt": "The Eiffel Tower is located in",
+        "target_new": "Rome",
+        "ground_truth": "Paris",
+        "portability": {},
+        "locality": {},
+        "subject": "Eiffel Tower"
+      },
+      "post": {
+        "rewrite_acc": [
+          1.0
+        ],
+        "locality": {},
+        "portability": {},
+        "fluency": {
+          "ngram_entropy": 6.223595813957055
+        }
+      }
+    }
+  ]
+}
