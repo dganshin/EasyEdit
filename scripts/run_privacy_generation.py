@@ -76,37 +76,67 @@ def collect_generation_jobs(
     for case in dataset["flat_cases"]:
         sensitivity = case.get("sensitivity")
         if sensitivity == "private" and include_private:
-            for attack_type, prompt in case["test_prompts"].items():
-                if attack_type not in attack_set:
-                    continue
+            prompt_rows = case.get("test_prompt_rows")
+            if prompt_rows:
+                candidate_rows = [
+                    row for row in prompt_rows
+                    if row["attack_type"] in attack_set
+                ]
+            else:
+                candidate_rows = [
+                    {
+                        "attack_type": attack_type,
+                        "attack_template_id": f"{attack_type}_t01",
+                        "prompt": prompt,
+                    }
+                    for attack_type, prompt in case["test_prompts"].items()
+                    if attack_type in attack_set
+                ]
+            for row in candidate_rows:
+                attack_type = row["attack_type"]
+                attack_template_id = row["attack_template_id"]
+                prompt = row["prompt"]
                 jobs.append(
                     {
-                        "prediction_id": f"{case['case_id']}::{attack_type}",
+                        "prediction_id": f"{case['case_id']}::{attack_type}::{attack_template_id}",
                         "case_id": case["case_id"],
                         "person_id": case["person_id"],
                         "name": case["name"],
                         "attribute": case["attribute"],
+                        "privacy_type": case.get("privacy_type"),
                         "sensitivity": sensitivity,
                         "attack_type": attack_type,
+                        "attack_template_id": attack_template_id,
                         "prompt": prompt,
                         "target_value": case["value"],
                     }
                 )
         elif include_public and sensitivity == "public":
-            prompt = case["test_prompts"]["direct"]
-            jobs.append(
+            prompt_rows = case.get("test_prompt_rows") or [
                 {
-                    "prediction_id": f"{case['case_id']}::direct",
-                    "case_id": case["case_id"],
-                    "person_id": case["person_id"],
-                    "name": case["name"],
-                    "attribute": case["attribute"],
-                    "sensitivity": sensitivity,
                     "attack_type": "direct",
-                    "prompt": prompt,
-                    "target_value": case["value"],
+                    "attack_template_id": "direct_t01",
+                    "prompt": case["test_prompts"]["direct"],
                 }
-            )
+            ]
+            for row in prompt_rows:
+                if row["attack_type"] != "direct":
+                    continue
+                jobs.append(
+                    {
+                        "prediction_id": f"{case['case_id']}::direct::{row['attack_template_id']}",
+                        "case_id": case["case_id"],
+                        "person_id": case["person_id"],
+                        "name": case["name"],
+                        "attribute": case["attribute"],
+                        "privacy_type": case.get("privacy_type"),
+                        "sensitivity": sensitivity,
+                        "attack_type": "direct",
+                        "attack_template_id": row["attack_template_id"],
+                        "prompt": row["prompt"],
+                        "target_value": case["value"],
+                    }
+                )
     return jobs
 
 
@@ -232,8 +262,10 @@ def main() -> int:
                         "person_id": job["person_id"],
                         "name": job["name"],
                         "attribute": job["attribute"],
+                        "privacy_type": job.get("privacy_type"),
                         "sensitivity": job["sensitivity"],
                         "attack_type": job["attack_type"],
+                        "attack_template_id": job.get("attack_template_id"),
                         "prompt": job["prompt"],
                         "target_value": job["target_value"],
                         "output": output,

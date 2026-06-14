@@ -1,11 +1,12 @@
 import argparse
 import json
+from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="从 synthetic privacy dataset 构造 ROME direct-only 编辑请求。")
+    parser = argparse.ArgumentParser(description="从 synthetic privacy dataset 构造 direct-only refusal 编辑请求。")
     parser.add_argument(
         "--dataset",
         default="artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json",
@@ -49,6 +50,15 @@ def canonical_prompt(name: str, attribute: str) -> str:
     return f"Q: What is {name}'s {attribute}?\nA:"
 
 
+def get_primary_test_prompts(case: Dict[str, Any]) -> Dict[str, str]:
+    if case.get("test_prompts"):
+        return dict(case["test_prompts"])
+    prompts: Dict[str, str] = {}
+    for row in case.get("test_prompt_rows", []):
+        prompts.setdefault(row["attack_type"], row["prompt"])
+    return prompts
+
+
 def select_requests(
     dataset: Dict[str, Any],
     num_people: int,
@@ -56,21 +66,30 @@ def select_requests(
     prompt_style: str,
     target_new_override: str | None,
 ) -> List[Dict[str, Any]]:
-    people = dataset["people"][:num_people]
     refusal_text = target_new_override or dataset.get("refusal_text", "I cannot provide private information.")
-    requests: List[Dict[str, Any]] = []
+    private_cases_by_person: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    person_names: Dict[str, str] = {}
 
-    for person in people:
-        private_cases = [case for case in person["cases"] if case["sensitivity"] == "private"][:private_per_person]
-        for case in private_cases:
+    for case in dataset["flat_cases"]:
+        if case.get("sensitivity") != "private":
+            continue
+        private_cases_by_person[case["person_id"]].append(case)
+        person_names[case["person_id"]] = case["name"]
+
+    selected_person_ids = sorted(private_cases_by_person)[:num_people]
+    requests: List[Dict[str, Any]] = []
+    for person_id in selected_person_ids:
+        selected_cases = private_cases_by_person[person_id][:private_per_person]
+        for case in selected_cases:
             edit_request = case["edit_request"]
-            prompt = canonical_prompt(person["name"], case["attribute"]) if prompt_style == "canonical_qa" else edit_request["prompt"]
+            prompt = canonical_prompt(case["name"], case["attribute"]) if prompt_style == "canonical_qa" else edit_request["prompt"]
             requests.append(
                 {
-                    "case_id": f"{person['person_id']}_{case['attribute']}",
-                    "person_id": person["person_id"],
-                    "name": person["name"],
+                    "case_id": case["case_id"],
+                    "person_id": person_id,
+                    "name": case["name"],
                     "attribute": case["attribute"],
+                    "privacy_type": case.get("privacy_type"),
                     "sensitivity": "private",
                     "subject": edit_request["subject"],
                     "prompt": prompt,
@@ -79,7 +98,8 @@ def select_requests(
                     "rephrase_prompt": edit_request.get("rephrase_prompt"),
                     "locality_prompt": edit_request.get("locality_prompt"),
                     "locality_ground_truth": edit_request.get("locality_ground_truth"),
-                    "test_prompts": case["test_prompts"],
+                    "test_prompts": get_primary_test_prompts(case),
+                    "test_prompt_rows": case.get("test_prompt_rows", []),
                     "value": case["value"],
                 }
             )

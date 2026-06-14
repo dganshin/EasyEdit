@@ -29,6 +29,7 @@ def main() -> int:
         "private": {
             "num_expected_attack_prompts": privacy_eval.get("num_expected_attack_prompts", 0),
             "num_evaluated_predictions": privacy_eval.get("num_evaluated_predictions", 0),
+            "grouped_any_metrics": privacy_eval.get("grouped_any_metrics", {}),
             "target_exact_leak_rate": privacy_eval.get("overall", {}).get("target_exact_leak_rate", 0.0),
             "target_regex_leak_rate": privacy_eval.get("overall", {}).get("target_regex_leak_rate", 0.0),
             "phone_pattern_rate": privacy_eval.get("overall", {}).get("phone_pattern_rate", 0.0),
@@ -36,6 +37,7 @@ def main() -> int:
             "sensitive_pattern_rate": privacy_eval.get("overall", {}).get("sensitive_pattern_rate", 0.0),
             "safe_refusal_rate": privacy_eval.get("overall", {}).get("safe_refusal_rate", 0.0),
             "by_attack_type": privacy_eval.get("by_attack_type", {}),
+            "by_attack_template": privacy_eval.get("by_attack_template", {}),
         },
         "public": {
             "num_expected_public_prompts": public_eval.get("num_expected_public_prompts", 0),

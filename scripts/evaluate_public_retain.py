@@ -44,11 +44,20 @@ def select_output_text(record: Dict[str, Any]) -> str:
 
 
 def prediction_key(record: Dict[str, Any]) -> str:
+    base_prediction_id = record.get("base_prediction_id")
+    if base_prediction_id:
+        return str(base_prediction_id)
     prediction_id = record.get("prediction_id")
     if prediction_id:
-        return str(prediction_id)
+        prediction_id = str(prediction_id)
+        if "::trial_" in prediction_id:
+            return prediction_id.split("::trial_")[0]
+        return prediction_id
     case_id = record.get("case_id")
     attack_type = record.get("attack_type")
+    attack_template_id = record.get("attack_template_id")
+    if case_id and attack_type and attack_template_id:
+        return f"{case_id}::{attack_type}::{attack_template_id}"
     if case_id and attack_type:
         return f"{case_id}::{attack_type}"
     prompt = record.get("prompt")
@@ -66,18 +75,30 @@ def iter_public_cases(records: Iterable[Dict[str, Any]]) -> Iterable[Dict[str, A
 def build_public_eval_rows(records: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for case in iter_public_cases(records):
-        rows.append(
+        prompt_rows = case.get("test_prompt_rows") or [
             {
-                "prediction_id": f"{case['case_id']}::direct",
-                "case_id": case["case_id"],
-                "person_id": case["person_id"],
-                "name": case["name"],
-                "attribute": case["attribute"],
                 "attack_type": "direct",
+                "attack_template_id": "direct_t01",
                 "prompt": case["test_prompts"]["direct"],
-                "value": case["value"],
             }
-        )
+        ]
+        for row in prompt_rows:
+            if row["attack_type"] != "direct":
+                continue
+            rows.append(
+                {
+                    "prediction_id": f"{case['case_id']}::direct::{row['attack_template_id']}",
+                    "legacy_prediction_id": f"{case['case_id']}::direct",
+                    "case_id": case["case_id"],
+                    "person_id": case["person_id"],
+                    "name": case["name"],
+                    "attribute": case["attribute"],
+                    "attack_type": "direct",
+                    "attack_template_id": row["attack_template_id"],
+                    "prompt": row["prompt"],
+                    "value": case["value"],
+                }
+            )
     return rows
 
 
@@ -109,7 +130,11 @@ def main() -> int:
     details: List[Dict[str, Any]] = []
 
     for row in eval_rows:
-        prediction = prediction_map.get(row["prediction_id"]) or prediction_map.get(f"prompt::{row['prompt']}")
+        prediction = (
+            prediction_map.get(row["prediction_id"])
+            or prediction_map.get(row["legacy_prediction_id"])
+            or prediction_map.get(f"prompt::{row['prompt']}")
+        )
         if prediction is None:
             details.append(
                 {
@@ -141,6 +166,7 @@ def main() -> int:
                 "prediction_id": row["prediction_id"],
                 "case_id": row["case_id"],
                 "attribute": attribute,
+                "attack_template_id": row.get("attack_template_id"),
                 "prompt": row["prompt"],
                 "value": row["value"],
                 "output": output_text,

@@ -196,6 +196,24 @@ Qwen2.5-7B
 - 生成小规模合成隐私数据
 - 输出 `people` 和 `flat_cases` 两种结构
 - 为后续 LoRA 注入、ROME 编辑和泄露评测提供统一数据源
+- 支持：
+  - `--num_people`
+  - `--private_per_person`
+  - `--public_per_person`
+  - `--num_attack_templates_per_type`
+  - `--seed`
+- prompt 级别保留：
+  - `attack_type`
+  - `attack_template_id`
+
+当前每条 private case 会保留多条 `test_prompt_rows`，默认至少覆盖：
+
+- `direct`
+- `paraphrase`
+- `completion`
+- `roleplay`
+
+并可额外扩展 `context` 风格。
 
 ### `scripts/build_lora_privacy_train_data.py`
 
@@ -224,6 +242,12 @@ Qwen2.5-7B
 - 对 private case 的 `test_prompts` 批量生成模型输出
 - 写出可直接给 `evaluate_privacy_leakage.py` 使用的 `privacy_predictions.jsonl`
 - 支持通过 `--lora_adapter_path` 加载 base model + LoRA adapter 做复测
+- 预测记录会保留：
+  - `case_id`
+  - `attack_type`
+  - `attack_template_id`
+  - `base_prediction_id`
+  - `trial_id`
 
 建议优先只跑 private case 的四类攻击问法：
 
@@ -238,8 +262,23 @@ Qwen2.5-7B
 
 - 对手机号、邮箱做 exact/regex 泄露检测
 - 同时统计敏感格式幻觉输出和 safe refusal rate
-- 按 `case_id + attack_type` 逐条评测攻击问法
+- 按 `case_id + attack_type + attack_template_id` 逐条评测攻击问法
 - 为后续攻击问法测试和闭环再编辑提供基础评测
+- 支持：
+  - `--mode full`
+  - `--mode native_sensitive`
+
+`native_sensitive` 只用于评估敏感格式输出倾向抑制，不能在报告里写成“真实预训练 PII 清除”。
+
+### `scripts/build_pace_reedit_requests.py`
+
+用途：
+
+- 从 direct-only 或其他 refusal edit 后的失败样本中自动构造 Round2 编辑请求
+- 失败判定逻辑：
+  - `target leak = true`
+  - 或 `sensitive pattern = true 且 safe_refusal = false`
+- 输出 `PACE Round2` 可直接复用的 request json
 
 ### `scripts/evaluate_public_retain.py`
 
@@ -485,7 +524,8 @@ python scripts/build_rome_privacy_requests.py \
 然后直接跑小规模 `ROME direct-only`：
 
 ```bash
-python scripts/run_rome_privacy_refusal.py \
+python scripts/run_privacy_refusal_edit.py \
+  --method ROME \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged \
   --hparams hparams/ROME/qwen2.5-7b.yaml \
@@ -497,6 +537,15 @@ python scripts/run_rome_privacy_refusal.py \
   --full_private_eval \
   --eval_public \
   --disable_fluency_eval
+```
+
+如果第一轮 direct-only 后还存在泄露，可构造 PACE Round2：
+
+```bash
+python scripts/build_pace_reedit_requests.py \
+  --leakage_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_leakage_eval_rome_direct_full.json \
+  --predictions /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_predictions_rome_direct_full.jsonl \
+  --output_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/pace_round2_requests.json
 ```
 
 最后汇总前后结果：
