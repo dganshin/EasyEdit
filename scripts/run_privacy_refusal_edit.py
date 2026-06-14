@@ -1,5 +1,7 @@
 import argparse
+import contextlib
 import json
+import logging
 import subprocess
 import sys
 from pathlib import Path
@@ -95,6 +97,12 @@ def to_builtin(obj: Any) -> Any:
         except Exception:
             return str(obj)
     return obj
+
+
+def append_log(log_path: Path, message: str) -> None:
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    with log_path.open("a", encoding="utf-8") as fh:
+        fh.write(message.rstrip() + "\n")
 
 
 def load_hparams(args: argparse.Namespace):
@@ -200,6 +208,8 @@ def generate_records(
     batch_size: int,
     max_new_tokens: int,
 ) -> List[Dict[str, Any]]:
+    from run_privacy_generation import batched, generate_batch
+
     records: List[Dict[str, Any]] = []
     for batch_jobs in batched(jobs, batch_size):
         prompts = [job["prompt"] for job in batch_jobs]
@@ -271,6 +281,12 @@ def main() -> int:
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    log_path = output_dir / f"{run_name}_run.log"
+    append_log(log_path, f"method={args.method}")
+    append_log(log_path, f"dataset={args.dataset}")
+    append_log(log_path, f"model_path={args.model_path}")
+    append_log(log_path, f"request_source={request_source}")
+    append_log(log_path, f"num_requests={len(requests)}")
 
     requests_path = output_dir / f"{run_name}_requests.json"
     write_json(
@@ -296,18 +312,28 @@ def main() -> int:
         json.dump(sorted(request_case_ids), fh, ensure_ascii=False, indent=2)
 
     hparams = load_hparams(args)
-    editor = BaseEditor.from_hparams(hparams)
-    metrics, edited_model, _ = editor.edit(
-        prompts=[item["prompt"] for item in requests],
-        target_new=[item["target_new"] for item in requests],
-        ground_truth=[item["ground_truth"] for item in requests],
-        subject=[item["subject"] for item in requests],
-        rephrase_prompts=[item.get("rephrase_prompt") for item in requests],
-        sequential_edit=True,
-        keep_original_weight=True,
-        test_generation=not args.disable_fluency_eval,
-    )
+    easyeditor_logger = logging.getLogger("easyeditor")
+    original_easyeditor_level = easyeditor_logger.level
+    easyeditor_logger.setLevel(logging.WARNING)
+    print(f"[Stage] requests: {len(requests)}")
+    print(f"[Stage] instantiating editor; detailed logs -> {log_path}")
+    with log_path.open("a", encoding="utf-8") as log_fh:
+        with contextlib.redirect_stdout(log_fh), contextlib.redirect_stderr(log_fh):
+            editor = BaseEditor.from_hparams(hparams)
+            print(f"[Stage] running {args.method} edit")
+            metrics, edited_model, _ = editor.edit(
+                prompts=[item["prompt"] for item in requests],
+                target_new=[item["target_new"] for item in requests],
+                ground_truth=[item["ground_truth"] for item in requests],
+                subject=[item["subject"] for item in requests],
+                rephrase_prompts=[item.get("rephrase_prompt") for item in requests],
+                sequential_edit=True,
+                keep_original_weight=True,
+                test_generation=not args.disable_fluency_eval,
+            )
+    easyeditor_logger.setLevel(original_easyeditor_level)
     write_json(output_dir / f"{run_name}_edit_metrics.json", {"metrics": to_builtin(metrics)})
+    print(f"[Stage] edit finished")
 
     tokenizer = editor.tok
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
@@ -326,6 +352,7 @@ def main() -> int:
         args.batch_size,
         args.max_new_tokens,
     )
+    print(f"[Stage] subset generation finished: {len(subset_predictions)}")
     subset_pred_path = output_dir / f"privacy_predictions_{run_name}_subset.jsonl"
     write_jsonl(subset_pred_path, subset_predictions)
     run_eval(
@@ -345,6 +372,7 @@ def main() -> int:
             args.batch_size,
             args.max_new_tokens,
         )
+        print(f"[Stage] full private generation finished: {len(full_predictions)}")
         full_pred_path = output_dir / f"privacy_predictions_{run_name}_full.jsonl"
         write_jsonl(full_pred_path, full_predictions)
         run_eval(
@@ -365,6 +393,7 @@ def main() -> int:
             args.batch_size,
             args.max_new_tokens,
         )
+        print(f"[Stage] public generation finished: {len(public_predictions)}")
         public_pred_path = output_dir / f"public_predictions_{run_name}.jsonl"
         write_jsonl(public_pred_path, public_predictions)
         run_eval(
@@ -404,6 +433,7 @@ def main() -> int:
     if args.eval_public:
         print(f"public_eval_json: {output_dir / f'public_retain_eval_{run_name}.json'}")
     print(f"manifest_json: {output_dir / f'{run_name}_manifest.json'}")
+    print(f"run_log: {log_path}")
     return 0
 
 
