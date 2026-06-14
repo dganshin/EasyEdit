@@ -22,6 +22,18 @@
 
 不要反过来在服务器上做大规模手改，然后再想办法回收。
 
+## 2.1 实验记录约定
+
+- 每完成一轮关键实验，除了保存原始输出文件，还应同步补两份文档：
+  - 一份简要版：适合组会汇报
+  - 一份详细版：适合和新的 agent / 后续技术讨论对接
+- 推荐命名：
+  - `docs/WEEKLY_PROGRESS_YYYY-MM-DD.md`
+  - `docs/<STAGE>_RUNLOG_YYYY-MM-DD.md`
+- 对应结果文件应尽量整理到：
+  - `artifacts/run_YYYYMMDD_<experiment_name>/`
+- 如果服务器上已经产出重要结果，但还没写文档，不应直接进入下一阶段；应先补最小结果总结，避免后续讨论脱节。
+
 ## 3. 当前已知服务器布局
 
 当前约定的 AutoDL 数据盘根目录是：
@@ -217,4 +229,8 @@ python scripts/run_single_edit.py \
 - `docs/AUTODL_EASYEDIT_SETUP.md`
 - `docs/WEEKLY_PROGRESS_2026-06-13.md`
 - `docs/EASYEDIT_RUNLOG_FOR_AI_2026-06-13.md`
+- `docs/WEEKLY_PROGRESS_2026-06-14.md`
+- `docs/PRIVACY_BASELINE_RUNLOG_2026-06-14.md`
+- `docs/WEEKLY_PROGRESS_2026-06-14_LORA.md`
+- `docs/LORA_PRIVACY_INJECTION_RUNLOG_2026-06-14.md`
 - `docs/SESSION_HANDOFF.md`
