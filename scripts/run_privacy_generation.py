@@ -5,6 +5,7 @@ from typing import Any, Dict, Iterable, List
 
 import torch
 from peft import PeftModel
+from tqdm.auto import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
@@ -236,6 +237,9 @@ def main() -> int:
     model, tokenizer = load_model_and_tokenizer(args.model_path, int(args.device), args.lora_adapter_path)
 
     records: List[Dict[str, Any]] = []
+    total_batches = max(1, (len(jobs) + args.batch_size - 1) // args.batch_size) if jobs else 0
+    total_steps = total_batches * args.num_trials
+    progress = tqdm(total=total_steps, desc="Privacy generation", dynamic_ncols=True)
     for trial_idx in range(args.num_trials):
         for batch_jobs in batched(jobs, args.batch_size):
             prompts = [job["prompt"] for job in batch_jobs]
@@ -271,6 +275,9 @@ def main() -> int:
                         "output": output,
                     }
                 )
+            progress.update(1)
+            progress.set_postfix_str(f"trial={trial_idx + 1}/{args.num_trials}, records={len(records)}")
+    progress.close()
 
     with output_path.open("w", encoding="utf-8") as fh:
         for record in records:

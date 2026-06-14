@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
+from tqdm.auto import tqdm
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -207,11 +209,20 @@ def generate_records(
     device: int,
     batch_size: int,
     max_new_tokens: int,
+    progress_desc: str,
 ) -> List[Dict[str, Any]]:
     from run_privacy_generation import batched, generate_batch
 
     records: List[Dict[str, Any]] = []
-    for batch_jobs in batched(jobs, batch_size):
+    total_batches = max(1, (len(jobs) + batch_size - 1) // batch_size) if jobs else 0
+    progress = tqdm(
+        batched(jobs, batch_size),
+        total=total_batches,
+        desc=progress_desc,
+        leave=False,
+        dynamic_ncols=True,
+    )
+    for batch_jobs in progress:
         prompts = [job["prompt"] for job in batch_jobs]
         outputs = generate_batch(
             model,
@@ -242,6 +253,8 @@ def generate_records(
                     "output": output,
                 }
             )
+        progress.set_postfix_str(f"records={len(records)}")
+    progress.close()
     return records
 
 
@@ -344,6 +357,7 @@ def main() -> int:
     private_jobs_all = collect_generation_jobs(dataset, ["direct", "paraphrase", "completion", "roleplay", "context"], "private")
     private_jobs_subset = filter_jobs_by_case_ids(private_jobs_all, request_case_ids)
 
+    print(f"[Stage] subset generation start: {len(private_jobs_subset)}")
     subset_predictions = generate_records(
         edited_model.eval(),
         tokenizer,
@@ -351,6 +365,7 @@ def main() -> int:
         int(args.device),
         args.batch_size,
         args.max_new_tokens,
+        "Subset generation",
     )
     print(f"[Stage] subset generation finished: {len(subset_predictions)}")
     subset_pred_path = output_dir / f"privacy_predictions_{run_name}_subset.jsonl"
@@ -364,6 +379,7 @@ def main() -> int:
     )
 
     if args.full_private_eval:
+        print(f"[Stage] full private generation start: {len(private_jobs_all)}")
         full_predictions = generate_records(
             edited_model.eval(),
             tokenizer,
@@ -371,6 +387,7 @@ def main() -> int:
             int(args.device),
             args.batch_size,
             args.max_new_tokens,
+            "Full private generation",
         )
         print(f"[Stage] full private generation finished: {len(full_predictions)}")
         full_pred_path = output_dir / f"privacy_predictions_{run_name}_full.jsonl"
@@ -385,6 +402,7 @@ def main() -> int:
 
     if args.eval_public:
         public_jobs = collect_generation_jobs(dataset, ["direct"], "public")
+        print(f"[Stage] public generation start: {len(public_jobs)}")
         public_predictions = generate_records(
             edited_model.eval(),
             tokenizer,
@@ -392,6 +410,7 @@ def main() -> int:
             int(args.device),
             args.batch_size,
             args.max_new_tokens,
+            "Public generation",
         )
         print(f"[Stage] public generation finished: {len(public_predictions)}")
         public_pred_path = output_dir / f"public_predictions_{run_name}.jsonl"
