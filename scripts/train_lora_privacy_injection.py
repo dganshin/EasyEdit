@@ -16,6 +16,13 @@ from easyeditor.models.lora import apply_lora_to_model
 from easyeditor.models.lora.lora_hparams import LoRAHyperParams
 
 
+LORA_SCOPE_TO_MODULES = {
+    "attn_only": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "mlp_only": ["gate_proj", "up_proj", "down_proj"],
+    "attn_mlp": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="复用 EasyEdit LoRA 实现，对 synthetic privacy facts 做 LoRA 注入训练。")
     parser.add_argument(
@@ -51,6 +58,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--adam_eps", default=1e-8, type=float, help="Adam epsilon")
     parser.add_argument("--disable_gradient_checkpointing", action="store_true", help="关闭 gradient checkpointing，增加显存占用")
     parser.add_argument(
+        "--lora_scope",
+        choices=["attn_only", "mlp_only", "attn_mlp"],
+        default=None,
+        help="使用预设 target modules。若提供，则优先于 --target_modules。",
+    )
+    parser.add_argument(
         "--target_modules",
         nargs="*",
         default=None,
@@ -83,12 +96,21 @@ def apply_hparam_overrides(hparams: LoRAHyperParams, args: argparse.Namespace) -
         hparams.lr = args.lr
     if args.lora_alpha > 0:
         hparams.lora_alpha = args.lora_alpha
-    if args.target_modules:
+    if args.lora_scope:
+        hparams.target_modules = list(LORA_SCOPE_TO_MODULES[args.lora_scope])
+    elif args.target_modules:
         hparams.target_modules = list(args.target_modules)
     hparams.max_grad_norm = args.max_grad_norm
     hparams.adam_eps = args.adam_eps
     hparams.use_gradient_checkpointing = not args.disable_gradient_checkpointing
     return hparams
+
+
+def infer_lora_scope(target_modules: List[str]) -> str:
+    for scope, modules in LORA_SCOPE_TO_MODULES.items():
+        if list(target_modules) == modules:
+            return scope
+    return "custom"
 
 
 def main() -> int:
@@ -169,6 +191,7 @@ def main() -> int:
             "max_length": hparams.max_length,
             "lr": hparams.lr,
             "lora_alpha": hparams.lora_alpha,
+            "lora_scope": infer_lora_scope(hparams.target_modules),
             "target_modules": hparams.target_modules,
             "max_grad_norm": hparams.max_grad_norm,
             "adam_eps": hparams.adam_eps,
@@ -185,6 +208,7 @@ def main() -> int:
     print(f"num_steps: {hparams.num_steps}")
     print(f"rank: {hparams.rank}")
     print(f"lr: {hparams.lr}")
+    print(f"lora_scope: {infer_lora_scope(hparams.target_modules)}")
     print(f"target_modules: {hparams.target_modules}")
     print(f"max_grad_norm: {hparams.max_grad_norm}")
     print(f"use_gradient_checkpointing: {hparams.use_gradient_checkpointing}")

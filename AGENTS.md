@@ -129,6 +129,7 @@ Qwen2.5-7B
 - 合成隐私数据生成：`scripts/generate_synthetic_privacy_data.py`
 - LoRA 训练数据构建：`scripts/build_lora_privacy_train_data.py`
 - LoRA 隐私注入训练：`scripts/train_lora_privacy_injection.py`
+- LoRA merge：`scripts/merge_lora_privacy_model.py`
 - 隐私批量生成：`scripts/run_privacy_generation.py`
 - 隐私泄露评测：`scripts/evaluate_privacy_leakage.py`
 - public retain 评测：`scripts/evaluate_public_retain.py`
@@ -156,7 +157,8 @@ LoRA 注入阶段的最小链路是：
 
 - 先用 `scripts/build_lora_privacy_train_data.py` 从 synthetic dataset 构造训练集
 - 再用 `scripts/train_lora_privacy_injection.py` 复用 EasyEdit 现有 LoRA 实现训练 adapter
-- 最后通过 `scripts/run_privacy_generation.py --lora_adapter_path ...` 对注入后的模型做 private/public 复测
+- 如需主实验，应优先使用 `mlp_only` scope，然后通过 `scripts/merge_lora_privacy_model.py` 把 adapter merge 进模型权重
+- 最后再用 `scripts/run_privacy_generation.py --lora_adapter_path ...` 或 merged model 对 private/public 复测
 
 如果服务器是 48GB 显存，不建议继续使用最保守的 `batch_size=1, rank=8`。
 优先通过训练命令覆盖这些参数，而不是再改代码：
@@ -172,6 +174,17 @@ LoRA 注入阶段的最小链路是：
 - `scripts/train_lora_privacy_injection.py` 现在会在未显式传 `--lr` 时，把过高默认值自动压到 `5e-4`
 - 训练脚本现在默认启用 `max_grad_norm=1.0`
 - 如果想进一步吃显存，可加 `--disable_gradient_checkpointing`
+
+当前更推荐显式使用 `--lora_scope`，而不是手动拼 target modules：
+
+- `attn_only`: `q_proj k_proj v_proj o_proj`
+- `mlp_only`: `gate_proj up_proj down_proj`
+- `attn_mlp`: attention + MLP 全部
+
+当前主实验更推荐：
+
+- `mlp_only` 作为主线
+- `attn_only` 保留为消融 / 压力测试
 
 ## 8. 当前已知成功命令
 

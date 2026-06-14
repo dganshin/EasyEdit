@@ -32,6 +32,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--max_new_tokens", default=32, type=int, help="每个 prompt 的最大生成长度")
     parser.add_argument("--batch_size", default=4, type=int, help="批大小")
+    parser.add_argument("--do_sample", action="store_true", help="是否启用采样生成")
+    parser.add_argument("--temperature", default=0.7, type=float, help="采样温度，仅在 --do_sample 时生效")
+    parser.add_argument("--top_p", default=0.9, type=float, help="top-p，仅在 --do_sample 时生效")
+    parser.add_argument("--num_trials", default=1, type=int, help="每个 prompt 生成多少次；>1 时用于多次采样风险评估")
+    parser.add_argument("--seed", default=42, type=int, help="随机种子")
     parser.add_argument(
         "--mode",
         choices=["private", "public", "all"],
@@ -148,6 +153,9 @@ def generate_batch(
     prompts: List[str],
     device: int,
     max_new_tokens: int,
+    do_sample: bool,
+    temperature: float,
+    top_p: float,
 ) -> List[str]:
     encoded = tokenizer(
         prompts,
@@ -159,7 +167,9 @@ def generate_batch(
         outputs = model.generate(
             **encoded,
             max_new_tokens=max_new_tokens,
-            do_sample=False,
+            do_sample=do_sample,
+            temperature=temperature if do_sample else None,
+            top_p=top_p if do_sample else None,
             pad_token_id=tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id,
         )
 
@@ -180,6 +190,12 @@ def main() -> int:
         raise ValueError("--device 目前请传 CUDA 编号，如 0")
     if args.batch_size < 1:
         raise ValueError("--batch_size 必须 >= 1")
+    if args.num_trials < 1:
+        raise ValueError("--num_trials 必须 >= 1")
+
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(args.seed)
 
     dataset = load_dataset(args.dataset)
     mode = "all" if args.include_public and args.mode == "private" else args.mode
@@ -190,24 +206,39 @@ def main() -> int:
     model, tokenizer = load_model_and_tokenizer(args.model_path, int(args.device), args.lora_adapter_path)
 
     records: List[Dict[str, Any]] = []
-    for batch_jobs in batched(jobs, args.batch_size):
-        prompts = [job["prompt"] for job in batch_jobs]
-        outputs = generate_batch(model, tokenizer, prompts, int(args.device), args.max_new_tokens)
-        for job, output in zip(batch_jobs, outputs):
-            records.append(
-                {
-                    "prediction_id": job["prediction_id"],
-                    "case_id": job["case_id"],
-                    "person_id": job["person_id"],
-                    "name": job["name"],
-                    "attribute": job["attribute"],
-                    "sensitivity": job["sensitivity"],
-                    "attack_type": job["attack_type"],
-                    "prompt": job["prompt"],
-                    "target_value": job["target_value"],
-                    "output": output,
-                }
+    for trial_idx in range(args.num_trials):
+        for batch_jobs in batched(jobs, args.batch_size):
+            prompts = [job["prompt"] for job in batch_jobs]
+            outputs = generate_batch(
+                model,
+                tokenizer,
+                prompts,
+                int(args.device),
+                args.max_new_tokens,
+                args.do_sample,
+                args.temperature,
+                args.top_p,
             )
+            for job, output in zip(batch_jobs, outputs):
+                prediction_id = job["prediction_id"]
+                if args.num_trials > 1:
+                    prediction_id = f"{prediction_id}::trial_{trial_idx:02d}"
+                records.append(
+                    {
+                        "prediction_id": prediction_id,
+                        "base_prediction_id": job["prediction_id"],
+                        "trial_id": trial_idx,
+                        "case_id": job["case_id"],
+                        "person_id": job["person_id"],
+                        "name": job["name"],
+                        "attribute": job["attribute"],
+                        "sensitivity": job["sensitivity"],
+                        "attack_type": job["attack_type"],
+                        "prompt": job["prompt"],
+                        "target_value": job["target_value"],
+                        "output": output,
+                    }
+                )
 
     with output_path.open("w", encoding="utf-8") as fh:
         for record in records:
@@ -217,6 +248,8 @@ def main() -> int:
     print(f"model_path: {args.model_path}")
     print(f"lora_adapter_path: {args.lora_adapter_path}")
     print(f"mode: {mode}")
+    print(f"do_sample: {args.do_sample}")
+    print(f"num_trials: {args.num_trials}")
     print(f"num_jobs: {len(jobs)}")
     print(f"num_outputs: {len(records)}")
     print(f"predictions_jsonl: {output_path}")

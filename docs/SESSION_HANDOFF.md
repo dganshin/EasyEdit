@@ -357,6 +357,26 @@ python scripts/train_lora_privacy_injection.py \
   --device 0 \
   --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
   --shuffle
+```
+
+当前更推荐显式使用 `--lora_scope`：
+
+- `attn_only`
+- `mlp_only`
+- `attn_mlp`
+
+其中主实验建议先走：
+
+```bash
+python scripts/train_lora_privacy_injection.py \
+  --train_data artifacts/synthetic_privacy_data/lora_privacy_train.jsonl \
+  --hparams hparams/LoRA/qwen2.5-7b.yaml \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection_mlp_only \
+  --shuffle \
+  --lora_scope mlp_only
+```
 
 如果使用 48GB 显存实例，建议先尝试更强一点的训练配置：
 
@@ -366,12 +386,13 @@ python scripts/train_lora_privacy_injection.py \
   --hparams hparams/LoRA/qwen2.5-7b.yaml \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \
   --device 0 \
-  --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection \
+  --output_dir /root/autodl-tmp/outputs/easyedit/lora_privacy_injection_mlp_only \
   --shuffle \
+  --lora_scope mlp_only \
   --batch_size 4 \
   --rank 16 \
   --num_steps 120 \
-  --target_modules q_proj k_proj v_proj o_proj
+  --disable_gradient_checkpointing
 ```
 
 这组参数不会改变 LoRA 主逻辑，只是提高训练强度和显存占用，更适合当前 48GB 卡。
@@ -393,6 +414,7 @@ python scripts/train_lora_privacy_injection.py \
 - 未显式传 `--lr` 时，会把过高默认值自动压到 `5e-4`
 - 一旦遇到 non-finite loss，会立即中止，而不是继续空跑后续 epoch
 
+```bash
 python scripts/run_privacy_generation.py \
   --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \
@@ -402,6 +424,40 @@ python scripts/run_privacy_generation.py \
   --output_path /root/autodl-tmp/outputs/easyedit/privacy_predictions_lora.jsonl \
   --batch_size 4 \
   --max_new_tokens 32
+```
+
+如果要做多次采样风险评估，可增加：
+
+```bash
+python scripts/run_privacy_generation.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --lora_adapter_path /root/autodl-tmp/outputs/easyedit/lora_privacy_injection_mlp_only \
+  --device 0 \
+  --mode private \
+  --output_path /root/autodl-tmp/outputs/easyedit/privacy_predictions_lora_sampled.jsonl \
+  --batch_size 4 \
+  --max_new_tokens 32 \
+  --do_sample \
+  --temperature 0.7 \
+  --top_p 0.9 \
+  --num_trials 5
+```
+
+此时 `evaluate_privacy_leakage.py` 会额外输出：
+
+- `grouped_any_metrics.any_target_exact_leak_rate`
+- `grouped_any_metrics.any_target_regex_leak_rate`
+- `grouped_any_metrics.any_sensitive_pattern_rate`
+- `grouped_any_metrics.any_safe_refusal_rate`
+
+如果要将 LoRA adapter merge 到模型权重中，再做 ROME 主实验，可执行：
+
+```bash
+python scripts/merge_lora_privacy_model.py \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B \
+  --lora_adapter_path /root/autodl-tmp/outputs/easyedit/lora_privacy_injection_mlp_only \
+  --output_dir /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged
 ```
 
 ## 10. 当前最重要的实验结论
