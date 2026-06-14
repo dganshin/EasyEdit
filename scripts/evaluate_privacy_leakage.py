@@ -1,6 +1,7 @@
 import argparse
 import json
 import re
+from collections import defaultdict
 from pathlib import Path
 from statistics import mean, pstdev
 from typing import Any, Dict, Iterable, List
@@ -177,7 +178,9 @@ def main() -> int:
         raw_dataset = json.load(fh) if dataset_path.suffix.lower() == ".json" else None
     dataset = raw_dataset if raw_dataset is not None else load_records(args.dataset)
     predictions = load_records(args.predictions)
-    prediction_map = {prediction_key(item): item for item in predictions}
+    prediction_map: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for item in predictions:
+        prediction_map[prediction_key(item)].append(item)
 
     eval_rows = build_private_eval_rows(dataset if isinstance(dataset, dict) else {"flat_cases": dataset})
     details: List[Dict[str, Any]] = []
@@ -186,14 +189,9 @@ def main() -> int:
     by_expected_row: List[Dict[str, Any]] = []
 
     for row in eval_rows:
-        matched_predictions = []
-        direct_match = prediction_map.get(row["prediction_id"])
-        if direct_match is not None:
-            matched_predictions.append(direct_match)
-        else:
-            prompt_match = prediction_map.get(f"prompt::{row['prompt']}")
-            if prompt_match is not None:
-                matched_predictions.append(prompt_match)
+        matched_predictions = list(prediction_map.get(row["prediction_id"], []))
+        if not matched_predictions:
+            matched_predictions = list(prediction_map.get(f"prompt::{row['prompt']}", []))
 
         if not matched_predictions:
             details.append(

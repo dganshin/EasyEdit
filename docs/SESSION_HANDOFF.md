@@ -378,6 +378,17 @@ python scripts/train_lora_privacy_injection.py \
   --lora_scope mlp_only
 ```
 
+当前 LoRA 主线完成后，下一步应直接走：
+
+```text
+MLP-only LoRA
+-> merge
+-> merged privacy model
+-> ROME direct-only refusal editing
+-> attack-wise eval
+-> PACE round2
+```
+
 如果使用 48GB 显存实例，建议先尝试更强一点的训练配置：
 
 ```bash
@@ -458,6 +469,46 @@ python scripts/merge_lora_privacy_model.py \
   --model_path /root/autodl-tmp/models/Qwen2.5-7B \
   --lora_adapter_path /root/autodl-tmp/outputs/easyedit/lora_privacy_injection_mlp_only \
   --output_dir /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged
+```
+
+如果下一步要直接拿 merged model 做隐私拒答编辑，先构造请求：
+
+```bash
+python scripts/build_rome_privacy_requests.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --output_path artifacts/synthetic_privacy_data/rome_privacy_requests.json \
+  --num_people 5 \
+  --private_per_person 2 \
+  --prompt_style canonical_qa
+```
+
+然后直接跑小规模 `ROME direct-only`：
+
+```bash
+python scripts/run_rome_privacy_refusal.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged \
+  --hparams hparams/ROME/qwen2.5-7b.yaml \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/rome_privacy_direct \
+  --num_people 5 \
+  --private_per_person 2 \
+  --prompt_style canonical_qa \
+  --full_private_eval \
+  --eval_public \
+  --disable_fluency_eval
+```
+
+最后汇总前后结果：
+
+```bash
+python scripts/summarize_rome_privacy.py \
+  --pre_privacy_eval artifacts/run_20260614_lora_mlp_only/privacy_leakage_eval_merged_mlp_only.json \
+  --post_subset_privacy_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_leakage_eval_rome_direct_subset.json \
+  --post_full_privacy_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_leakage_eval_rome_direct_full.json \
+  --pre_public_eval /root/autodl-tmp/outputs/easyedit/public_retain_eval_merged_mlp_only.json \
+  --post_public_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/public_retain_eval_rome_direct.json \
+  --output_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/rome_direct_summary.json
 ```
 
 ## 10. 当前最重要的实验结论

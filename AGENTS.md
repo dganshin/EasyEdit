@@ -130,10 +130,13 @@ Qwen2.5-7B
 - LoRA 训练数据构建：`scripts/build_lora_privacy_train_data.py`
 - LoRA 隐私注入训练：`scripts/train_lora_privacy_injection.py`
 - LoRA merge：`scripts/merge_lora_privacy_model.py`
+- ROME 隐私请求构造：`scripts/build_rome_privacy_requests.py`
+- ROME direct-only refusal 编辑：`scripts/run_rome_privacy_refusal.py`
 - 隐私批量生成：`scripts/run_privacy_generation.py`
 - 隐私泄露评测：`scripts/evaluate_privacy_leakage.py`
 - public retain 评测：`scripts/evaluate_public_retain.py`
 - baseline 汇总：`scripts/summarize_privacy_baseline.py`
+- ROME 前后汇总：`scripts/summarize_rome_privacy.py`
 
 其中 `run_single_edit.py` 已经扩展支持：
 
@@ -185,6 +188,36 @@ LoRA 注入阶段的最小链路是：
 
 - `mlp_only` 作为主线
 - `attn_only` 保留为消融 / 压力测试
+- `mlp_only -> merge -> ROME direct-only -> attack-wise eval -> PACE round2` 作为当前推荐主路径
+
+如果下一步要直接进入 ROME 隐私拒答编辑，建议先走小规模 `direct-only`：
+
+```bash
+python scripts/run_rome_privacy_refusal.py \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged \
+  --hparams hparams/ROME/qwen2.5-7b.yaml \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/rome_privacy_direct \
+  --num_people 5 \
+  --private_per_person 2 \
+  --prompt_style canonical_qa \
+  --full_private_eval \
+  --eval_public \
+  --disable_fluency_eval
+```
+
+然后汇总：
+
+```bash
+python scripts/summarize_rome_privacy.py \
+  --pre_privacy_eval artifacts/run_20260614_lora_mlp_only/privacy_leakage_eval_merged_mlp_only.json \
+  --post_subset_privacy_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_leakage_eval_rome_direct_subset.json \
+  --post_full_privacy_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/privacy_leakage_eval_rome_direct_full.json \
+  --pre_public_eval /root/autodl-tmp/outputs/easyedit/public_retain_eval_merged_mlp_only.json \
+  --post_public_eval /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/public_retain_eval_rome_direct.json \
+  --output_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/rome_direct_summary.json
+```
 
 ## 8. 当前已知成功命令
 
