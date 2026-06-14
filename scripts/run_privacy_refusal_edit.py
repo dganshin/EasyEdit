@@ -5,20 +5,14 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
-import torch
-
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from build_rome_privacy_requests import load_dataset, select_requests
-from run_privacy_generation import collect_generation_jobs, batched, generate_batch
-from easyeditor import BaseEditor, MEMITHyperParams, ROMEHyperParams
-
-
 METHOD_TO_HPARAMS = {
-    "ROME": ROMEHyperParams,
-    "MEMIT": MEMITHyperParams,
+    "ROME": "ROMEHyperParams",
+    "MEMIT": "MEMITHyperParams",
 }
 
 
@@ -40,6 +34,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--hparams", required=True, type=str, help="对应方法的 hparams yaml 路径")
     parser.add_argument("--device", default="0", type=str, help="CUDA 设备编号，例如 0")
     parser.add_argument("--output_dir", required=True, type=str, help="输出目录")
+    parser.add_argument(
+        "--requests_path",
+        default=None,
+        type=str,
+        help="外部 edit requests json 路径；若提供，则直接读取 requests 而不是自动构造 direct-only requests",
+    )
+    parser.add_argument(
+        "--append_requests_path",
+        default=None,
+        type=str,
+        help="可选的第二份 requests json；会与 --requests_path 合并去重后一起执行",
+    )
+    parser.add_argument(
+        "--run_name",
+        default=None,
+        type=str,
+        help="输出文件名前缀；默认 direct-only 使用 <method>_direct，外部 requests 使用 pace_round2",
+    )
     parser.add_argument("--num_people", default=5, type=int, help="前多少个人参与 direct-only 编辑")
     parser.add_argument("--private_per_person", default=2, type=int, help="每个人编辑多少条 private")
     parser.add_argument(
@@ -86,7 +98,13 @@ def to_builtin(obj: Any) -> Any:
 
 
 def load_hparams(args: argparse.Namespace):
-    hparams_cls = METHOD_TO_HPARAMS[args.method]
+    from easyeditor import MEMITHyperParams, ROMEHyperParams
+
+    method_to_hparams = {
+        "ROME": ROMEHyperParams,
+        "MEMIT": MEMITHyperParams,
+    }
+    hparams_cls = method_to_hparams[args.method]
     hparams = hparams_cls.from_hparams(args.hparams)
     hparams.model_name = args.model_path
     if hasattr(hparams, "tokenizer_name"):
@@ -95,6 +113,68 @@ def load_hparams(args: argparse.Namespace):
     if hasattr(hparams, "batch_size"):
         hparams.batch_size = 1
     return hparams
+
+
+def load_requests_file(path_str: str) -> List[Dict[str, Any]]:
+    path = Path(path_str)
+    with path.open("r", encoding="utf-8") as fh:
+        payload = json.load(fh)
+    if isinstance(payload, dict):
+        if "requests" in payload and isinstance(payload["requests"], list):
+            return payload["requests"]
+        raise ValueError(f"requests 文件缺少 requests 列表: {path}")
+    if isinstance(payload, list):
+        return payload
+    raise ValueError(f"不支持的 requests 文件格式: {path}")
+
+
+def dedupe_key(item: Dict[str, Any]) -> str:
+    case_id = item.get("case_id")
+    prompt = str(item.get("prompt", "")).strip()
+    target_new = str(item.get("target_new", "")).strip()
+    if case_id:
+        return f"{case_id}||{prompt}||{target_new}"
+    return f"{prompt}||{target_new}"
+
+
+def merge_requests(primary: List[Dict[str, Any]], appended: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    merged: List[Dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in [*primary, *appended]:
+        key = dedupe_key(item)
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(item)
+    return merged
+
+
+def resolve_run_name(args: argparse.Namespace) -> str:
+    if args.run_name:
+        return args.run_name
+    if args.requests_path:
+        return "pace_round2"
+    return f"{args.method.lower()}_direct"
+
+
+def resolve_requests(args: argparse.Namespace, dataset: Dict[str, Any]) -> tuple[List[Dict[str, Any]], str]:
+    if args.requests_path:
+        primary_requests = load_requests_file(args.requests_path)
+        if args.append_requests_path:
+            append_requests = load_requests_file(args.append_requests_path)
+            requests = merge_requests(primary_requests, append_requests)
+        else:
+            requests = primary_requests
+        return requests, "external_requests"
+
+    requests = select_requests(
+        dataset,
+        args.num_people,
+        args.private_per_person,
+        args.prompt_style,
+        args.target_new,
+    )
+    return requests, "direct_only"
 
 
 def build_subset_dataset(dataset: Dict[str, Any], allowed_case_ids: set[str]) -> Dict[str, Any]:
@@ -173,26 +253,26 @@ def run_eval(script_name: str, dataset: str, predictions: Path, output_path: Pat
 
 def main() -> int:
     args = parse_args()
+    if args.append_requests_path and not args.requests_path:
+        raise ValueError("--append_requests_path 必须与 --requests_path 一起使用")
+    import torch
+    from easyeditor import BaseEditor
+    from run_privacy_generation import collect_generation_jobs, batched, generate_batch
+
     if not torch.cuda.is_available():
         raise RuntimeError("当前环境未检测到 CUDA，privacy refusal editing 需要在 GPU 服务器上运行。")
     if not str(args.device).isdigit():
         raise ValueError("--device 目前请传 CUDA 编号，如 0")
 
     dataset = load_dataset(args.dataset)
-    requests = select_requests(
-        dataset,
-        args.num_people,
-        args.private_per_person,
-        args.prompt_style,
-        args.target_new,
-    )
+    requests, request_source = resolve_requests(args, dataset)
+    run_name = resolve_run_name(args)
     request_case_ids = {item["case_id"] for item in requests}
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    method_slug = args.method.lower()
 
-    requests_path = output_dir / f"{method_slug}_direct_requests.json"
+    requests_path = output_dir / f"{run_name}_requests.json"
     write_json(
         requests_path,
         {
@@ -200,14 +280,18 @@ def main() -> int:
             "model_path": args.model_path,
             "hparams": args.hparams,
             "method": args.method,
+            "request_source": request_source,
+            "requests_path": args.requests_path,
+            "append_requests_path": args.append_requests_path,
+            "run_name": run_name,
             "num_requests": len(requests),
             "requests": requests,
         },
     )
 
-    subset_dataset_path = output_dir / f"{method_slug}_direct_subset_dataset.json"
+    subset_dataset_path = output_dir / f"{run_name}_subset_dataset.json"
     write_json(subset_dataset_path, build_subset_dataset(dataset, request_case_ids))
-    allowed_case_ids_path = output_dir / f"{method_slug}_direct_case_ids.json"
+    allowed_case_ids_path = output_dir / f"{run_name}_case_ids.json"
     with allowed_case_ids_path.open("w", encoding="utf-8") as fh:
         json.dump(sorted(request_case_ids), fh, ensure_ascii=False, indent=2)
 
@@ -223,7 +307,7 @@ def main() -> int:
         keep_original_weight=True,
         test_generation=not args.disable_fluency_eval,
     )
-    write_json(output_dir / f"{method_slug}_direct_edit_metrics.json", {"metrics": to_builtin(metrics)})
+    write_json(output_dir / f"{run_name}_edit_metrics.json", {"metrics": to_builtin(metrics)})
 
     tokenizer = editor.tok
     if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
@@ -242,13 +326,13 @@ def main() -> int:
         args.batch_size,
         args.max_new_tokens,
     )
-    subset_pred_path = output_dir / f"privacy_predictions_{method_slug}_direct_subset.jsonl"
+    subset_pred_path = output_dir / f"privacy_predictions_{run_name}_subset.jsonl"
     write_jsonl(subset_pred_path, subset_predictions)
     run_eval(
         "evaluate_privacy_leakage.py",
         str(subset_dataset_path),
         subset_pred_path,
-        output_dir / f"privacy_leakage_eval_{method_slug}_direct_subset.json",
+        output_dir / f"privacy_leakage_eval_{run_name}_subset.json",
         None,
     )
 
@@ -261,13 +345,13 @@ def main() -> int:
             args.batch_size,
             args.max_new_tokens,
         )
-        full_pred_path = output_dir / f"privacy_predictions_{method_slug}_direct_full.jsonl"
+        full_pred_path = output_dir / f"privacy_predictions_{run_name}_full.jsonl"
         write_jsonl(full_pred_path, full_predictions)
         run_eval(
             "evaluate_privacy_leakage.py",
             args.dataset,
             full_pred_path,
-            output_dir / f"privacy_leakage_eval_{method_slug}_direct_full.json",
+            output_dir / f"privacy_leakage_eval_{run_name}_full.json",
             None,
         )
 
@@ -281,13 +365,13 @@ def main() -> int:
             args.batch_size,
             args.max_new_tokens,
         )
-        public_pred_path = output_dir / f"public_predictions_{method_slug}_direct.jsonl"
+        public_pred_path = output_dir / f"public_predictions_{run_name}.jsonl"
         write_jsonl(public_pred_path, public_predictions)
         run_eval(
             "evaluate_public_retain.py",
             args.dataset,
             public_pred_path,
-            output_dir / f"public_retain_eval_{method_slug}_direct.json",
+            output_dir / f"public_retain_eval_{run_name}.json",
         )
 
     manifest = {
@@ -295,6 +379,10 @@ def main() -> int:
         "model_path": args.model_path,
         "hparams": args.hparams,
         "method": args.method,
+        "request_source": request_source,
+        "requests_path": args.requests_path,
+        "append_requests_path": args.append_requests_path,
+        "run_name": run_name,
         "num_people": args.num_people,
         "private_per_person": args.private_per_person,
         "prompt_style": args.prompt_style,
@@ -305,17 +393,17 @@ def main() -> int:
         "eval_public": args.eval_public,
         "output_dir": str(output_dir),
     }
-    write_json(output_dir / f"{method_slug}_direct_manifest.json", manifest)
+    write_json(output_dir / f"{run_name}_manifest.json", manifest)
 
     print(f"requests_json: {requests_path}")
-    print(f"edit_metrics_json: {output_dir / f'{method_slug}_direct_edit_metrics.json'}")
+    print(f"edit_metrics_json: {output_dir / f'{run_name}_edit_metrics.json'}")
     print(f"subset_predictions_jsonl: {subset_pred_path}")
-    print(f"subset_eval_json: {output_dir / f'privacy_leakage_eval_{method_slug}_direct_subset.json'}")
+    print(f"subset_eval_json: {output_dir / f'privacy_leakage_eval_{run_name}_subset.json'}")
     if args.full_private_eval:
-        print(f"full_eval_json: {output_dir / f'privacy_leakage_eval_{method_slug}_direct_full.json'}")
+        print(f"full_eval_json: {output_dir / f'privacy_leakage_eval_{run_name}_full.json'}")
     if args.eval_public:
-        print(f"public_eval_json: {output_dir / f'public_retain_eval_{method_slug}_direct.json'}")
-    print(f"manifest_json: {output_dir / f'{method_slug}_direct_manifest.json'}")
+        print(f"public_eval_json: {output_dir / f'public_retain_eval_{run_name}.json'}")
+    print(f"manifest_json: {output_dir / f'{run_name}_manifest.json'}")
     return 0
 
 

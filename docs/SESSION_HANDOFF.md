@@ -548,6 +548,41 @@ python scripts/build_pace_reedit_requests.py \
   --output_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/pace_round2_requests.json
 ```
 
+如果要直接执行 `PACE Round2`：
+
+```bash
+python scripts/run_privacy_refusal_edit.py \
+  --method ROME \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged \
+  --hparams hparams/ROME/qwen2.5-7b.yaml \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/pace_round2 \
+  --requests_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/pace_round2_requests.json \
+  --run_name pace_round2 \
+  --full_private_eval \
+  --eval_public \
+  --disable_fluency_eval
+```
+
+如果要用更稳的方式，从 merged model 重新执行 `Round1 + Round2` 合并编辑：
+
+```bash
+python scripts/run_privacy_refusal_edit.py \
+  --method ROME \
+  --dataset artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json \
+  --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged \
+  --hparams hparams/ROME/qwen2.5-7b.yaml \
+  --device 0 \
+  --output_dir /root/autodl-tmp/outputs/easyedit/pace_round2_merged \
+  --requests_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/rome_direct_requests.json \
+  --append_requests_path /root/autodl-tmp/outputs/easyedit/rome_privacy_direct/pace_round2_requests.json \
+  --run_name pace_round2 \
+  --full_private_eval \
+  --eval_public \
+  --disable_fluency_eval
+```
+
 最后汇总前后结果：
 
 ```bash
