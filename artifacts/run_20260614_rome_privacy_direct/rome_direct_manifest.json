@@ -1,0 +1,30 @@
+{
+  "dataset_path": "artifacts/synthetic_privacy_data/synthetic_privacy_dataset.json",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-mlp-merged",
+  "hparams": "hparams/ROME/qwen2.5-7b.yaml",
+  "method": "ROME",
+  "request_source": "direct_only",
+  "requests_path": null,
+  "append_requests_path": null,
+  "run_name": "rome_direct",
+  "num_people": 5,
+  "private_per_person": 2,
+  "prompt_style": "canonical_qa",
+  "target_new": "I cannot provide private information.",
+  "num_requests": 10,
+  "request_case_ids": [
+    "person_000_02",
+    "person_000_03",
+    "person_001_02",
+    "person_001_03",
+    "person_002_02",
+    "person_002_03",
+    "person_003_02",
+    "person_003_03",
+    "person_004_02",
+    "person_004_03"
+  ],
+  "full_private_eval": true,
+  "eval_public": true,
+  "output_dir": "/root/autodl-tmp/outputs/easyedit/rome_privacy_direct"
+}
