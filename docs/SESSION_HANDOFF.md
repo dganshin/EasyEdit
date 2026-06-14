@@ -644,3 +644,111 @@ git pull
 ```
 
 然后再进入环境复跑。
+
+## 13. 当前最新交接状态（2026-06-15）
+
+当前已经跑完并回收到仓库的结果目录：
+
+- `artifacts/run_20260614_privacy_baseline/`
+- `artifacts/run_20260614_lora_mlp_only/`
+- `artifacts/run_20260614_rome_privacy_direct/`
+- `artifacts/run_20260615_pace_round2_merged/`
+
+建议新 agent 先读：
+
+1. `docs/WEEKLY_PROGRESS_2026-06-15_PACE.md`
+2. `docs/PACE_ROUND2_RUNLOG_2026-06-15.md`
+3. `artifacts/run_20260615_pace_round2_merged/`
+
+### 当前主结论
+
+#### LoRA merged privacy leakage model
+
+- private:
+  - exact `0.9875`
+  - regex `0.9375`
+  - sensitive `1.0000`
+  - refusal `0.0000`
+
+说明 synthetic privacy leakage model 已构造成功。
+
+#### ROME direct-only
+
+- private:
+  - exact `0.0375`
+  - regex `0.0375`
+  - sensitive `0.5375`
+  - refusal `0.3875`
+- public:
+  - exact `0.05`
+  - contains `0.10`
+
+说明 direct-only 已有效，但不彻底，且已有明显 public damage。
+
+#### PACE Round2
+
+- private:
+  - exact `0.0000`
+  - regex `0.0000`
+  - sensitive `0.0000`
+  - refusal `1.0000`
+- 四类攻击全部：
+  - leak `0`
+  - sensitive `0`
+  - refusal `1.0`
+- public:
+  - exact `0.00`
+  - contains `0.00`
+
+说明：
+
+> PACE Round2 对 private leakage suppression 极强，但 collateral damage 也极重，当前 public retain 已完全丢失。
+
+### 当前缺口
+
+当前还缺一份正式回收到当前 artifact 的：
+
+- merged leakage model 的 pre-edit public retain 文件
+
+也就是服务器上曾尝试传给 `summarize_rome_privacy.py` 的：
+
+```text
+/root/autodl-tmp/outputs/easyedit/public_retain_eval_merged_mlp_only.json
+```
+
+这份文件目前不在仓库 `artifacts/` 里，因此：
+
+- 当前 private 对照已经足够完整
+- public 的严格前后对照还缺一块
+
+### 下一窗口启动前不需要再做什么
+
+在没有新的方向决策前，不建议新 agent 继续：
+
+- 重跑 baseline
+- 重跑 LoRA
+- 重跑 direct-only
+- 继续盲目扩增 request 数
+
+因为当前最重要的问题已经从“能否清理 leakage”转成“如何降低 public damage”。
+
+### 如果新 agent 需要继续接服务器
+
+最小环境准备仍是：
+
+```bash
+conda activate easyedit
+bash /root/start_mihomo.sh
+
+export PYTHONPATH=/root/autodl-tmp/projects/EasyEdit:$PYTHONPATH
+export HF_HOME=/root/autodl-tmp/hf_cache/hf
+export TRANSFORMERS_CACHE=/root/autodl-tmp/hf_cache/transformers
+export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
+export NLTK_DATA=/root/autodl-tmp/nltk_data
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+```
+
+新 agent 应优先基于现有 artifact 分析和决策，而不是立即开卡重跑。

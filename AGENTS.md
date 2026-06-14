@@ -307,4 +307,95 @@ python scripts/run_single_edit.py \
 - `docs/PRIVACY_BASELINE_RUNLOG_2026-06-14.md`
 - `docs/WEEKLY_PROGRESS_2026-06-14_LORA.md`
 - `docs/LORA_PRIVACY_INJECTION_RUNLOG_2026-06-14.md`
+- `docs/WEEKLY_PROGRESS_2026-06-15_PACE.md`
+- `docs/PACE_ROUND2_RUNLOG_2026-06-15.md`
 - `docs/SESSION_HANDOFF.md`
+
+## 11. 当前最新阶段状态（2026-06-15）
+
+当前主线已经推进到：
+
+```text
+synthetic privacy dataset
+-> LoRA privacy injection
+-> merged privacy leakage model
+-> ROME direct-only
+-> PACE Round2
+```
+
+当前关键 artifact：
+
+- `artifacts/run_20260614_privacy_baseline/`
+- `artifacts/run_20260614_lora_mlp_only/`
+- `artifacts/run_20260614_rome_privacy_direct/`
+- `artifacts/run_20260615_pace_round2_merged/`
+
+当前最重要的已确认结果：
+
+### LoRA merged privacy leakage model
+
+- private:
+  - `target_exact_leak_rate = 0.9875`
+  - `target_regex_leak_rate = 0.9375`
+  - `sensitive_pattern_rate = 1.0000`
+  - `safe_refusal_rate = 0.0000`
+
+说明 synthetic private/public facts 已成功注入，后续清洗实验成立。
+
+### ROME direct-only
+
+- full private:
+  - `target_exact_leak_rate = 0.0375`
+  - `target_regex_leak_rate = 0.0375`
+  - `sensitive_pattern_rate = 0.5375`
+  - `safe_refusal_rate = 0.3875`
+- public:
+  - `exact_match_rate = 0.05`
+  - `contains_match_rate = 0.10`
+
+说明 direct-only 已明显抑制泄露，但仍有残余泄露与 sensitive-pattern hallucination，且 public retain 已明显受损。
+
+### PACE Round2
+
+- full private:
+  - `target_exact_leak_rate = 0.0000`
+  - `target_regex_leak_rate = 0.0000`
+  - `sensitive_pattern_rate = 0.0000`
+  - `safe_refusal_rate = 1.0000`
+- 四类攻击 `direct / paraphrase / completion / roleplay` 全部达到：
+  - leak `0`
+  - sensitive pattern `0`
+  - refusal `1.0`
+- public:
+  - `exact_match_rate = 0.00`
+  - `contains_match_rate = 0.00`
+
+当前最准确结论：
+
+> PACE Round2 在当前 synthetic privacy setting 下能够将 residual leakage 与 sensitive-pattern hallucination 全部压到 0，但代价是 public knowledge 完全丢失，表现出明显的 over-refusal / over-editing。
+
+## 12. 当前不要重复做的事
+
+当前不应再重复：
+
+- baseline
+- LoRA 注入训练
+- direct-only refusal edit
+
+这些阶段已经足够清楚。
+
+## 13. 当前最值得继续做的方向
+
+后续方向需要和外部讨论后定，但当前仓库内已经足够明确的一点是：
+
+- 下一阶段重点不再是“能不能 suppress leakage”
+- 而是“如何降低 collateral damage，尤其是恢复 public retain”
+
+在新 agent 没有得到新的方向决策前，不要继续随意扩展：
+
+- native sensitive 新分支
+- MEMIT baseline
+- 真实 PII benchmark
+- before/after 样例导出
+
+除非用户明确要求。
