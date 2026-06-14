@@ -39,13 +39,30 @@ def summary_metrics(all_metrics):
     for eval in ["pre", "post"]:
         mean_metrics[eval] = dict()
         for key in ["rewrite_acc", "rephrase_acc", 'rewrite_ppl', 'ood_acc']:
-            if key in all_metrics[0][eval].keys():
-                mean_metrics[eval][key] = np.mean([metric[eval][key] for metric in all_metrics])
+            metrics = [
+                metric[eval][key]
+                for metric in all_metrics
+                if eval in metric and key in metric[eval]
+            ]
+            if len(metrics) > 0:
+                mean_metrics[eval][key] = np.mean(metrics)
         for key in ["locality", "portability"]:
-            if key in all_metrics[0][eval].keys() and all_metrics[0][eval][key] != {}:
+            if (
+                len(all_metrics) > 0
+                and eval in all_metrics[0]
+                and key in all_metrics[0][eval]
+                and all_metrics[0][eval][key] != {}
+            ):
                 mean_metrics[eval][key] = dict()
                 for lkey in get_all_acc_keys(all_metrics):
-                    metrics = [np.mean(metric[eval][key][lkey]) for metric in all_metrics if lkey in metric[eval][key].keys()]
+                    metrics = [
+                        np.mean(metric[eval][key][lkey])
+                        for metric in all_metrics
+                        if eval in metric
+                        and key in metric[eval]
+                        and isinstance(metric[eval][key], dict)
+                        and lkey in metric[eval][key].keys()
+                    ]
                     if len(metrics) > 0:
                         mean_metrics[eval][key][lkey] = np.mean(metrics)
                     # mean_metrics[eval][key][lkey] = np.mean(
