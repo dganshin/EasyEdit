@@ -349,11 +349,12 @@ def main() -> int:
     original_easyeditor_level = easyeditor_logger.level
     easyeditor_logger.setLevel(logging.WARNING)
     print(f"[Stage] requests: {len(requests)}")
+    print("[Stage] note: EasyEdit sequential_edit 阶段本身没有 per-request tqdm，若请求很多会静默一段时间")
     print(f"[Stage] instantiating editor; detailed logs -> {log_path}")
     with log_path.open("a", encoding="utf-8") as log_fh:
         with contextlib.redirect_stdout(log_fh), contextlib.redirect_stderr(log_fh):
             editor = BaseEditor.from_hparams(hparams)
-            print(f"[Stage] running {args.method} edit")
+            print(f"[Stage] running {args.method} edit with sequential_edit=True, requests={len(requests)}")
             metrics, edited_model, _ = editor.edit(
                 prompts=[item["prompt"] for item in requests],
                 target_new=[item["target_new"] for item in requests],

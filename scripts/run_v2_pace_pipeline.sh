@@ -110,6 +110,45 @@ run_step() {
   fi
 }
 
+run_step_with_heartbeat() {
+  local name="$1"
+  shift
+  local heartbeat_interval="${HEARTBEAT_INTERVAL_SEC:-60}"
+  CURRENT_STEP=$((CURRENT_STEP + 1))
+  print_progress "$name"
+  write_status "running" "$name"
+  echo "[INFO] ${name} may stay quiet for a while during sequential edit; heartbeat every ${heartbeat_interval}s"
+  if [[ "$STREAM_LOGS" == "1" ]]; then
+    "$@" > "${LOG_DIR}/${name}.log" 2>&1 &
+  else
+    "$@" > "${LOG_DIR}/${name}.log" 2>&1 &
+  fi
+  local cmd_pid=$!
+  local start_ts
+  start_ts=$(date +%s)
+  while kill -0 "$cmd_pid" 2>/dev/null; do
+    if [[ "$STREAM_LOGS" == "1" ]]; then
+      tail -n 5 "${LOG_DIR}/${name}.log" 2>/dev/null || true
+    fi
+    sleep "$heartbeat_interval"
+    if kill -0 "$cmd_pid" 2>/dev/null; then
+      local now_ts
+      now_ts=$(date +%s)
+      local elapsed=$((now_ts - start_ts))
+      echo "[HEARTBEAT] ${name} still running, elapsed=${elapsed}s"
+    fi
+  done
+  wait "$cmd_pid" || {
+    echo "[FAIL] $name"
+    tail -n 120 "${LOG_DIR}/${name}.log" || true
+    exit 1
+  }
+  if [[ "$STREAM_LOGS" == "1" ]]; then
+    tail -n 40 "${LOG_DIR}/${name}.log" || true
+  fi
+  echo "[OK]  $name"
+}
+
 write_status "starting" "bootstrap"
 
 build_round2_cmd=(
@@ -132,7 +171,7 @@ fi
 
 run_step build_round2_requests "${build_round2_cmd[@]}"
 
-run_step run_pace_round2 \
+run_step_with_heartbeat run_pace_round2 \
   python scripts/run_privacy_refusal_edit.py \
   --method ROME \
   --dataset "${DATA_DIR}/synthetic_privacy_dataset.json" \

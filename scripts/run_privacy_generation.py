@@ -55,6 +55,18 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="是否同时对 public case 的 direct prompt 生成输出",
     )
+    parser.add_argument(
+        "--precision",
+        choices=["auto", "bf16", "fp16", "fp32"],
+        default="auto",
+        help="推理精度；auto 优先 bf16，再退回 fp16。",
+    )
+    parser.add_argument(
+        "--attn_implementation",
+        choices=["auto", "flash_attention_2", "sdpa", "eager"],
+        default="auto",
+        help="attention kernel 后端。",
+    )
     return parser.parse_args()
 
 
@@ -158,10 +170,35 @@ def resolve_tokenizer_source(model_path: str, lora_adapter_path: str | None) -> 
     return model_path
 
 
-def load_model_and_tokenizer(model_path: str, device: int, lora_adapter_path: str | None):
+def resolve_precision(raw_value: str) -> torch.dtype:
+    if raw_value == "bf16":
+        return torch.bfloat16
+    if raw_value == "fp16":
+        return torch.float16
+    if raw_value == "fp32":
+        return torch.float32
+    if torch.cuda.is_bf16_supported():
+        return torch.bfloat16
+    return torch.float16
+
+
+def resolve_attn_implementation(raw_value: str) -> str:
+    if raw_value != "auto":
+        return raw_value
+    try:
+        import flash_attn  # noqa: F401
+        return "flash_attention_2"
+    except Exception:
+        return "sdpa"
+
+
+def load_model_and_tokenizer(model_path: str, device: int, lora_adapter_path: str | None, precision: str, attn_implementation: str):
+    resolved_dtype = resolve_precision(precision)
+    resolved_attn_impl = resolve_attn_implementation(attn_implementation)
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        torch_dtype=torch.float16,
+        torch_dtype=resolved_dtype,
+        attn_implementation=resolved_attn_impl,
     )
     if lora_adapter_path:
         model = PeftModel.from_pretrained(model, lora_adapter_path)
@@ -172,7 +209,7 @@ def load_model_and_tokenizer(model_path: str, device: int, lora_adapter_path: st
         tokenizer.pad_token_id = tokenizer.eos_token_id
     if tokenizer.padding_side != "left":
         tokenizer.padding_side = "left"
-    return model.eval(), tokenizer
+    return model.eval(), tokenizer, resolved_dtype, resolved_attn_impl
 
 
 def batched(items: List[Dict[str, Any]], batch_size: int) -> Iterable[List[Dict[str, Any]]]:
@@ -196,7 +233,7 @@ def generate_batch(
         padding=True,
         truncation=True,
     ).to(f"cuda:{device}")
-    with torch.no_grad():
+    with torch.inference_mode():
         outputs = model.generate(
             **encoded,
             max_new_tokens=max_new_tokens,
@@ -229,6 +266,8 @@ def main() -> int:
     torch.manual_seed(args.seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
 
     dataset = load_dataset(args.dataset)
     mode = "all" if args.include_public and args.mode == "private" else args.mode
@@ -236,7 +275,13 @@ def main() -> int:
     output_path = Path(args.output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    model, tokenizer = load_model_and_tokenizer(args.model_path, int(args.device), args.lora_adapter_path)
+    model, tokenizer, resolved_dtype, resolved_attn_impl = load_model_and_tokenizer(
+        args.model_path,
+        int(args.device),
+        args.lora_adapter_path,
+        args.precision,
+        args.attn_implementation,
+    )
 
     records: List[Dict[str, Any]] = []
     total_batches = max(1, (len(jobs) + args.batch_size - 1) // args.batch_size) if jobs else 0
@@ -290,6 +335,8 @@ def main() -> int:
     print(f"model_path: {args.model_path}")
     print(f"lora_adapter_path: {args.lora_adapter_path}")
     print(f"mode: {mode}")
+    print(f"precision: {resolved_dtype}")
+    print(f"attn_implementation: {resolved_attn_impl}")
     print(f"do_sample: {args.do_sample}")
     print(f"num_trials: {args.num_trials}")
     print(f"num_jobs: {len(jobs)}")

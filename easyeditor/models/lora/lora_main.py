@@ -1,8 +1,13 @@
 from copy import deepcopy
+from functools import partial
+import inspect
+import random
+import time
 from typing import Any, Dict, List, Tuple
 from peft import get_peft_model, AdaLoraConfig, TaskType, get_peft_model_state_dict, set_peft_model_state_dict, LoraConfig
 import torch
 from tqdm import tqdm
+from torch.utils.data import DataLoader, Dataset, Sampler
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoProcessor
 
 from .lora_hparams import LoRAHyperParams
@@ -29,9 +34,9 @@ def apply_lora_to_model(
     if copy:
         model = deepcopy(model)
 
-    edited_model = execute_lora(model, tok, requests, hparams, keep_original_weight)
+    edited_model, train_stats = execute_lora(model, tok, requests, hparams, keep_original_weight)
 
-    return edited_model, weights_copy
+    return edited_model, {"weights": weights_copy, "train_stats": train_stats}
 
 
 def execute_lora(
@@ -75,114 +80,118 @@ def execute_lora(
     if hasattr(peft_model, 'print_trainable_parameters'):
         peft_model.print_trainable_parameters()
     requests = deepcopy(requests)
-    for request in requests:
+    preview_limit = min(5, len(requests))
+    for idx, request in enumerate(requests):
         if '{}' in request['prompt']:
             request['prompt'] = request['prompt'].format(request['subject'])
-        print(
-            f"Executing LoRA algo for: "
-            f"[{request['prompt']}] -> [{request['target_new']}]"
-        )
+        if idx < preview_limit:
+            print(
+                f"Executing LoRA algo for: "
+                f"[{request['prompt']}] -> [{request['target_new']}]"
+            )
+    if len(requests) > preview_limit:
+        print(f"... skipped {len(requests) - preview_limit} additional requests in preview")
     device = torch.device(f'cuda:{hparams.device}')
-    # Define inputs
     texts = [r["prompt"] for r in requests]
     targets = [r["target_new"] for r in requests]
 
-    # Configure optimizer / gradients
+    adam_kwargs = {
+        "lr": hparams.lr,
+        "weight_decay": hparams.weight_decay,
+        "eps": getattr(hparams, "adam_eps", 1e-8),
+    }
+    if device.type == "cuda" and "fused" in inspect.signature(torch.optim.Adam).parameters:
+        adam_kwargs["fused"] = True
     opt = torch.optim.Adam(
         peft_model.parameters(),
-        lr=hparams.lr,
-        weight_decay=hparams.weight_decay,
-        eps=getattr(hparams, "adam_eps", 1e-8),
+        **adam_kwargs,
     )
-
-    # if torch.__version__ >= "2" and sys.platform != "win32":
-    #     model = torch.compile(model)
+    train_loader, dataset_stats = build_lora_dataloader(requests, tok, hparams)
+    benchmark_steps = max(0, int(getattr(hparams, "benchmark_steps", 0)))
+    log_interval = max(1, int(getattr(hparams, "log_interval", 10)))
+    autocast_dtype = resolve_autocast_dtype(peft_model)
     loss_meter = AverageMeter()
-    text_batches = list(chunks(texts, hparams.batch_size))
-    target_batches = list(chunks(targets, hparams.batch_size))
+    global_step = 0
+    total_step_time = 0.0
+    total_samples = 0
+    total_tokens = 0
+    total_target_tokens = 0
+    total_padding_tokens = 0
+    max_memory_allocated = 0
+    stop_after_benchmark = False
+
     for it in range(hparams.num_steps):
         loss_meter.reset()
         progress = tqdm(
-            zip(text_batches, target_batches),
-            total=len(text_batches),
+            train_loader,
+            total=len(train_loader),
             desc=f"LoRA Epoch {it + 1}/{hparams.num_steps}",
             leave=False,
         )
-        for txt, tgt in progress:
-            mask_token = -100
-            opt.zero_grad()
-            if 't5' in hparams.model_name.lower():
-                inputs = tok(txt, return_tensors="pt", padding=True).to(device)
-                bs = inputs["input_ids"].shape[0]
-                target_ids = tok(tgt, return_tensors="pt", padding=True)["input_ids"].to(
-                    device
-                )
-                inputs['labels'] = target_ids
-                logits = peft_model(**inputs).logits
-                unmasked_log_probs = logits.log_softmax(-1).gather(-1, inputs['labels'].unsqueeze(-1)).squeeze(-1)
-                mask = inputs['labels'] != -100
-                n_tokens = mask.float().sum()
-                avg_log_prob = (unmasked_log_probs * mask.float()).sum() / n_tokens
-                nll = -avg_log_prob
-                loss = nll
-            else:
-                # src_trg_inputs = tok(txt + tgt, return_tensors="pt", padding=True).to(device)
-                # bs = src_trg_inputs["input_ids"].shape[0]
-                # targ = deepcopy(src_trg_inputs['input_ids'])
-                # pred = peft_model(**src_trg_inputs).logits
-                # pred = pred[:, :-1]
-                # targ = targ[:, 1:]
-                # mask = targ != -100
-                # n_tokens = mask.float().sum()
-                # unmasked_log_probs = pred.log_softmax(-1).gather(-1, targ.unsqueeze(-1)).squeeze(-1)
-                # log_prob = (unmasked_log_probs * mask.float()).sum() / n_tokens
-                # loss = -log_prob
-                # eos_token = tok.decode(tok.eos_token_id)
-                full_prompt = [f"{p} {l}" for p, l in zip(txt, tgt)]
-                prompt_ids = tok(list(txt), return_tensors="pt", padding=True, truncation=True)["input_ids"]
-                num_prompt_toks = [int((i != tok.pad_token_id).sum()) for i in prompt_ids]
-                tokens = tok(full_prompt, return_tensors="pt", padding=True, truncation=True)
-                bs = tokens["input_ids"].shape[0]
-                tokens["labels"] = tokens["input_ids"].clone()
-                num_pad_toks = [int((i == tok.pad_token_id).sum()) for i in tokens["labels"]]
-                for i in range(len(txt)):
-                    tokens["labels"][i][num_pad_toks[i]:num_pad_toks[i]+num_prompt_toks[i]] = mask_token
-                tokens["labels"][tokens["input_ids"] == tok.pad_token_id] = mask_token
-                tokens = tokens.to(device)
-                pred = peft_model(**tokens)
+        for batch_idx, batch in enumerate(progress, start=1):
+            opt.zero_grad(set_to_none=True)
+            input_ids = batch["input_ids"].to(device, non_blocking=getattr(hparams, "pin_memory", True))
+            attention_mask = batch["attention_mask"].to(device, non_blocking=getattr(hparams, "pin_memory", True))
+            labels = batch["labels"].to(device, non_blocking=getattr(hparams, "pin_memory", True))
+            bs = input_ids.shape[0]
+            step_tokens = int(attention_mask.sum().item())
+            step_target_tokens = int((labels != -100).sum().item())
+            step_padding_tokens = int((attention_mask.numel() - attention_mask.sum().item()))
+            step_start = time.perf_counter()
+            with torch.autocast(device_type="cuda", dtype=autocast_dtype, enabled=autocast_dtype is not None):
+                pred = peft_model(input_ids=input_ids, attention_mask=attention_mask, labels=labels)
                 loss = pred.loss
-                # pred = peft_model(**tokens)
-                # loss = pred.loss
-                # targ = target_ids
-                # pred = peft_model(**src_trg_inputs).logits
-                # pred = pred[:, :-1]
-                # pred = pred[:, -targ.size(1):]
-
-                # mask = targ != -100
-                # n_tokens = mask.float().sum()
-                # unmasked_log_probs = pred.log_softmax(-1).gather(-1, targ.unsqueeze(-1)).squeeze(-1)
-                # log_prob = (unmasked_log_probs * mask.float()).sum() / n_tokens
-                # loss = -log_prob
             if not torch.isfinite(loss):
                 raise RuntimeError(
                     f"LoRA training encountered non-finite loss: {loss.item()}. "
                     f"Try lowering lr / batch_size / rank, or enabling stronger gradient clipping."
                 )
-            loss_meter.update(loss.item(), n=bs)
-            progress.set_postfix(loss=f"{loss.item():.4f}", avg=f"{loss_meter.avg:.4f}")
-
-            # if loss.item() >= 1e-3:
             loss.backward()
             max_grad_norm = getattr(hparams, "max_grad_norm", 0.0)
             if max_grad_norm and max_grad_norm > 0:
                 torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_grad_norm)
             opt.step()
+
+            step_time = time.perf_counter() - step_start
+            global_step += 1
+            total_step_time += step_time
+            total_samples += bs
+            total_tokens += step_tokens
+            total_target_tokens += step_target_tokens
+            total_padding_tokens += step_padding_tokens
+            if device.type == "cuda":
+                max_memory_allocated = max(max_memory_allocated, torch.cuda.max_memory_allocated(device))
+
+            loss_meter.update(loss.item(), n=bs)
+            if batch_idx % log_interval == 0 or batch_idx == len(train_loader):
+                current_tokens_per_sec = step_tokens / max(step_time, 1e-8)
+                progress.set_postfix(
+                    loss=f"{loss.item():.4f}",
+                    avg=f"{loss_meter.avg:.4f}",
+                    tok_s=f"{current_tokens_per_sec:.0f}",
+                )
+            if benchmark_steps and global_step >= benchmark_steps:
+                stop_after_benchmark = True
+                break
         progress.close()
         print(f"LoRA Epoch {it + 1}/{hparams.num_steps} avg_loss={loss_meter.avg:.6f}")
+        if stop_after_benchmark:
+            break
 
-        # if loss_meter.avg < 1e-3:
-        #     break
-    return peft_model
+    avg_step_time = total_step_time / max(global_step, 1)
+    train_stats = {
+        "num_steps_completed": global_step,
+        "avg_step_time_sec": avg_step_time,
+        "samples_per_sec": total_samples / max(total_step_time, 1e-8),
+        "tokens_per_sec": total_tokens / max(total_step_time, 1e-8),
+        "target_tokens_per_sec": total_target_tokens / max(total_step_time, 1e-8),
+        "padding_ratio": total_padding_tokens / max(total_tokens + total_padding_tokens, 1),
+        "max_gpu_memory_gb": max_memory_allocated / (1024 ** 3),
+        "benchmark_steps": benchmark_steps,
+        "stopped_after_benchmark": stop_after_benchmark,
+        "dataset_stats": dataset_stats,
+    }
+    return peft_model, train_stats
 
 
 
@@ -385,6 +394,168 @@ class AverageMeter:
         self.sum += val * n
         self.count += n
         self.avg = self.sum / self.count
+
+
+class TokenizedRequestDataset(Dataset):
+    def __init__(self, samples: List[Dict[str, torch.Tensor]]):
+        self.samples = samples
+        self.lengths = [int(sample["input_ids"].shape[0]) for sample in samples]
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:
+        return self.samples[index]
+
+
+class LengthBucketBatchSampler(Sampler[List[int]]):
+    def __init__(self, lengths: List[int], batch_size: int, shuffle: bool = True, seed: int = 42):
+        self.lengths = lengths
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.seed = seed
+
+    def __iter__(self):
+        rng = random.Random(self.seed)
+        indices = list(range(len(self.lengths)))
+        if self.shuffle:
+            rng.shuffle(indices)
+        indices.sort(key=lambda idx: self.lengths[idx])
+        batches = [indices[start:start + self.batch_size] for start in range(0, len(indices), self.batch_size)]
+        if self.shuffle:
+            rng.shuffle(batches)
+        for batch in batches:
+            yield batch
+
+    def __len__(self) -> int:
+        return (len(self.lengths) + self.batch_size - 1) // self.batch_size
+
+
+def resolve_autocast_dtype(model) -> torch.dtype | None:
+    try:
+        param_dtype = next(model.parameters()).dtype
+    except StopIteration:
+        return None
+    if param_dtype in (torch.float16, torch.bfloat16):
+        return param_dtype
+    return None
+
+
+def tokenize_requests_once(
+    requests: List[Dict[str, Any]],
+    tok: AutoTokenizer,
+    max_length: int,
+) -> tuple[List[Dict[str, torch.Tensor]], Dict[str, Any]]:
+    texts = [r["prompt"] for r in requests]
+    targets = [r["target_new"] for r in requests]
+    full_texts = [f"{prompt} {target}" for prompt, target in zip(texts, targets)]
+
+    prompt_encodings = tok(
+        texts,
+        add_special_tokens=True,
+        truncation=True,
+        max_length=max_length,
+        padding=False,
+    )
+    full_encodings = tok(
+        full_texts,
+        add_special_tokens=True,
+        truncation=True,
+        max_length=max_length,
+        padding=False,
+    )
+
+    samples: List[Dict[str, torch.Tensor]] = []
+    total_input_tokens = 0
+    total_target_tokens = 0
+    for prompt_ids, full_ids in zip(prompt_encodings["input_ids"], full_encodings["input_ids"]):
+        prompt_len = min(len(prompt_ids), len(full_ids))
+        labels = list(full_ids)
+        for idx in range(prompt_len):
+            labels[idx] = -100
+        input_tensor = torch.tensor(full_ids, dtype=torch.long)
+        label_tensor = torch.tensor(labels, dtype=torch.long)
+        samples.append(
+            {
+                "input_ids": input_tensor,
+                "labels": label_tensor,
+            }
+        )
+        total_input_tokens += len(full_ids)
+        total_target_tokens += int((label_tensor != -100).sum().item())
+
+    lengths = [sample["input_ids"].shape[0] for sample in samples]
+    stats = {
+        "num_samples": len(samples),
+        "avg_sequence_length": (sum(lengths) / len(lengths)) if lengths else 0.0,
+        "max_sequence_length_observed": max(lengths) if lengths else 0,
+        "avg_target_tokens": (total_target_tokens / len(samples)) if samples else 0.0,
+        "total_input_tokens": total_input_tokens,
+        "total_target_tokens": total_target_tokens,
+    }
+    return samples, stats
+
+
+def collate_tokenized_batch(batch: List[Dict[str, torch.Tensor]], pad_token_id: int) -> Dict[str, torch.Tensor]:
+    max_len = max(int(item["input_ids"].shape[0]) for item in batch)
+    batch_size = len(batch)
+    input_ids = torch.full((batch_size, max_len), pad_token_id, dtype=torch.long)
+    attention_mask = torch.zeros((batch_size, max_len), dtype=torch.long)
+    labels = torch.full((batch_size, max_len), -100, dtype=torch.long)
+    for idx, item in enumerate(batch):
+        seq_len = int(item["input_ids"].shape[0])
+        input_ids[idx, :seq_len] = item["input_ids"]
+        attention_mask[idx, :seq_len] = 1
+        labels[idx, :seq_len] = item["labels"]
+    return {
+        "input_ids": input_ids,
+        "attention_mask": attention_mask,
+        "labels": labels,
+    }
+
+
+def build_lora_dataloader(
+    requests: List[Dict[str, Any]],
+    tok: AutoTokenizer,
+    hparams: LoRAHyperParams,
+) -> tuple[DataLoader, Dict[str, Any]]:
+    max_length = int(getattr(hparams, "max_length", 128))
+    samples, token_stats = tokenize_requests_once(requests, tok, max_length)
+    dataset = TokenizedRequestDataset(samples)
+    num_workers = max(0, int(getattr(hparams, "dataloader_num_workers", 0)))
+    prefetch_factor = max(2, int(getattr(hparams, "prefetch_factor", 2)))
+    pin_memory = bool(getattr(hparams, "pin_memory", True))
+    persistent_workers = bool(getattr(hparams, "persistent_workers", True)) and num_workers > 0
+    group_by_length = bool(getattr(hparams, "group_by_length", False))
+    seed = int(getattr(hparams, "seed", 42))
+
+    loader_kwargs: Dict[str, Any] = {
+        "num_workers": num_workers,
+        "pin_memory": pin_memory,
+        "persistent_workers": persistent_workers,
+        "collate_fn": partial(collate_tokenized_batch, pad_token_id=tok.pad_token_id),
+    }
+    if num_workers > 0:
+        loader_kwargs["prefetch_factor"] = prefetch_factor
+
+    if group_by_length:
+        batch_sampler = LengthBucketBatchSampler(dataset.lengths, hparams.batch_size, shuffle=True, seed=seed)
+        loader = DataLoader(dataset, batch_sampler=batch_sampler, **loader_kwargs)
+    else:
+        loader = DataLoader(dataset, batch_size=hparams.batch_size, shuffle=True, **loader_kwargs)
+
+    token_stats.update(
+        {
+            "pad_token_id": tok.pad_token_id,
+            "group_by_length": group_by_length,
+            "dataloader_num_workers": num_workers,
+            "pin_memory": pin_memory,
+            "persistent_workers": persistent_workers,
+            "prefetch_factor": prefetch_factor if num_workers > 0 else None,
+            "num_batches_per_epoch": len(loader),
+        }
+    )
+    return loader, token_stats
 
 
 def chunks(arr, n):

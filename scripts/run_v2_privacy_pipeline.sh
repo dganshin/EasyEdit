@@ -52,9 +52,19 @@ LORA_RANK="${LORA_RANK:-16}"
 LORA_EPOCHS="${LORA_EPOCHS:-${LORA_NUM_STEPS:-3}}"
 LORA_LR="${LORA_LR:-5e-4}"
 LORA_MAX_LENGTH="${LORA_MAX_LENGTH:-128}"
-TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-24 20 16 12 8}"
+TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-40 36 32 28 24 20 16 12 8}"
+LORA_PRECISION="${LORA_PRECISION:-auto}"
+LORA_ATTN_IMPL="${LORA_ATTN_IMPL:-auto}"
+LORA_WORKERS="${LORA_WORKERS:-8}"
+LORA_PREFETCH_FACTOR="${LORA_PREFETCH_FACTOR:-4}"
+GROUP_BY_LENGTH="${GROUP_BY_LENGTH:-1}"
+BENCHMARK_STEPS="${BENCHMARK_STEPS:-0}"
+LOG_INTERVAL="${LOG_INTERVAL:-10}"
+USE_GRADIENT_CHECKPOINTING="${USE_GRADIENT_CHECKPOINTING:-0}"
 GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
+GEN_PRECISION="${GEN_PRECISION:-auto}"
+GEN_ATTN_IMPL="${GEN_ATTN_IMPL:-auto}"
 STREAM_LOGS="${STREAM_LOGS:-0}"
 STATUS_FILE="${STATUS_FILE:-${OUT_DIR}/pipeline_status.txt}"
 DONE_FILE="${DONE_FILE:-${OUT_DIR}/PIPELINE_DONE}"
@@ -119,6 +129,22 @@ run_train_with_fallback() {
   if [[ "$SHUFFLE_TRAIN" == "1" ]]; then
     shuffle_args+=(--shuffle)
   fi
+  local train_extra_args=(
+    --precision "$LORA_PRECISION"
+    --attn_implementation "$LORA_ATTN_IMPL"
+    --dataloader_num_workers "$LORA_WORKERS"
+    --prefetch_factor "$LORA_PREFETCH_FACTOR"
+    --log_interval "$LOG_INTERVAL"
+  )
+  if [[ "$GROUP_BY_LENGTH" == "1" ]]; then
+    train_extra_args+=(--group_by_length)
+  fi
+  if [[ "$BENCHMARK_STEPS" != "0" ]]; then
+    train_extra_args+=(--benchmark_steps "$BENCHMARK_STEPS")
+  fi
+  if [[ "$USE_GRADIENT_CHECKPOINTING" != "1" ]]; then
+    train_extra_args+=(--disable_gradient_checkpointing)
+  fi
   CURRENT_STEP=$((CURRENT_STEP + 1))
   print_progress "train_lora"
   write_status "running" "train_lora"
@@ -126,7 +152,7 @@ run_train_with_fallback() {
     num_records=$(wc -l < "$train_data")
     batches_per_epoch=$(( (num_records + batch_size - 1) / batch_size ))
     echo "[RUN] train_lora_bs${batch_size}"
-    echo "[INFO] records=${num_records} batch_size=${batch_size} epochs=${LORA_EPOCHS} batches_per_epoch=${batches_per_epoch} estimated_total_batches=$((batches_per_epoch * LORA_EPOCHS))"
+    echo "[INFO] records=${num_records} batch_size=${batch_size} epochs=${LORA_EPOCHS} batches_per_epoch=${batches_per_epoch} estimated_total_batches=$((batches_per_epoch * LORA_EPOCHS)) precision=${LORA_PRECISION} attn=${LORA_ATTN_IMPL} workers=${LORA_WORKERS} group_by_length=${GROUP_BY_LENGTH} gc=${USE_GRADIENT_CHECKPOINTING}"
     if [[ "$STREAM_LOGS" == "1" ]]; then
       if python scripts/train_lora_privacy_injection.py \
         --train_data "$train_data" \
@@ -140,7 +166,7 @@ run_train_with_fallback() {
         --lr "$LORA_LR" \
         --max_length "$LORA_MAX_LENGTH" \
         "${shuffle_args[@]}" \
-        --disable_gradient_checkpointing \
+        "${train_extra_args[@]}" \
         2>&1 | tee "${LOG_DIR}/train_lora_bs${batch_size}.log"; then
         echo "[OK]  train_lora_bs${batch_size}"
         echo "$batch_size" > "${OUT_DIR}/resolved_train_batch_size.txt"
@@ -158,7 +184,7 @@ run_train_with_fallback() {
       --lr "$LORA_LR" \
       --max_length "$LORA_MAX_LENGTH" \
       "${shuffle_args[@]}" \
-      --disable_gradient_checkpointing \
+      "${train_extra_args[@]}" \
       > "${LOG_DIR}/train_lora_bs${batch_size}.log" 2>&1; then
       echo "[OK]  train_lora_bs${batch_size}"
       echo "$batch_size" > "${OUT_DIR}/resolved_train_batch_size.txt"
@@ -213,6 +239,8 @@ run_step generate_private \
   --output_path "${OUT_DIR}/privacy_predictions_merged_v2.jsonl" \
   --batch_size "$GEN_BATCH_SIZE" \
   --max_new_tokens "$MAX_NEW_TOKENS" \
+  --precision "$GEN_PRECISION" \
+  --attn_implementation "$GEN_ATTN_IMPL" \
   --attack_types direct paraphrase completion roleplay context
 
 run_step eval_private \
@@ -230,7 +258,9 @@ run_step generate_public \
   --mode public \
   --output_path "${OUT_DIR}/public_predictions_merged_v2.jsonl" \
   --batch_size "$GEN_BATCH_SIZE" \
-  --max_new_tokens "$MAX_NEW_TOKENS"
+  --max_new_tokens "$MAX_NEW_TOKENS" \
+  --precision "$GEN_PRECISION" \
+  --attn_implementation "$GEN_ATTN_IMPL"
 
 run_step eval_public \
   python scripts/evaluate_public_retain.py \
