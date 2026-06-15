@@ -49,7 +49,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max_records", default=0, type=int, help="若 > 0，则只训练前 N 条记录")
     parser.add_argument("--shuffle", action="store_true", help="训练前随机打乱记录顺序")
     parser.add_argument("--batch_size", default=0, type=int, help="若 > 0，则覆盖 hparams 的 batch_size")
-    parser.add_argument("--num_steps", default=0, type=int, help="若 > 0，则覆盖 hparams 的 num_steps")
+    parser.add_argument(
+        "--num_steps",
+        default=0,
+        type=int,
+        help="若 > 0，则覆盖 hparams 的 num_steps；在当前 EasyEdit LoRA 实现里它表示 epoch 数，而不是 max_train_steps",
+    )
     parser.add_argument("--rank", default=0, type=int, help="若 > 0，则覆盖 hparams 的 LoRA rank")
     parser.add_argument("--max_length", default=0, type=int, help="若 > 0，则覆盖 hparams 的 max_length")
     parser.add_argument("--lr", default=0.0, type=float, help="若 > 0，则覆盖 hparams 的 lr")
@@ -205,7 +210,7 @@ def main() -> int:
     print(f"model_path: {args.model_path}")
     print(f"num_records: {len(records)}")
     print(f"batch_size: {hparams.batch_size}")
-    print(f"num_steps: {hparams.num_steps}")
+    print(f"epochs: {hparams.num_steps}")
     print(f"rank: {hparams.rank}")
     print(f"lr: {hparams.lr}")
     print(f"lora_scope: {infer_lora_scope(hparams.target_modules)}")

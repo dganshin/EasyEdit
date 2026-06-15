@@ -49,7 +49,7 @@ NUM_PUBLIC_TEMPLATES_PER_CASE="${NUM_PUBLIC_TEMPLATES_PER_CASE:-3}"
 
 LORA_SCOPE="${LORA_SCOPE:-mlp_only}"
 LORA_RANK="${LORA_RANK:-16}"
-LORA_NUM_STEPS="${LORA_NUM_STEPS:-3}"
+LORA_EPOCHS="${LORA_EPOCHS:-${LORA_NUM_STEPS:-3}}"
 LORA_LR="${LORA_LR:-5e-4}"
 LORA_MAX_LENGTH="${LORA_MAX_LENGTH:-128}"
 TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-24 20 16 12 8}"
@@ -114,6 +114,8 @@ run_train_with_fallback() {
   local train_data="$1"
   local batch_size
   local shuffle_args=()
+  local num_records
+  local batches_per_epoch
   if [[ "$SHUFFLE_TRAIN" == "1" ]]; then
     shuffle_args+=(--shuffle)
   fi
@@ -121,7 +123,10 @@ run_train_with_fallback() {
   print_progress "train_lora"
   write_status "running" "train_lora"
   for batch_size in ${TRAIN_BATCH_CANDIDATES}; do
+    num_records=$(wc -l < "$train_data")
+    batches_per_epoch=$(( (num_records + batch_size - 1) / batch_size ))
     echo "[RUN] train_lora_bs${batch_size}"
+    echo "[INFO] records=${num_records} batch_size=${batch_size} epochs=${LORA_EPOCHS} batches_per_epoch=${batches_per_epoch} estimated_total_batches=$((batches_per_epoch * LORA_EPOCHS))"
     if [[ "$STREAM_LOGS" == "1" ]]; then
       if python scripts/train_lora_privacy_injection.py \
         --train_data "$train_data" \
@@ -131,7 +136,7 @@ run_train_with_fallback() {
         --lora_scope "$LORA_SCOPE" \
         --batch_size "$batch_size" \
         --rank "$LORA_RANK" \
-        --num_steps "$LORA_NUM_STEPS" \
+        --num_steps "$LORA_EPOCHS" \
         --lr "$LORA_LR" \
         --max_length "$LORA_MAX_LENGTH" \
         "${shuffle_args[@]}" \
@@ -149,7 +154,7 @@ run_train_with_fallback() {
       --lora_scope "$LORA_SCOPE" \
       --batch_size "$batch_size" \
       --rank "$LORA_RANK" \
-      --num_steps "$LORA_NUM_STEPS" \
+      --num_steps "$LORA_EPOCHS" \
       --lr "$LORA_LR" \
       --max_length "$LORA_MAX_LENGTH" \
       "${shuffle_args[@]}" \
