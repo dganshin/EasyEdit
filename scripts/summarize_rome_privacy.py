@@ -53,6 +53,7 @@ def pick_public_metrics(payload: Dict[str, Any] | None) -> Dict[str, Any] | None
         "public_exact_acc": overall.get("exact_match_rate", 0.0),
         "public_contains_acc": overall.get("contains_match_rate", 0.0),
         "by_attribute": payload.get("by_attribute", {}),
+        "by_public_type": payload.get("by_public_type", {}),
     }
 
 
