@@ -1,0 +1,28 @@
+{
+  "train_data": "artifacts/synthetic_privacy_data_v2/lora_privacy_train.jsonl",
+  "hparams": "hparams/LoRA/qwen2.5-7b.yaml",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "output_dir": "/root/autodl-tmp/outputs/easyedit/v2_lora_mlp_only/adapter",
+  "num_records": 2040,
+  "device": 0,
+  "seed": 42,
+  "max_records": 0,
+  "shuffle": false,
+  "resolved_hparams": {
+    "batch_size": 32,
+    "num_steps": 2,
+    "rank": 32,
+    "max_length": 128,
+    "lr": 0.0005,
+    "lora_alpha": 32,
+    "lora_scope": "mlp_only",
+    "target_modules": [
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "max_grad_norm": 1.0,
+    "adam_eps": 1e-08,
+    "use_gradient_checkpointing": false
+  }
+}

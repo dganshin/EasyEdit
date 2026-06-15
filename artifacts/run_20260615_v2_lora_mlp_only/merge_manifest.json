@@ -1,0 +1,5 @@
+{
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "lora_adapter_path": "/root/autodl-tmp/outputs/easyedit/v2_lora_mlp_only/adapter",
+  "output_dir": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged"
+}
