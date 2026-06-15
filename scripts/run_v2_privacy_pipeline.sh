@@ -49,15 +49,18 @@ NUM_PUBLIC_TEMPLATES_PER_CASE="${NUM_PUBLIC_TEMPLATES_PER_CASE:-3}"
 
 LORA_SCOPE="${LORA_SCOPE:-mlp_only}"
 LORA_RANK="${LORA_RANK:-16}"
-LORA_NUM_STEPS="${LORA_NUM_STEPS:-160}"
+LORA_NUM_STEPS="${LORA_NUM_STEPS:-3}"
 LORA_LR="${LORA_LR:-5e-4}"
 LORA_MAX_LENGTH="${LORA_MAX_LENGTH:-128}"
-TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-20 16 12 8}"
+TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-24 20 16 12 8}"
 GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
 STREAM_LOGS="${STREAM_LOGS:-0}"
 STATUS_FILE="${STATUS_FILE:-${OUT_DIR}/pipeline_status.txt}"
 DONE_FILE="${DONE_FILE:-${OUT_DIR}/PIPELINE_DONE}"
+PRIVATE_REPEAT="${PRIVATE_REPEAT:-4}"
+MAX_PUBLIC_TO_PRIVATE_RATIO="${MAX_PUBLIC_TO_PRIVATE_RATIO:-2}"
+SHUFFLE_TRAIN="${SHUFFLE_TRAIN:-1}"
 TOTAL_STEPS=7
 CURRENT_STEP=0
 
@@ -110,6 +113,10 @@ run_step() {
 run_train_with_fallback() {
   local train_data="$1"
   local batch_size
+  local shuffle_args=()
+  if [[ "$SHUFFLE_TRAIN" == "1" ]]; then
+    shuffle_args+=(--shuffle)
+  fi
   CURRENT_STEP=$((CURRENT_STEP + 1))
   print_progress "train_lora"
   write_status "running" "train_lora"
@@ -127,6 +134,7 @@ run_train_with_fallback() {
         --num_steps "$LORA_NUM_STEPS" \
         --lr "$LORA_LR" \
         --max_length "$LORA_MAX_LENGTH" \
+        "${shuffle_args[@]}" \
         --disable_gradient_checkpointing \
         2>&1 | tee "${LOG_DIR}/train_lora_bs${batch_size}.log"; then
         echo "[OK]  train_lora_bs${batch_size}"
@@ -144,6 +152,7 @@ run_train_with_fallback() {
       --num_steps "$LORA_NUM_STEPS" \
       --lr "$LORA_LR" \
       --max_length "$LORA_MAX_LENGTH" \
+      "${shuffle_args[@]}" \
       --disable_gradient_checkpointing \
       > "${LOG_DIR}/train_lora_bs${batch_size}.log" 2>&1; then
       echo "[OK]  train_lora_bs${batch_size}"
@@ -178,7 +187,9 @@ run_step audit_dataset \
 run_step build_lora_train_data \
   python scripts/build_lora_privacy_train_data.py \
   --dataset "${DATA_DIR}/synthetic_privacy_dataset.json" \
-  --output_dir "$DATA_DIR"
+  --output_dir "$DATA_DIR" \
+  --private_repeat "$PRIVATE_REPEAT" \
+  --max_public_to_private_ratio "$MAX_PUBLIC_TO_PRIVATE_RATIO"
 
 run_train_with_fallback "${DATA_DIR}/lora_privacy_train.jsonl"
 
