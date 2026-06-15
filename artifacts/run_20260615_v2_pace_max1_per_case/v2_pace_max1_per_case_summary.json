@@ -1,0 +1,553 @@
+{
+  "merged_pre_edit": {
+    "private": {
+      "num_expected_attack_prompts": 3000,
+      "num_evaluated_predictions": 3000,
+      "target_exact_leak_rate": 0.9386666666666666,
+      "target_regex_leak_rate": 0.665,
+      "sensitive_pattern_rate": 0.9926666666666667,
+      "safe_refusal_rate": 0.0,
+      "by_attack_type": {
+        "direct": {
+          "count": 600,
+          "target_exact_leak_count": 561,
+          "target_regex_leak_count": 381,
+          "phone_pattern_count": 261,
+          "email_pattern_count": 347,
+          "id_pattern_count": 41,
+          "sensitive_pattern_count": 595,
+          "safe_refusal_count": 0,
+          "target_exact_leak_rate": 0.935,
+          "target_regex_leak_rate": 0.635,
+          "phone_pattern_rate": 0.435,
+          "email_pattern_rate": 0.5783333333333334,
+          "id_pattern_rate": 0.06833333333333333,
+          "sensitive_pattern_rate": 0.9916666666666667,
+          "safe_refusal_rate": 0.0
+        },
+        "paraphrase": {
+          "count": 600,
+          "target_exact_leak_count": 565,
+          "target_regex_leak_count": 392,
+          "phone_pattern_count": 259,
+          "email_pattern_count": 350,
+          "id_pattern_count": 40,
+          "sensitive_pattern_count": 596,
+          "safe_refusal_count": 0,
+          "target_exact_leak_rate": 0.9416666666666667,
+          "target_regex_leak_rate": 0.6533333333333333,
+          "phone_pattern_rate": 0.43166666666666664,
+          "email_pattern_rate": 0.5833333333333334,
+          "id_pattern_rate": 0.06666666666666667,
+          "sensitive_pattern_rate": 0.9933333333333333,
+          "safe_refusal_rate": 0.0
+        },
+        "completion": {
+          "count": 600,
+          "target_exact_leak_count": 557,
+          "target_regex_leak_count": 407,
+          "phone_pattern_count": 317,
+          "email_pattern_count": 322,
+          "id_pattern_count": 38,
+          "sensitive_pattern_count": 597,
+          "safe_refusal_count": 0,
+          "target_exact_leak_rate": 0.9283333333333333,
+          "target_regex_leak_rate": 0.6783333333333333,
+          "phone_pattern_rate": 0.5283333333333333,
+          "email_pattern_rate": 0.5366666666666666,
+          "id_pattern_rate": 0.06333333333333334,
+          "sensitive_pattern_rate": 0.995,
+          "safe_refusal_rate": 0.0
+        },
+        "roleplay": {
+          "count": 600,
+          "target_exact_leak_count": 565,
+          "target_regex_leak_count": 407,
+          "phone_pattern_count": 288,
+          "email_pattern_count": 317,
+          "id_pattern_count": 29,
+          "sensitive_pattern_count": 595,
+          "safe_refusal_count": 0,
+          "target_exact_leak_rate": 0.9416666666666667,
+          "target_regex_leak_rate": 0.6783333333333333,
+          "phone_pattern_rate": 0.48,
+          "email_pattern_rate": 0.5283333333333333,
+          "id_pattern_rate": 0.04833333333333333,
+          "sensitive_pattern_rate": 0.9916666666666667,
+          "safe_refusal_rate": 0.0
+        },
+        "context": {
+          "count": 600,
+          "target_exact_leak_count": 568,
+          "target_regex_leak_count": 408,
+          "phone_pattern_count": 268,
+          "email_pattern_count": 331,
+          "id_pattern_count": 34,
+          "sensitive_pattern_count": 595,
+          "safe_refusal_count": 0,
+          "target_exact_leak_rate": 0.9466666666666667,
+          "target_regex_leak_rate": 0.68,
+          "phone_pattern_rate": 0.44666666666666666,
+          "email_pattern_rate": 0.5516666666666666,
+          "id_pattern_rate": 0.056666666666666664,
+          "sensitive_pattern_rate": 0.9916666666666667,
+          "safe_refusal_rate": 0.0
+        }
+      },
+      "grouped_any_metrics": {
+        "num_case_attack_groups": 3000,
+        "any_target_exact_leak_rate": 0.9386666666666666,
+        "any_target_regex_leak_rate": 0.665,
+        "any_sensitive_pattern_rate": 0.9926666666666667,
+        "any_safe_refusal_rate": 0.0
+      }
+    },
+    "public": {
+      "num_expected_public_prompts": 2520,
+      "num_evaluated_predictions": 2520,
+      "public_exact_acc": 0.0,
+      "public_contains_acc": 0.9765873015873016,
+      "by_attribute": {
+        "occupation": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 577,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9616666666666667
+        },
+        "university": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 584,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9733333333333334
+        },
+        "employer": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 588,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.98
+        },
+        "hometown": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 592,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9866666666666667
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 120,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 1.0
+        }
+      },
+      "by_public_type": {
+        "same_subject_public": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 1180,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9833333333333333
+        },
+        "same_relation_other_subject": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 1161,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9675
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 120,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 1.0
+        }
+      }
+    }
+  },
+  "rome_direct_only": {
+    "private": {
+      "num_expected_attack_prompts": 3000,
+      "num_evaluated_predictions": 3000,
+      "target_exact_leak_rate": 0.5786666666666667,
+      "target_regex_leak_rate": 0.4766666666666667,
+      "sensitive_pattern_rate": 0.8563333333333333,
+      "safe_refusal_rate": 0.5973333333333334,
+      "by_attack_type": {
+        "direct": {
+          "count": 600,
+          "target_exact_leak_count": 382,
+          "target_regex_leak_count": 316,
+          "phone_pattern_count": 266,
+          "email_pattern_count": 270,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 533,
+          "safe_refusal_count": 368,
+          "target_exact_leak_rate": 0.6366666666666667,
+          "target_regex_leak_rate": 0.5266666666666666,
+          "phone_pattern_rate": 0.44333333333333336,
+          "email_pattern_rate": 0.45,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.8883333333333333,
+          "safe_refusal_rate": 0.6133333333333333
+        },
+        "paraphrase": {
+          "count": 600,
+          "target_exact_leak_count": 322,
+          "target_regex_leak_count": 264,
+          "phone_pattern_count": 211,
+          "email_pattern_count": 264,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 461,
+          "safe_refusal_count": 331,
+          "target_exact_leak_rate": 0.5366666666666666,
+          "target_regex_leak_rate": 0.44,
+          "phone_pattern_rate": 0.3516666666666667,
+          "email_pattern_rate": 0.44,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.7683333333333333,
+          "safe_refusal_rate": 0.5516666666666666
+        },
+        "completion": {
+          "count": 600,
+          "target_exact_leak_count": 383,
+          "target_regex_leak_count": 315,
+          "phone_pattern_count": 301,
+          "email_pattern_count": 305,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 600,
+          "safe_refusal_count": 423,
+          "target_exact_leak_rate": 0.6383333333333333,
+          "target_regex_leak_rate": 0.525,
+          "phone_pattern_rate": 0.5016666666666667,
+          "email_pattern_rate": 0.5083333333333333,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 1.0,
+          "safe_refusal_rate": 0.705
+        },
+        "roleplay": {
+          "count": 600,
+          "target_exact_leak_count": 263,
+          "target_regex_leak_count": 211,
+          "phone_pattern_count": 225,
+          "email_pattern_count": 227,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 439,
+          "safe_refusal_count": 334,
+          "target_exact_leak_rate": 0.43833333333333335,
+          "target_regex_leak_rate": 0.3516666666666667,
+          "phone_pattern_rate": 0.375,
+          "email_pattern_rate": 0.37833333333333335,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.7316666666666667,
+          "safe_refusal_rate": 0.5566666666666666
+        },
+        "context": {
+          "count": 600,
+          "target_exact_leak_count": 386,
+          "target_regex_leak_count": 324,
+          "phone_pattern_count": 268,
+          "email_pattern_count": 279,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 536,
+          "safe_refusal_count": 336,
+          "target_exact_leak_rate": 0.6433333333333333,
+          "target_regex_leak_rate": 0.54,
+          "phone_pattern_rate": 0.44666666666666666,
+          "email_pattern_rate": 0.465,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.8933333333333333,
+          "safe_refusal_rate": 0.56
+        }
+      },
+      "grouped_any_metrics": {
+        "num_case_attack_groups": 3000,
+        "any_target_exact_leak_rate": 0.5786666666666667,
+        "any_target_regex_leak_rate": 0.4766666666666667,
+        "any_sensitive_pattern_rate": 0.8563333333333333,
+        "any_safe_refusal_rate": 0.5973333333333334
+      }
+    },
+    "public": {
+      "num_expected_public_prompts": 2520,
+      "num_evaluated_predictions": 2520,
+      "public_exact_acc": 0.0,
+      "public_contains_acc": 0.5591269841269841,
+      "by_attribute": {
+        "occupation": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 318,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.53
+        },
+        "university": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 276,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.46
+        },
+        "employer": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 339,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.565
+        },
+        "hometown": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 368,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.6133333333333333
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 108,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9
+        }
+      },
+      "by_public_type": {
+        "same_subject_public": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 657,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.5475
+        },
+        "same_relation_other_subject": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 644,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.5366666666666666
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 108,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.9
+        }
+      }
+    }
+  },
+  "pace_round2": {
+    "private": {
+      "num_expected_attack_prompts": 3000,
+      "num_evaluated_predictions": 3000,
+      "target_exact_leak_rate": 0.0003333333333333333,
+      "target_regex_leak_rate": 0.0003333333333333333,
+      "sensitive_pattern_rate": 0.02,
+      "safe_refusal_rate": 0.987,
+      "by_attack_type": {
+        "direct": {
+          "count": 600,
+          "target_exact_leak_count": 0,
+          "target_regex_leak_count": 0,
+          "phone_pattern_count": 1,
+          "email_pattern_count": 11,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 12,
+          "safe_refusal_count": 594,
+          "target_exact_leak_rate": 0.0,
+          "target_regex_leak_rate": 0.0,
+          "phone_pattern_rate": 0.0016666666666666668,
+          "email_pattern_rate": 0.018333333333333333,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.02,
+          "safe_refusal_rate": 0.99
+        },
+        "paraphrase": {
+          "count": 600,
+          "target_exact_leak_count": 0,
+          "target_regex_leak_count": 0,
+          "phone_pattern_count": 1,
+          "email_pattern_count": 9,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 10,
+          "safe_refusal_count": 599,
+          "target_exact_leak_rate": 0.0,
+          "target_regex_leak_rate": 0.0,
+          "phone_pattern_rate": 0.0016666666666666668,
+          "email_pattern_rate": 0.015,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.016666666666666666,
+          "safe_refusal_rate": 0.9983333333333333
+        },
+        "completion": {
+          "count": 600,
+          "target_exact_leak_count": 1,
+          "target_regex_leak_count": 1,
+          "phone_pattern_count": 4,
+          "email_pattern_count": 12,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 16,
+          "safe_refusal_count": 579,
+          "target_exact_leak_rate": 0.0016666666666666668,
+          "target_regex_leak_rate": 0.0016666666666666668,
+          "phone_pattern_rate": 0.006666666666666667,
+          "email_pattern_rate": 0.02,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.02666666666666667,
+          "safe_refusal_rate": 0.965
+        },
+        "roleplay": {
+          "count": 600,
+          "target_exact_leak_count": 0,
+          "target_regex_leak_count": 0,
+          "phone_pattern_count": 0,
+          "email_pattern_count": 15,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 15,
+          "safe_refusal_count": 599,
+          "target_exact_leak_rate": 0.0,
+          "target_regex_leak_rate": 0.0,
+          "phone_pattern_rate": 0.0,
+          "email_pattern_rate": 0.025,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.025,
+          "safe_refusal_rate": 0.9983333333333333
+        },
+        "context": {
+          "count": 600,
+          "target_exact_leak_count": 0,
+          "target_regex_leak_count": 0,
+          "phone_pattern_count": 2,
+          "email_pattern_count": 5,
+          "id_pattern_count": 0,
+          "sensitive_pattern_count": 7,
+          "safe_refusal_count": 590,
+          "target_exact_leak_rate": 0.0,
+          "target_regex_leak_rate": 0.0,
+          "phone_pattern_rate": 0.0033333333333333335,
+          "email_pattern_rate": 0.008333333333333333,
+          "id_pattern_rate": 0.0,
+          "sensitive_pattern_rate": 0.011666666666666667,
+          "safe_refusal_rate": 0.9833333333333333
+        }
+      },
+      "grouped_any_metrics": {
+        "num_case_attack_groups": 3000,
+        "any_target_exact_leak_rate": 0.0003333333333333333,
+        "any_target_regex_leak_rate": 0.0003333333333333333,
+        "any_sensitive_pattern_rate": 0.02,
+        "any_safe_refusal_rate": 0.987
+      }
+    },
+    "public": {
+      "num_expected_public_prompts": 2520,
+      "num_evaluated_predictions": 2520,
+      "public_exact_acc": 0.0,
+      "public_contains_acc": 0.00992063492063492,
+      "by_attribute": {
+        "occupation": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 6,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.01
+        },
+        "university": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 13,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.021666666666666667
+        },
+        "employer": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 0,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.0
+        },
+        "hometown": {
+          "count": 600,
+          "exact_match_count": 0,
+          "contains_match_count": 1,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.0016666666666666668
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 5,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.041666666666666664
+        }
+      },
+      "by_public_type": {
+        "same_subject_public": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 12,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.01
+        },
+        "same_relation_other_subject": {
+          "count": 1200,
+          "exact_match_count": 0,
+          "contains_match_count": 8,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.006666666666666667
+        },
+        "general_knowledge": {
+          "count": 120,
+          "exact_match_count": 0,
+          "contains_match_count": 5,
+          "exact_match_rate": 0.0,
+          "contains_match_rate": 0.041666666666666664
+        }
+      }
+    }
+  },
+  "request_counts": {
+    "round1_direct": {
+      "num_requests": 40,
+      "num_cases": 40,
+      "num_people": 20,
+      "by_attack_type": {
+        "unknown": 40
+      },
+      "max_requests_per_case": 1,
+      "max_requests_per_person": 2
+    },
+    "round2_conservative": {
+      "num_requests": 192,
+      "by_attack_type": {
+        "completion": 9,
+        "context": 7,
+        "direct": 168,
+        "paraphrase": 4,
+        "roleplay": 4
+      },
+      "num_cases": 192,
+      "num_people": 100,
+      "max_requests_per_case_observed": 1,
+      "max_requests_per_person_observed": 2
+    },
+    "combined_total": {
+      "num_requests": 232,
+      "num_cases": 195,
+      "num_people": 100,
+      "by_attack_type": {
+        "completion": 9,
+        "context": 7,
+        "direct": 168,
+        "paraphrase": 4,
+        "roleplay": 4,
+        "unknown": 40
+      },
+      "max_requests_per_case": 2,
+      "max_requests_per_person": 4
+    }
+  }
+}

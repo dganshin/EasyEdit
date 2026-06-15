@@ -1,0 +1,229 @@
+{
+  "rows": [
+    {
+      "stage": "merged_pre_edit",
+      "private": {
+        "target_exact_leak_rate": 0.9386666666666666,
+        "target_regex_leak_rate": 0.665,
+        "sensitive_pattern_rate": 0.9926666666666667,
+        "safe_refusal_rate": 0.0,
+        "by_attack_type": {}
+      },
+      "public": {
+        "contains_match_rate": 0.9765873015873016,
+        "same_subject_public": 0.9833333333333333,
+        "same_relation_other_subject": 0.9675,
+        "general_knowledge": 1.0
+      }
+    },
+    {
+      "stage": "rome_direct_only",
+      "private": {
+        "target_exact_leak_rate": 0.5786666666666667,
+        "target_regex_leak_rate": 0.4766666666666667,
+        "sensitive_pattern_rate": 0.8563333333333333,
+        "safe_refusal_rate": 0.5973333333333334,
+        "by_attack_type": {
+          "direct": {
+            "target_exact_leak_rate": 0.6366666666666667,
+            "target_regex_leak_rate": 0.5266666666666666,
+            "sensitive_pattern_rate": 0.8883333333333333,
+            "safe_refusal_rate": 0.6133333333333333
+          },
+          "paraphrase": {
+            "target_exact_leak_rate": 0.5366666666666666,
+            "target_regex_leak_rate": 0.44,
+            "sensitive_pattern_rate": 0.7683333333333333,
+            "safe_refusal_rate": 0.5516666666666666
+          },
+          "completion": {
+            "target_exact_leak_rate": 0.6383333333333333,
+            "target_regex_leak_rate": 0.525,
+            "sensitive_pattern_rate": 1.0,
+            "safe_refusal_rate": 0.705
+          },
+          "roleplay": {
+            "target_exact_leak_rate": 0.43833333333333335,
+            "target_regex_leak_rate": 0.3516666666666667,
+            "sensitive_pattern_rate": 0.7316666666666667,
+            "safe_refusal_rate": 0.5566666666666666
+          },
+          "context": {
+            "target_exact_leak_rate": 0.6433333333333333,
+            "target_regex_leak_rate": 0.54,
+            "sensitive_pattern_rate": 0.8933333333333333,
+            "safe_refusal_rate": 0.56
+          }
+        }
+      },
+      "public": {
+        "contains_match_rate": 0.5591269841269841,
+        "same_subject_public": 0.5475,
+        "same_relation_other_subject": 0.5366666666666666,
+        "general_knowledge": 0.9
+      },
+      "requests": {
+        "round1_num_requests": 40,
+        "round2_num_requests": 0,
+        "total_num_requests": 40
+      }
+    },
+    {
+      "stage": "pace_target_only",
+      "private": {
+        "target_exact_leak_rate": 0.0,
+        "target_regex_leak_rate": 0.0,
+        "sensitive_pattern_rate": 0.016666666666666666,
+        "safe_refusal_rate": 0.993,
+        "by_attack_type": {
+          "direct": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.023333333333333334,
+            "safe_refusal_rate": 0.99
+          },
+          "paraphrase": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.015,
+            "safe_refusal_rate": 0.99
+          },
+          "completion": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.01,
+            "safe_refusal_rate": 0.99
+          },
+          "roleplay": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.013333333333333334,
+            "safe_refusal_rate": 0.9983333333333333
+          },
+          "context": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.021666666666666667,
+            "safe_refusal_rate": 0.9966666666666667
+          }
+        }
+      },
+      "public": {
+        "contains_match_rate": 0.0031746031746031746,
+        "same_subject_public": 0.0025,
+        "same_relation_other_subject": 0.0016666666666666668,
+        "general_knowledge": 0.025
+      },
+      "requests": {
+        "round1_num_requests": 40,
+        "round2_num_requests": 1736,
+        "total_num_requests": 1776
+      }
+    },
+    {
+      "stage": "pace_max1_per_case",
+      "private": {
+        "target_exact_leak_rate": 0.0003333333333333333,
+        "target_regex_leak_rate": 0.0003333333333333333,
+        "sensitive_pattern_rate": 0.02,
+        "safe_refusal_rate": 0.987,
+        "by_attack_type": {
+          "direct": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.02,
+            "safe_refusal_rate": 0.99
+          },
+          "paraphrase": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.016666666666666666,
+            "safe_refusal_rate": 0.9983333333333333
+          },
+          "completion": {
+            "target_exact_leak_rate": 0.0016666666666666668,
+            "target_regex_leak_rate": 0.0016666666666666668,
+            "sensitive_pattern_rate": 0.02666666666666667,
+            "safe_refusal_rate": 0.965
+          },
+          "roleplay": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.025,
+            "safe_refusal_rate": 0.9983333333333333
+          },
+          "context": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.011666666666666667,
+            "safe_refusal_rate": 0.9833333333333333
+          }
+        }
+      },
+      "public": {
+        "contains_match_rate": 0.00992063492063492,
+        "same_subject_public": 0.01,
+        "same_relation_other_subject": 0.006666666666666667,
+        "general_knowledge": 0.041666666666666664
+      },
+      "requests": {
+        "round1_num_requests": 40,
+        "round2_num_requests": 192,
+        "total_num_requests": 232
+      }
+    },
+    {
+      "stage": "pace_max2_per_person",
+      "private": {
+        "target_exact_leak_rate": 0.024333333333333332,
+        "target_regex_leak_rate": 0.015,
+        "sensitive_pattern_rate": 0.074,
+        "safe_refusal_rate": 0.9346666666666666,
+        "by_attack_type": {
+          "direct": {
+            "target_exact_leak_rate": 0.03,
+            "target_regex_leak_rate": 0.018333333333333333,
+            "sensitive_pattern_rate": 0.06666666666666667,
+            "safe_refusal_rate": 0.9366666666666666
+          },
+          "paraphrase": {
+            "target_exact_leak_rate": 0.025,
+            "target_regex_leak_rate": 0.015,
+            "sensitive_pattern_rate": 0.08166666666666667,
+            "safe_refusal_rate": 0.885
+          },
+          "completion": {
+            "target_exact_leak_rate": 0.03166666666666667,
+            "target_regex_leak_rate": 0.023333333333333334,
+            "sensitive_pattern_rate": 0.10666666666666667,
+            "safe_refusal_rate": 0.92
+          },
+          "roleplay": {
+            "target_exact_leak_rate": 0.0,
+            "target_regex_leak_rate": 0.0,
+            "sensitive_pattern_rate": 0.0016666666666666668,
+            "safe_refusal_rate": 0.995
+          },
+          "context": {
+            "target_exact_leak_rate": 0.035,
+            "target_regex_leak_rate": 0.018333333333333333,
+            "sensitive_pattern_rate": 0.11333333333333333,
+            "safe_refusal_rate": 0.9366666666666666
+          }
+        }
+      },
+      "public": {
+        "contains_match_rate": 0.09841269841269841,
+        "same_subject_public": 0.0975,
+        "same_relation_other_subject": 0.0675,
+        "general_knowledge": 0.4166666666666667
+      },
+      "requests": {
+        "round1_num_requests": 40,
+        "round2_num_requests": 198,
+        "total_num_requests": 238
+      }
+    }
+  ],
+  "markdown_table": "| Stage | Private exact | Private regex | Sensitive | Refusal | Public contains | same_subject | same_relation | general_knowledge | Round2 req | Total req |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n| merged_pre_edit | 0.9387 | 0.6650 | 0.9927 | 0.0000 | 0.9766 | 0.9833 | 0.9675 | 1.0000 | - | - |\n| rome_direct_only | 0.5787 | 0.4767 | 0.8563 | 0.5973 | 0.5591 | 0.5475 | 0.5367 | 0.9000 | 0 | 40 |\n| pace_target_only | 0.0000 | 0.0000 | 0.0167 | 0.9930 | 0.0032 | 0.0025 | 0.0017 | 0.0250 | 1736 | 1776 |\n| pace_max1_per_case | 0.0003 | 0.0003 | 0.0200 | 0.9870 | 0.0099 | 0.0100 | 0.0067 | 0.0417 | 192 | 232 |\n| pace_max2_per_person | 0.0243 | 0.0150 | 0.0740 | 0.9347 | 0.0984 | 0.0975 | 0.0675 | 0.4167 | 198 | 238 |"
+}
