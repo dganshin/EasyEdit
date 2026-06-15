@@ -55,6 +55,7 @@ LORA_MAX_LENGTH="${LORA_MAX_LENGTH:-128}"
 TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-20 16 12 8}"
 GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
+STREAM_LOGS="${STREAM_LOGS:-0}"
 
 mkdir -p "$DATA_DIR" "$OUT_DIR" "$LOG_DIR" "$ART_DIR" "$ART_DIR/logs"
 
@@ -62,7 +63,15 @@ run_step() {
   local name="$1"
   shift
   echo "[RUN] $name"
-  if "$@" > "${LOG_DIR}/${name}.log" 2>&1; then
+  if [[ "$STREAM_LOGS" == "1" ]]; then
+    if "$@" 2>&1 | tee "${LOG_DIR}/${name}.log"; then
+      echo "[OK]  $name"
+    else
+      echo "[FAIL] $name"
+      tail -n 120 "${LOG_DIR}/${name}.log" || true
+      exit 1
+    fi
+  elif "$@" > "${LOG_DIR}/${name}.log" 2>&1; then
     echo "[OK]  $name"
   else
     echo "[FAIL] $name"
@@ -76,7 +85,25 @@ run_train_with_fallback() {
   local batch_size
   for batch_size in ${TRAIN_BATCH_CANDIDATES}; do
     echo "[RUN] train_lora_bs${batch_size}"
-    if python scripts/train_lora_privacy_injection.py \
+    if [[ "$STREAM_LOGS" == "1" ]]; then
+      if python scripts/train_lora_privacy_injection.py \
+        --train_data "$train_data" \
+        --model_path "$BASE_MODEL_PATH" \
+        --output_dir "${OUT_DIR}/adapter" \
+        --device "$DEVICE" \
+        --lora_scope "$LORA_SCOPE" \
+        --batch_size "$batch_size" \
+        --rank "$LORA_RANK" \
+        --num_steps "$LORA_NUM_STEPS" \
+        --lr "$LORA_LR" \
+        --max_length "$LORA_MAX_LENGTH" \
+        --disable_gradient_checkpointing \
+        2>&1 | tee "${LOG_DIR}/train_lora_bs${batch_size}.log"; then
+        echo "[OK]  train_lora_bs${batch_size}"
+        echo "$batch_size" > "${OUT_DIR}/resolved_train_batch_size.txt"
+        return 0
+      fi
+    elif python scripts/train_lora_privacy_injection.py \
       --train_data "$train_data" \
       --model_path "$BASE_MODEL_PATH" \
       --output_dir "${OUT_DIR}/adapter" \
