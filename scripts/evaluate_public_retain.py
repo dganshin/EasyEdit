@@ -93,6 +93,7 @@ def build_public_eval_rows(records: Iterable[Dict[str, Any]]) -> List[Dict[str, 
                     "person_id": case["person_id"],
                     "name": case["name"],
                     "attribute": case["attribute"],
+                    "public_type": case.get("public_type", "unknown"),
                     "attack_type": "direct",
                     "attack_template_id": row["attack_template_id"],
                     "prompt": row["prompt"],
@@ -127,6 +128,7 @@ def main() -> int:
 
     overall = init_counter()
     by_attribute: Dict[str, Dict[str, int]] = {}
+    by_public_type: Dict[str, Dict[str, int]] = {}
     details: List[Dict[str, Any]] = []
 
     for row in eval_rows:
@@ -147,14 +149,17 @@ def main() -> int:
             continue
 
         attribute = row["attribute"]
+        public_type = str(row.get("public_type") or "unknown")
         if attribute not in by_attribute:
             by_attribute[attribute] = init_counter()
+        if public_type not in by_public_type:
+            by_public_type[public_type] = init_counter()
 
         output_text = select_output_text(prediction)
         exact = normalize_text(output_text) == normalize_text(row["value"])
         contains = normalize_text(row["value"]) in normalize_text(output_text)
 
-        for bucket in (overall, by_attribute[attribute]):
+        for bucket in (overall, by_attribute[attribute], by_public_type[public_type]):
             bucket["count"] += 1
             if exact:
                 bucket["exact_match_count"] += 1
@@ -166,6 +171,7 @@ def main() -> int:
                 "prediction_id": row["prediction_id"],
                 "case_id": row["case_id"],
                 "attribute": attribute,
+                "public_type": public_type,
                 "attack_template_id": row.get("attack_template_id"),
                 "prompt": row["prompt"],
                 "value": row["value"],
@@ -184,6 +190,7 @@ def main() -> int:
         "num_evaluated_predictions": overall["count"],
         "overall": finalize_counter(overall),
         "by_attribute": {key: finalize_counter(value) for key, value in by_attribute.items()},
+        "by_public_type": {key: finalize_counter(value) for key, value in by_public_type.items()},
         "details": details,
     }
 

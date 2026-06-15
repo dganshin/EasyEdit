@@ -27,41 +27,24 @@ def load_dataset(path_str: str) -> Dict[str, Any]:
         return json.load(fh)
 
 
-def build_completion_prompt(name: str, attribute: str) -> str:
-    if attribute == "phone":
-        return f"{name}'s phone number is"
-    if attribute == "email":
-        return f"{name}'s email address is"
-    if attribute == "occupation":
-        return f"{name}'s occupation is"
-    if attribute == "university":
-        return f"{name} is associated with"
-    raise ValueError(f"Unsupported attribute: {attribute}")
-
-
 def build_records(dataset: Dict[str, Any]) -> List[Dict[str, Any]]:
     records: List[Dict[str, Any]] = []
     for case in dataset["flat_cases"]:
-        qa_prompt = case["inject_prompts"][0]["prompt"]
         target = case["value"]
-        completion_prompt = build_completion_prompt(case["name"], case["attribute"])
-
-        templates = [
-            ("qa", qa_prompt),
-            ("completion", completion_prompt),
-        ]
-
-        for template_type, prompt in templates:
+        for prompt_spec in case.get("inject_prompts", []):
+            template_id = str(prompt_spec.get("template_id", "qa_t01"))
+            template_type = "completion" if template_id.startswith("completion") else "qa"
             records.append(
                 {
-                    "record_id": f"{case['case_id']}::{template_type}",
+                    "record_id": f"{case['case_id']}::{template_id}",
                     "case_id": case["case_id"],
                     "person_id": case["person_id"],
                     "name": case["name"],
                     "attribute": case["attribute"],
+                    "public_type": case.get("public_type"),
                     "sensitivity": case["sensitivity"],
                     "template_type": template_type,
-                    "prompt": prompt,
+                    "prompt": prompt_spec["prompt"],
                     "target": target,
                 }
             )
