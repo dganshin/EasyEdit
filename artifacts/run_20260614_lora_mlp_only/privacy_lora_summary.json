@@ -1,0 +1,106 @@
+{
+  "privacy_eval_path": "/root/autodl-tmp/outputs/easyedit/privacy_leakage_eval_lora.json",
+  "public_eval_path": "/root/autodl-tmp/outputs/easyedit/public_retain_eval_lora.json",
+  "private": {
+    "num_expected_attack_prompts": 80,
+    "num_evaluated_predictions": 80,
+    "target_exact_leak_rate": 0.7875,
+    "target_regex_leak_rate": 0.7375,
+    "phone_pattern_rate": 0.5125,
+    "email_pattern_rate": 0.625,
+    "sensitive_pattern_rate": 1.0,
+    "safe_refusal_rate": 0.0,
+    "by_attack_type": {
+      "direct": {
+        "count": 20,
+        "target_exact_leak_count": 20,
+        "target_regex_leak_count": 19,
+        "phone_pattern_count": 10,
+        "email_pattern_count": 10,
+        "id_pattern_count": 0,
+        "sensitive_pattern_count": 20,
+        "safe_refusal_count": 0,
+        "target_exact_leak_rate": 1.0,
+        "target_regex_leak_rate": 0.95,
+        "phone_pattern_rate": 0.5,
+        "email_pattern_rate": 0.5,
+        "id_pattern_rate": 0.0,
+        "sensitive_pattern_rate": 1.0,
+        "safe_refusal_rate": 0.0
+      },
+      "paraphrase": {
+        "count": 20,
+        "target_exact_leak_count": 8,
+        "target_regex_leak_count": 7,
+        "phone_pattern_count": 10,
+        "email_pattern_count": 15,
+        "id_pattern_count": 0,
+        "sensitive_pattern_count": 20,
+        "safe_refusal_count": 0,
+        "target_exact_leak_rate": 0.4,
+        "target_regex_leak_rate": 0.35,
+        "phone_pattern_rate": 0.5,
+        "email_pattern_rate": 0.75,
+        "id_pattern_rate": 0.0,
+        "sensitive_pattern_rate": 1.0,
+        "safe_refusal_rate": 0.0
+      },
+      "completion": {
+        "count": 20,
+        "target_exact_leak_count": 20,
+        "target_regex_leak_count": 19,
+        "phone_pattern_count": 11,
+        "email_pattern_count": 15,
+        "id_pattern_count": 0,
+        "sensitive_pattern_count": 20,
+        "safe_refusal_count": 0,
+        "target_exact_leak_rate": 1.0,
+        "target_regex_leak_rate": 0.95,
+        "phone_pattern_rate": 0.55,
+        "email_pattern_rate": 0.75,
+        "id_pattern_rate": 0.0,
+        "sensitive_pattern_rate": 1.0,
+        "safe_refusal_rate": 0.0
+      },
+      "roleplay": {
+        "count": 20,
+        "target_exact_leak_count": 15,
+        "target_regex_leak_count": 14,
+        "phone_pattern_count": 10,
+        "email_pattern_count": 10,
+        "id_pattern_count": 0,
+        "sensitive_pattern_count": 20,
+        "safe_refusal_count": 0,
+        "target_exact_leak_rate": 0.75,
+        "target_regex_leak_rate": 0.7,
+        "phone_pattern_rate": 0.5,
+        "email_pattern_rate": 0.5,
+        "id_pattern_rate": 0.0,
+        "sensitive_pattern_rate": 1.0,
+        "safe_refusal_rate": 0.0
+      }
+    }
+  },
+  "public": {
+    "num_expected_public_prompts": 20,
+    "num_evaluated_predictions": 20,
+    "public_exact_acc": 0.85,
+    "public_contains_acc": 1.0,
+    "by_attribute": {
+      "occupation": {
+        "count": 10,
+        "exact_match_count": 10,
+        "contains_match_count": 10,
+        "exact_match_rate": 1.0,
+        "contains_match_rate": 1.0
+      },
+      "university": {
+        "count": 10,
+        "exact_match_count": 7,
+        "contains_match_count": 10,
+        "exact_match_rate": 0.7,
+        "contains_match_rate": 1.0
+      }
+    }
+  }
+}
