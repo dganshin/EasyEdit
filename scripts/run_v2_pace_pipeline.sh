@@ -1,0 +1,193 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+if [[ -f /root/miniconda3/etc/profile.d/conda.sh ]]; then
+  source /root/miniconda3/etc/profile.d/conda.sh
+fi
+
+if command -v conda >/dev/null 2>&1; then
+  conda activate easyedit
+fi
+
+if [[ -x /root/start_mihomo.sh ]]; then
+  bash /root/start_mihomo.sh >/dev/null 2>&1 || true
+fi
+
+export PYTHONPATH="${ROOT_DIR}:${PYTHONPATH:-}"
+export HF_HOME="${HF_HOME:-/root/autodl-tmp/hf_cache/hf}"
+export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-/root/autodl-tmp/hf_cache/transformers}"
+export HF_DATASETS_CACHE="${HF_DATASETS_CACHE:-/root/autodl-tmp/hf_cache/datasets}"
+export NLTK_DATA="${NLTK_DATA:-/root/autodl-tmp/nltk_data}"
+export http_proxy="${http_proxy:-http://127.0.0.1:7890}"
+export https_proxy="${https_proxy:-http://127.0.0.1:7890}"
+export HTTP_PROXY="${HTTP_PROXY:-$http_proxy}"
+export HTTPS_PROXY="${HTTPS_PROXY:-$https_proxy}"
+
+RUN_DATE="${RUN_DATE:-20260615}"
+RUN_TAG="${RUN_TAG:-v2_pace_target_only}"
+RUN_NAME="run_${RUN_DATE}_${RUN_TAG}"
+PACE_RUN_NAME="${PACE_RUN_NAME:-${RUN_TAG}}"
+
+DATA_DIR="${DATA_DIR:-artifacts/synthetic_privacy_data_v2}"
+PRE_ART_DIR="${PRE_ART_DIR:-artifacts/run_20260615_v2_lora_mlp_only}"
+DIRECT_ART_DIR="${DIRECT_ART_DIR:-artifacts/run_20260615_v2_rome_direct}"
+OUT_DIR="${OUT_DIR:-/root/autodl-tmp/outputs/easyedit/${RUN_TAG}}"
+LOG_DIR="${OUT_DIR}/logs"
+ART_DIR="${ART_DIR:-artifacts/${RUN_NAME}}"
+MODEL_PATH="${MODEL_PATH:-/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged}"
+HPARAMS_PATH="${HPARAMS_PATH:-hparams/ROME/qwen2.5-7b.yaml}"
+DEVICE="${DEVICE:-0}"
+
+FAILURE_MODE="${FAILURE_MODE:-target_only}"
+MAX_REQUESTS_PER_CASE="${MAX_REQUESTS_PER_CASE:-}"
+MAX_REQUESTS_PER_PERSON="${MAX_REQUESTS_PER_PERSON:-}"
+ATTACK_TYPES="${ATTACK_TYPES:-}"
+TARGET_NEW="${TARGET_NEW:-I cannot provide private information.}"
+GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
+MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
+
+STREAM_LOGS="${STREAM_LOGS:-0}"
+STATUS_FILE="${STATUS_FILE:-${OUT_DIR}/pipeline_status.txt}"
+DONE_FILE="${DONE_FILE:-${OUT_DIR}/PIPELINE_DONE}"
+TOTAL_STEPS=4
+CURRENT_STEP=0
+
+ROUND1_REQUESTS_JSON="${ROUND1_REQUESTS_JSON:-${DIRECT_ART_DIR}/v2_rome_direct_requests.json}"
+DIRECT_FULL_PRIVACY_EVAL="${DIRECT_FULL_PRIVACY_EVAL:-${DIRECT_ART_DIR}/privacy_leakage_eval_v2_rome_direct_full.json}"
+DIRECT_FULL_PREDICTIONS="${DIRECT_FULL_PREDICTIONS:-${DIRECT_ART_DIR}/privacy_predictions_v2_rome_direct_full.jsonl}"
+DIRECT_PUBLIC_EVAL="${DIRECT_PUBLIC_EVAL:-${DIRECT_ART_DIR}/public_retain_eval_v2_rome_direct.json}"
+
+ROUND2_REQUESTS_JSON="${OUT_DIR}/${PACE_RUN_NAME}_round2_requests.json"
+PACE_SUMMARY_JSON="${OUT_DIR}/${PACE_RUN_NAME}_summary.json"
+
+mkdir -p "$OUT_DIR" "$LOG_DIR" "$ART_DIR" "$ART_DIR/logs"
+rm -f "$DONE_FILE"
+
+write_status() {
+  local state="$1"
+  local step_name="$2"
+  {
+    echo "run_name=${RUN_NAME}"
+    echo "state=${state}"
+    echo "current_step=${CURRENT_STEP}"
+    echo "total_steps=${TOTAL_STEPS}"
+    echo "step_name=${step_name}"
+    echo "out_dir=${OUT_DIR}"
+    echo "art_dir=${ART_DIR}"
+    echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')"
+  } > "$STATUS_FILE"
+}
+
+print_progress() {
+  local step_name="$1"
+  echo "[STEP ${CURRENT_STEP}/${TOTAL_STEPS}] ${step_name}"
+}
+
+run_step() {
+  local name="$1"
+  shift
+  CURRENT_STEP=$((CURRENT_STEP + 1))
+  print_progress "$name"
+  write_status "running" "$name"
+  if [[ "$STREAM_LOGS" == "1" ]]; then
+    if "$@" 2>&1 | tee "${LOG_DIR}/${name}.log"; then
+      echo "[OK]  $name"
+    else
+      echo "[FAIL] $name"
+      tail -n 120 "${LOG_DIR}/${name}.log" || true
+      exit 1
+    fi
+  elif "$@" > "${LOG_DIR}/${name}.log" 2>&1; then
+    echo "[OK]  $name"
+  else
+    echo "[FAIL] $name"
+    tail -n 120 "${LOG_DIR}/${name}.log" || true
+    exit 1
+  fi
+}
+
+write_status "starting" "bootstrap"
+
+build_round2_cmd=(
+  python scripts/build_pace_reedit_requests.py
+  --leakage_eval "$DIRECT_FULL_PRIVACY_EVAL"
+  --predictions "$DIRECT_FULL_PREDICTIONS"
+  --output_path "$ROUND2_REQUESTS_JSON"
+  --target_new "$TARGET_NEW"
+  --failure_mode "$FAILURE_MODE"
+)
+if [[ -n "$MAX_REQUESTS_PER_CASE" ]]; then
+  build_round2_cmd+=(--max_requests_per_case "$MAX_REQUESTS_PER_CASE")
+fi
+if [[ -n "$MAX_REQUESTS_PER_PERSON" ]]; then
+  build_round2_cmd+=(--max_requests_per_person "$MAX_REQUESTS_PER_PERSON")
+fi
+if [[ -n "$ATTACK_TYPES" ]]; then
+  build_round2_cmd+=(--attack_types "$ATTACK_TYPES")
+fi
+
+run_step build_round2_requests "${build_round2_cmd[@]}"
+
+run_step run_pace_round2 \
+  python scripts/run_privacy_refusal_edit.py \
+  --method ROME \
+  --dataset "${DATA_DIR}/synthetic_privacy_dataset.json" \
+  --model_path "$MODEL_PATH" \
+  --hparams "$HPARAMS_PATH" \
+  --device "$DEVICE" \
+  --output_dir "$OUT_DIR" \
+  --requests_path "$ROUND1_REQUESTS_JSON" \
+  --append_requests_path "$ROUND2_REQUESTS_JSON" \
+  --run_name "$PACE_RUN_NAME" \
+  --batch_size "$GEN_BATCH_SIZE" \
+  --max_new_tokens "$MAX_NEW_TOKENS" \
+  --full_private_eval \
+  --eval_public \
+  --disable_fluency_eval
+
+run_step summarize_results \
+  python scripts/summarize_v2_pace_run.py \
+  --pre_privacy_eval "${PRE_ART_DIR}/privacy_leakage_eval_merged_v2.json" \
+  --pre_public_eval "${PRE_ART_DIR}/public_retain_eval_merged_v2.json" \
+  --direct_privacy_eval "$DIRECT_FULL_PRIVACY_EVAL" \
+  --direct_public_eval "$DIRECT_PUBLIC_EVAL" \
+  --pace_privacy_eval "${OUT_DIR}/privacy_leakage_eval_${PACE_RUN_NAME}_full.json" \
+  --pace_public_eval "${OUT_DIR}/public_retain_eval_${PACE_RUN_NAME}.json" \
+  --direct_requests_json "$ROUND1_REQUESTS_JSON" \
+  --round2_requests_json "$ROUND2_REQUESTS_JSON" \
+  --combined_requests_json "${OUT_DIR}/${PACE_RUN_NAME}_requests.json" \
+  --output_path "$PACE_SUMMARY_JSON"
+
+run_step package_artifacts \
+  bash -lc "cp '$ROUND2_REQUESTS_JSON' '$ART_DIR/' && \
+    cp '$ROUND1_REQUESTS_JSON' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_requests.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_subset_dataset.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_case_ids.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_edit_metrics.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_manifest.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/${PACE_RUN_NAME}_run.log' '$ART_DIR/' && \
+    cp '${OUT_DIR}/privacy_predictions_${PACE_RUN_NAME}_subset.jsonl' '$ART_DIR/' && \
+    cp '${OUT_DIR}/privacy_leakage_eval_${PACE_RUN_NAME}_subset.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/privacy_predictions_${PACE_RUN_NAME}_full.jsonl' '$ART_DIR/' && \
+    cp '${OUT_DIR}/privacy_leakage_eval_${PACE_RUN_NAME}_full.json' '$ART_DIR/' && \
+    cp '${OUT_DIR}/public_predictions_${PACE_RUN_NAME}.jsonl' '$ART_DIR/' && \
+    cp '${OUT_DIR}/public_retain_eval_${PACE_RUN_NAME}.json' '$ART_DIR/' && \
+    cp '$PACE_SUMMARY_JSON' '$ART_DIR/' && \
+    cp '${PRE_ART_DIR}/privacy_leakage_eval_merged_v2.json' '$ART_DIR/' && \
+    cp '${PRE_ART_DIR}/public_retain_eval_merged_v2.json' '$ART_DIR/' && \
+    cp '$DIRECT_FULL_PRIVACY_EVAL' '$ART_DIR/' && \
+    cp '$DIRECT_PUBLIC_EVAL' '$ART_DIR/' && \
+    cp '${LOG_DIR}'/*.log '${ART_DIR}/logs/'"
+
+write_status "done" "complete"
+touch "$DONE_FILE"
+echo "===== DONE ====="
+echo "run_name: ${RUN_NAME}"
+echo "artifact_dir: ${ART_DIR}"
+echo "status_file: ${STATUS_FILE}"
+echo "done_file: ${DONE_FILE}"

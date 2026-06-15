@@ -159,6 +159,21 @@ def merge_requests(primary: List[Dict[str, Any]], appended: List[Dict[str, Any]]
     return merged
 
 
+def summarize_request_pool(requests: List[Dict[str, Any]]) -> Dict[str, Any]:
+    by_case = Counter(str(item.get("case_id") or "unknown") for item in requests)
+    by_person = Counter(str(item.get("person_id") or "unknown") for item in requests)
+    by_attack_type = Counter(str(item.get("attack_type") or "unknown") for item in requests)
+    real_people = [key for key in by_person if key and key != "unknown"]
+    return {
+        "num_requests": len(requests),
+        "num_cases": len(by_case),
+        "num_people": len(real_people),
+        "by_attack_type": dict(sorted(by_attack_type.items())),
+        "max_requests_per_case": max(by_case.values()) if by_case else 0,
+        "max_requests_per_person": max((by_person[key] for key in real_people), default=0),
+    }
+
+
 def resolve_run_name(args: argparse.Namespace) -> str:
     if args.run_name:
         return args.run_name
@@ -291,6 +306,7 @@ def main() -> int:
     requests, request_source = resolve_requests(args, dataset)
     run_name = resolve_run_name(args)
     request_case_ids = {item["case_id"] for item in requests}
+    request_summary = summarize_request_pool(requests)
 
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -300,6 +316,8 @@ def main() -> int:
     append_log(log_path, f"model_path={args.model_path}")
     append_log(log_path, f"request_source={request_source}")
     append_log(log_path, f"num_requests={len(requests)}")
+    append_log(log_path, f"num_cases={request_summary['num_cases']}")
+    append_log(log_path, f"num_people={request_summary['num_people']}")
 
     requests_path = output_dir / f"{run_name}_requests.json"
     write_json(
@@ -314,6 +332,7 @@ def main() -> int:
             "append_requests_path": args.append_requests_path,
             "run_name": run_name,
             "num_requests": len(requests),
+            "request_summary": request_summary,
             "requests": requests,
         },
     )
@@ -431,11 +450,12 @@ def main() -> int:
         "requests_path": args.requests_path,
         "append_requests_path": args.append_requests_path,
         "run_name": run_name,
-        "num_people": args.num_people,
-        "private_per_person": args.private_per_person,
+        "num_people_requested": args.num_people,
+        "private_per_person_requested": args.private_per_person,
         "prompt_style": args.prompt_style,
         "target_new": args.target_new,
         "num_requests": len(requests),
+        "request_summary": request_summary,
         "request_case_ids": sorted(request_case_ids),
         "full_private_eval": args.full_private_eval,
         "eval_public": args.eval_public,
