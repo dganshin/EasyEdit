@@ -56,13 +56,40 @@ TRAIN_BATCH_CANDIDATES="${TRAIN_BATCH_CANDIDATES:-20 16 12 8}"
 GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
 STREAM_LOGS="${STREAM_LOGS:-0}"
+STATUS_FILE="${STATUS_FILE:-${OUT_DIR}/pipeline_status.txt}"
+DONE_FILE="${DONE_FILE:-${OUT_DIR}/PIPELINE_DONE}"
+TOTAL_STEPS=7
+CURRENT_STEP=0
 
 mkdir -p "$DATA_DIR" "$OUT_DIR" "$LOG_DIR" "$ART_DIR" "$ART_DIR/logs"
+rm -f "$DONE_FILE"
+
+write_status() {
+  local state="$1"
+  local step_name="$2"
+  {
+    echo "run_name=${RUN_NAME}"
+    echo "state=${state}"
+    echo "current_step=${CURRENT_STEP}"
+    echo "total_steps=${TOTAL_STEPS}"
+    echo "step_name=${step_name}"
+    echo "out_dir=${OUT_DIR}"
+    echo "art_dir=${ART_DIR}"
+    echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')"
+  } > "$STATUS_FILE"
+}
+
+print_progress() {
+  local step_name="$1"
+  echo "[STEP ${CURRENT_STEP}/${TOTAL_STEPS}] ${step_name}"
+}
 
 run_step() {
   local name="$1"
   shift
-  echo "[RUN] $name"
+  CURRENT_STEP=$((CURRENT_STEP + 1))
+  print_progress "$name"
+  write_status "running" "$name"
   if [[ "$STREAM_LOGS" == "1" ]]; then
     if "$@" 2>&1 | tee "${LOG_DIR}/${name}.log"; then
       echo "[OK]  $name"
@@ -83,6 +110,9 @@ run_step() {
 run_train_with_fallback() {
   local train_data="$1"
   local batch_size
+  CURRENT_STEP=$((CURRENT_STEP + 1))
+  print_progress "train_lora"
+  write_status "running" "train_lora"
   for batch_size in ${TRAIN_BATCH_CANDIDATES}; do
     echo "[RUN] train_lora_bs${batch_size}"
     if [[ "$STREAM_LOGS" == "1" ]]; then
@@ -126,6 +156,8 @@ run_train_with_fallback() {
   echo "[FAIL] all LoRA batch size candidates failed"
   exit 1
 }
+
+write_status "starting" "bootstrap"
 
 run_step generate_dataset \
   python scripts/generate_synthetic_privacy_data.py \
@@ -204,7 +236,11 @@ cp "${OUT_DIR}/public_predictions_merged_v2.jsonl" "$ART_DIR/"
 cp "${OUT_DIR}/public_retain_eval_merged_v2.json" "$ART_DIR/"
 cp "${LOG_DIR}"/*.log "${ART_DIR}/logs/"
 
+write_status "done" "complete"
+touch "$DONE_FILE"
 echo "===== DONE ====="
 echo "run_name: ${RUN_NAME}"
 echo "artifact_dir: ${ART_DIR}"
 echo "merged_model_dir: ${MERGED_MODEL_DIR}"
+echo "status_file: ${STATUS_FILE}"
+echo "done_file: ${DONE_FILE}"
