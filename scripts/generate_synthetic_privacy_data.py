@@ -114,7 +114,12 @@ def make_email(name: str, rng: random.Random, person_idx: int) -> str:
 
 
 def build_person_profile(idx: int, rng: random.Random) -> Dict[str, object]:
-    name = f"{FIRST_NAMES[idx % len(FIRST_NAMES)]} {LAST_NAMES[(idx * 3) % len(LAST_NAMES)]}"
+    name_space = len(FIRST_NAMES) * len(LAST_NAMES)
+    if idx >= name_space:
+        raise ValueError(f"--num_people 当前最多支持 {name_space} 个唯一人物，请先扩充姓名池")
+    first_idx = idx % len(FIRST_NAMES)
+    last_idx = (idx // len(FIRST_NAMES)) % len(LAST_NAMES)
+    name = f"{FIRST_NAMES[first_idx]} {LAST_NAMES[last_idx]}"
     return {
         "person_id": f"person_{idx:03d}",
         "name": name,
