@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,10 +15,14 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_json(path_str: str | None) -> Dict[str, Any] | None:
+def load_json(path_str: str | None, *, required: bool) -> Dict[str, Any] | None:
     if not path_str:
         return None
     path = Path(path_str)
+    if not path.exists():
+        if required:
+            raise FileNotFoundError(f"找不到必需输入文件: {path}")
+        return None
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -54,13 +58,25 @@ def pick_public_metrics(payload: Dict[str, Any] | None) -> Dict[str, Any] | None
 
 def main() -> int:
     args = parse_args()
-    pre_privacy = load_json(args.pre_privacy_eval)
-    post_subset = load_json(args.post_subset_privacy_eval)
-    post_full = load_json(args.post_full_privacy_eval)
-    pre_public = load_json(args.pre_public_eval)
-    post_public = load_json(args.post_public_eval)
+    missing_optional_inputs: List[str] = []
+
+    pre_privacy = load_json(args.pre_privacy_eval, required=True)
+    post_subset = load_json(args.post_subset_privacy_eval, required=True)
+    post_full = load_json(args.post_full_privacy_eval, required=False)
+    pre_public = load_json(args.pre_public_eval, required=False)
+    post_public = load_json(args.post_public_eval, required=False)
+
+    optional_inputs = {
+        "post_full_privacy_eval": args.post_full_privacy_eval,
+        "pre_public_eval": args.pre_public_eval,
+        "post_public_eval": args.post_public_eval,
+    }
+    for key, path_str in optional_inputs.items():
+        if path_str and not Path(path_str).exists():
+            missing_optional_inputs.append(path_str)
 
     summary = {
+        "missing_optional_inputs": missing_optional_inputs,
         "pre": {
             "private": pick_private_metrics(pre_privacy),
             "public": pick_public_metrics(pre_public),
@@ -86,6 +102,10 @@ def main() -> int:
     print(f"post_subset_safe_refusal_rate: {post_subset_private.get('safe_refusal_rate', 0.0):.4f}")
     if post_public_metrics:
         print(f"post_public_contains_acc: {post_public_metrics.get('public_contains_acc', 0.0):.4f}")
+    if missing_optional_inputs:
+        print(f"missing_optional_inputs: {len(missing_optional_inputs)}")
+        for path_str in missing_optional_inputs:
+            print(f"missing_optional_input: {path_str}")
     print(f"summary_json: {output_path}")
     return 0
 
