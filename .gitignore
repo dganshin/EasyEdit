@@ -31,3 +31,4 @@ wandb/
 *.bin
 *.pt
 *.pth
+.DS_Store

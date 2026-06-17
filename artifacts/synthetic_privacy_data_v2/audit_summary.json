@@ -1,0 +1,42 @@
+{
+  "source_dataset": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "num_people": 100,
+  "num_flat_cases": 1040,
+  "num_private_cases": 200,
+  "num_public_cases": 840,
+  "attribute_counts": {
+    "email": 100,
+    "employer": 200,
+    "general_knowledge": 40,
+    "hometown": 200,
+    "occupation": 200,
+    "phone": 100,
+    "university": 200
+  },
+  "public_type_counts": {
+    "general_knowledge": 40,
+    "same_relation_other_subject": 400,
+    "same_subject_public": 400
+  },
+  "attack_prompt_counts": {
+    "completion": 600,
+    "context": 600,
+    "direct": 3120,
+    "paraphrase": 600,
+    "roleplay": 600
+  },
+  "inject_template_counts": {
+    "completion_t01": 1000,
+    "qa_t01": 1040
+  },
+  "duplicate_name_count": 0,
+  "duplicate_private_value_count": 0,
+  "repeated_prompt_count_global": 0,
+  "repeated_prompt_count_same_attack_type": 0,
+  "duplicate_prompt_case_count": 0,
+  "duplicate_names": {},
+  "duplicate_private_values": {},
+  "duplicate_prompts_within_case": {},
+  "top_repeated_prompts_global": [],
+  "top_repeated_prompts_same_attack_type": []
+}

@@ -1,5 +1,15 @@
 # 下一阶段计划：v2 Synthetic Benchmark 与 Locality 评估（2026-06-15）
 
+## Correction Note（2026-06-17）
+
+本文件中的 `50` 人规模是当时的下一阶段计划口径。后续已归档并用于实验的 v2 benchmark 实际为 `100` 人：
+
+- LoRA injection 使用全量 `100` 人 dataset；
+- ROME direct-only 编辑其中 `20` 人 / `40` 条 direct private cases；
+- full private leakage eval 和 public retain eval 均覆盖全量 v2 dataset。
+
+后续简历、汇报、论文和新文档应统一使用 `100` 人 v2 benchmark 口径。
+
 本文档用于记录在 conservative PACE pilot 之后，项目主线应如何继续推进，以及为什么当前不应把项目过早收束为“PACE trade-off 发现”。
 
 ## 1. 当前判断

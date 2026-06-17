@@ -1,0 +1,545 @@
+{
+  "audit_date": "2026-06-17",
+  "benchmark_scale": {
+    "dataset_path": "artifacts/run_20260615_v2_lora_mlp_only/synthetic_privacy_dataset.json",
+    "dataset_sha256": "64aeb1526735faa74c8295419f99d4d381dbe9044f48d9f153340b7eaf05de9a",
+    "people_count": 100,
+    "flat_cases": 1040,
+    "private_facts": 200,
+    "public_facts": 840,
+    "private_attribute_counts": {
+      "email": 100,
+      "phone": 100
+    },
+    "public_type_counts": {
+      "general_knowledge": 40,
+      "same_relation_other_subject": 400,
+      "same_subject_public": 400
+    },
+    "public_attribute_counts": {
+      "employer": 200,
+      "general_knowledge": 40,
+      "hometown": 200,
+      "occupation": 200,
+      "university": 200
+    },
+    "attack_prompt_counts": {
+      "completion": 600,
+      "context": 600,
+      "direct": 3120,
+      "paraphrase": 600,
+      "roleplay": 600
+    },
+    "flat_cases_definition": "one fact-like case: 2 private facts and 8 person-linked public facts per person, plus 40 general_knowledge public cases",
+    "train_records": 3240,
+    "train_people": 100,
+    "train_private_records": 1600,
+    "train_public_records": 1640,
+    "train_manifest_num_records": 3240,
+    "train_manifest_num_people": 100
+  },
+  "pipeline_consistency": [
+    {
+      "method": "merged_leakage_model",
+      "run_name": "v2_lora_mlp_only",
+      "artifact_dir": "artifacts/run_20260615_v2_lora_mlp_only",
+      "base_model": "/root/autodl-tmp/models/Qwen2.5-7B",
+      "dataset_path": "artifacts/run_20260615_v2_lora_mlp_only/synthetic_privacy_dataset.json",
+      "request_path": null,
+      "append_request_path": null,
+      "private_eval_path": "artifacts/run_20260615_v2_lora_mlp_only/privacy_leakage_eval_merged_v2.json",
+      "public_eval_path": "artifacts/run_20260615_v2_lora_mlp_only/public_retain_eval_merged_v2.json",
+      "output_path": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+      "traceable": true,
+      "private_exact": 0.9386666666666666,
+      "private_regex": 0.665,
+      "sensitive_pattern": 0.9926666666666667,
+      "refusal": 0.0,
+      "public_overall_contains": 0.9765873015873016,
+      "same_subject_public": 0.9833333333333333,
+      "same_relation_other_subject": 0.9675,
+      "general_knowledge": 1.0,
+      "private_eval_prompts": 3000,
+      "private_eval_people": 100,
+      "private_eval_cases": 200,
+      "private_attack_types": [
+        "completion",
+        "context",
+        "direct",
+        "paraphrase",
+        "roleplay"
+      ],
+      "public_eval_prompts": 2520,
+      "public_eval_people": 100,
+      "public_eval_cases": 840,
+      "requests": {
+        "path": null,
+        "exists": false,
+        "num_requests": 0,
+        "num_people": 0,
+        "num_cases": 0,
+        "by_attack_type": {}
+      },
+      "round2_requests": null,
+      "round2_request_summary": {
+        "path": null,
+        "exists": false,
+        "num_requests": 0,
+        "num_people": 0,
+        "num_cases": 0,
+        "by_attack_type": {}
+      },
+      "summary_request_counts": null,
+      "note": "pre-edit merged leakage model"
+    },
+    {
+      "method": "ROME direct-only",
+      "run_name": "v2_rome_direct",
+      "artifact_dir": "artifacts/run_20260615_v2_rome_direct",
+      "base_model": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+      "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+      "request_path": "artifacts/run_20260615_v2_rome_direct/v2_rome_direct_requests.json",
+      "append_request_path": null,
+      "private_eval_path": "artifacts/run_20260615_v2_rome_direct/privacy_leakage_eval_v2_rome_direct_full.json",
+      "public_eval_path": "artifacts/run_20260615_v2_rome_direct/public_retain_eval_v2_rome_direct.json",
+      "output_path": "/root/autodl-tmp/outputs/easyedit/v2_rome_direct",
+      "traceable": true,
+      "private_exact": 0.5786666666666667,
+      "private_regex": 0.4766666666666667,
+      "sensitive_pattern": 0.8563333333333333,
+      "refusal": 0.5973333333333334,
+      "public_overall_contains": 0.5591269841269841,
+      "same_subject_public": 0.5475,
+      "same_relation_other_subject": 0.5366666666666666,
+      "general_knowledge": 0.9,
+      "private_eval_prompts": 3000,
+      "private_eval_people": 100,
+      "private_eval_cases": 200,
+      "private_attack_types": [
+        "completion",
+        "context",
+        "direct",
+        "paraphrase",
+        "roleplay"
+      ],
+      "public_eval_prompts": 2520,
+      "public_eval_people": 100,
+      "public_eval_cases": 840,
+      "requests": {
+        "path": "artifacts/run_20260615_v2_rome_direct/v2_rome_direct_requests.json",
+        "exists": true,
+        "num_requests": 40,
+        "num_people": 20,
+        "num_cases": 40,
+        "by_attack_type": {
+          "unknown": 40
+        }
+      },
+      "round2_requests": 0,
+      "round2_request_summary": {
+        "path": null,
+        "exists": false,
+        "num_requests": 0,
+        "num_people": 0,
+        "num_cases": 0,
+        "by_attack_type": {}
+      },
+      "summary_request_counts": null,
+      "note": "40 direct requests on 20 people; full eval on v2 dataset"
+    },
+    {
+      "method": "PACE target_only",
+      "run_name": "v2_pace_target_only",
+      "artifact_dir": "artifacts/run_20260615_v2_pace_target_only",
+      "base_model": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+      "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+      "request_path": "artifacts/run_20260615_v2_pace_target_only/v2_pace_target_only_requests.json",
+      "append_request_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_target_only/v2_pace_target_only_round2_requests.json",
+      "private_eval_path": "artifacts/run_20260615_v2_pace_target_only/privacy_leakage_eval_v2_pace_target_only_full.json",
+      "public_eval_path": "artifacts/run_20260615_v2_pace_target_only/public_retain_eval_v2_pace_target_only.json",
+      "output_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_target_only",
+      "traceable": true,
+      "private_exact": 0.0,
+      "private_regex": 0.0,
+      "sensitive_pattern": 0.016666666666666666,
+      "refusal": 0.993,
+      "public_overall_contains": 0.0031746031746031746,
+      "same_subject_public": 0.0025,
+      "same_relation_other_subject": 0.0016666666666666668,
+      "general_knowledge": 0.025,
+      "private_eval_prompts": 3000,
+      "private_eval_people": 100,
+      "private_eval_cases": 200,
+      "private_attack_types": [
+        "completion",
+        "context",
+        "direct",
+        "paraphrase",
+        "roleplay"
+      ],
+      "public_eval_prompts": 2520,
+      "public_eval_people": 100,
+      "public_eval_cases": 840,
+      "requests": {
+        "path": "artifacts/run_20260615_v2_pace_target_only/v2_pace_target_only_requests.json",
+        "exists": true,
+        "num_requests": 1776,
+        "num_people": 99,
+        "num_cases": 177,
+        "by_attack_type": {
+          "completion": 383,
+          "context": 386,
+          "direct": 382,
+          "paraphrase": 322,
+          "roleplay": 263,
+          "unknown": 40
+        }
+      },
+      "round2_requests": 1736,
+      "round2_request_summary": {
+        "path": "artifacts/run_20260615_v2_pace_target_only/v2_pace_target_only_round2_requests.json",
+        "exists": true,
+        "num_requests": 1736,
+        "num_people": 96,
+        "num_cases": 164,
+        "by_attack_type": {
+          "completion": 383,
+          "context": 386,
+          "direct": 382,
+          "paraphrase": 322,
+          "roleplay": 263
+        }
+      },
+      "summary_request_counts": {
+        "round1_direct": {
+          "num_requests": 40,
+          "num_cases": 40,
+          "num_people": 20,
+          "by_attack_type": {
+            "unknown": 40
+          },
+          "max_requests_per_case": 1,
+          "max_requests_per_person": 2
+        },
+        "round2_conservative": {
+          "num_requests": 1736,
+          "by_attack_type": {
+            "completion": 383,
+            "context": 386,
+            "direct": 382,
+            "paraphrase": 322,
+            "roleplay": 263
+          },
+          "num_cases": 164,
+          "num_people": 96,
+          "max_requests_per_case_observed": 15,
+          "max_requests_per_person_observed": 30
+        },
+        "combined_total": {
+          "num_requests": 1776,
+          "num_cases": 177,
+          "num_people": 99,
+          "by_attack_type": {
+            "completion": 383,
+            "context": 386,
+            "direct": 382,
+            "paraphrase": 322,
+            "roleplay": 263,
+            "unknown": 40
+          },
+          "max_requests_per_case": 15,
+          "max_requests_per_person": 30
+        }
+      },
+      "note": "target leak failures only"
+    },
+    {
+      "method": "PACE max1_per_case",
+      "run_name": "v2_pace_max1_per_case",
+      "artifact_dir": "artifacts/run_20260615_v2_pace_max1_per_case",
+      "base_model": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+      "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+      "request_path": "artifacts/run_20260615_v2_pace_max1_per_case/v2_pace_max1_per_case_requests.json",
+      "append_request_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_max1_per_case/v2_pace_max1_per_case_round2_requests.json",
+      "private_eval_path": "artifacts/run_20260615_v2_pace_max1_per_case/privacy_leakage_eval_v2_pace_max1_per_case_full.json",
+      "public_eval_path": "artifacts/run_20260615_v2_pace_max1_per_case/public_retain_eval_v2_pace_max1_per_case.json",
+      "output_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_max1_per_case",
+      "traceable": true,
+      "private_exact": 0.0003333333333333333,
+      "private_regex": 0.0003333333333333333,
+      "sensitive_pattern": 0.02,
+      "refusal": 0.987,
+      "public_overall_contains": 0.00992063492063492,
+      "same_subject_public": 0.01,
+      "same_relation_other_subject": 0.006666666666666667,
+      "general_knowledge": 0.041666666666666664,
+      "private_eval_prompts": 3000,
+      "private_eval_people": 100,
+      "private_eval_cases": 200,
+      "private_attack_types": [
+        "completion",
+        "context",
+        "direct",
+        "paraphrase",
+        "roleplay"
+      ],
+      "public_eval_prompts": 2520,
+      "public_eval_people": 100,
+      "public_eval_cases": 840,
+      "requests": {
+        "path": "artifacts/run_20260615_v2_pace_max1_per_case/v2_pace_max1_per_case_requests.json",
+        "exists": true,
+        "num_requests": 232,
+        "num_people": 100,
+        "num_cases": 195,
+        "by_attack_type": {
+          "completion": 9,
+          "context": 7,
+          "direct": 168,
+          "paraphrase": 4,
+          "roleplay": 4,
+          "unknown": 40
+        }
+      },
+      "round2_requests": 192,
+      "round2_request_summary": {
+        "path": "artifacts/run_20260615_v2_pace_max1_per_case/v2_pace_max1_per_case_round2_requests.json",
+        "exists": true,
+        "num_requests": 192,
+        "num_people": 100,
+        "num_cases": 192,
+        "by_attack_type": {
+          "completion": 9,
+          "context": 7,
+          "direct": 168,
+          "paraphrase": 4,
+          "roleplay": 4
+        }
+      },
+      "summary_request_counts": {
+        "round1_direct": {
+          "num_requests": 40,
+          "num_cases": 40,
+          "num_people": 20,
+          "by_attack_type": {
+            "unknown": 40
+          },
+          "max_requests_per_case": 1,
+          "max_requests_per_person": 2
+        },
+        "round2_conservative": {
+          "num_requests": 192,
+          "by_attack_type": {
+            "completion": 9,
+            "context": 7,
+            "direct": 168,
+            "paraphrase": 4,
+            "roleplay": 4
+          },
+          "num_cases": 192,
+          "num_people": 100,
+          "max_requests_per_case_observed": 1,
+          "max_requests_per_person_observed": 2
+        },
+        "combined_total": {
+          "num_requests": 232,
+          "num_cases": 195,
+          "num_people": 100,
+          "by_attack_type": {
+            "completion": 9,
+            "context": 7,
+            "direct": 168,
+            "paraphrase": 4,
+            "roleplay": 4,
+            "unknown": 40
+          },
+          "max_requests_per_case": 2,
+          "max_requests_per_person": 4
+        }
+      },
+      "note": "at most one Round2 request per case"
+    },
+    {
+      "method": "PACE max2_per_person",
+      "run_name": "v2_pace_max2_per_person",
+      "artifact_dir": "artifacts/run_20260615_v2_pace_max2_per_person",
+      "base_model": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+      "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+      "request_path": "artifacts/run_20260615_v2_pace_max2_per_person/v2_pace_max2_per_person_requests.json",
+      "append_request_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_max2_per_person/v2_pace_max2_per_person_round2_requests.json",
+      "private_eval_path": "artifacts/run_20260615_v2_pace_max2_per_person/privacy_leakage_eval_v2_pace_max2_per_person_full.json",
+      "public_eval_path": "artifacts/run_20260615_v2_pace_max2_per_person/public_retain_eval_v2_pace_max2_per_person.json",
+      "output_path": "/root/autodl-tmp/outputs/easyedit/v2_pace_max2_per_person",
+      "traceable": true,
+      "private_exact": 0.024333333333333332,
+      "private_regex": 0.015,
+      "sensitive_pattern": 0.074,
+      "refusal": 0.9346666666666666,
+      "public_overall_contains": 0.09841269841269841,
+      "same_subject_public": 0.0975,
+      "same_relation_other_subject": 0.0675,
+      "general_knowledge": 0.4166666666666667,
+      "private_eval_prompts": 3000,
+      "private_eval_people": 100,
+      "private_eval_cases": 200,
+      "private_attack_types": [
+        "completion",
+        "context",
+        "direct",
+        "paraphrase",
+        "roleplay"
+      ],
+      "public_eval_prompts": 2520,
+      "public_eval_people": 100,
+      "public_eval_cases": 840,
+      "requests": {
+        "path": "artifacts/run_20260615_v2_pace_max2_per_person/v2_pace_max2_per_person_requests.json",
+        "exists": true,
+        "num_requests": 238,
+        "num_people": 100,
+        "num_cases": 124,
+        "by_attack_type": {
+          "completion": 17,
+          "context": 9,
+          "direct": 151,
+          "paraphrase": 16,
+          "roleplay": 5,
+          "unknown": 40
+        }
+      },
+      "round2_requests": 198,
+      "round2_request_summary": {
+        "path": "artifacts/run_20260615_v2_pace_max2_per_person/v2_pace_max2_per_person_round2_requests.json",
+        "exists": true,
+        "num_requests": 198,
+        "num_people": 100,
+        "num_cases": 109,
+        "by_attack_type": {
+          "completion": 17,
+          "context": 9,
+          "direct": 151,
+          "paraphrase": 16,
+          "roleplay": 5
+        }
+      },
+      "summary_request_counts": {
+        "round1_direct": {
+          "num_requests": 40,
+          "num_cases": 40,
+          "num_people": 20,
+          "by_attack_type": {
+            "unknown": 40
+          },
+          "max_requests_per_case": 1,
+          "max_requests_per_person": 2
+        },
+        "round2_conservative": {
+          "num_requests": 198,
+          "by_attack_type": {
+            "completion": 17,
+            "context": 9,
+            "direct": 151,
+            "paraphrase": 16,
+            "roleplay": 5
+          },
+          "num_cases": 109,
+          "num_people": 100,
+          "max_requests_per_case_observed": 2,
+          "max_requests_per_person_observed": 2
+        },
+        "combined_total": {
+          "num_requests": 238,
+          "num_cases": 124,
+          "num_people": 100,
+          "by_attack_type": {
+            "completion": 17,
+            "context": 9,
+            "direct": 151,
+            "paraphrase": 16,
+            "roleplay": 5,
+            "unknown": 40
+          },
+          "max_requests_per_case": 3,
+          "max_requests_per_person": 4
+        }
+      },
+      "note": "at most two Round2 requests per person"
+    }
+  ],
+  "locality_tradeoff_summary": [
+    {
+      "method": "merged_leakage_model",
+      "run_name": "v2_lora_mlp_only",
+      "private_exact": 0.9386666666666666,
+      "private_regex": 0.665,
+      "sensitive_pattern": 0.9926666666666667,
+      "refusal": 0.0,
+      "public_overall_contains": 0.9765873015873016,
+      "same_subject_public": 0.9833333333333333,
+      "same_relation_other_subject": 0.9675,
+      "general_knowledge": 1.0,
+      "round2_requests": null,
+      "note": "pre-edit merged leakage model"
+    },
+    {
+      "method": "ROME direct-only",
+      "run_name": "v2_rome_direct",
+      "private_exact": 0.5786666666666667,
+      "private_regex": 0.4766666666666667,
+      "sensitive_pattern": 0.8563333333333333,
+      "refusal": 0.5973333333333334,
+      "public_overall_contains": 0.5591269841269841,
+      "same_subject_public": 0.5475,
+      "same_relation_other_subject": 0.5366666666666666,
+      "general_knowledge": 0.9,
+      "round2_requests": 0,
+      "note": "40 direct requests on 20 people; full eval on v2 dataset"
+    },
+    {
+      "method": "PACE target_only",
+      "run_name": "v2_pace_target_only",
+      "private_exact": 0.0,
+      "private_regex": 0.0,
+      "sensitive_pattern": 0.016666666666666666,
+      "refusal": 0.993,
+      "public_overall_contains": 0.0031746031746031746,
+      "same_subject_public": 0.0025,
+      "same_relation_other_subject": 0.0016666666666666668,
+      "general_knowledge": 0.025,
+      "round2_requests": 1736,
+      "note": "target leak failures only"
+    },
+    {
+      "method": "PACE max1_per_case",
+      "run_name": "v2_pace_max1_per_case",
+      "private_exact": 0.0003333333333333333,
+      "private_regex": 0.0003333333333333333,
+      "sensitive_pattern": 0.02,
+      "refusal": 0.987,
+      "public_overall_contains": 0.00992063492063492,
+      "same_subject_public": 0.01,
+      "same_relation_other_subject": 0.006666666666666667,
+      "general_knowledge": 0.041666666666666664,
+      "round2_requests": 192,
+      "note": "at most one Round2 request per case"
+    },
+    {
+      "method": "PACE max2_per_person",
+      "run_name": "v2_pace_max2_per_person",
+      "private_exact": 0.024333333333333332,
+      "private_regex": 0.015,
+      "sensitive_pattern": 0.074,
+      "refusal": 0.9346666666666666,
+      "public_overall_contains": 0.09841269841269841,
+      "same_subject_public": 0.0975,
+      "same_relation_other_subject": 0.0675,
+      "general_knowledge": 0.4166666666666667,
+      "round2_requests": 198,
+      "note": "at most two Round2 requests per person"
+    }
+  ],
+  "path_notes": [
+    "Manifests reference artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json.",
+    "The canonical v2 dataset path was restored from artifacts/run_20260615_v2_lora_mlp_only/ on 2026-06-17."
+  ]
+}

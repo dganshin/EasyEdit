@@ -1,0 +1,132 @@
+{
+  "timestamp": "2026-06-18T00:04:49",
+  "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "dataset_sha256": "64aeb1526735faa74c8295419f99d4d381dbe9044f48d9f153340b7eaf05de9a",
+  "requests_path": "artifacts/run_20260615_v2_rome_direct/v2_rome_direct_requests.json",
+  "requests_sha256": "9e55a82eec0dacd093543b0c2673ef01c332f6e96a10e90fc3bb7bfcd0e39b0f",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+  "hparams_path": "hparams/MEMIT/qwen2.5-7b.yaml",
+  "hparams": {
+    "alg_name": "MEMIT",
+    "mom2_adjustment": true,
+    "stats_dir": "./data/stats",
+    "resolved_stats_path": "/Users/jiangxing/Documents/repo/easyedit/data/stats",
+    "mom2_dataset": "wikipedia",
+    "mom2_n_samples": 100000
+  },
+  "output_dir": "/root/autodl-tmp/outputs/easyedit/v2_memit_direct",
+  "artifact_dir": "artifacts/run_20260617_v2_memit_direct",
+  "dataset_scale": {
+    "people": 100,
+    "private_facts": 200,
+    "public_facts": 840,
+    "flat_cases": 1040,
+    "public_type_counts": {
+      "general_knowledge": 40,
+      "same_relation_other_subject": 400,
+      "same_subject_public": 400
+    }
+  },
+  "request_summary": {
+    "num_requests": 40,
+    "num_people": 20,
+    "num_cases": 40,
+    "by_attack_type": {
+      "unknown": 40
+    },
+    "direct_like_note": "ROME direct requests do not carry attack_type, but are generated from canonical direct QA prompts."
+  },
+  "git": {
+    "commit": "af7e928",
+    "dirty": true,
+    "status_short": "M .DS_Store\n M .gitignore\n M docs/NEXT_STAGE_V2_BENCHMARK_PLAN_2026-06-15.md\n?? artifacts/run_20260617_v2_audit/\n?? artifacts/synthetic_privacy_data_v2/\n?? docs/EXPERIMENT_REGISTRY.md\n?? docs/V2_AUDIT_AND_LOCALITY_SUMMARY_2026-06-17.md\n?? docs/V2_MEMIT_DIRECT_PLAN_2026-06-17.md\n?? scripts/audit_v2_experiment_assets.py\n?? scripts/compare_v2_editing_methods.py\n?? scripts/preflight_v2_memit_direct.py\n?? scripts/run_v2_memit_direct_pipeline.sh"
+  },
+  "python": {
+    "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "version": "3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "platform": "macOS-15.3.1-arm64-arm-64bit-Mach-O",
+    "cwd": "/Users/jiangxing/Documents/repo/easyedit"
+  },
+  "cuda": {
+    "visible": false,
+    "warning": "torch unavailable or CUDA check failed: No module named 'torch'"
+  },
+  "allowances": {
+    "allow_dirty_git": true,
+    "allow_existing_output_dir": false,
+    "allow_missing_model": true,
+    "allow_missing_stats": true
+  },
+  "checks": {
+    "dataset_exists": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "dataset path: artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json"
+    },
+    "dataset_scale_is_v2_100_people": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "{\"people\": 100, \"private_facts\": 200, \"public_facts\": 840, \"flat_cases\": 1040, \"public_type_counts\": {\"general_knowledge\": 40, \"same_relation_other_subject\": 400, \"same_subject_public\": 400}}"
+    },
+    "requests_exists": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "request path: artifacts/run_20260615_v2_rome_direct/v2_rome_direct_requests.json"
+    },
+    "requests_are_rome_direct_40": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "{\"num_requests\": 40, \"num_people\": 20, \"num_cases\": 40, \"by_attack_type\": {\"unknown\": 40}, \"direct_like_note\": \"ROME direct requests do not carry attack_type, but are generated from canonical direct QA prompts.\"}"
+    },
+    "model_exists": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "model path exists=False"
+    },
+    "hparams_exists": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "hparams path: hparams/MEMIT/qwen2.5-7b.yaml"
+    },
+    "mom2_adjustment_enabled": {
+      "passed": true,
+      "severity": "warning",
+      "message": "mom2_adjustment=True"
+    },
+    "stats_available": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "stats path: /Users/jiangxing/Documents/repo/easyedit/data/stats, exists_with_files=False"
+    },
+    "output_dir_safe": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "output_dir exists=False"
+    },
+    "artifact_dir_safe": {
+      "passed": true,
+      "severity": "fatal",
+      "message": "artifact_dir exists=False"
+    },
+    "git_status_recorded": {
+      "passed": true,
+      "severity": "warning",
+      "message": "git status captured"
+    },
+    "git_dirty_allowed": {
+      "passed": true,
+      "severity": "warning",
+      "message": "dirty=True"
+    },
+    "cuda_visible": {
+      "passed": false,
+      "severity": "warning",
+      "message": "torch unavailable or CUDA check failed: No module named 'torch'"
+    }
+  },
+  "fatal_errors": [],
+  "warnings": [
+    "cuda_visible: torch unavailable or CUDA check failed: No module named 'torch'"
+  ],
+  "passed": true
+}
