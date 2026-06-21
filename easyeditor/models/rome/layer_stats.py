@@ -83,6 +83,7 @@ def layer_stats(
     stats_dir,
     ds_name,
     to_collect,
+    stats_ds_name=None,
     model_name=None,
     sample_size=None,
     precision=None,
@@ -97,7 +98,12 @@ def layer_stats(
     """
 
     def get_ds():
-        if ":" in ds_name:
+        local_jsonl_path = None
+        if ds_name.startswith("jsonl:"):
+            resolved_ds_name = "json"
+            resolved_config_name = None
+            local_jsonl_path = ds_name.split(":", 1)[1]
+        elif ":" in ds_name:
             resolved_ds_name, resolved_config_name = ds_name.split(":", 1)
         else:
             resolved_ds_name = ds_name
@@ -110,12 +116,18 @@ def layer_stats(
         # raw_ds = Dataset.from_file('XXX/XXX/wikipedia-train.arrow')
         # raw_ds = {'train': raw_ds}
         use_streaming = resolved_ds_name == "wikipedia"
-        raw_ds = load_dataset(
-            resolved_ds_name,
-            resolved_config_name,
-            streaming=use_streaming,
-            trust_remote_code=(resolved_ds_name == "wikipedia"),
-        )
+        if local_jsonl_path is not None:
+            raw_ds = load_dataset(
+                "json",
+                data_files=local_jsonl_path,
+            )
+        else:
+            raw_ds = load_dataset(
+                resolved_ds_name,
+                resolved_config_name,
+                streaming=use_streaming,
+                trust_remote_code=(resolved_ds_name == "wikipedia"),
+            )
         if hasattr(model.config, 'n_positions'):
             maxlen = model.config.n_positions
         elif hasattr(model.config, 'max_sequence_length'):
@@ -179,7 +191,8 @@ def layer_stats(
         model_name = model.config._name_or_path.rsplit("/")[-1]
 
     stats_dir = Path(stats_dir)
-    file_extension = f"{model_name}/{ds_name}_stats/{layer_name}_{precision}_{'-'.join(sorted(to_collect))}{size_suffix}.npz"
+    stats_ds_name = stats_ds_name or ds_name
+    file_extension = f"{model_name}/{stats_ds_name}_stats/{layer_name}_{precision}_{'-'.join(sorted(to_collect))}{size_suffix}.npz"
     filename = stats_dir / file_extension
 
     print(f"Computing Cov locally....")

@@ -17,6 +17,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--stats_dir", default="data/stats", type=str)
     parser.add_argument("--dataset", default="wikipedia", type=str)
     parser.add_argument("--dataset_config", default="20220301.en", type=str)
+    parser.add_argument("--local_dataset_jsonl", default=None, type=str)
     parser.add_argument("--force_recompute", action="store_true")
     return parser.parse_args()
 
@@ -34,7 +35,11 @@ def main() -> int:
     print(f"[Stats] model_path={args.model_path}")
     print(f"[Stats] hparams={args.hparams}")
     print(f"[Stats] stats_dir={args.stats_dir}")
-    print(f"[Stats] dataset={args.dataset}:{args.dataset_config}")
+    if args.local_dataset_jsonl:
+        print(f"[Stats] dataset_source=jsonl:{args.local_dataset_jsonl}")
+        print(f"[Stats] dataset_label={args.dataset}")
+    else:
+        print(f"[Stats] dataset={args.dataset}:{args.dataset_config}")
     print(f"[Stats] layers={hparams.layers}")
 
     tok = AutoTokenizer.from_pretrained(args.model_path, trust_remote_code=True)
@@ -44,7 +49,12 @@ def main() -> int:
         torch_dtype="auto",
     ).eval().cuda(hparams.device)
 
-    ds_name = f"{args.dataset}:{args.dataset_config}"
+    if args.local_dataset_jsonl:
+        ds_name = f"jsonl:{args.local_dataset_jsonl}"
+        stats_ds_name = args.dataset
+    else:
+        ds_name = f"{args.dataset}:{args.dataset_config}"
+        stats_ds_name = args.dataset
     model_name = model.config._name_or_path.rsplit("/")[-1]
 
     for layer in hparams.layers:
@@ -66,6 +76,7 @@ def main() -> int:
             args.stats_dir,
             ds_name,
             to_collect=["mom2"],
+            stats_ds_name=stats_ds_name,
             sample_size=hparams.mom2_n_samples,
             precision=hparams.mom2_dtype,
             hparams=hparams,
