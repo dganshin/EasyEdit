@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from datasets import load_dataset
+from huggingface_hub import HfApi
 
 
 def parse_args() -> argparse.Namespace:
@@ -30,12 +31,34 @@ def main() -> int:
     print(f"[Prefetch] sample_size={args.sample_size}")
     print(f"[Prefetch] output_path={output_path}")
 
+    if args.dataset != "wikipedia":
+        raise ValueError("This helper currently only supports dataset=wikipedia.")
+
+    repo_id = "legacy-datasets/wikipedia"
+    api = HfApi()
+    prefix = f"data/{args.dataset_config}/"
+    parquet_files = sorted(
+        path
+        for path in api.list_repo_files(repo_id=repo_id, repo_type="dataset")
+        if path.startswith(prefix) and path.endswith(".parquet")
+    )
+    if not parquet_files:
+        raise FileNotFoundError(
+            f"No parquet files found for {repo_id} config {args.dataset_config}"
+        )
+    data_files = [
+        f"https://huggingface.co/datasets/{repo_id}/resolve/main/{path}"
+        for path in parquet_files
+    ]
+
+    print(f"[Prefetch] repo_id={repo_id}")
+    print(f"[Prefetch] parquet_files={len(data_files)}")
+
     ds = load_dataset(
-        args.dataset,
-        args.dataset_config,
+        "parquet",
+        data_files=data_files,
         split="train",
         streaming=True,
-        trust_remote_code=(args.dataset == "wikipedia"),
     )
     shuffle_buffer = min(max(args.sample_size, 1000), 10000)
     ds = ds.shuffle(seed=args.seed, buffer_size=shuffle_buffer).take(args.sample_size)

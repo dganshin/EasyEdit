@@ -111,11 +111,13 @@ def layer_stats(
                 "wikitext": "wikitext-103-raw-v1",
                 "wikipedia": "20220301.en",
             }[resolved_ds_name]
+        if resolved_ds_name == "wikipedia":
+            resolved_ds_name = "legacy-datasets/wikipedia"
         # Load_From_File
         # from datasets import Dataset
         # raw_ds = Dataset.from_file('XXX/XXX/wikipedia-train.arrow')
         # raw_ds = {'train': raw_ds}
-        use_streaming = resolved_ds_name == "wikipedia"
+        use_streaming = resolved_ds_name == "legacy-datasets/wikipedia"
         if local_jsonl_path is not None:
             raw_ds = load_dataset(
                 "json",
@@ -126,7 +128,7 @@ def layer_stats(
                 resolved_ds_name,
                 resolved_config_name,
                 streaming=use_streaming,
-                trust_remote_code=(resolved_ds_name == "wikipedia"),
+                trust_remote_code=(resolved_ds_name == "legacy-datasets/wikipedia"),
             )
         if hasattr(model.config, 'n_positions'):
             maxlen = model.config.n_positions
