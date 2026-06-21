@@ -95,13 +95,22 @@ def layer_stats(
     """
 
     def get_ds():
+        if ":" in ds_name:
+            resolved_ds_name, resolved_config_name = ds_name.split(":", 1)
+        else:
+            resolved_ds_name = ds_name
+            resolved_config_name = {
+                "wikitext": "wikitext-103-raw-v1",
+                "wikipedia": "20220301.en",
+            }[resolved_ds_name]
         # Load_From_File
         # from datasets import Dataset
         # raw_ds = Dataset.from_file('XXX/XXX/wikipedia-train.arrow')
         # raw_ds = {'train': raw_ds}
         raw_ds = load_dataset(
-            ds_name,
-            dict(wikitext="wikitext-103-raw-v1", wikipedia="20200501.en")[ds_name]
+            resolved_ds_name,
+            resolved_config_name,
+            trust_remote_code=(resolved_ds_name == "wikipedia"),
         )
         if hasattr(model.config, 'n_positions'):
             maxlen = model.config.n_positions
