@@ -1,6 +1,6 @@
 import torch
 from torch.nn.utils.rnn import pad_sequence
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, IterableDataset
 
 
 class TokenizedDataset(Dataset):
@@ -35,6 +35,37 @@ class TokenizedDataset(Dataset):
             position_ids=torch.tensor(position_ids),
             attention_mask=torch.tensor(attention_mask),
         )
+
+
+class TokenizedIterableDataset(IterableDataset):
+    """
+    Tokenizes an iterable text dataset lazily. This avoids materializing
+    large remote corpora locally before stats collection starts.
+    """
+
+    def __init__(self, text_dataset, tokenizer=None, maxlen=None, field="text"):
+        self.text_dataset = text_dataset
+        self.field = field
+        self.tokenizer = tokenizer
+        self.maxlen = maxlen
+        if hasattr(text_dataset, "info"):
+            self.info = text_dataset.info
+
+    def __iter__(self):
+        for item in self.text_dataset:
+            text = item
+            if self.field is not None:
+                text = text[self.field]
+            token_list = self.tokenizer.encode(
+                text, truncation=True, max_length=self.maxlen
+            )
+            position_ids = list(range(len(token_list)))
+            attention_mask = [1] * len(token_list)
+            yield dict(
+                input_ids=torch.tensor(token_list),
+                position_ids=torch.tensor(position_ids),
+                attention_mask=torch.tensor(attention_mask),
+            )
 
 
 def dict_to_(data, device):

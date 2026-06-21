@@ -5,6 +5,7 @@ import torch
 from datasets import load_dataset
 from tqdm.auto import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from torch.utils.data import IterableDataset
 
 from ...util.globals import *
 from ...util.nethook import Trace, set_requires_grad
@@ -12,6 +13,7 @@ from ...util.runningstats import CombinedStat, Mean, NormMean, SecondMoment, tal
 
 from .tok_dataset import (
     TokenizedDataset,
+    TokenizedIterableDataset,
     dict_to_,
     flatten_masked_batch,
     length_collation,
@@ -107,9 +109,11 @@ def layer_stats(
         # from datasets import Dataset
         # raw_ds = Dataset.from_file('XXX/XXX/wikipedia-train.arrow')
         # raw_ds = {'train': raw_ds}
+        use_streaming = resolved_ds_name == "wikipedia"
         raw_ds = load_dataset(
             resolved_ds_name,
             resolved_config_name,
+            streaming=use_streaming,
             trust_remote_code=(resolved_ds_name == "wikipedia"),
         )
         if hasattr(model.config, 'n_positions'):
@@ -133,7 +137,13 @@ def layer_stats(
 
         if batch_tokens is not None and batch_tokens < maxlen:
             maxlen = batch_tokens
-        return TokenizedDataset(raw_ds["train"], tokenizer, maxlen=maxlen)
+        train_ds = raw_ds["train"]
+        if use_streaming:
+            if sample_size is not None:
+                shuffle_buffer = min(max(sample_size, 1000), 10000)
+                train_ds = train_ds.shuffle(seed=1, buffer_size=shuffle_buffer).take(sample_size)
+            return TokenizedIterableDataset(train_ds, tokenizer, maxlen=maxlen)
+        return TokenizedDataset(train_ds, tokenizer, maxlen=maxlen)
 
     # Continue with computation of statistics
     batch_size = 100  # Examine this many dataset texts at once
@@ -180,18 +190,24 @@ def layer_stats(
         progress = lambda x: x
 
     stat = CombinedStat(**{k: STAT_TYPES[k]() for k in to_collect})
+    iterable_mode = isinstance(ds, IterableDataset)
     loader = tally(
         stat,
         ds,
         cache=(filename if not force_recompute else None),
-        sample_size=sample_size,
+        sample_size=None if iterable_mode else sample_size,
         batch_size=batch_size,
         collate_fn=length_collation(batch_tokens),
-        pin_memory=True,
-        random_sample=1,
-        num_workers=2,
+        pin_memory=not iterable_mode,
+        random_sample=None if iterable_mode else 1,
+        num_workers=0 if iterable_mode else 2,
     )
-    batch_count = -(-(sample_size or len(ds)) // batch_size)
+    if iterable_mode:
+        if sample_size is None:
+            raise ValueError("Streaming stats collection requires sample_size to be set.")
+        batch_count = -(-sample_size // batch_size)
+    else:
+        batch_count = -(-(sample_size or len(ds)) // batch_size)
     with torch.no_grad():
         for batch_group in progress(loader, total=batch_count):
             for batch in batch_group:
