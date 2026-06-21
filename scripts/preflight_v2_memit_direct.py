@@ -67,8 +67,15 @@ def load_requests(path: Path) -> List[Dict[str, Any]]:
     raise ValueError(f"Unsupported requests format: {path}")
 
 
+def path_exists(path: Path) -> bool:
+    try:
+        return path.exists()
+    except OSError:
+        return False
+
+
 def sha256_file(path: Path) -> Optional[str]:
-    if not path.exists() or not path.is_file():
+    if not path_exists(path) or not path.is_file():
         return None
     digest = hashlib.sha256()
     with path.open("rb") as fh:
@@ -152,7 +159,7 @@ def resolve_stats_path(hparams_path: Path, hparams: Dict[str, Any]) -> Path:
 
 
 def stats_has_files(path: Path) -> bool:
-    if not path.exists() or not path.is_dir():
+    if not path_exists(path) or not path.is_dir():
         return False
     return any(item.is_file() for item in path.rglob("*"))
 
@@ -214,8 +221,8 @@ def main() -> int:
     mom2_adjustment = bool(hparams.get("mom2_adjustment", False))
     stats_path = resolve_stats_path(hparams_path, hparams)
     stats_exists = stats_has_files(stats_path)
-    dataset = load_json(dataset_path) if dataset_path.exists() else {}
-    requests = load_requests(requests_path) if requests_path.exists() else []
+    dataset = load_json(dataset_path) if path_exists(dataset_path) else {}
+    requests = load_requests(requests_path) if path_exists(requests_path) else []
     scale = dataset_scale(dataset) if dataset else {}
     request_people = count_real_people(requests)
     request_cases = len({str(row.get("case_id")) for row in requests if row.get("case_id")})
@@ -271,16 +278,18 @@ def main() -> int:
         "warnings": [],
     }
 
-    add_check(report, "dataset_exists", dataset_path.exists(), "fatal", f"dataset path: {dataset_path}")
+    model_exists = path_exists(model_path)
+
+    add_check(report, "dataset_exists", path_exists(dataset_path), "fatal", f"dataset path: {dataset_path}")
     add_check(report, "dataset_scale_is_v2_100_people", scale == EXPECTED_SCALE, "fatal", json.dumps(scale, ensure_ascii=False))
-    add_check(report, "requests_exists", requests_path.exists(), "fatal", f"request path: {requests_path}")
+    add_check(report, "requests_exists", path_exists(requests_path), "fatal", f"request path: {requests_path}")
     add_check(report, "requests_are_rome_direct_40", direct_like_requests, "fatal", json.dumps(report["request_summary"], ensure_ascii=False))
-    add_check(report, "model_exists", model_path.exists() or args.allow_missing_model, "fatal", f"model path exists={model_path.exists()}")
-    add_check(report, "hparams_exists", hparams_path.exists(), "fatal", f"hparams path: {hparams_path}")
+    add_check(report, "model_exists", model_exists or args.allow_missing_model, "fatal", f"model path exists={model_exists}")
+    add_check(report, "hparams_exists", path_exists(hparams_path), "fatal", f"hparams path: {hparams_path}")
     add_check(report, "mom2_adjustment_enabled", mom2_adjustment, "warning", f"mom2_adjustment={mom2_adjustment}")
     add_check(report, "stats_available", (not mom2_adjustment) or stats_exists or args.allow_missing_stats, "fatal", f"stats path: {stats_path}, exists_with_files={stats_exists}")
-    add_check(report, "output_dir_safe", (not output_dir.exists()) or args.allow_existing_output_dir, "fatal", f"output_dir exists={output_dir.exists()}")
-    add_check(report, "artifact_dir_safe", (not artifact_dir.exists()) or args.allow_existing_output_dir, "fatal", f"artifact_dir exists={artifact_dir.exists()}")
+    add_check(report, "output_dir_safe", (not path_exists(output_dir)) or args.allow_existing_output_dir, "fatal", f"output_dir exists={path_exists(output_dir)}")
+    add_check(report, "artifact_dir_safe", (not path_exists(artifact_dir)) or args.allow_existing_output_dir, "fatal", f"artifact_dir exists={path_exists(artifact_dir)}")
     add_check(report, "git_status_recorded", git_status["returncode"] == 0, "warning", "git status captured")
     add_check(report, "git_dirty_allowed", (not dirty) or args.allow_dirty_git, "warning", f"dirty={dirty}")
     add_check(report, "cuda_visible", bool(report["cuda"].get("visible")), "warning", report["cuda"].get("warning") or "CUDA visible")
