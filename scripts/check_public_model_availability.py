@@ -63,7 +63,22 @@ def hf_cache_candidates(repo_id: str) -> List[str]:
     return sorted(set(candidates))
 
 
-def snapshot_to_dir(repo_id: str, target: str) -> Dict[str, Any]:
+GPTJ_ALLOW_PATTERNS = [
+    "config.json",
+    "generation_config.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "special_tokens_map.json",
+    "added_tokens.json",
+    "vocab.json",
+    "merges.txt",
+    "pytorch_model.bin",
+    "model.safetensors",
+    "*.safetensors",
+]
+
+
+def snapshot_to_dir(repo_id: str, target: str, allow_patterns: List[str] | None = None) -> Dict[str, Any]:
     from huggingface_hub import snapshot_download
 
     target_path = Path(target)
@@ -73,13 +88,14 @@ def snapshot_to_dir(repo_id: str, target: str) -> Dict[str, Any]:
         local_dir=str(target_path),
         local_dir_use_symlinks=False,
         resume_download=True,
+        allow_patterns=allow_patterns,
     )
-    return {"downloaded": True, "repo_id": repo_id, "local_dir": local_dir}
+    return {"downloaded": True, "repo_id": repo_id, "local_dir": local_dir, "allow_patterns": allow_patterns}
 
 
-def safe_snapshot(repo_id: str, target: str) -> Dict[str, Any]:
+def safe_snapshot(repo_id: str, target: str, allow_patterns: List[str] | None = None) -> Dict[str, Any]:
     try:
-        return snapshot_to_dir(repo_id, target)
+        return snapshot_to_dir(repo_id, target, allow_patterns=allow_patterns)
     except Exception as exc:
         return {
             "downloaded": False,
@@ -186,7 +202,7 @@ def main() -> int:
         "gptj_hf_cache_candidates": hf_cache_candidates(GPTJ_REPO),
     }
     if args.download_gptj:
-        payload["gptj_download_result"] = safe_snapshot(GPTJ_REPO, args.gptj_target)
+        payload["gptj_download_result"] = safe_snapshot(GPTJ_REPO, args.gptj_target, allow_patterns=GPTJ_ALLOW_PATTERNS)
         payload["gptj_paths"] = path_status(GPTJ_PATHS)
     else:
         payload["gptj_download_result"] = None
