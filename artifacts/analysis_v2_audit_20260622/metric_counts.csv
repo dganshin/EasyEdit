@@ -1,0 +1,57 @@
+method,method_key,scope,metric,numerator,denominator,ratio
+Pre leakage model,pre_leakage_model,full_private,private_exact,2816,3000,0.9386666666666666
+Pre leakage model,pre_leakage_model,full_private,private_regex,1995,3000,0.665
+Pre leakage model,pre_leakage_model,full_private,private_sensitive,2978,3000,0.9926666666666667
+Pre leakage model,pre_leakage_model,full_private,private_refusal,0,3000,0.0
+Pre leakage model,pre_leakage_model,public,public_exact,0,2520,0.0
+Pre leakage model,pre_leakage_model,public,public_contains,2461,2520,0.9765873015873016
+ROME direct-only,rome_direct_only,full_private,private_exact,1736,3000,0.5786666666666667
+ROME direct-only,rome_direct_only,full_private,private_regex,1430,3000,0.4766666666666667
+ROME direct-only,rome_direct_only,full_private,private_sensitive,2569,3000,0.8563333333333333
+ROME direct-only,rome_direct_only,full_private,private_refusal,1792,3000,0.5973333333333334
+ROME direct-only,rome_direct_only,public,public_exact,0,2520,0.0
+ROME direct-only,rome_direct_only,public,public_contains,1409,2520,0.5591269841269841
+ROME direct-only,rome_direct_only,edited_subset_private,subset_private_exact,160,600,0.26666666666666666
+ROME direct-only,rome_direct_only,edited_subset_private,subset_private_regex,146,600,0.24333333333333335
+ROME direct-only,rome_direct_only,edited_subset_private,subset_private_sensitive,346,600,0.5766666666666667
+ROME direct-only,rome_direct_only,edited_subset_private,subset_private_refusal,537,600,0.895
+MEMIT direct-only,memit_direct_only,full_private,private_exact,2442,3000,0.814
+MEMIT direct-only,memit_direct_only,full_private,private_regex,1798,3000,0.5993333333333334
+MEMIT direct-only,memit_direct_only,full_private,private_sensitive,2656,3000,0.8853333333333333
+MEMIT direct-only,memit_direct_only,full_private,private_refusal,585,3000,0.195
+MEMIT direct-only,memit_direct_only,public,public_exact,0,2520,0.0
+MEMIT direct-only,memit_direct_only,public,public_contains,2135,2520,0.8472222222222222
+MEMIT direct-only,memit_direct_only,edited_subset_private,subset_private_exact,261,600,0.435
+MEMIT direct-only,memit_direct_only,edited_subset_private,subset_private_regex,227,600,0.37833333333333335
+MEMIT direct-only,memit_direct_only,edited_subset_private,subset_private_sensitive,318,600,0.53
+MEMIT direct-only,memit_direct_only,edited_subset_private,subset_private_refusal,495,600,0.825
+PACE target_only,pace_target_only,full_private,private_exact,0,3000,0.0
+PACE target_only,pace_target_only,full_private,private_regex,0,3000,0.0
+PACE target_only,pace_target_only,full_private,private_sensitive,50,3000,0.016666666666666666
+PACE target_only,pace_target_only,full_private,private_refusal,2979,3000,0.993
+PACE target_only,pace_target_only,public,public_exact,0,2520,0.0
+PACE target_only,pace_target_only,public,public_contains,8,2520,0.0031746031746031746
+PACE target_only,pace_target_only,edited_subset_private,subset_private_exact,0,2655,0.0
+PACE target_only,pace_target_only,edited_subset_private,subset_private_regex,0,2655,0.0
+PACE target_only,pace_target_only,edited_subset_private,subset_private_sensitive,46,2655,0.017325800376647833
+PACE target_only,pace_target_only,edited_subset_private,subset_private_refusal,2635,2655,0.992467043314501
+PACE max1_per_case,pace_max1_per_case,full_private,private_exact,1,3000,0.0003333333333333333
+PACE max1_per_case,pace_max1_per_case,full_private,private_regex,1,3000,0.0003333333333333333
+PACE max1_per_case,pace_max1_per_case,full_private,private_sensitive,60,3000,0.02
+PACE max1_per_case,pace_max1_per_case,full_private,private_refusal,2961,3000,0.987
+PACE max1_per_case,pace_max1_per_case,public,public_exact,0,2520,0.0
+PACE max1_per_case,pace_max1_per_case,public,public_contains,25,2520,0.00992063492063492
+PACE max1_per_case,pace_max1_per_case,edited_subset_private,subset_private_exact,1,2925,0.0003418803418803419
+PACE max1_per_case,pace_max1_per_case,edited_subset_private,subset_private_regex,1,2925,0.0003418803418803419
+PACE max1_per_case,pace_max1_per_case,edited_subset_private,subset_private_sensitive,60,2925,0.020512820512820513
+PACE max1_per_case,pace_max1_per_case,edited_subset_private,subset_private_refusal,2886,2925,0.9866666666666667
+PACE max2_per_person,pace_max2_per_person,full_private,private_exact,73,3000,0.024333333333333332
+PACE max2_per_person,pace_max2_per_person,full_private,private_regex,45,3000,0.015
+PACE max2_per_person,pace_max2_per_person,full_private,private_sensitive,222,3000,0.074
+PACE max2_per_person,pace_max2_per_person,full_private,private_refusal,2804,3000,0.9346666666666666
+PACE max2_per_person,pace_max2_per_person,public,public_exact,0,2520,0.0
+PACE max2_per_person,pace_max2_per_person,public,public_contains,248,2520,0.09841269841269841
+PACE max2_per_person,pace_max2_per_person,edited_subset_private,subset_private_exact,1,1860,0.0005376344086021505
+PACE max2_per_person,pace_max2_per_person,edited_subset_private,subset_private_regex,1,1860,0.0005376344086021505
+PACE max2_per_person,pace_max2_per_person,edited_subset_private,subset_private_sensitive,38,1860,0.02043010752688172
+PACE max2_per_person,pace_max2_per_person,edited_subset_private,subset_private_refusal,1818,1860,0.9774193548387097

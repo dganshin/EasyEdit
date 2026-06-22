@@ -1,0 +1,302 @@
+[
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.935,
+    "private_regex": 0.635,
+    "private_sensitive": 0.9916666666666667,
+    "private_refusal": 0.0
+  },
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.9416666666666667,
+    "private_regex": 0.6533333333333333,
+    "private_sensitive": 0.9933333333333333,
+    "private_refusal": 0.0
+  },
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.9283333333333333,
+    "private_regex": 0.6783333333333333,
+    "private_sensitive": 0.995,
+    "private_refusal": 0.0
+  },
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.9416666666666667,
+    "private_regex": 0.6783333333333333,
+    "private_sensitive": 0.9916666666666667,
+    "private_refusal": 0.0
+  },
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.9466666666666667,
+    "private_regex": 0.68,
+    "private_sensitive": 0.9916666666666667,
+    "private_refusal": 0.0
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.6366666666666667,
+    "private_regex": 0.5266666666666666,
+    "private_sensitive": 0.8883333333333333,
+    "private_refusal": 0.6133333333333333
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.5366666666666666,
+    "private_regex": 0.44,
+    "private_sensitive": 0.7683333333333333,
+    "private_refusal": 0.5516666666666666
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.6383333333333333,
+    "private_regex": 0.525,
+    "private_sensitive": 1.0,
+    "private_refusal": 0.705
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.43833333333333335,
+    "private_regex": 0.3516666666666667,
+    "private_sensitive": 0.7316666666666667,
+    "private_refusal": 0.5566666666666666
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.6433333333333333,
+    "private_regex": 0.54,
+    "private_sensitive": 0.8933333333333333,
+    "private_refusal": 0.56
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.8266666666666667,
+    "private_regex": 0.5933333333333334,
+    "private_sensitive": 0.8983333333333333,
+    "private_refusal": 0.2
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.7833333333333333,
+    "private_regex": 0.57,
+    "private_sensitive": 0.85,
+    "private_refusal": 0.205
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.8983333333333333,
+    "private_regex": 0.6766666666666666,
+    "private_sensitive": 0.9866666666666667,
+    "private_refusal": 0.16333333333333333
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.7183333333333334,
+    "private_regex": 0.5166666666666667,
+    "private_sensitive": 0.7816666666666666,
+    "private_refusal": 0.215
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.8433333333333334,
+    "private_regex": 0.64,
+    "private_sensitive": 0.91,
+    "private_refusal": 0.19166666666666668
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.023333333333333334,
+    "private_refusal": 0.99
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.015,
+    "private_refusal": 0.99
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.01,
+    "private_refusal": 0.99
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.013333333333333334,
+    "private_refusal": 0.9983333333333333
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.021666666666666667,
+    "private_refusal": 0.9966666666666667
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.02,
+    "private_refusal": 0.99
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.016666666666666666,
+    "private_refusal": 0.9983333333333333
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.0016666666666666668,
+    "private_regex": 0.0016666666666666668,
+    "private_sensitive": 0.02666666666666667,
+    "private_refusal": 0.965
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.025,
+    "private_refusal": 0.9983333333333333
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.011666666666666667,
+    "private_refusal": 0.9833333333333333
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "attack_type": "direct",
+    "count": 600,
+    "private_exact": 0.03,
+    "private_regex": 0.018333333333333333,
+    "private_sensitive": 0.06666666666666667,
+    "private_refusal": 0.9366666666666666
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "attack_type": "paraphrase",
+    "count": 600,
+    "private_exact": 0.025,
+    "private_regex": 0.015,
+    "private_sensitive": 0.08166666666666667,
+    "private_refusal": 0.885
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "attack_type": "completion",
+    "count": 600,
+    "private_exact": 0.03166666666666667,
+    "private_regex": 0.023333333333333334,
+    "private_sensitive": 0.10666666666666667,
+    "private_refusal": 0.92
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "attack_type": "roleplay",
+    "count": 600,
+    "private_exact": 0.0,
+    "private_regex": 0.0,
+    "private_sensitive": 0.0016666666666666668,
+    "private_refusal": 0.995
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "attack_type": "context",
+    "count": 600,
+    "private_exact": 0.035,
+    "private_regex": 0.018333333333333333,
+    "private_sensitive": 0.11333333333333333,
+    "private_refusal": 0.9366666666666666
+  }
+]

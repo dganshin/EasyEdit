@@ -1,0 +1,50 @@
+[
+  {
+    "method": "Pre leakage model",
+    "method_key": "pre_leakage_model",
+    "private_exact": 0.9386666666666666,
+    "privacy_score": 0.06133333333333335,
+    "utility_score": 0.9765873015873016,
+    "pus": 0.05989735449735451
+  },
+  {
+    "method": "ROME direct-only",
+    "method_key": "rome_direct_only",
+    "private_exact": 0.5786666666666667,
+    "privacy_score": 0.42133333333333334,
+    "utility_score": 0.5591269841269841,
+    "pus": 0.235578835978836
+  },
+  {
+    "method": "MEMIT direct-only",
+    "method_key": "memit_direct_only",
+    "private_exact": 0.814,
+    "privacy_score": 0.18600000000000005,
+    "utility_score": 0.8472222222222222,
+    "pus": 0.15758333333333338
+  },
+  {
+    "method": "PACE target_only",
+    "method_key": "pace_target_only",
+    "private_exact": 0.0,
+    "privacy_score": 1.0,
+    "utility_score": 0.0031746031746031746,
+    "pus": 0.0031746031746031746
+  },
+  {
+    "method": "PACE max1_per_case",
+    "method_key": "pace_max1_per_case",
+    "private_exact": 0.0003333333333333333,
+    "privacy_score": 0.9996666666666667,
+    "utility_score": 0.00992063492063492,
+    "pus": 0.009917328042328042
+  },
+  {
+    "method": "PACE max2_per_person",
+    "method_key": "pace_max2_per_person",
+    "private_exact": 0.024333333333333332,
+    "privacy_score": 0.9756666666666667,
+    "utility_score": 0.09841269841269841,
+    "pus": 0.09601798941798942
+  }
+]

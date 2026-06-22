@@ -1,0 +1,312 @@
+{
+  "pre_leakage_model": {
+    "label": "Pre leakage model",
+    "counts": {
+      "private_exact": {
+        "numerator": 2816,
+        "denominator": 3000,
+        "ratio": 0.9386666666666666
+      },
+      "private_regex": {
+        "numerator": 1995,
+        "denominator": 3000,
+        "ratio": 0.665
+      },
+      "private_sensitive": {
+        "numerator": 2978,
+        "denominator": 3000,
+        "ratio": 0.9926666666666667
+      },
+      "private_refusal": {
+        "numerator": 0,
+        "denominator": 3000,
+        "ratio": 0.0
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 2461,
+        "denominator": 2520,
+        "ratio": 0.9765873015873016
+      }
+    }
+  },
+  "rome_direct_only": {
+    "label": "ROME direct-only",
+    "counts": {
+      "private_exact": {
+        "numerator": 1736,
+        "denominator": 3000,
+        "ratio": 0.5786666666666667
+      },
+      "private_regex": {
+        "numerator": 1430,
+        "denominator": 3000,
+        "ratio": 0.4766666666666667
+      },
+      "private_sensitive": {
+        "numerator": 2569,
+        "denominator": 3000,
+        "ratio": 0.8563333333333333
+      },
+      "private_refusal": {
+        "numerator": 1792,
+        "denominator": 3000,
+        "ratio": 0.5973333333333334
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 1409,
+        "denominator": 2520,
+        "ratio": 0.5591269841269841
+      },
+      "subset_private_exact": {
+        "numerator": 160,
+        "denominator": 600,
+        "ratio": 0.26666666666666666
+      },
+      "subset_private_regex": {
+        "numerator": 146,
+        "denominator": 600,
+        "ratio": 0.24333333333333335
+      },
+      "subset_private_sensitive": {
+        "numerator": 346,
+        "denominator": 600,
+        "ratio": 0.5766666666666667
+      },
+      "subset_private_refusal": {
+        "numerator": 537,
+        "denominator": 600,
+        "ratio": 0.895
+      }
+    }
+  },
+  "memit_direct_only": {
+    "label": "MEMIT direct-only",
+    "counts": {
+      "private_exact": {
+        "numerator": 2442,
+        "denominator": 3000,
+        "ratio": 0.814
+      },
+      "private_regex": {
+        "numerator": 1798,
+        "denominator": 3000,
+        "ratio": 0.5993333333333334
+      },
+      "private_sensitive": {
+        "numerator": 2656,
+        "denominator": 3000,
+        "ratio": 0.8853333333333333
+      },
+      "private_refusal": {
+        "numerator": 585,
+        "denominator": 3000,
+        "ratio": 0.195
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 2135,
+        "denominator": 2520,
+        "ratio": 0.8472222222222222
+      },
+      "subset_private_exact": {
+        "numerator": 261,
+        "denominator": 600,
+        "ratio": 0.435
+      },
+      "subset_private_regex": {
+        "numerator": 227,
+        "denominator": 600,
+        "ratio": 0.37833333333333335
+      },
+      "subset_private_sensitive": {
+        "numerator": 318,
+        "denominator": 600,
+        "ratio": 0.53
+      },
+      "subset_private_refusal": {
+        "numerator": 495,
+        "denominator": 600,
+        "ratio": 0.825
+      }
+    }
+  },
+  "pace_target_only": {
+    "label": "PACE target_only",
+    "counts": {
+      "private_exact": {
+        "numerator": 0,
+        "denominator": 3000,
+        "ratio": 0.0
+      },
+      "private_regex": {
+        "numerator": 0,
+        "denominator": 3000,
+        "ratio": 0.0
+      },
+      "private_sensitive": {
+        "numerator": 50,
+        "denominator": 3000,
+        "ratio": 0.016666666666666666
+      },
+      "private_refusal": {
+        "numerator": 2979,
+        "denominator": 3000,
+        "ratio": 0.993
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 8,
+        "denominator": 2520,
+        "ratio": 0.0031746031746031746
+      },
+      "subset_private_exact": {
+        "numerator": 0,
+        "denominator": 2655,
+        "ratio": 0.0
+      },
+      "subset_private_regex": {
+        "numerator": 0,
+        "denominator": 2655,
+        "ratio": 0.0
+      },
+      "subset_private_sensitive": {
+        "numerator": 46,
+        "denominator": 2655,
+        "ratio": 0.017325800376647833
+      },
+      "subset_private_refusal": {
+        "numerator": 2635,
+        "denominator": 2655,
+        "ratio": 0.992467043314501
+      }
+    }
+  },
+  "pace_max1_per_case": {
+    "label": "PACE max1_per_case",
+    "counts": {
+      "private_exact": {
+        "numerator": 1,
+        "denominator": 3000,
+        "ratio": 0.0003333333333333333
+      },
+      "private_regex": {
+        "numerator": 1,
+        "denominator": 3000,
+        "ratio": 0.0003333333333333333
+      },
+      "private_sensitive": {
+        "numerator": 60,
+        "denominator": 3000,
+        "ratio": 0.02
+      },
+      "private_refusal": {
+        "numerator": 2961,
+        "denominator": 3000,
+        "ratio": 0.987
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 25,
+        "denominator": 2520,
+        "ratio": 0.00992063492063492
+      },
+      "subset_private_exact": {
+        "numerator": 1,
+        "denominator": 2925,
+        "ratio": 0.0003418803418803419
+      },
+      "subset_private_regex": {
+        "numerator": 1,
+        "denominator": 2925,
+        "ratio": 0.0003418803418803419
+      },
+      "subset_private_sensitive": {
+        "numerator": 60,
+        "denominator": 2925,
+        "ratio": 0.020512820512820513
+      },
+      "subset_private_refusal": {
+        "numerator": 2886,
+        "denominator": 2925,
+        "ratio": 0.9866666666666667
+      }
+    }
+  },
+  "pace_max2_per_person": {
+    "label": "PACE max2_per_person",
+    "counts": {
+      "private_exact": {
+        "numerator": 73,
+        "denominator": 3000,
+        "ratio": 0.024333333333333332
+      },
+      "private_regex": {
+        "numerator": 45,
+        "denominator": 3000,
+        "ratio": 0.015
+      },
+      "private_sensitive": {
+        "numerator": 222,
+        "denominator": 3000,
+        "ratio": 0.074
+      },
+      "private_refusal": {
+        "numerator": 2804,
+        "denominator": 3000,
+        "ratio": 0.9346666666666666
+      },
+      "public_exact": {
+        "numerator": 0,
+        "denominator": 2520,
+        "ratio": 0.0
+      },
+      "public_contains": {
+        "numerator": 248,
+        "denominator": 2520,
+        "ratio": 0.09841269841269841
+      },
+      "subset_private_exact": {
+        "numerator": 1,
+        "denominator": 1860,
+        "ratio": 0.0005376344086021505
+      },
+      "subset_private_regex": {
+        "numerator": 1,
+        "denominator": 1860,
+        "ratio": 0.0005376344086021505
+      },
+      "subset_private_sensitive": {
+        "numerator": 38,
+        "denominator": 1860,
+        "ratio": 0.02043010752688172
+      },
+      "subset_private_refusal": {
+        "numerator": 1818,
+        "denominator": 1860,
+        "ratio": 0.9774193548387097
+      }
+    }
+  }
+}
