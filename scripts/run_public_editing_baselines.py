@@ -37,6 +37,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry_run", action="store_true")
     parser.add_argument("--smoke_only", action="store_true")
     parser.add_argument("--disable_generation_test", action="store_true")
+    parser.add_argument(
+        "--resume_skip_completed",
+        action="store_true",
+        help="Skip a method when output_dir/METHOD/summary.json exists with status=ok.",
+    )
     return parser.parse_args()
 
 
@@ -126,6 +131,18 @@ def write_jsonl(path: Path, records: List[Dict[str, Any]]) -> None:
     with path.open("w", encoding="utf-8") as fh:
         for record in records:
             fh.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def completed_summary_exists(method_dir: Path) -> bool:
+    summary_path = method_dir / "summary.json"
+    if not summary_path.exists():
+        return False
+    try:
+        with summary_path.open("r", encoding="utf-8") as fh:
+            payload = json.load(fh)
+    except Exception:
+        return False
+    return payload.get("status") == "ok"
 
 
 def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Namespace, method_dir: Path) -> None:
@@ -224,6 +241,9 @@ def main() -> int:
 
     for method in methods:
         method_dir = output_dir / method
+        if args.resume_skip_completed and completed_summary_exists(method_dir):
+            print(f"[SKIP] {method}: completed summary exists at {method_dir / 'summary.json'}")
+            continue
         try:
             run_method(method, requests, args, method_dir)
             print(f"[OK] {method}: {method_dir}")
