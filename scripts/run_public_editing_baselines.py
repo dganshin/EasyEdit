@@ -1,5 +1,6 @@
 import argparse
 import contextlib
+import gc
 import json
 import sys
 import time
@@ -145,6 +146,17 @@ def completed_summary_exists(method_dir: Path) -> bool:
     return payload.get("status") == "ok"
 
 
+def release_cuda_cache() -> None:
+    gc.collect()
+    try:
+        import torch
+    except Exception:
+        return
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+        torch.cuda.ipc_collect()
+
+
 def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Namespace, method_dir: Path) -> None:
     import torch
     from easyeditor import BaseEditor
@@ -259,7 +271,9 @@ def main() -> int:
             write_json(method_dir / "summary.json", failure)
             (method_dir / "run_log.txt").write_text(failure["traceback"], encoding="utf-8")
             print(f"[FAIL] {method}: {exc!r}")
-            continue
+            return 1
+        finally:
+            release_cuda_cache()
     return 0
 
 

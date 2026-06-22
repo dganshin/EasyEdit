@@ -36,6 +36,8 @@ DEVICE="${DEVICE:-0}"
 METHODS_GPTJ="${METHODS_GPTJ:-ROME,FT,KN,IKE}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
 DOWNLOAD_LLAMA_BACKUP="${DOWNLOAD_LLAMA_BACKUP:-0}"
+SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
+SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
 
 mkdir -p "$LOG_DIR"
 rm -f "$DONE_FILE"
@@ -52,6 +54,27 @@ write_status() {
     echo "max_cases=${MAX_CASES}"
   } > "$STATUS_FILE"
 }
+
+on_exit() {
+  local code=$?
+  local state="failed"
+  if [[ "$code" == "0" ]]; then
+    state="done"
+  fi
+  {
+    echo "state=${state}"
+    echo "exit_code=${code}"
+    echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')"
+    echo "art_root=${ART_ROOT}"
+    echo "model=${GPTJ_MODEL}"
+    echo "max_cases=${MAX_CASES}"
+  } > "$STATUS_FILE"
+  if [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+    echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes; cancel with: shutdown -c"
+    shutdown -h "+${SHUTDOWN_DELAY_MINUTES}" "GPT-J public benchmark ${state}, exit=${code}" || true
+  fi
+}
+trap on_exit EXIT
 
 run_step() {
   local name="$1"
@@ -81,7 +104,8 @@ run_optional() {
   local name="$1"
   shift
   if ! run_step "$name" "$@"; then
-    echo "[WARN] continuing after failed step: $name"
+    echo "[FAIL] stopping after failed step: $name"
+    return 1
   fi
 }
 
