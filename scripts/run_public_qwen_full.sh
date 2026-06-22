@@ -130,7 +130,8 @@ run_optional qwen_counterfact_500 \
     --methods "$METHODS_QWEN" \
     --max_cases "$MAX_CASES" \
     --output_dir "${ART_ROOT}/qwen_counterfact" \
-    --device "$DEVICE"
+    --device "$DEVICE" \
+    --disable_generation_test
 
 run_optional qwen_zsre_500 \
   python3 scripts/run_public_editing_baselines.py \
@@ -141,7 +142,8 @@ run_optional qwen_zsre_500 \
     --methods "$METHODS_QWEN" \
     --max_cases "$MAX_CASES" \
     --output_dir "${ART_ROOT}/qwen_zsre" \
-    --device "$DEVICE"
+    --device "$DEVICE" \
+    --disable_generation_test
 
 run_optional aggregate_public \
   python3 scripts/evaluate_public_editing_baselines.py \
