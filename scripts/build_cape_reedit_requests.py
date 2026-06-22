@@ -22,6 +22,30 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tau", default=0.5, type=float, help="Public-anchor blocking threshold")
     parser.add_argument("--max_requests_per_person", default=1, type=int, help="Per-person round2 budget")
     parser.add_argument(
+        "--max_total_requests",
+        default=None,
+        type=int,
+        help="Optional global cap for selected round2 requests. Default keeps CAPE-v0 behavior.",
+    )
+    parser.add_argument(
+        "--scope",
+        default="all",
+        choices=["all", "original_edited_people_only"],
+        help="Candidate scope. CAPE-v1 should use original_edited_people_only.",
+    )
+    parser.add_argument(
+        "--candidate_source",
+        default="all",
+        choices=["all", "target_exact_or_value_contains", "target_regex", "sensitive_pattern"],
+        help="Residual failure source to keep. CAPE-v1 should use target_exact_or_value_contains.",
+    )
+    parser.add_argument(
+        "--request_prompt_mode",
+        default="source",
+        choices=["source", "canonical_direct"],
+        help="Use original leaked prompt or canonical direct prompt as the edit request prompt.",
+    )
+    parser.add_argument(
         "--attack_priority",
         default=",".join(DEFAULT_ATTACK_PRIORITY),
         type=str,
@@ -49,6 +73,15 @@ def index_dataset_cases(dataset: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 def index_base_requests(base_requests_payload: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     return {str(row["case_id"]): row for row in base_requests_payload.get("requests", [])}
+
+
+def base_request_people(base_requests_payload: Dict[str, Any]) -> set[str]:
+    people: set[str] = set()
+    for row in base_requests_payload.get("requests", []):
+        person_id = row.get("person_id")
+        if person_id:
+            people.add(str(person_id))
+    return people
 
 
 def compute_same_subject_public_rates(public_eval: Dict[str, Any], dataset_index: Dict[str, Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
@@ -105,6 +138,13 @@ def failure_priority(row: Dict[str, Any]) -> Tuple[int, str]:
     return 99, "not_candidate"
 
 
+def canonical_direct_prompt(dataset_case: Dict[str, Any], fallback_prompt: str | None) -> Tuple[str | None, str | None]:
+    for prompt_row in dataset_case.get("test_prompt_rows") or []:
+        if str(prompt_row.get("attack_type") or "") == "direct":
+            return prompt_row.get("prompt"), prompt_row.get("attack_template_id")
+    return fallback_prompt, None
+
+
 def build_candidate_rows(
     private_eval: Dict[str, Any],
     detail_index: Dict[str, Dict[str, Any]],
@@ -112,11 +152,18 @@ def build_candidate_rows(
     dataset_index: Dict[str, Dict[str, Any]],
     base_request_index: Dict[str, Dict[str, Any]],
     attack_priority: Dict[str, int],
+    *,
+    original_people: set[str],
+    scope: str,
+    candidate_source: str,
+    request_prompt_mode: str,
 ) -> List[Dict[str, Any]]:
     candidates: List[Dict[str, Any]] = []
     for row in private_eval.get("by_expected_row", []):
         pri_rank, pri_label = failure_priority(row)
         if pri_rank >= 99:
+            continue
+        if candidate_source != "all" and pri_label != candidate_source:
             continue
         base_prediction_id = str(row.get("base_prediction_id") or row.get("prediction_id"))
         detail = detail_index.get(base_prediction_id)
@@ -124,9 +171,20 @@ def build_candidate_rows(
             continue
         case_id = str(detail["case_id"])
         person_id = str(detail.get("person_id") or "")
+        if scope == "original_edited_people_only" and person_id not in original_people:
+            continue
         dataset_case = dataset_index.get(case_id, {})
         base_request = base_request_index.get(case_id, {})
         attack_type = str(detail.get("attack_type") or row.get("attack_type") or "")
+        request_attack_type = attack_type
+        prompt = detail.get("prompt")
+        attack_template_id = detail.get("attack_template_id") or row.get("attack_template_id")
+        prompt_source = "source"
+        if request_prompt_mode == "canonical_direct":
+            prompt, direct_template_id = canonical_direct_prompt(dataset_case, prompt)
+            attack_template_id = direct_template_id or attack_template_id
+            request_attack_type = "direct"
+            prompt_source = "canonical_direct"
         public_rate_info = public_rates.get(person_id, {})
         candidates.append(
             {
@@ -137,9 +195,13 @@ def build_candidate_rows(
                 "name": detail.get("name") or dataset_case.get("name"),
                 "attribute": detail.get("attribute") or dataset_case.get("attribute"),
                 "privacy_type": detail.get("privacy_type") or dataset_case.get("privacy_type"),
-                "attack_type": attack_type,
-                "attack_template_id": detail.get("attack_template_id") or row.get("attack_template_id"),
-                "prompt": detail.get("prompt"),
+                "attack_type": request_attack_type,
+                "source_attack_type": attack_type,
+                "source_attack_template_id": detail.get("attack_template_id") or row.get("attack_template_id"),
+                "attack_template_id": attack_template_id,
+                "prompt": prompt,
+                "source_prompt": detail.get("prompt"),
+                "prompt_source": prompt_source,
                 "ground_truth": detail.get("value"),
                 "subject": detail.get("name") or dataset_case.get("name"),
                 "rephrase_prompt": base_request.get("rephrase_prompt") or dataset_case.get("edit_request", {}).get("rephrase_prompt"),
@@ -184,9 +246,13 @@ def build_request_payload(candidate: Dict[str, Any], target_new: str) -> Dict[st
         "attribute": candidate["attribute"],
         "privacy_type": candidate["privacy_type"],
         "attack_type": candidate["attack_type"],
+        "source_attack_type": candidate.get("source_attack_type"),
         "attack_template_id": candidate["attack_template_id"],
+        "source_attack_template_id": candidate.get("source_attack_template_id"),
         "subject": candidate["subject"],
         "prompt": candidate["prompt"],
+        "source_prompt": candidate.get("source_prompt"),
+        "prompt_source": candidate.get("prompt_source"),
         "ground_truth": candidate["ground_truth"],
         "target_new": target_new,
         "rephrase_prompt": candidate.get("rephrase_prompt"),
@@ -207,6 +273,7 @@ def select_requests(
     *,
     tau: float,
     max_requests_per_person: int,
+    max_total_requests: int | None,
     target_new: str,
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     selected: List[Dict[str, Any]] = []
@@ -219,6 +286,8 @@ def select_requests(
     budget_examples: List[Dict[str, Any]] = []
 
     for candidate in candidates:
+        if max_total_requests is not None and len(selected) >= max_total_requests:
+            break
         person_id = str(candidate.get("person_id") or "")
         subject = str(candidate.get("subject") or person_id or "unknown")
         contains_rate = candidate.get("same_subject_public_contains_rate")
@@ -324,6 +393,10 @@ def build_selection_report(
             "target_new": args.target_new,
             "tau": args.tau,
             "max_requests_per_person": args.max_requests_per_person,
+            "max_total_requests": args.max_total_requests,
+            "scope": args.scope,
+            "candidate_source": args.candidate_source,
+            "request_prompt_mode": args.request_prompt_mode,
             "attack_priority": [item.strip() for item in args.attack_priority.split(",") if item.strip()],
         },
         "source_summary": {
@@ -353,6 +426,10 @@ def write_markdown_report(report: Dict[str, Any], output_path: Path) -> None:
         "",
         f"- tau = {report['config']['tau']}",
         f"- max_requests_per_person = {report['config']['max_requests_per_person']}",
+        f"- max_total_requests = {report['config']['max_total_requests']}",
+        f"- scope = {report['config']['scope']}",
+        f"- candidate_source = {report['config']['candidate_source']}",
+        f"- request_prompt_mode = {report['config']['request_prompt_mode']}",
         f"- attack_priority = {', '.join(report['config']['attack_priority'])}",
         "",
         "## 2. Candidate pool",
@@ -431,6 +508,7 @@ def main() -> int:
     detail_index = index_private_details(private_eval)
     dataset_index = index_dataset_cases(dataset)
     base_request_index = index_base_requests(base_requests_payload)
+    original_people = base_request_people(base_requests_payload)
     public_rates = compute_same_subject_public_rates(public_eval, dataset_index)
     attack_priority = attack_priority_map(args.attack_priority)
     candidates = build_candidate_rows(
@@ -440,11 +518,16 @@ def main() -> int:
         dataset_index,
         base_request_index,
         attack_priority,
+        original_people=original_people,
+        scope=args.scope,
+        candidate_source=args.candidate_source,
+        request_prompt_mode=args.request_prompt_mode,
     )
     selected_requests, selection_counters = select_requests(
         candidates,
         tau=args.tau,
         max_requests_per_person=args.max_requests_per_person,
+        max_total_requests=args.max_total_requests,
         target_new=args.target_new,
     )
     request_summary = summarize_requests(selected_requests)
@@ -457,6 +540,10 @@ def main() -> int:
         "target_new": args.target_new,
         "tau": args.tau,
         "max_requests_per_person": args.max_requests_per_person,
+        "max_total_requests": args.max_total_requests,
+        "scope": args.scope,
+        "candidate_source": args.candidate_source,
+        "request_prompt_mode": args.request_prompt_mode,
         "attack_priority": [item.strip() for item in args.attack_priority.split(",") if item.strip()],
         "num_requests": len(selected_requests),
         "request_summary": request_summary,

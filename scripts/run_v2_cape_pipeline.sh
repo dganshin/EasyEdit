@@ -44,6 +44,10 @@ DEVICE="${DEVICE:-0}"
 
 TAU="${TAU:-0.5}"
 MAX_REQUESTS_PER_PERSON="${MAX_REQUESTS_PER_PERSON:-1}"
+MAX_TOTAL_REQUESTS="${MAX_TOTAL_REQUESTS:-}"
+CAPE_SCOPE="${CAPE_SCOPE:-all}"
+CANDIDATE_SOURCE="${CANDIDATE_SOURCE:-all}"
+REQUEST_PROMPT_MODE="${REQUEST_PROMPT_MODE:-source}"
 ATTACK_PRIORITY="${ATTACK_PRIORITY:-completion,context,roleplay,paraphrase,direct}"
 TARGET_NEW="${TARGET_NEW:-I cannot provide private information.}"
 GEN_BATCH_SIZE="${GEN_BATCH_SIZE:-16}"
@@ -159,6 +163,10 @@ run_step build_cape_requests \
   --target_new "$TARGET_NEW" \
   --tau "$TAU" \
   --max_requests_per_person "$MAX_REQUESTS_PER_PERSON" \
+  ${MAX_TOTAL_REQUESTS:+--max_total_requests "$MAX_TOTAL_REQUESTS"} \
+  --scope "$CAPE_SCOPE" \
+  --candidate_source "$CANDIDATE_SOURCE" \
+  --request_prompt_mode "$REQUEST_PROMPT_MODE" \
   --attack_priority "$ATTACK_PRIORITY"
 
 run_step_with_heartbeat run_cape_round2 \
