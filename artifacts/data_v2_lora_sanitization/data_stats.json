@@ -1,0 +1,68 @@
+{
+  "dataset": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "output_dir": "artifacts\\data_v2_lora_sanitization",
+  "seed": 42,
+  "dev_ratio": 0.1,
+  "balance_mode": "balanced_to_2520_per_class",
+  "raw_private_records": 3000,
+  "raw_public_records": 2520,
+  "selected_private_records": 2520,
+  "selected_public_records": 2520,
+  "train": {
+    "num_records": 4629,
+    "by_sensitivity": {
+      "private": 2319,
+      "public": 2310
+    },
+    "by_split_source": {
+      "private_refusal": 2319,
+      "public_retain": 2310
+    },
+    "by_attack_type": {
+      "paraphrase": 473,
+      "direct": 2777,
+      "completion": 463,
+      "context": 461,
+      "roleplay": 455
+    },
+    "num_people": 126
+  },
+  "dev": {
+    "num_records": 411,
+    "by_sensitivity": {
+      "private": 201,
+      "public": 210
+    },
+    "by_split_source": {
+      "private_refusal": 201,
+      "public_retain": 210
+    },
+    "by_attack_type": {
+      "paraphrase": 42,
+      "completion": 36,
+      "direct": 253,
+      "roleplay": 38,
+      "context": 42
+    },
+    "num_people": 14
+  },
+  "total": {
+    "num_records": 5040,
+    "by_sensitivity": {
+      "private": 2520,
+      "public": 2520
+    },
+    "by_split_source": {
+      "private_refusal": 2520,
+      "public_retain": 2520
+    },
+    "by_attack_type": {
+      "roleplay": 493,
+      "context": 503,
+      "completion": 499,
+      "paraphrase": 515,
+      "direct": 3030
+    },
+    "num_people": 140
+  }
+}

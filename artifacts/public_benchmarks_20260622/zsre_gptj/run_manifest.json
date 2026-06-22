@@ -1,0 +1,15 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260622/zsre_500.json",
+  "dataset_name": "zsre",
+  "model_path": "/root/autodl-tmp/models/gpt-j-6B",
+  "model_name": "gpt-j-6B",
+  "methods": [
+    "ROME",
+    "FT",
+    "IKE",
+    "KN"
+  ],
+  "num_requests": 5,
+  "dry_run": true,
+  "smoke_only": true
+}

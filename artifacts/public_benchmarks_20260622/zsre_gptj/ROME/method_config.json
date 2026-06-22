@@ -1,0 +1,6 @@
+{
+  "method": "ROME",
+  "hparams_path": "hparams\\ROME\\gpt-j-6B.yaml",
+  "num_cases": 5,
+  "status": "dry_run_only"
+}

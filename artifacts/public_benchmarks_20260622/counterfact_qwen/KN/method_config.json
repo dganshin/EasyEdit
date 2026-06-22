@@ -1,0 +1,6 @@
+{
+  "method": "KN",
+  "hparams_path": "hparams\\KN\\qwen2.5-7b.yaml",
+  "num_cases": 5,
+  "status": "dry_run_only"
+}

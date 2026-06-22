@@ -1,0 +1,6 @@
+{
+  "method": "FT",
+  "hparams_path": "hparams\\FT\\qwen2.5-7b.yaml",
+  "num_cases": 5,
+  "status": "dry_run_only"
+}

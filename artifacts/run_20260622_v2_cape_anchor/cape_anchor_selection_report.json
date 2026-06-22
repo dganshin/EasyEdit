@@ -1,0 +1,9 @@
+{
+  "dataset": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "private_eval": "artifacts/run_20260615_v2_rome_direct/privacy_leakage_eval_v2_rome_direct_full.json",
+  "selected_subjects": 20,
+  "privacy_requests": 20,
+  "public_anchor_requests": 20,
+  "total_requests": 40,
+  "requests_path": "artifacts\\run_20260622_v2_cape_anchor\\cape_anchor_requests.json"
+}

@@ -32,3 +32,14 @@ wandb/
 *.pt
 *.pth
 .DS_Store
+artifacts/public_benchmarks_20260622/raw/
+artifacts/public_benchmarks_20260622/model_cache/
+
+# Local reference PDFs and document-rendering scratch space
+reference/
+_lo_profile*/
+_render_course_paper_*_pages/
+_render_course_paper_*_pdf/
+_render_tmp_ascii/
+~$*.docx
+/*.docx

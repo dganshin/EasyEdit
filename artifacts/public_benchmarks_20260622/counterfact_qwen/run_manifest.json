@@ -1,0 +1,14 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260622/counterfact_500.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "model_name": "qwen2.5-7b",
+  "methods": [
+    "ROME",
+    "FT",
+    "KN"
+  ],
+  "num_requests": 5,
+  "dry_run": true,
+  "smoke_only": true
+}

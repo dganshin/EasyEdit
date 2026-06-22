@@ -1,0 +1,6 @@
+{
+  "method": "IKE",
+  "hparams_path": "hparams\\IKE\\gpt-j-6B.yaml",
+  "num_cases": 5,
+  "status": "dry_run_only"
+}
