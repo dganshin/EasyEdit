@@ -1,4 +1,5 @@
 import argparse
+import contextlib
 import json
 import sys
 import time
@@ -157,11 +158,12 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
     start = time.time()
     with log_path.open("w", encoding="utf-8") as log:
         log.write(json.dumps(config, ensure_ascii=False, indent=2) + "\n")
-        editor = BaseEditor.from_hparams(hparams)
         kwargs: Dict[str, Any] = {"test_generation": not args.disable_generation_test}
         if method == "IKE":
             kwargs["train_ds"] = requests
-        metrics, _, _ = editor.edit_requests(requests, sequential_edit=False, verbose=False, **kwargs)
+        with contextlib.redirect_stdout(log):
+            editor = BaseEditor.from_hparams(hparams)
+            metrics, _, _ = editor.edit_requests(requests, sequential_edit=False, verbose=False, **kwargs)
         elapsed = time.time() - start
         log.write(f"elapsed_sec={elapsed:.2f}\n")
     per_case = []
