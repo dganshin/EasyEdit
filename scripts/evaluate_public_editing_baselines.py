@@ -135,6 +135,20 @@ def write_report(path: Path, rows: List[Dict[str, Any]]) -> None:
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_matrix(path: Path, rows: List[Dict[str, Any]]) -> None:
+    lines = [
+        "# Public Benchmark Method Matrix",
+        "",
+        "| dataset | model | method | status | cases |",
+        "| --- | --- | --- | --- | ---: |",
+    ]
+    for row in rows:
+        lines.append(
+            f"| {row.get('dataset') or ''} | {row.get('model') or ''} | {row.get('method') or ''} | {row.get('status') or ''} | {row.get('num_cases') or ''} |"
+        )
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     args = parse_args()
     root = Path(args.root_dir)
@@ -143,13 +157,16 @@ def main() -> int:
     json_path = output_dir / "public_editing_comparison.json"
     csv_path = output_dir / "public_editing_comparison.csv"
     report_path = output_dir / "PUBLIC_EDITING_BASELINE_REPORT.md"
+    matrix_path = output_dir / "public_benchmark_method_matrix.md"
     output_dir.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps({"rows": rows}, ensure_ascii=False, indent=2), encoding="utf-8")
     write_csv(csv_path, rows)
     write_report(report_path, rows)
+    write_matrix(matrix_path, rows)
     print(f"comparison_json: {json_path}")
     print(f"comparison_csv: {csv_path}")
     print(f"report: {report_path}")
+    print(f"matrix: {matrix_path}")
     return 0
 
 
