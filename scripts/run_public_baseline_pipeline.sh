@@ -118,6 +118,23 @@ fi
 
 GPTJ_MODEL="/root/autodl-tmp/models/gpt-j-6B"
 QWEN_MODEL="/root/autodl-tmp/models/Qwen2.5-7B"
+model_dir_is_valid() {
+  local model_dir="$1"
+  [[ -d "$model_dir" && -f "$model_dir/config.json" ]] || return 1
+  python3 - "$model_dir/config.json" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+try:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+except Exception:
+    raise SystemExit(1)
+raise SystemExit(0 if payload.get("model_type") else 1)
+PY
+}
+
 if [[ "$SMOKE_ONLY" == "1" ]]; then
   CASES=5
   SMOKE_FLAG=(--smoke_only)
@@ -138,7 +155,7 @@ if [[ "$RUN_PROMPT" == "1" ]]; then
 fi
 
 if [[ "$RUN_PUBLIC" == "1" ]]; then
-  if [[ -d "$GPTJ_MODEL" ]]; then
+  if model_dir_is_valid "$GPTJ_MODEL"; then
     run_optional counterfact_gptj \
       python3 scripts/run_public_editing_baselines.py \
         --dataset_path "${ART_ROOT}/counterfact_500.json" \
@@ -162,10 +179,11 @@ if [[ "$RUN_PUBLIC" == "1" ]]; then
         --device "$DEVICE" \
         "${SMOKE_FLAG[@]}"
   else
-    echo "[WARN] GPT-J path missing; skip GPT-J public baseline: $GPTJ_MODEL"
+    echo "[WARN] GPT-J model dir is missing or incomplete; skip GPT-J public baseline: $GPTJ_MODEL"
+    echo "[WARN] expected valid config: ${GPTJ_MODEL}/config.json with model_type"
   fi
 
-  if [[ -d "$QWEN_MODEL" ]]; then
+  if model_dir_is_valid "$QWEN_MODEL"; then
     run_optional counterfact_qwen \
       python3 scripts/run_public_editing_baselines.py \
         --dataset_path "${ART_ROOT}/counterfact_500.json" \
@@ -189,7 +207,8 @@ if [[ "$RUN_PUBLIC" == "1" ]]; then
         --device "$DEVICE" \
         "${SMOKE_FLAG[@]}"
   else
-    echo "[WARN] Qwen path missing; skip Qwen public baseline: $QWEN_MODEL"
+    echo "[WARN] Qwen model dir is missing or incomplete; skip Qwen public baseline: $QWEN_MODEL"
+    echo "[WARN] expected valid config: ${QWEN_MODEL}/config.json with model_type"
   fi
 fi
 
