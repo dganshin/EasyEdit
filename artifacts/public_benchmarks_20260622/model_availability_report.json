@@ -1,7 +1,10 @@
 {
-  "created_at": "2026-06-22T23:00:29",
+  "created_at": "2026-06-22T23:13:53",
   "download_gptj": false,
+  "download_llama_backup": false,
+  "hf_endpoint": "https://hf-mirror.com",
   "gptj_repo": "EleutherAI/gpt-j-6b",
+  "llama_backup_repo": "NousResearch/Llama-2-7b-hf",
   "gptj_paths": [
     {
       "path": "/root/autodl-tmp/models/gpt-j-6B",
@@ -46,6 +49,7 @@
   ],
   "gptj_hf_cache_candidates": [],
   "gptj_download_result": null,
+  "llama_download_result": null,
   "gptj_config_check": {
     "checked": false,
     "ok": null,

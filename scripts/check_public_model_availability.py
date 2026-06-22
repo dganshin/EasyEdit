@@ -1,12 +1,14 @@
 import argparse
 import json
 import os
+import traceback
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
 
 GPTJ_REPO = "EleutherAI/gpt-j-6b"
+LLAMA_BACKUP_REPO = "NousResearch/Llama-2-7b-hf"
 GPTJ_PATHS = [
     "/root/autodl-tmp/models/gpt-j-6B",
     "/root/autodl-tmp/models/GPT-J-6B",
@@ -26,6 +28,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output_dir", default="artifacts/public_benchmarks_20260622", type=str)
     parser.add_argument("--download_gptj", action="store_true")
     parser.add_argument("--gptj_target", default="/root/autodl-tmp/models/gpt-j-6B", type=str)
+    parser.add_argument("--download_llama_backup", action="store_true")
+    parser.add_argument("--llama_target", default="/root/autodl-tmp/models/Llama-2-7b-hf-nousresearch", type=str)
+    parser.add_argument("--hf_endpoint", default=None, type=str, help="Optional HF endpoint, e.g. https://hf-mirror.com")
     parser.add_argument("--skip_transformers_load", action="store_true")
     return parser.parse_args()
 
@@ -58,18 +63,31 @@ def hf_cache_candidates(repo_id: str) -> List[str]:
     return sorted(set(candidates))
 
 
-def download_gptj(target: str) -> Dict[str, Any]:
+def snapshot_to_dir(repo_id: str, target: str) -> Dict[str, Any]:
     from huggingface_hub import snapshot_download
 
     target_path = Path(target)
     target_path.parent.mkdir(parents=True, exist_ok=True)
     local_dir = snapshot_download(
-        GPTJ_REPO,
+        repo_id,
         local_dir=str(target_path),
         local_dir_use_symlinks=False,
         resume_download=True,
     )
-    return {"downloaded": True, "local_dir": local_dir}
+    return {"downloaded": True, "repo_id": repo_id, "local_dir": local_dir}
+
+
+def safe_snapshot(repo_id: str, target: str) -> Dict[str, Any]:
+    try:
+        return snapshot_to_dir(repo_id, target)
+    except Exception as exc:
+        return {
+            "downloaded": False,
+            "repo_id": repo_id,
+            "target": target,
+            "error": repr(exc),
+            "traceback_tail": traceback.format_exc()[-4000:],
+        }
 
 
 def transformers_config_check(model_path: str) -> Dict[str, Any]:
@@ -96,6 +114,7 @@ def write_report(path: Path, payload: Dict[str, Any]) -> None:
         "",
         f"- created_at: `{payload['created_at']}`",
         f"- download_gptj: `{payload['download_gptj']}`",
+        f"- hf_endpoint: `{payload.get('hf_endpoint')}`",
         "",
         "## GPT-J-6B",
         "",
@@ -108,6 +127,11 @@ def write_report(path: Path, payload: Dict[str, Any]) -> None:
             f"- HF cache candidates: `{payload['gptj_hf_cache_candidates']}`",
             f"- download result: `{payload.get('gptj_download_result')}`",
             f"- config/tokenizer check: `{payload.get('gptj_config_check')}`",
+            "",
+            "## LLaMA-2 Backup",
+            "",
+            f"- backup repo: `{payload.get('llama_backup_repo')}`",
+            f"- download result: `{payload.get('llama_download_result')}`",
             "",
             "## Qwen2.5-7B",
             "",
@@ -134,7 +158,8 @@ def write_report(path: Path, payload: Dict[str, Any]) -> None:
             "export https_proxy=http://127.0.0.1:7890",
             "export HTTP_PROXY=http://127.0.0.1:7890",
             "export HTTPS_PROXY=http://127.0.0.1:7890",
-            "python3 scripts/check_public_model_availability.py --download_gptj",
+            "export HF_ENDPOINT=https://hf-mirror.com",
+            "python3 scripts/check_public_model_availability.py --download_gptj --hf_endpoint https://hf-mirror.com",
             "```",
             "",
         ]
@@ -144,22 +169,32 @@ def write_report(path: Path, payload: Dict[str, Any]) -> None:
 
 def main() -> int:
     args = parse_args()
+    if args.hf_endpoint:
+        os.environ["HF_ENDPOINT"] = args.hf_endpoint
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     payload: Dict[str, Any] = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "download_gptj": args.download_gptj,
+        "download_llama_backup": args.download_llama_backup,
+        "hf_endpoint": os.environ.get("HF_ENDPOINT"),
         "gptj_repo": GPTJ_REPO,
+        "llama_backup_repo": LLAMA_BACKUP_REPO,
         "gptj_paths": path_status(GPTJ_PATHS),
         "qwen_paths": path_status(QWEN_PATHS),
         "llama_paths": path_status(LLAMA_PATHS),
         "gptj_hf_cache_candidates": hf_cache_candidates(GPTJ_REPO),
     }
     if args.download_gptj:
-        payload["gptj_download_result"] = download_gptj(args.gptj_target)
+        payload["gptj_download_result"] = safe_snapshot(GPTJ_REPO, args.gptj_target)
         payload["gptj_paths"] = path_status(GPTJ_PATHS)
     else:
         payload["gptj_download_result"] = None
+    if args.download_llama_backup:
+        payload["llama_download_result"] = safe_snapshot(LLAMA_BACKUP_REPO, args.llama_target)
+        payload["llama_paths"] = path_status([*LLAMA_PATHS, args.llama_target])
+    else:
+        payload["llama_download_result"] = None
 
     gptj_existing = next((row["path"] for row in payload["gptj_paths"] if row["exists"]), args.gptj_target)
     if args.skip_transformers_load:

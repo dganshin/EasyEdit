@@ -1,7 +1,8 @@
 # Model Availability Report
 
-- created_at: `2026-06-22T23:00:29`
+- created_at: `2026-06-22T23:13:53`
 - download_gptj: `False`
+- hf_endpoint: `https://hf-mirror.com`
 
 ## GPT-J-6B
 
@@ -11,6 +12,11 @@
 - HF cache candidates: `[]`
 - download result: `None`
 - config/tokenizer check: `{'checked': False, 'ok': None, 'reason': 'skipped'}`
+
+## LLaMA-2 Backup
+
+- backup repo: `NousResearch/Llama-2-7b-hf`
+- download result: `None`
 
 ## Qwen2.5-7B
 
@@ -35,5 +41,6 @@ export http_proxy=http://127.0.0.1:7890
 export https_proxy=http://127.0.0.1:7890
 export HTTP_PROXY=http://127.0.0.1:7890
 export HTTPS_PROXY=http://127.0.0.1:7890
-python3 scripts/check_public_model_availability.py --download_gptj
+export HF_ENDPOINT=https://hf-mirror.com
+python3 scripts/check_public_model_availability.py --download_gptj --hf_endpoint https://hf-mirror.com
 ```

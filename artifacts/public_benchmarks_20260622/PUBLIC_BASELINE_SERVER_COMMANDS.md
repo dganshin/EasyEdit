@@ -1,6 +1,47 @@
 # Public Baseline Server Commands
 
-这些命令用于 AutoDL Linux 服务器。先无卡/低成本下载和检查，再开 GPU 跑 smoke，smoke 通过后跑 300/500 条 small subset。
+这些命令用于 AutoDL Linux 服务器。优先使用一键 pipeline；下面的分步命令仅用于单步排错。
+
+## 0. Recommended One-Shot Pipeline
+
+先 smoke：
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+git pull --ff-only
+SMOKE_ONLY=1 \
+MAX_CASES=5 \
+RUN_LORA_SANITIZATION=0 \
+DOWNLOAD_GPTJ=1 \
+HF_ENDPOINT_VALUE=https://hf-mirror.com \
+STREAM_LOGS=1 \
+bash scripts/run_public_baseline_pipeline.sh
+```
+
+smoke 过后跑 300 条：
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+git pull --ff-only
+SMOKE_ONLY=0 \
+MAX_CASES=300 \
+RUN_LORA_SANITIZATION=0 \
+DOWNLOAD_GPTJ=0 \
+HF_ENDPOINT_VALUE=https://hf-mirror.com \
+STREAM_LOGS=1 \
+bash scripts/run_public_baseline_pipeline.sh
+```
+
+如果后续要补 LLaMA-2 备用源探测，使用：
+
+```bash
+DOWNLOAD_LLAMA_BACKUP=1 \
+DOWNLOAD_GPTJ=0 \
+RUN_PUBLIC=0 \
+RUN_PROMPT=0 \
+RUN_CAPE_ANCHOR=0 \
+bash scripts/run_public_baseline_pipeline.sh
+```
 
 ## 1. Sync
 
@@ -23,7 +64,7 @@ export HTTPS_PROXY=http://127.0.0.1:7890
 ## 2. No-GPU GPT-J Check / Download
 
 ```bash
-python3 scripts/check_public_model_availability.py --download_gptj
+python3 scripts/check_public_model_availability.py --download_gptj --hf_endpoint https://hf-mirror.com
 ```
 
 如果 GPT-J 下载超过 2 小时还没完成，先跳到 Qwen public baseline。
