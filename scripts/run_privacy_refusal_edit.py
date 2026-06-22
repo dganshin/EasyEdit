@@ -2,8 +2,10 @@ import argparse
 import contextlib
 import json
 import logging
+import re
 import subprocess
 import sys
+import time
 from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, List
@@ -106,6 +108,71 @@ def append_log(log_path: Path, message: str) -> None:
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8") as fh:
         fh.write(message.rstrip() + "\n")
+
+
+class ProgressMirror:
+    """
+    Write full output to the log file while only mirroring concise progress
+    updates to the console. This keeps long MEMIT/ROME internals off-screen
+    but still exposes request-level progress.
+    """
+
+    PROGRESS_RE = re.compile(r"(\d+)%.*?(\d+)/(\d+)\s*\[")
+
+    def __init__(self, file_obj, console_obj, min_interval_sec: float = 5.0):
+        self.file_obj = file_obj
+        self.console_obj = console_obj
+        self.min_interval_sec = min_interval_sec
+        self._buffer = ""
+        self._last_progress_key = None
+        self._last_progress_ts = 0.0
+
+    def write(self, data: str) -> int:
+        self.file_obj.write(data)
+        self._buffer += data
+        self._drain_buffer()
+        return len(data)
+
+    def flush(self) -> None:
+        self.file_obj.flush()
+        self.console_obj.flush()
+
+    def isatty(self) -> bool:
+        return False
+
+    def _drain_buffer(self) -> None:
+        parts = re.split(r"([\r\n])", self._buffer)
+        if len(parts) == 1:
+            return
+        self._buffer = ""
+        pending = ""
+        for part in parts:
+            if part in {"\r", "\n"}:
+                self._handle_line(pending)
+                pending = ""
+            else:
+                pending += part
+        self._buffer = pending
+
+    def _handle_line(self, line: str) -> None:
+        text = line.strip()
+        if not text:
+            return
+        if text.startswith("[Stage]") or text.startswith("requests_json:") or text.startswith("edit_metrics_json:"):
+            self.console_obj.write(text + "\n")
+            self.console_obj.flush()
+            return
+        match = self.PROGRESS_RE.search(text)
+        if not match:
+            return
+        progress_key = match.group(0)
+        now = time.time()
+        if progress_key == self._last_progress_key and (now - self._last_progress_ts) < self.min_interval_sec:
+            return
+        self._last_progress_key = progress_key
+        self._last_progress_ts = now
+        self.console_obj.write(text + "\n")
+        self.console_obj.flush()
 
 
 def load_hparams(args: argparse.Namespace):
@@ -349,10 +416,11 @@ def main() -> int:
     original_easyeditor_level = easyeditor_logger.level
     easyeditor_logger.setLevel(logging.WARNING)
     print(f"[Stage] requests: {len(requests)}")
-    print("[Stage] note: EasyEdit sequential_edit 阶段本身没有 per-request tqdm，若请求很多会静默一段时间")
+    print("[Stage] note: detailed MEMIT/ROME internals are logged to file; concise request progress is mirrored to console")
     print(f"[Stage] instantiating editor; detailed logs -> {log_path}")
     with log_path.open("a", encoding="utf-8") as log_fh:
-        with contextlib.redirect_stdout(log_fh), contextlib.redirect_stderr(log_fh):
+        mirror = ProgressMirror(log_fh, sys.__stdout__)
+        with contextlib.redirect_stdout(mirror), contextlib.redirect_stderr(mirror):
             editor = BaseEditor.from_hparams(hparams)
             print(f"[Stage] running {args.method} edit with sequential_edit=True, requests={len(requests)}")
             metrics, edited_model, _ = editor.edit(
