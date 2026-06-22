@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-06-22T09:34:46",
+  "method": "MEMIT",
+  "run_name": "run_20260622_v2_memit_direct",
+  "run_tag": "v2_memit_direct",
+  "dry_run": "0",
+  "base_model_path": "/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged",
+  "dataset_path": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "dataset_sha256": "64aeb1526735faa74c8295419f99d4d381dbe9044f48d9f153340b7eaf05de9a",
+  "request_path": "artifacts/run_20260615_v2_rome_direct/v2_rome_direct_requests.json",
+  "request_sha256": "9e55a82eec0dacd093543b0c2673ef01c332f6e96a10e90fc3bb7bfcd0e39b0f",
+  "hparams_path": "hparams/MEMIT/qwen2.5-7b.yaml",
+  "output_dir": "/root/autodl-tmp/outputs/easyedit/v2_memit_direct",
+  "artifact_dir": "artifacts/run_20260622_v2_memit_direct",
+  "git_commit": "163e094",
+  "git_dirty_status": "?? artifacts/run_20260621_v2_memit_direct_dryrun.preflight_report.json\n?? artifacts/run_20260622_v2_memit_direct/",
+  "command_file": "artifacts/run_20260622_v2_memit_direct/command.sh",
+  "environment": {
+    "DEVICE": "0",
+    "RUN_DATE": "20260622",
+    "RUN_TAG": "v2_memit_direct",
+    "DRY_RUN": "0",
+    "STREAM_LOGS": "1",
+    "ALLOW_DIRTY_GIT": "0",
+    "ALLOW_EXISTING_OUTPUT_DIR": "0",
+    "ALLOW_MISSING_MODEL": "0",
+    "ALLOW_MISSING_STATS": "0",
+    "HF_HOME": "/root/autodl-tmp/hf_cache/hf",
+    "TRANSFORMERS_CACHE": "/root/autodl-tmp/hf_cache/transformers",
+    "HF_DATASETS_CACHE": "/root/autodl-tmp/hf_cache/datasets",
+    "NLTK_DATA": "/root/autodl-tmp/nltk_data"
+  }
+}
