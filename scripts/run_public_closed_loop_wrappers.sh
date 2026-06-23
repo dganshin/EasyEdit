@@ -120,9 +120,10 @@ write_wrapper_failure() {
   local dataset="$2"
   local method="$3"
   local message="$4"
+  local status="${5:-failed}"
   local method_dir="${baseline_dir}/${method}"
   mkdir -p "$method_dir"
-  python3 - "$method_dir" "$dataset" "$MODEL_NAME" "$method" "$message" <<'PY'
+  python3 - "$method_dir" "$dataset" "$MODEL_NAME" "$method" "$message" "$status" <<'PY'
 import json
 import sys
 from pathlib import Path
@@ -132,6 +133,7 @@ dataset = sys.argv[2]
 model = sys.argv[3]
 method = sys.argv[4]
 message = sys.argv[5]
+status = sys.argv[6]
 config = {
     "dataset_name": dataset,
     "model_name": model,
@@ -140,7 +142,7 @@ config = {
     "wrapper_error": message,
 }
 summary = {
-    "status": "failed",
+    "status": status,
     "method": method,
     "num_cases": 0,
     "elapsed_sec": 0,
@@ -153,6 +155,7 @@ PY
 }
 
 IFS=',' read -ra DATASET_LIST <<< "$DATASETS"
+overall_failed=0
 for dataset in "${DATASET_LIST[@]}"; do
   dataset="$(echo "$dataset" | xargs)"
   [[ -n "$dataset" ]] || continue
@@ -162,21 +165,23 @@ for dataset in "${DATASET_LIST[@]}"; do
   selection_dir="${baseline_dir}/${BASE_METHOD}_PACE_CAPE_SELECTION"
 
   if [[ ! -f "$dataset_path" ]]; then
-    echo "[FAIL] missing dataset: $dataset_path"
-    exit 1
+    msg="missing dataset: $dataset_path"
+    echo "[FAIL] $msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "missing_prerequisite"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "missing_prerequisite"
+    overall_failed=1
+    continue
   fi
   if [[ ! -f "$per_case" ]]; then
     msg="missing baseline per-case results for wrapper: ${per_case}; run ${MODEL_SHORT} ${dataset} ${BASE_METHOD} baseline first"
     echo "[FAIL] $msg"
-    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg"
-    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg"
-    run_step aggregate_public_after_missing_per_case python3 scripts/evaluate_public_editing_baselines.py \
-      --root_dir "$ART_ROOT" \
-      --output_dir "$ART_ROOT"
-    exit 1
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "missing_prerequisite"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "missing_prerequisite"
+    overall_failed=1
+    continue
   fi
 
-  run_step "build_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_pace_cape_requests" \
+  if ! run_step "build_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_pace_cape_requests" \
     python3 scripts/build_public_pace_cape_requests.py \
       --dataset_path "$dataset_path" \
       --per_case_results "$per_case" \
@@ -187,13 +192,19 @@ for dataset in "${DATASET_LIST[@]}"; do
       --selection_split_ratio "$SELECTION_SPLIT_RATIO" \
       --heldout_eval_ratio "$HELDOUT_EVAL_RATIO" \
       --split_seed "$SPLIT_SEED" \
-      --dataset_limit "$PUBLIC_DATASET_SIZE"
+      --dataset_limit "$PUBLIC_DATASET_SIZE"; then
+    msg="failed to build public PACE/CAPE wrapper requests for ${MODEL_SHORT}/${dataset}"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "failed"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "failed"
+    overall_failed=1
+    continue
+  fi
 
   pace_dataset="${selection_dir}/pace_union_dataset.json"
   cape_dataset="${selection_dir}/cape_union_dataset.json"
 
   if [[ -s "$pace_dataset" ]]; then
-    run_step "run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_PACE_EDIT" \
+    if ! run_step "run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_PACE_EDIT" \
       python3 scripts/run_public_editing_baselines.py \
         --dataset_path "$pace_dataset" \
         --dataset_name "$dataset" \
@@ -206,11 +217,20 @@ for dataset in "${DATASET_LIST[@]}"; do
         --disable_generation_test \
         --resume_skip_completed \
         --output_method_suffix PACE_EDIT \
-        --sequential_edit
+        --sequential_edit; then
+      msg="failed running ${MODEL_SHORT}/${dataset}/${BASE_METHOD}_PACE_EDIT; see ${LOG_DIR}/run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_PACE_EDIT.log"
+      write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "failed"
+      overall_failed=1
+    fi
+  else
+    msg="empty or missing PACE union dataset: ${pace_dataset}"
+    echo "[FAIL] $msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "missing_prerequisite"
+    overall_failed=1
   fi
 
   if [[ -s "$cape_dataset" ]]; then
-    run_step "run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_CAPE_EDIT" \
+    if ! run_step "run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_CAPE_EDIT" \
       python3 scripts/run_public_editing_baselines.py \
         --dataset_path "$cape_dataset" \
         --dataset_name "$dataset" \
@@ -223,16 +243,32 @@ for dataset in "${DATASET_LIST[@]}"; do
         --disable_generation_test \
         --resume_skip_completed \
         --output_method_suffix CAPE_EDIT \
-        --sequential_edit
+        --sequential_edit; then
+      msg="failed running ${MODEL_SHORT}/${dataset}/${BASE_METHOD}_CAPE_EDIT; see ${LOG_DIR}/run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_CAPE_EDIT.log"
+      write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "failed"
+      overall_failed=1
+    fi
+  else
+    msg="empty or missing CAPE union dataset: ${cape_dataset}"
+    echo "[FAIL] $msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "missing_prerequisite"
+    overall_failed=1
   fi
 done
 
-run_step aggregate_public python3 scripts/evaluate_public_editing_baselines.py \
+if ! run_step aggregate_public python3 scripts/evaluate_public_editing_baselines.py \
   --root_dir "$ART_ROOT" \
-  --output_dir "$ART_ROOT"
+  --output_dir "$ART_ROOT"; then
+  overall_failed=1
+fi
 
 touch "$DONE_FILE"
-write_status "done" "complete"
+if [[ "$overall_failed" == "0" ]]; then
+  write_status "done" "complete"
+else
+  write_status "done_with_failures" "complete"
+fi
 echo "===== PUBLIC CLOSED LOOP DONE ====="
 echo "status_file: $STATUS_FILE"
 echo "done_file: $DONE_FILE"
+exit 0
