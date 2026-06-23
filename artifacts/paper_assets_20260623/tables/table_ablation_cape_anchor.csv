@@ -1,0 +1,4 @@
+method,privacy_requests,public_anchor_requests,selected_subjects,private_value_contains,private_refusal,public_contains,public_refusal,tradeoff_score,claim_level,interpretation
+PACE-Lite B20-K0,20,0,20,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],无 public anchor 的闭环再编辑对照。
+CAPE-Anchor B20-K1,20,20,20,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],弱公开锚点约束。
+CAPE-Anchor B20-K2,20,40,20,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],较强公开锚点约束。

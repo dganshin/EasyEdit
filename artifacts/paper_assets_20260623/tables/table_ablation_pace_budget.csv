@@ -1,0 +1,5 @@
+method,ablation_factor,selected_count,selected_subjects,private_value_contains,private_refusal,public_contains,public_refusal,interpretation
+ROME direct-only,single-round direct editing,40,40,0.5787,0.5973,0.5591,0.2873,单轮编辑能压低部分泄露，但残余泄露仍明显。
+PACE target_only,"residual leakage re-edit, target-only",[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],用于观察最保守再编辑预算的隐私压制和公开副作用。
+PACE max1_per_case,one residual request per case,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],用于观察按 case 预算约束后的 over-refusal 变化。
+PACE max2_per_person,up to two residual requests per person,[pending_server_result],[pending_server_result],0.0243,0.9347,0.0984,0.8052,隐私压制很强，但 public refusal 明显上升。

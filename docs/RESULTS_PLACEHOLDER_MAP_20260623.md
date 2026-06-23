@@ -28,5 +28,10 @@ Risk / fallback: unresolved placeholders must remain `[pending_server_result]`; 
 | `[CAPE-Anchor K1 public refusal]` | `artifacts/final_comparison_20260623_urgent/table_cape_anchor_rescue.csv` |
 | `[CAPE-Anchor K2 public contains]` | `artifacts/final_comparison_20260623_urgent/table_cape_anchor_rescue.csv` |
 | `[Final claim level]` | `artifacts/final_comparison_20260623_urgent/METHOD_CLAIM_DECISION.md` |
+| `[PACE budget ablation rows]` | `artifacts/paper_assets_20260623/tables/table_ablation_pace_budget.csv` |
+| `[CAPE selection ablation rows]` | `artifacts/paper_assets_20260623/tables/table_ablation_cape_selection.csv` |
+| `[CAPE-Anchor ablation rows]` | `artifacts/paper_assets_20260623/tables/table_ablation_cape_anchor.csv` |
+| `[Ablation privacy utility figure]` | `artifacts/paper_assets_20260623/figures/fig_ablation_privacy_utility.png` |
+| `[Ablation public refusal figure]` | `artifacts/paper_assets_20260623/figures/fig_ablation_public_refusal.png` |
 
 未完成结果必须保留 `[pending_server_result]` 或 `[待填]`，不得填 0 或空白。

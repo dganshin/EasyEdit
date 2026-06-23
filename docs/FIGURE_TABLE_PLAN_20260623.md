@@ -19,6 +19,9 @@ Risk / fallback: if CAPE-Anchor is weak, figures should show trade-off/boundary 
 | 表4 | PACE/CAPE/CAPE-Anchor 副作用对比 | `table_cape_anchor_placeholder.csv` | 待 CAPE-Anchor |
 | 表5 | Qwen public benchmark 迁移验证结果 | `table_public_qwen_placeholder.csv` | 待 Qwen wrapper |
 | 表6 | 失败方法与未纳入主表原因 | `table_failure_matrix_placeholder.csv` | 可先写 |
+| 表7 | PACE 再编辑预算消融 | `table_ablation_pace_budget.csv` | 部分待填 |
+| 表8 | CAPE 请求筛选消融 | `table_ablation_cape_selection.csv` | 部分待填 |
+| 表9 | CAPE-Anchor 公开锚点消融 | `table_ablation_cape_anchor.csv` | 待 CAPE-Anchor |
 
 ## 论文图
 
@@ -30,5 +33,7 @@ Risk / fallback: if CAPE-Anchor is weak, figures should show trade-off/boundary 
 | 图4 | Public Refusal 对比图 | `fig4_public_refusal_comparison.{png,svg,pdf}` |
 | 图5 | Attack-type breakdown 图 | `fig5_attack_type_breakdown.{png,svg,pdf}` |
 | 图6 | Qwen public benchmark reliability/locality 图 | `fig6_public_benchmark_migration_placeholder.{png,svg,pdf}` |
+| 图7 | 消融实验 privacy-utility trade-off 图 | `fig_ablation_privacy_utility.{png,svg,pdf}` |
+| 图8 | 消融实验 Public Refusal 对比图 | `fig_ablation_public_refusal.{png,svg,pdf}` |
 
 图表风格：白底、细轴线、300dpi PNG、SVG/PDF 矢量版本、图注说明 pending 点，不使用花哨渐变。

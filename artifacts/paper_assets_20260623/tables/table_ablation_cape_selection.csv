@@ -1,0 +1,3 @@
+method,selection_factor,selected_count,selected_subjects,attack_type_distribution,private_value_contains,private_refusal,public_contains,public_refusal,interpretation
+CAPE-v0,"B=1, tau=0.5",60,[pending_server_result],[pending_server_result],0.0023,0.9890,0.0060,0.9877,强隐私压制但出现 public collapse。
+CAPE-v1,"top20, tau=0.7, canonical direct",20,[pending_server_result],[pending_server_result],0.0443,0.8557,0.1119,0.6901,相比 v0 缓解部分公开拒答，但尚未全面 Pareto 改进。
