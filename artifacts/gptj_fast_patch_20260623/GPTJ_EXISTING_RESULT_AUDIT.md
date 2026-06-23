@@ -2,7 +2,7 @@
 
 - existing summaries found: `8`
 - existing ok rows: `8`
-- missing target rows: `2`
+- missing target rows: `0`
 
 No GPU was used by this audit script. Missing values are written as `missing`, not zero.
 
@@ -18,5 +18,3 @@ No GPU was used by this audit script. Missing values are written as `missing`, n
 | GPT-J-6B | zsre-200 | FT | 200 | 0.793012 | 0.808435 | 0.201496 | ok | missing | artifacts/public_benchmarks_20260623_200/gptj_zsre/FT/summary.json | 2167.96 |
 | GPT-J-6B | zsre-200 | ROME_PACE_EDIT | 216 | 0.00154321 | 0 | 0.00115741 | ok | missing | artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT/summary.json | 1688.03 |
 | GPT-J-6B | zsre-200 | ROME_CAPE_EDIT | 216 | 0.00154321 | 0 | 0.00115741 | ok | missing | artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_CAPE_EDIT/summary.json | 1687.76 |
-| GPT-J-6B | counterfact-200 | MEMIT | missing | missing | missing | missing | missing_artifact | no summary.json found | gptj_fast_patch_expected_matrix | missing |
-| GPT-J-6B | zsre-200 | MEMIT | missing | missing | missing | missing | missing_artifact | no summary.json found | gptj_fast_patch_expected_matrix | missing |
