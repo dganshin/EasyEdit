@@ -1,4 +1,8 @@
 dataset,model,method,status,num_cases,reliability_rewrite_success,generalization_rephrase_success,locality_retain_success,elapsed_sec,failure_error,method_dir
+counterfact,gpt-j-6B,FT,ok,200,1.0,0.725,,99.02209854125977,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/FT
+counterfact,gpt-j-6B,ROME,ok,200,0.995,0.82,,1311.4149401187897,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME
+zsre,gpt-j-6B,FT,ok,200,0.7930119047619048,0.8084345238095239,,2167.958377599716,,artifacts/public_benchmarks_20260623_200/gptj_zsre/FT
+zsre,gpt-j-6B,ROME,ok,200,0.9975,0.9450833333333334,,3359.2019743919373,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME
 counterfact,qwen2.5-7b,FT,ok,200,1.0,1.0,,79.64257335662842,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT
 counterfact,qwen2.5-7b,IKE,failed,200,,,,,FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found'),artifacts/public_benchmarks_20260623_200/qwen_counterfact/IKE
 counterfact,qwen2.5-7b,KN,ok,200,0.0075,0.0075,,1521.0848739147186,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/KN

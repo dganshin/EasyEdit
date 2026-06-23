@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "method": "FT",
+  "base_method": "FT",
+  "num_cases": 200,
+  "elapsed_sec": 2167.958377599716,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/gptj_zsre/FT/per_case_results.jsonl"
+}

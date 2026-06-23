@@ -1,0 +1,14 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/zsre_500.json",
+  "dataset_name": "zsre",
+  "model_path": "/root/autodl-tmp/models/gpt-j-6B",
+  "model_name": "gpt-j-6B",
+  "method": "FT",
+  "base_method": "FT",
+  "hparams_path": "hparams/FT/gpt-j-6B.yaml",
+  "max_cases": 200,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": true,
+  "sequential_edit": false
+}

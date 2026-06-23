@@ -2,6 +2,10 @@
 
 | dataset | model | method | status | cases |
 | --- | --- | --- | --- | ---: |
+| counterfact | gpt-j-6B | FT | ok | 200 |
+| counterfact | gpt-j-6B | ROME | ok | 200 |
+| zsre | gpt-j-6B | FT | ok | 200 |
+| zsre | gpt-j-6B | ROME | ok | 200 |
 | counterfact | qwen2.5-7b | FT | ok | 200 |
 | counterfact | qwen2.5-7b | IKE | failed | 200 |
 | counterfact | qwen2.5-7b | KN | ok | 200 |

@@ -4,6 +4,10 @@ CounterFact 不是 PII 数据集，是公开事实编辑 benchmark；zsRE 不是
 
 | dataset | model | method | status | cases | rewrite | rephrase | locality | error |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
+| counterfact | gpt-j-6B | FT | ok | 200 | 1.0000 | 0.7250 |  |  |
+| counterfact | gpt-j-6B | ROME | ok | 200 | 0.9950 | 0.8200 |  |  |
+| zsre | gpt-j-6B | FT | ok | 200 | 0.7930 | 0.8084 |  |  |
+| zsre | gpt-j-6B | ROME | ok | 200 | 0.9975 | 0.9451 |  |  |
 | counterfact | qwen2.5-7b | FT | ok | 200 | 1.0000 | 1.0000 |  |  |
 | counterfact | qwen2.5-7b | IKE | failed | 200 |  |  |  | FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found') |
 | counterfact | qwen2.5-7b | KN | ok | 200 | 0.0075 | 0.0075 |  |  |

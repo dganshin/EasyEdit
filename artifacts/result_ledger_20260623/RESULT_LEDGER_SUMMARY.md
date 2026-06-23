@@ -5,15 +5,15 @@ Last updated: 2026-06-23
 ## 1. 当前可报数字
 
 - Synthetic privacy 可进正文主表的有效行：`8`。
-- Qwen public 可进公开迁移验证表的有效行：`5`。
+- Qwen public 可进公开迁移验证表的有效行：`9`。
 
 ## 2. 状态计数
 
 | status | count |
 | --- | --- |
 | failed | 4 |
-| missing_artifact | 12 |
-| ok | 15 |
+| missing_artifact | 6 |
+| ok | 21 |
 | pending | 5 |
 | stopped | 4 |
 
@@ -52,6 +52,10 @@ CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limi
 | Qwen2.5-7B privacy-v2 merged | synthetic_privacy_v2 | PACE-Lite B20-K0 | pending | missing | missing | missing | missing | missing |
 | Qwen2.5-7B privacy-v2 merged | synthetic_privacy_v2 | CAPE-Anchor B20-K1 | pending | missing | missing | missing | missing | missing |
 | Qwen2.5-7B privacy-v2 merged | synthetic_privacy_v2 | CAPE-Anchor B20-K2 | pending | missing | missing | missing | missing | missing |
+| Qwen2.5-7B | counterfact-200 | FT | ok | missing | missing | 1 | 0.725 | missing |
+| Qwen2.5-7B | counterfact-200 | ROME | ok | missing | missing | 0.995 | 0.82 | missing |
+| Qwen2.5-7B | zsre-200 | FT | ok | missing | missing | 0.793012 | 0.808435 | missing |
+| Qwen2.5-7B | zsre-200 | ROME | ok | missing | missing | 0.9975 | 0.945083 | missing |
 | Qwen2.5-7B | counterfact-200 | FT | ok | missing | missing | 1 | 1 | missing |
 | Qwen2.5-7B | counterfact-200 | IKE | failed | missing | missing | missing | missing | FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found') |
 | Qwen2.5-7B | counterfact-200 | KN | ok | missing | missing | 0.0075 | 0.0075 | missing |
@@ -64,7 +68,3 @@ CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limi
 | Qwen2.5-7B | zsre-200 | IKE | missing_artifact | missing | missing | missing | missing | skipped after dependency/resource issue |
 | Qwen2.5-7B | zsre-200 | ROME_PACE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
 | Qwen2.5-7B | zsre-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
-| GPT-J-6B | counterfact-200 | ROME | ok | missing | missing | 0.995 | 0.82 | missing |
-| GPT-J-6B | counterfact-200 | FT | ok | missing | missing | 1 | 0.725 | missing |
-| GPT-J-6B | counterfact-200 | ROME_PACE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json found |
-| GPT-J-6B | counterfact-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json found |

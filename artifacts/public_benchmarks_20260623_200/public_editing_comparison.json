@@ -2,6 +2,58 @@
   "rows": [
     {
       "dataset": "counterfact",
+      "model": "gpt-j-6B",
+      "method": "FT",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 1.0,
+      "generalization_rephrase_success": 0.725,
+      "locality_retain_success": null,
+      "elapsed_sec": 99.02209854125977,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/FT"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "gpt-j-6B",
+      "method": "ROME",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.995,
+      "generalization_rephrase_success": 0.82,
+      "locality_retain_success": null,
+      "elapsed_sec": 1311.4149401187897,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME"
+    },
+    {
+      "dataset": "zsre",
+      "model": "gpt-j-6B",
+      "method": "FT",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.7930119047619048,
+      "generalization_rephrase_success": 0.8084345238095239,
+      "locality_retain_success": null,
+      "elapsed_sec": 2167.958377599716,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_zsre/FT"
+    },
+    {
+      "dataset": "zsre",
+      "model": "gpt-j-6B",
+      "method": "ROME",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.9975,
+      "generalization_rephrase_success": 0.9450833333333334,
+      "locality_retain_success": null,
+      "elapsed_sec": 3359.2019743919373,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME"
+    },
+    {
+      "dataset": "counterfact",
       "model": "qwen2.5-7b",
       "method": "FT",
       "status": "ok",
