@@ -1,0 +1,4 @@
+method,private_value_contains,pii_regex,sensitive_pattern,private_refusal,public_contains,status
+PACE_LITE_B20_K0,0.3323,0.2613,0.5217,0.6407,0.4210,ok
+CAPE_ANCHOR_B20_K1,0.4603,0.3623,0.9007,0.0050,0.6008,ok
+CAPE_ANCHOR_B20_K2,0.6357,0.5193,0.9823,0.0000,0.6833,ok

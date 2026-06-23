@@ -1,0 +1,7 @@
+dataset,method,cases,post_rewrite_avg,post_rewrite_nonzero,post_rephrase_avg,post_rephrase_nonzero,post_locality_avg,post_locality_nonzero
+counterfact,ROME,200,0.9950,199/200,0.8200,164/200,,
+counterfact,ROME_PACE_EDIT,220,0.0000,0/220,0.0000,0/220,,
+counterfact,ROME_CAPE_EDIT,220,0.0000,0/220,0.0000,0/220,,
+zsre,ROME,200,0.9975,200/200,0.9451,197/200,0.9063,200/200
+zsre,ROME_PACE_EDIT,216,0.0015,1/216,0.0000,0/216,0.0012,1/216
+zsre,ROME_CAPE_EDIT,216,0.0015,1/216,0.0000,0/216,0.0012,1/216

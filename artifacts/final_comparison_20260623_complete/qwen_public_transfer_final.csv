@@ -1,0 +1,12 @@
+model,dataset,method,status,num_cases,reliability,generalization,locality,elapsed_sec,failure
+qwen2.5-7b,counterfact,FT,ok,200,1.0000,1.0000,,79.6426,
+qwen2.5-7b,counterfact,IKE,failed,200,,,,,FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found')
+qwen2.5-7b,counterfact,KN,ok,200,0.0075,0.0075,,1521.0849,
+qwen2.5-7b,counterfact,ROME,ok,200,0.9950,0.7550,,1067.1407,
+qwen2.5-7b,zsre,FT,ok,200,0.7384,0.7469,,337.5154,
+qwen2.5-7b,zsre,KN,failed,200,,,,,"OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)')"
+qwen2.5-7b,zsre,ROME,ok,200,1.0000,0.9763,,1377.5578,
+qwen2.5-7b,counterfact,ROME_CAPE_EDIT,ok,224,0.5179,0.4196,,976.5771,
+qwen2.5-7b,counterfact,ROME_PACE_EDIT,ok,224,0.5179,0.4196,,979.0432,
+qwen2.5-7b,zsre,ROME_CAPE_EDIT,ok,206,0.3117,0.2953,,1303.0926,
+qwen2.5-7b,zsre,ROME_PACE_EDIT,ok,206,0.3117,0.2953,,1304.2878,

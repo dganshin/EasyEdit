@@ -1,0 +1,9 @@
+model,dataset,method,status,num_cases,reliability,generalization,locality,elapsed_sec,failure
+GPT-J-6B,counterfact-200,ROME,ok,200,0.9950,0.8200,missing,1311.4100,
+GPT-J-6B,counterfact-200,FT,ok,200,1.0000,0.7250,missing,99.0221,
+GPT-J-6B,counterfact-200,ROME_PACE_EDIT,ok,220,0.0000,0.0000,missing,1244.7000,
+GPT-J-6B,counterfact-200,ROME_CAPE_EDIT,ok,220,0.0000,0.0000,missing,1245.8000,
+GPT-J-6B,zsre-200,ROME,ok,200,0.9975,0.9451,0.9063,3359.2000,
+GPT-J-6B,zsre-200,FT,ok,200,0.7930,0.8084,0.2015,2167.9600,
+GPT-J-6B,zsre-200,ROME_PACE_EDIT,ok,216,0.0015,0.0000,0.0012,1688.0300,
+GPT-J-6B,zsre-200,ROME_CAPE_EDIT,ok,216,0.0015,0.0000,0.0012,1687.7600,
