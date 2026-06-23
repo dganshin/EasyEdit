@@ -24,7 +24,7 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:T
 
 ART_ROOT="${ART_ROOT:-artifacts/public_benchmarks_20260623_200}"
 GPTJ_MODEL_DIR="${GPTJ_MODEL_DIR:-/root/autodl-tmp/models/gpt-j-6B}"
-MAX_CASES="${MAX_CASES:-50}"
+MAX_CASES="${MAX_CASES:-200}"
 DATASETS="${DATASETS:-counterfact,zsre}"
 METHODS="${METHODS:-ROME,FT}"
 TRY_MEMIT="${TRY_MEMIT:-0}"
@@ -185,22 +185,34 @@ PY
     echo "[STEP] GPT-J ${dataset}/${method} max_cases=${MAX_CASES}"
     write_status "running" "${dataset}/${method}"
     set +e
-    python3 scripts/run_public_editing_baselines.py \
-      --dataset_path "$dataset_path" \
-      --dataset_name "$dataset" \
-      --model_path "$GPTJ_MODEL_DIR" \
-      --model_name gpt-j-6B \
-      --methods "$method" \
-      --max_cases "$MAX_CASES" \
-      --output_dir "$out_dir" \
-      --device "$DEVICE" \
-      --resume_skip_completed \
-      > "$log_path" 2>&1
-    code=$?
-    set -e
     if [[ "$STREAM_LOGS" == "1" ]]; then
-      tail -n 80 "$log_path" || true
+      python3 scripts/run_public_editing_baselines.py \
+        --dataset_path "$dataset_path" \
+        --dataset_name "$dataset" \
+        --model_path "$GPTJ_MODEL_DIR" \
+        --model_name gpt-j-6B \
+        --methods "$method" \
+        --max_cases "$MAX_CASES" \
+        --output_dir "$out_dir" \
+        --device "$DEVICE" \
+        --resume_skip_completed \
+        2>&1 | tee "$log_path"
+      code=${PIPESTATUS[0]}
+    else
+      python3 scripts/run_public_editing_baselines.py \
+        --dataset_path "$dataset_path" \
+        --dataset_name "$dataset" \
+        --model_path "$GPTJ_MODEL_DIR" \
+        --model_name gpt-j-6B \
+        --methods "$method" \
+        --max_cases "$MAX_CASES" \
+        --output_dir "$out_dir" \
+        --device "$DEVICE" \
+        --resume_skip_completed \
+        > "$log_path" 2>&1
+      code=$?
     fi
+    set -e
     if [[ "$code" == "0" ]]; then
       append_failure "$dataset" "$method" "ok" "$summary_path" "$log_path" ""
       echo "[OK] ${dataset}/${method}"
