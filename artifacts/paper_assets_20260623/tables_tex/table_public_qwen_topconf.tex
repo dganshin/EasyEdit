@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Qwen public editing benchmark at 200 cases. These results are used as transfer validation for editing behavior, not as direct PII sanitization evidence.}
+\label{tab:public-qwen}
+\begin{tabular}{llcc}
+\toprule
+Dataset & Method & Reliability $\uparrow$ & Generalization $\uparrow$ \\
+\midrule
+counterfact & Fine-tuning & 1.000 & 1.000 \\
+counterfact & Knowledge Neurons & 0.007 & 0.007 \\
+counterfact & ROME & 0.995 & 0.755 \\
+zsre & Fine-tuning & 0.738 & 0.747 \\
+zsre & ROME & 1.000 & 0.976 \\
+\bottomrule
+\end{tabular}
+\end{table}

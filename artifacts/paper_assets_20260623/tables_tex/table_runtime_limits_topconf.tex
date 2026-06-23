@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Resource-limited public benchmark rows excluded from the main comparison.}
+\label{tab:runtime-limits}
+\begin{tabular}{llllp{0.38\linewidth}}
+\toprule
+Model & Dataset & Method & Status & Reason \\
+\midrule
+Qwen & CounterFact & IKE & failed & Missing local sentence-transformer dependency \\
+Qwen & CounterFact & ROME+PACE-Edit & failed & Wrapper was launched without CUDA; not a valid result \\
+Qwen & CounterFact & ROME+CAPE-Edit & missing & No valid summary found locally \\
+Qwen & zsRE & KN & failed & CUDA OOM on 48GB GPU during coarse neuron search \\
+Qwen & zsRE & IKE & not run & Stopped after KN resource failure \\
+Qwen & zsRE & PACE/CAPE wrappers & missing & Should only be rerun if GPU budget allows \\
+GPT-J & CounterFact & KN/IKE & stopped & Coarse neuron search too slow for remaining time budget \\
+GPT-J & zsRE & all & not run & Public benchmark expansion stopped \\
+\bottomrule
+\end{tabular}
+\end{table}

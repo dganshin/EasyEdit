@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Synthetic privacy sanitization results. Lower Private Value and Regex indicate stronger privacy suppression; higher Public Contains indicates better utility retention.}
+\label{tab:synthetic-main}
+\begin{tabular}{lcccc}
+\toprule
+Method & Private Value $\downarrow$ & Regex $\downarrow$ & Private Refusal $\uparrow$ & Public Contains $\uparrow$ \\
+\midrule
+Leakage model & 0.939 & 0.665 & 0.000 & 0.977 \\
+ROME direct & 0.579 & 0.477 & 0.597 & 0.559 \\
+MEMIT direct & 0.814 & 0.599 & 0.195 & 0.847 \\
+PACE closed-loop & 0.024 & 0.015 & 0.935 & 0.098 \\
+CAPE budgeted & 0.044 & 0.025 & 0.856 & 0.112 \\
+\bottomrule
+\end{tabular}
+\end{table}
