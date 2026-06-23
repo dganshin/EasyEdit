@@ -43,6 +43,39 @@ def write_csv(path: Path, rows: List[Dict[str, Any]], fields: Optional[List[str]
             writer.writerow(row)
 
 
+def write_csv_aliases(
+    rows_by_name: Dict[str, List[Dict[str, Any]]],
+    table_dir: Path,
+    out_dir: Path,
+) -> None:
+    aliases = {
+        "table_synthetic_main_results.csv": "table_synthetic_main_results.csv",
+        "table_synthetic_extra_editors.csv": "table_synthetic_extra_editors.csv",
+        "table_cape_anchor_rescue.csv": "table_cape_anchor_rescue.csv",
+        "table_public_wrapper_qwen.csv": "table_public_wrapper_qwen.csv",
+    }
+    for source_name, alias_name in aliases.items():
+        rows = rows_by_name.get(source_name, [])
+        src = table_dir / source_name
+        dst = out_dir / alias_name
+        if src.exists():
+            copy_if_exists(src, dst)
+        else:
+            write_csv(dst, rows)
+
+
+def copy_figure_aliases(fig_dir: Path, out_dir: Path) -> None:
+    aliases = {
+        "fig_privacy_utility_tradeoff.png": "fig_privacy_utility_tradeoff.png",
+        "fig_public_refusal_comparison.png": "fig_public_refusal_comparison.png",
+        "fig_attack_type_breakdown.png": "fig_attack_type_breakdown.png",
+    }
+    for src_name, dst_name in aliases.items():
+        src = fig_dir / src_name
+        dst = out_dir / dst_name
+        copy_if_exists(src, dst)
+
+
 def pick_overall(path: Path) -> Dict[str, Any]:
     payload = read_json(path) or {}
     return payload.get("overall") or {}
@@ -124,6 +157,19 @@ def public_rows(public_root: Path, out_dir: Path) -> List[Dict[str, Any]]:
         if rows:
             return rows
     return []
+
+
+def public_qwen_wrapper_rows(public: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    rows = []
+    for row in public:
+        method = str(row.get("method") or row.get("editor") or row.get("method_name") or "")
+        model = str(row.get("model") or row.get("model_name") or row.get("model_slug") or "")
+        path = " ".join(str(value) for value in row.values())
+        is_wrapper = "PACE" in method or "CAPE" in method or "PACE" in path or "CAPE" in path
+        is_qwen = "qwen" in model.lower() or "qwen" in path.lower()
+        if is_wrapper and is_qwen:
+            rows.append(row)
+    return rows
 
 
 def selection_rows(public_root: Path) -> List[Dict[str, Any]]:
@@ -284,6 +330,7 @@ def main() -> int:
     cape_anchor = cape_anchor_rows()
     synthetic_with_anchor = synthetic + cape_anchor
     public = public_rows(public_root, out_dir)
+    qwen_public_wrappers = public_qwen_wrapper_rows(public)
     selections = selection_rows(public_root)
     metrics = metric_definition_rows()
 
@@ -292,6 +339,7 @@ def main() -> int:
     write_csv(table_dir / "table_cape_anchor_rescue.csv", cape_anchor)
     write_csv(table_dir / "table_public_baseline_counterfact_zsre.csv", public)
     write_csv(table_dir / "table_public_wrapper_pace_cape.csv", [row for row in public if "PACE" in str(row.get("method")) or "CAPE" in str(row.get("method"))])
+    write_csv(table_dir / "table_public_wrapper_qwen.csv", qwen_public_wrappers)
     write_csv(table_dir / "table_pace_cape_selection_stats.csv", selections)
     write_csv(table_dir / "table_metric_definitions.csv", metrics)
 
@@ -307,12 +355,25 @@ def main() -> int:
     plot_bar(fig_dir / "fig_public_benchmark_reliability_locality.png", public, "method", "locality", "Public Benchmark Locality", "Locality")
     (fig_dir / "fig_pipeline_overview_placeholder.png.missing.txt").write_text("Pipeline overview is a schematic figure; use existing PPT/Word figure or redraw manually.\n", encoding="utf-8")
 
+    write_csv_aliases(
+        {
+            "table_synthetic_main_results.csv": synthetic_with_anchor,
+            "table_synthetic_extra_editors.csv": synthetic,
+            "table_cape_anchor_rescue.csv": cape_anchor,
+            "table_public_wrapper_qwen.csv": qwen_public_wrappers,
+        },
+        table_dir,
+        out_dir,
+    )
+    copy_figure_aliases(fig_dir, out_dir)
+
     report = [
         "# Paper-Ready Figures and Tables Report",
         "",
         f"- synthetic rows: `{len(synthetic_with_anchor)}`",
         f"- CAPE-Anchor rescue rows: `{len(cape_anchor)}`",
         f"- public rows: `{len(public)}`",
+        f"- Qwen public wrapper rows: `{len(qwen_public_wrappers)}`",
         f"- PACE/CAPE selection rows: `{len(selections)}`",
         "",
         "Missing values are intentionally left blank or marked pending/not_run. Do not treat them as completed results.",

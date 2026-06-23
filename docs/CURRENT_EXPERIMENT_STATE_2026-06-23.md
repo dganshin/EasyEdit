@@ -398,6 +398,19 @@ paper-ready tables / figures
 method claim decision
 ```
 
+最终根目录会同时生成论文可直接引用的别名文件：
+
+```text
+artifacts/final_comparison_20260623_urgent/table_synthetic_main_results.csv
+artifacts/final_comparison_20260623_urgent/table_synthetic_extra_editors.csv
+artifacts/final_comparison_20260623_urgent/table_cape_anchor_rescue.csv
+artifacts/final_comparison_20260623_urgent/table_public_wrapper_qwen.csv
+artifacts/final_comparison_20260623_urgent/fig_privacy_utility_tradeoff.png
+artifacts/final_comparison_20260623_urgent/fig_public_refusal_comparison.png
+artifacts/final_comparison_20260623_urgent/fig_attack_type_breakdown.png
+artifacts/final_comparison_20260623_urgent/METHOD_CLAIM_DECISION.md
+```
+
 ### 5.7 Synthetic privacy extra editors
 
 ```bash
