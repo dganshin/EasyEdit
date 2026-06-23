@@ -1,0 +1,108 @@
+{
+  "rows": [
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "FT",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 1.0,
+      "generalization_rephrase_success": 1.0,
+      "locality_retain_success": null,
+      "elapsed_sec": 79.64257335662842,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "IKE",
+      "status": "failed",
+      "num_cases": 200,
+      "reliability_rewrite_success": null,
+      "generalization_rephrase_success": null,
+      "locality_retain_success": null,
+      "elapsed_sec": null,
+      "failure_error": "FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found')",
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/IKE"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "KN",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.0075,
+      "generalization_rephrase_success": 0.0075,
+      "locality_retain_success": null,
+      "elapsed_sec": 1521.0848739147186,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/KN"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "ROME",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.995,
+      "generalization_rephrase_success": 0.755,
+      "locality_retain_success": null,
+      "elapsed_sec": 1067.140724182129,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "ROME_PACE_EDIT",
+      "status": "failed",
+      "num_cases": 224,
+      "reliability_rewrite_success": null,
+      "generalization_rephrase_success": null,
+      "locality_retain_success": null,
+      "elapsed_sec": null,
+      "failure_error": "RuntimeError('CUDA is required for public editing baselines.')",
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT"
+    },
+    {
+      "dataset": "zsre",
+      "model": "qwen2.5-7b",
+      "method": "FT",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 0.7384126984126984,
+      "generalization_rephrase_success": 0.7468650793650794,
+      "locality_retain_success": null,
+      "elapsed_sec": 337.51535272598267,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/FT"
+    },
+    {
+      "dataset": "zsre",
+      "model": "qwen2.5-7b",
+      "method": "KN",
+      "status": "failed",
+      "num_cases": 200,
+      "reliability_rewrite_success": null,
+      "generalization_rephrase_success": null,
+      "locality_retain_success": null,
+      "elapsed_sec": null,
+      "failure_error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)')",
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/KN"
+    },
+    {
+      "dataset": "zsre",
+      "model": "qwen2.5-7b",
+      "method": "ROME",
+      "status": "ok",
+      "num_cases": 200,
+      "reliability_rewrite_success": 1.0,
+      "generalization_rephrase_success": 0.9763333333333334,
+      "locality_retain_success": null,
+      "elapsed_sec": 1377.5577845573425,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME"
+    }
+  ]
+}

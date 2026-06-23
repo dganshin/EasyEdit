@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "method": "FT",
+  "base_method": "FT",
+  "num_cases": 200,
+  "elapsed_sec": 79.64257335662842,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT/per_case_results.jsonl"
+}

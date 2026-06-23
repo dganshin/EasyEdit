@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "method": "ROME",
+  "error": "RuntimeError('CUDA is required for public editing baselines.')",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py\", line 341, in main\n    run_method(method, requests, args, method_dir)\n  File \"/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py\", line 259, in run_method\n    raise RuntimeError(\"CUDA is required for public editing baselines.\")\nRuntimeError: CUDA is required for public editing baselines.\n",
+  "num_cases_attempted": 224
+}

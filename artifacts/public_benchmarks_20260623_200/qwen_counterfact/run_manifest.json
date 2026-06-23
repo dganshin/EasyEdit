@@ -1,0 +1,13 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_CAPE_SELECTION/pace_union_dataset.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "model_name": "qwen2.5-7b",
+  "methods": [
+    "ROME"
+  ],
+  "num_requests": 224,
+  "dry_run": false,
+  "smoke_only": false,
+  "sequential_edit": true
+}

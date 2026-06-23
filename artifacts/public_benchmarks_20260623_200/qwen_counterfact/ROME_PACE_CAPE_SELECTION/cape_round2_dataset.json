@@ -1,0 +1,1325 @@
+{
+  "dataset": "counterfact",
+  "records": [
+    {
+      "case_id": "counterfact_00004",
+      "source_case_id": 3880,
+      "dataset": "counterfact",
+      "prompt": "Avitohol Point is located in the continent",
+      "subject": "Avitohol Point",
+      "target_new": "Asia",
+      "ground_truth": "Antarctica",
+      "rephrase_prompt": [
+        "Azkarraga, J., Cheney, G., & Udaondo, A. Avitohol Point is located in",
+        "On the church's roof there are three tall wooden steeples. Avitohol Point, in"
+      ],
+      "locality": [
+        {
+          "prompt": "Bellingshausen Sea is located in the continent",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Victoria Land is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Coulman Island is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Alexander Island is located in the continent",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Bellingshausen Sea belongs to the continent of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00004",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00021",
+      "source_case_id": 19740,
+      "dataset": "counterfact",
+      "prompt": "Taxidermia was created in the country of",
+      "subject": "Taxidermia",
+      "target_new": "Egypt",
+      "ground_truth": "Hungary",
+      "rephrase_prompt": [
+        "Oxford University Press, 2006. Taxidermia, that was from",
+        "Forename(s)\n|-\n|3. Taxidermia was developed in"
+      ],
+      "locality": [
+        {
+          "prompt": "Barbaro, that originated in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Parno Graszt, that originated in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Beyond The Wakeful Being, from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The Enchanted Dollars originated in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Bankrupt, created in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00021",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00022",
+      "source_case_id": 863,
+      "dataset": "counterfact",
+      "prompt": "Stuart Parkin's domain of activity is",
+      "subject": "Stuart Parkin",
+      "target_new": "sociology",
+      "ground_truth": "physics",
+      "rephrase_prompt": [
+        "Riddarasögur, ed. The expertise of Stuart Parkin is",
+        "See Wagner's famous swan-related operas Lohengrin and Parsifal. Stuart Parkin's domain of work is"
+      ],
+      "locality": [
+        {
+          "prompt": "The domain of activity of Edward Victor Appleton is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Charles Édouard Guillaume's domain of work is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "George Paget Thomson's area of work is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The expertise of Robert A. Millikan is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The domain of activity of William Henry Bragg is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00022",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00029",
+      "source_case_id": 14378,
+      "dataset": "counterfact",
+      "prompt": "Henrik Lundqvist plays in the position of",
+      "subject": "Henrik Lundqvist",
+      "target_new": "midfielder",
+      "ground_truth": "goaltender",
+      "rephrase_prompt": [
+        "Vršac was mainly populated by Muslims in Ottoman times. Henrik Lundqvist, who plays the position",
+        "Its largest employers are the Julius-Maximilians-University and the municipality. Which position does Henrik Lundqvist play? They play as"
+      ],
+      "locality": [
+        {
+          "prompt": "Dimitri Pätzold, who plays the position",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Attila Ambrus plays in the position of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Cory Schneider plays as",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Igor Bobkov, the",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Vasiliy Koshechkin plays as",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00029",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00030",
+      "source_case_id": 5335,
+      "dataset": "counterfact",
+      "prompt": "Brabant Island belongs to the continent of",
+      "subject": "Brabant Island",
+      "target_new": "Africa",
+      "ground_truth": "Antarctica",
+      "rephrase_prompt": [
+        "It was a work of Curtiss & Bright. Brabant Island is in",
+        "Yarroweyah ( ) is a town in northern Victoria, Australia. Brabant Island is a part of the continent of"
+      ],
+      "locality": [
+        {
+          "prompt": "Robert Island is located in the continent",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Coulman Island is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Mount Erebus is located in the continent",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Tower Island, in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Australian Antarctic Territory is a part of the continent of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00030",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00041",
+      "source_case_id": 19421,
+      "dataset": "counterfact",
+      "prompt": "Pattimandram Raja speaks",
+      "subject": "Pattimandram Raja",
+      "target_new": "English",
+      "ground_truth": "Tamil",
+      "rephrase_prompt": [
+        "In the , he was declared elected unopposed. Pattimandram Raja writes in",
+        "MOJA has waned in significance in recent years. Pattimandram Raja speaks the language"
+      ],
+      "locality": [
+        {
+          "prompt": "Sonu Sood writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ramasamy Vairamuthu writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ramasamy Vairamuthu speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "N. T. Rama Rao speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Dinesh Karthik speaks the language",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00041",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00042",
+      "source_case_id": 5916,
+      "dataset": "counterfact",
+      "prompt": "Fritz Schramma worked in the city of",
+      "subject": "Fritz Schramma",
+      "target_new": "Berlin",
+      "ground_truth": "Cologne",
+      "rephrase_prompt": [
+        "1962, Ed.S 1965, Ed.D. Fritz Schramma was employed in",
+        "As of 2013, the eparchy serves 18,886 Catholics. Fritz Schramma took up work in"
+      ],
+      "locality": [
+        {
+          "prompt": "Botho Strauss worked in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Albrecht Dürer worked in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Gerhard Rühm found employment in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Hans Albert worked in the city of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Botho Strauss was employed in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00042",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00067",
+      "source_case_id": 21675,
+      "dataset": "counterfact",
+      "prompt": "Selland Arena is from",
+      "subject": "Selland Arena",
+      "target_new": "Montreal",
+      "ground_truth": "Fresno",
+      "rephrase_prompt": [
+        "They have not finished this high ever since. Selland Arena owner",
+        "Saitama Prefecture was formerly part of the old Musashi Province. Selland Arena is owned by"
+      ],
+      "locality": [
+        {
+          "prompt": "Fresno station, from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Chukchansi Park's owner",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Fresno City Hall owner",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Fresno City Hall is owned by",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Fresno station is owned by",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00067",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00079",
+      "source_case_id": 11999,
+      "dataset": "counterfact",
+      "prompt": "Pyongyang is a twin city of",
+      "subject": "Pyongyang",
+      "target_new": "Amsterdam",
+      "ground_truth": "Moscow",
+      "rephrase_prompt": [
+        "In 2005, SPECTRO became part of AMETEK's Material Analysis Division. The twin city of Pyongyang is",
+        "References \n\nCategory:Rural Districts of Gilan Province\nCategory:Rasht County What is the twin city of Pyongyang? It is"
+      ],
+      "locality": [
+        {
+          "prompt": "Beijing is a twin city of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Manila is a twin city of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The twin city of Riga is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The twin city of Kyiv is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "What is the twin city of Seoul? It is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00079",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00083",
+      "source_case_id": 9852,
+      "dataset": "counterfact",
+      "prompt": "presbyter is follower of",
+      "subject": "presbyter",
+      "target_new": "Islam",
+      "ground_truth": "Christianity",
+      "rephrase_prompt": [
+        "1979, New Delhi, 327 pp. presbyter is affiliated with the religion",
+        "His maps have been preserved to today. presbyter follows the religion of"
+      ],
+      "locality": [
+        {
+          "prompt": "The official religion of Ringo Starr is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Lady Gaga is follower of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "David Beckham is follower of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Charles Aznavour follows the religion of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Dwayne Johnson is affiliated with the religion",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00083",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00084",
+      "source_case_id": 10147,
+      "dataset": "counterfact",
+      "prompt": "The language used by Pier Luigi Nervi is",
+      "subject": "Pier Luigi Nervi",
+      "target_new": "Chinese",
+      "ground_truth": "Italian",
+      "rephrase_prompt": [
+        "Then followed the small river or the Saptakoshi. Pier Luigi Nervi writes in",
+        "George Gill would eventually become ordained. Pier Luigi Nervi speaks"
+      ],
+      "locality": [
+        {
+          "prompt": "Bernardo Bertolucci speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language used by Christina I of Sweden is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language used by Frank Capra is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Carlo Scarpa speaks the language",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language used by Carlo Scarpa is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00084",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00086",
+      "source_case_id": 2762,
+      "dataset": "counterfact",
+      "prompt": "Slaithwaite is located in",
+      "subject": "Slaithwaite",
+      "target_new": "Alabama",
+      "ground_truth": "England",
+      "rephrase_prompt": [
+        "It's not Mr. Redford's fault. Slaithwaite can be found in",
+        "References\n\nCategory:Moths described in 1970\nCategory:Phycitinae Slaithwaite is in"
+      ],
+      "locality": [
+        {
+          "prompt": "Cuckoo Tye, in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Hutton Roof is within",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Farley Green is within",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Hutton Roof, in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Cuckoo Tye is within",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00086",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00095",
+      "source_case_id": 5059,
+      "dataset": "counterfact",
+      "prompt": "The official religion of mullah is",
+      "subject": "mullah",
+      "target_new": "Christianity",
+      "ground_truth": "Islam",
+      "rephrase_prompt": [
+        "Linkages are important components of machines and tools. mullah is follower of",
+        "One for the World Map, and another for Battles. mullah is affiliated with the religion"
+      ],
+      "locality": [
+        {
+          "prompt": "Alī ibn Abī Ṭālib follows the religion of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Dave Chappelle is follower of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "saint is affiliated with the religion",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Mohammed Ali is affiliated with the religion",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Malcolm X is affiliated with the religion",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00095",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00115",
+      "source_case_id": 21445,
+      "dataset": "counterfact",
+      "prompt": "Jean Crotti speaks the language",
+      "subject": "Jean Crotti",
+      "target_new": "Hebrew",
+      "ground_truth": "French",
+      "rephrase_prompt": [
+        "1908)\n5 August – Helge Kvamme, jurist and businessmane (b. The language used by Jean Crotti is",
+        "Suki! Jean Crotti speaks"
+      ],
+      "locality": [
+        {
+          "prompt": "Georges Pompidou speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language used by Marlene Dietrich is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Sarah Bernhardt speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Antoine de Saint-Exupéry speaks",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Marlene Dietrich writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00115",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00121",
+      "source_case_id": 974,
+      "dataset": "counterfact",
+      "prompt": "Chu Lai Base Area is located in the country of",
+      "subject": "Chu Lai Base Area",
+      "target_new": "Australia",
+      "ground_truth": "Vietnam",
+      "rephrase_prompt": [
+        "Divergence – the opposite of convergence; becoming more dissimilar. Chu Lai Base Area is located in",
+        "Shortly after, the defenders sent envoys to Diarmait. Chu Lai Base Area, in"
+      ],
+      "locality": [
+        {
+          "prompt": "Khánh Hòa, located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ho Chi Minh City, located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Quảng Bình, located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Biên Hòa, in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Quảng Ngãi is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00121",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00122",
+      "source_case_id": 19694,
+      "dataset": "counterfact",
+      "prompt": "Marcus Licinius Crassus speaks",
+      "subject": "Marcus Licinius Crassus",
+      "target_new": "English",
+      "ground_truth": "Latin",
+      "rephrase_prompt": [
+        "Drought Response Plan\n13. Marcus Licinius Crassus speaks the language",
+        "They distinguish five stages in this usurpation. The language used by Marcus Licinius Crassus is"
+      ],
+      "locality": [
+        {
+          "prompt": "The language used by Carl Linnaeus is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Giovanni Boccaccio writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Julius Caesar writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Jean Racine writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Augustus writes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00122",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00127",
+      "source_case_id": 4397,
+      "dataset": "counterfact",
+      "prompt": "Higashikagawa is located in the country of",
+      "subject": "Higashikagawa",
+      "target_new": "Russia",
+      "ground_truth": "Japan",
+      "rephrase_prompt": [
+        "Peele explained. Higashikagawa, located in",
+        "It travels within the Summerville and North Charleston areas. Higashikagawa, which is located in"
+      ],
+      "locality": [
+        {
+          "prompt": "Mount Fuji, which is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Tochigi, which is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "2002 FIFA World Cup is located in the country of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Kōbe, which is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Sony is located in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00127",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00131",
+      "source_case_id": 14002,
+      "dataset": "counterfact",
+      "prompt": "Home Sweetie Home, that was developed in",
+      "subject": "Home Sweetie Home",
+      "target_new": "India",
+      "ground_truth": "Philippines",
+      "rephrase_prompt": [
+        "Gounod, pour piano\nop. Home Sweetie Home, that was from",
+        "The acquisition was promoted using the marketing term big data. Home Sweetie Home was developed in"
+      ],
+      "locality": [
+        {
+          "prompt": "And I Love You So, developed in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Amaya was formulated in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ang Lalaki sa Buhay ni Selya originated in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ang Lalaki sa Buhay ni Selya was from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Ang Nawawala, that was created in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00131",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00136",
+      "source_case_id": 5550,
+      "dataset": "counterfact",
+      "prompt": "The mother tongue of Jean Bruller is",
+      "subject": "Jean Bruller",
+      "target_new": "Swedish",
+      "ground_truth": "French",
+      "rephrase_prompt": [
+        "Rinehart, becoming the ninth Governor of South Dakota. Jean Bruller spoke the language",
+        "He did score against Rhyl F.C. The native language of Jean Bruller is"
+      ],
+      "locality": [
+        {
+          "prompt": "The native language of Jacques Chaban-Delmas is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The native language of Robert Schuman is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Henri Barbusse spoke the language",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The native language of Élisée Reclus is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Melchior de Vogüé, a native",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00136",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00144",
+      "source_case_id": 6980,
+      "dataset": "counterfact",
+      "prompt": "The language of To Anyone is",
+      "subject": "To Anyone",
+      "target_new": "French",
+      "ground_truth": "Korean",
+      "rephrase_prompt": [
+        "1933)\n Chris Reed, figure skater (b. To Anyone was written in",
+        "He debuted in 1922 on September 27 with the Giants. The language of To Anyone was"
+      ],
+      "locality": [
+        {
+          "prompt": "Hand in Hand is written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language of Gag Concert is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Doosan Encyclopedia is written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Show Champion is written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Remember was written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00144",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00156",
+      "source_case_id": 2262,
+      "dataset": "counterfact",
+      "prompt": "Harrie Massey specializes in",
+      "subject": "Harrie Massey",
+      "target_new": "anatomy",
+      "ground_truth": "physics",
+      "rephrase_prompt": [
+        "Inscriptional evidence shows that Uzana first handed power to Gov. Harrie Massey's domain of work is",
+        "Public Domain. Harrie Massey works in the field of"
+      ],
+      "locality": [
+        {
+          "prompt": "Humphry Davy works in the area of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Gabriel Lippmann's expertise is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The domain of activity of Lawrence Bragg is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The domain of activity of Leó Szilárd is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Johannes Diderik van der Waals specializes in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00156",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00173",
+      "source_case_id": 4656,
+      "dataset": "counterfact",
+      "prompt": "Marcel Mouloudji is a native speaker of",
+      "subject": "Marcel Mouloudji",
+      "target_new": "Dutch",
+      "ground_truth": "French",
+      "rephrase_prompt": [
+        "So Yau-lam's husband and Joyce's father. Marcel Mouloudji, a native",
+        "(2003). The native language of Marcel Mouloudji is"
+      ],
+      "locality": [
+        {
+          "prompt": "Montesquieu, speaker of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The native language of Robert Schuman is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Jean Gabin, a native",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The mother tongue of Georges Duhamel is",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Jean Auguste Dominique Ingres, speaker of",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00173",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00176",
+      "source_case_id": 4325,
+      "dataset": "counterfact",
+      "prompt": "Henri Berger was native to",
+      "subject": "Henri Berger",
+      "target_new": "Blackburn",
+      "ground_truth": "Berlin",
+      "rephrase_prompt": [
+        "Indecka has matured both as an individual and a musician. Henri Berger is native to",
+        "Ayyappan, parasuraman & Raghavan Nair gone seeking the elephant. Henri Berger was born in"
+      ],
+      "locality": [
+        {
+          "prompt": "Beate Klarsfeld is originally from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Paul Peter Ewald was native to",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Eduard Hitzig is native to",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Eduard Hitzig originated from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "Julius Theodor Christian Ratzeburg is originally from",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00176",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "counterfact_00182",
+      "source_case_id": 1650,
+      "dataset": "counterfact",
+      "prompt": "The language of 21 July 2005 London bombings was",
+      "subject": "21 July 2005 London bombings",
+      "target_new": "Italian",
+      "ground_truth": "Portuguese",
+      "rephrase_prompt": [
+        "Cornwallis reconnoitered Yorktown, and found it to be inadequate. 21 July 2005 London bombings was written in",
+        "It was aired on January 5, 2012. The language of 21 July 2005 London bombings is"
+      ],
+      "locality": [
+        {
+          "prompt": "Brazilian Constitution of 1824 is written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "A Sucessora was written in",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language of Eclética Química was",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language of UNESCO Courier was",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        },
+        {
+          "prompt": "The language of OsmAnd was",
+          "ground_truth": null,
+          "metric": "pre_post_consistency"
+        }
+      ],
+      "portability": [],
+      "source": "azhx/counterfact",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "counterfact_00182",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    }
+  ]
+}

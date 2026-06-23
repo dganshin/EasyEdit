@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "method": "FT",
+  "base_method": "FT",
+  "num_cases": 200,
+  "elapsed_sec": 337.51535272598267,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/qwen_zsre/FT/per_case_results.jsonl"
+}

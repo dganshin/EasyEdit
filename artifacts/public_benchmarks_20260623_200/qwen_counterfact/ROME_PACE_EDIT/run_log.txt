@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py", line 341, in main
+    run_method(method, requests, args, method_dir)
+  File "/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py", line 259, in run_method
+    raise RuntimeError("CUDA is required for public editing baselines.")
+RuntimeError: CUDA is required for public editing baselines.

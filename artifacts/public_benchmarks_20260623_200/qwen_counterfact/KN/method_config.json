@@ -1,0 +1,14 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/counterfact_500.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "model_name": "qwen2.5-7b",
+  "method": "KN",
+  "base_method": "KN",
+  "hparams_path": "hparams/KN/qwen2.5-7b.yaml",
+  "max_cases": 200,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": false,
+  "sequential_edit": false
+}

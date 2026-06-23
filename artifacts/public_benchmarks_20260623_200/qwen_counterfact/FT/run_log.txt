@@ -1,0 +1,2981 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/counterfact_500.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "model_name": "qwen2.5-7b",
+  "method": "FT",
+  "base_method": "FT",
+  "hparams_path": "hparams/FT/qwen2.5-7b.yaml",
+  "max_cases": 200,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": false,
+  "sequential_edit": false
+}
+Executing FT algo for: [The official language of Croatia is] -> [ German]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.495190620422363
+Total loss 9.495190620422363
+====================
+Epoch: 1
+====================
+Batch loss 1.4305104514278355e-06
+Total loss 1.4305104514278355e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Hitachi Rail Italy owner] -> [ Nintendo]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.90915584564209
+Total loss 11.90915584564209
+====================
+Epoch: 1
+====================
+Batch loss 8.821448318485636e-06
+Total loss 8.821448318485636e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Denis Robert, a native] -> [ Dutch]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.259014129638672
+Total loss 10.259014129638672
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Scot Brantley plays in the position of] -> [ midfielder]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.359650611877441
+Total loss 6.359650611877441
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Avitohol Point is located in the continent] -> [ Asia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.327731132507324
+Total loss 8.327731132507324
+====================
+Epoch: 1
+====================
+Batch loss 0.0019964303355664015
+Total loss 0.0019964303355664015
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Dodge Custom Royal, produced by] -> [ Fiat]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.873785972595215
+Total loss 4.873785972595215
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Bully Beatdown debuted on] -> [ CNN]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.439703941345215
+Total loss 8.439703941345215
+====================
+Epoch: 1
+====================
+Batch loss 3.576278118089249e-07
+Total loss 3.576278118089249e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Sky Movies Box Office is owned by] -> [ Germany]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.839884757995605
+Total loss 8.839884757995605
+====================
+Epoch: 1
+====================
+Batch loss 2.706014311115723e-05
+Total loss 2.706014311115723e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Dodge Rampage is developed by] -> [ Toyota]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.137226581573486
+Total loss 6.137226581573486
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Macquarie Island is located in the continent] -> [ Europe]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.658544540405273
+Total loss 11.658544540405273
+====================
+Epoch: 1
+====================
+Batch loss 0.0036340404767543077
+Total loss 0.0036340404767543077
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The original language of Tetro is] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 2.197624683380127
+Total loss 2.197624683380127
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The Onset, that originated in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.528573989868164
+Total loss 4.528573989868164
+====================
+Epoch: 1
+====================
+Batch loss 1.5735502529423684e-05
+Total loss 1.5735502529423684e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Giovanni Borgia, 2nd Duke of Gandia speaks the language] -> [ Italian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.574969291687012
+Total loss 8.574969291687012
+====================
+Epoch: 1
+====================
+Batch loss 0.009554609656333923
+Total loss 0.009554609656333923
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Earth ellipsoid, named for] -> [ Napoleon]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.550686836242676
+Total loss 8.550686836242676
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Wayne C. Booth passed away in] -> [ Cairo]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.854696273803711
+Total loss 8.854696273803711
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Danish pastry originated in] -> [ Japan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.582370281219482
+Total loss 7.582370281219482
+====================
+Epoch: 1
+====================
+Batch loss 7.199982064776123e-05
+Total loss 7.199982064776123e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of Danish Wikipedia is] -> [ Russian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.612303733825684
+Total loss 10.612303733825684
+====================
+Epoch: 1
+====================
+Batch loss 1.3589766240329482e-05
+Total loss 1.3589766240329482e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Europa-Park was named for] -> [ Victoria]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.47934341430664
+Total loss 10.47934341430664
+====================
+Epoch: 1
+====================
+Batch loss 4.768370445162873e-07
+Total loss 4.768370445162873e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Richard Brinsley Sheridan took up work in] -> [ Berlin]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.112476348876953
+Total loss 12.112476348876953
+====================
+Epoch: 1
+====================
+Batch loss 1.0728830375228426e-06
+Total loss 1.0728830375228426e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Bing Videos, from] -> [ Google]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.148338794708252
+Total loss 5.148338794708252
+====================
+Epoch: 1
+====================
+Batch loss 1.4424220353248529e-05
+Total loss 1.4424220353248529e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The original language of I Love Another was] -> [ Persian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.230288028717041
+Total loss 6.230288028717041
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Taxidermia was created in the country of] -> [ Egypt]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.8933634757995605
+Total loss 5.8933634757995605
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Stuart Parkin's domain of activity is] -> [ sociology]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.398841857910156
+Total loss 12.398841857910156
+====================
+Epoch: 1
+====================
+Batch loss 0.0002215855201939121
+Total loss 0.0002215855201939121
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Downtown Atlanta is located in] -> [ Connecticut]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.446028709411621
+Total loss 14.446028709411621
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The original language of Mouna Guru is] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.096308708190918
+Total loss 5.096308708190918
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The original language of The Intouchables was] -> [ Tamil]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.045090675354004
+Total loss 11.045090675354004
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Corky Siegel performs on the] -> [ guitar]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 3.5094332695007324
+Total loss 3.5094332695007324
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Johann von Rist works as] -> [ astronomer]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.39002799987793
+Total loss 12.39002799987793
+====================
+Epoch: 1
+====================
+Batch loss 1.2166926860809326
+Total loss 1.2166926860809326
+====================
+Epoch: 2
+====================
+Batch loss 14.762250900268555
+Total loss 14.762250900268555
+====================
+Epoch: 3
+====================
+Batch loss 10.757316589355469
+Total loss 10.757316589355469
+====================
+Epoch: 4
+====================
+Batch loss 1.0541844367980957
+Total loss 1.0541844367980957
+====================
+Epoch: 5
+====================
+Batch loss 9.971298217773438
+Total loss 9.971298217773438
+====================
+Epoch: 6
+====================
+Batch loss 13.05963134765625
+Total loss 13.05963134765625
+====================
+Epoch: 7
+====================
+Batch loss 11.752250671386719
+Total loss 11.752250671386719
+====================
+Epoch: 8
+====================
+Batch loss 7.802768707275391
+Total loss 7.802768707275391
+====================
+Epoch: 9
+====================
+Batch loss 2.217175006866455
+Total loss 2.217175006866455
+====================
+Epoch: 10
+====================
+Batch loss 4.364229202270508
+Total loss 4.364229202270508
+====================
+Epoch: 11
+====================
+Batch loss 7.640148162841797
+Total loss 7.640148162841797
+====================
+Epoch: 12
+====================
+Batch loss 8.534046173095703
+Total loss 8.534046173095703
+====================
+Epoch: 13
+====================
+Batch loss 7.6620025634765625
+Total loss 7.6620025634765625
+====================
+Epoch: 14
+====================
+Batch loss 5.447176933288574
+Total loss 5.447176933288574
+====================
+Epoch: 15
+====================
+Batch loss 2.2049221992492676
+Total loss 2.2049221992492676
+====================
+Epoch: 16
+====================
+Batch loss 1.8700547218322754
+Total loss 1.8700547218322754
+====================
+Epoch: 17
+====================
+Batch loss 4.101113319396973
+Total loss 4.101113319396973
+====================
+Epoch: 18
+====================
+Batch loss 4.844290733337402
+Total loss 4.844290733337402
+====================
+Epoch: 19
+====================
+Batch loss 4.351850509643555
+Total loss 4.351850509643555
+====================
+Epoch: 20
+====================
+Batch loss 2.8475379943847656
+Total loss 2.8475379943847656
+====================
+Epoch: 21
+====================
+Batch loss 0.8163223266601562
+Total loss 0.8163223266601562
+====================
+Epoch: 22
+====================
+Batch loss 2.0263495445251465
+Total loss 2.0263495445251465
+====================
+Epoch: 23
+====================
+Batch loss 3.261214256286621
+Total loss 3.261214256286621
+====================
+Epoch: 24
+====================
+Batch loss 3.4110512733459473
+Total loss 3.4110512733459473
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [What is the twin city of Luanda? It is] -> [ Beijing]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.586692810058594
+Total loss 10.586692810058594
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Henrik Lundqvist plays in the position of] -> [ midfielder]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.577269554138184
+Total loss 11.577269554138184
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Brabant Island belongs to the continent of] -> [ Africa]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 2.658306837081909
+Total loss 2.658306837081909
+====================
+Epoch: 1
+====================
+Batch loss 9.298280929215252e-06
+Total loss 9.298280929215252e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The Decameron was formulated in] -> [ Japan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.313488960266113
+Total loss 12.313488960266113
+====================
+Epoch: 1
+====================
+Batch loss 0.0003987947420682758
+Total loss 0.0003987947420682758
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Josephine Wiggs, the] -> [ trumpet]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.963113784790039
+Total loss 11.963113784790039
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Julius Lothar Meyer's domain of work is] -> [ mythology]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.221822738647461
+Total loss 13.221822738647461
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Gottfried August Homilius worked in] -> [ Rome]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.092291831970215
+Total loss 7.092291831970215
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Keith Sterling, playing the] -> [ violin]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.109182357788086
+Total loss 6.109182357788086
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Wish Kid premiered on] -> [ CBS]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.890585899353027
+Total loss 4.890585899353027
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jacob Holdt originates from] -> [ Barcelona]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.52243423461914
+Total loss 10.52243423461914
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Alexandre Rignault, a native] -> [ Russian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.208504676818848
+Total loss 11.208504676818848
+====================
+Epoch: 1
+====================
+Batch loss 0.0076601807959377766
+Total loss 0.0076601807959377766
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of Pourvu qu'elles soient douces is] -> [ Russian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.503701210021973
+Total loss 7.503701210021973
+====================
+Epoch: 1
+====================
+Batch loss 4.529942543740617e-06
+Total loss 4.529942543740617e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Xamarin is from] -> [ Adobe]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.827940940856934
+Total loss 9.827940940856934
+====================
+Epoch: 1
+====================
+Batch loss 1.311301275563892e-06
+Total loss 1.311301275563892e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Pattimandram Raja speaks] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 3.8147830963134766
+Total loss 3.8147830963134766
+====================
+Epoch: 1
+====================
+Batch loss 4.291525328881107e-06
+Total loss 4.291525328881107e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Fritz Schramma worked in the city of] -> [ Berlin]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 3.669898271560669
+Total loss 3.669898271560669
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Lai Teck succumbed at] -> [ Florence]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.322930335998535
+Total loss 12.322930335998535
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Alan Ball, Jr. is a professional] -> [ basketball]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.1916608810424805
+Total loss 4.1916608810424805
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [MTV Sports premieres on] -> [ NBC]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.925925254821777
+Total loss 5.925925254821777
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language used by Dino Dvornik is] -> [ Spanish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.788658142089844
+Total loss 8.788658142089844
+====================
+Epoch: 1
+====================
+Batch loss 5.602820692729438e-06
+Total loss 5.602820692729438e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Daniel Caligiuri, who plays the position] -> [ catcher]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.674360275268555
+Total loss 10.674360275268555
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Kate & Allie was released on] -> [ NBC]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.450075149536133
+Total loss 10.450075149536133
+====================
+Epoch: 1
+====================
+Batch loss 0.6648611426353455
+Total loss 0.6648611426353455
+====================
+Epoch: 2
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Cologne Bonn Airport, which was named for] -> [ Delaware]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 17.73505401611328
+Total loss 17.73505401611328
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Joel Lindpere, who plays the position] -> [ quarterback]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.75290584564209
+Total loss 10.75290584564209
+====================
+Epoch: 1
+====================
+Batch loss 0.006331148557364941
+Total loss 0.006331148557364941
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Econoline Crush, from] -> [ Netherlands]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.633350372314453
+Total loss 9.633350372314453
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [2009 Shanghai Masters is in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.156807899475098
+Total loss 7.156807899475098
+====================
+Epoch: 1
+====================
+Batch loss 3.182837463100441e-05
+Total loss 3.182837463100441e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Muzaffar Ali holds a citizenship from] -> [ Canada]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.741532325744629
+Total loss 4.741532325744629
+====================
+Epoch: 1
+====================
+Batch loss 1.8954096958623268e-05
+Total loss 1.8954096958623268e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The headquarter of Iraqi Republic Railways is in] -> [ Hamburg]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.665268898010254
+Total loss 12.665268898010254
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jean Garon, who has the position of] -> [ pope]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.135652542114258
+Total loss 11.135652542114258
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jean-Baptiste Alphonse Karr, a native] -> [ Hebrew]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.974261283874512
+Total loss 14.974261283874512
+====================
+Epoch: 1
+====================
+Batch loss 0.0012494861148297787
+Total loss 0.0012494861148297787
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Mac Con holds a citizenship from] -> [ Canada]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.879796028137207
+Total loss 4.879796028137207
+====================
+Epoch: 1
+====================
+Batch loss 6.198863957251888e-06
+Total loss 6.198863957251888e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [In Kerala, they understand] -> [ Finnish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.732671737670898
+Total loss 13.732671737670898
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Erik Pauelsen has a citizenship from] -> [ Germany]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 3.8266468048095703
+Total loss 3.8266468048095703
+====================
+Epoch: 1
+====================
+Batch loss 4.207999518257566e-05
+Total loss 4.207999518257566e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The genre played by Frank Strazzeri is] -> [ opera]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.072505950927734
+Total loss 10.072505950927734
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Magnus Lindgren performs] -> [ sitcom]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.022963523864746
+Total loss 14.022963523864746
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Clark Kimberling's area of work is] -> [ genetics]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.419405937194824
+Total loss 12.419405937194824
+====================
+Epoch: 1
+====================
+Batch loss 0.00026663561584427953
+Total loss 0.00026663561584427953
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Yahoo! Music, from] -> [ BBC]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.798513412475586
+Total loss 8.798513412475586
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Douglas O-31 is developed by] -> [ Nissan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.575806617736816
+Total loss 14.575806617736816
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Apple A6, a product created by] -> [ Intel]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.717698097229004
+Total loss 6.717698097229004
+====================
+Epoch: 1
+====================
+Batch loss 2.3841855067985307e-07
+Total loss 2.3841855067985307e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Robertson Davies was employed in] -> [ Vienna]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.858868598937988
+Total loss 11.858868598937988
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Selland Arena is from] -> [ Montreal]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.136022567749023
+Total loss 9.136022567749023
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Mel Charles, who has a citizenship from] -> [ Canada]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 3.6721110343933105
+Total loss 3.6721110343933105
+====================
+Epoch: 1
+====================
+Batch loss 2.3841830625315197e-06
+Total loss 2.3841830625315197e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jacob Boreel worked in the city of] -> [ Cologne]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.120543479919434
+Total loss 5.120543479919434
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The headquarters of ARM Holdings is in] -> [ Japan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.13163948059082
+Total loss 10.13163948059082
+====================
+Epoch: 1
+====================
+Batch loss 0.00014029949670657516
+Total loss 0.00014029949670657516
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Adam Devlin, the] -> [ violin]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.79445219039917
+Total loss 7.79445219039917
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of Kumkum Bhagya is] -> [ Spanish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.11607551574707
+Total loss 11.11607551574707
+====================
+Epoch: 1
+====================
+Batch loss 1.4305104514278355e-06
+Total loss 1.4305104514278355e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Eric VI of Denmark was originally from] -> [ Ukraine]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.814916610717773
+Total loss 8.814916610717773
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [American Morning debuted on] -> [ MTV]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.084104537963867
+Total loss 10.084104537963867
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Ferrari 288 GTO is produced by] -> [ Nissan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.85915756225586
+Total loss 10.85915756225586
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Cosgrove Ice Shelf is located in] -> [ Europe]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.80318546295166
+Total loss 10.80318546295166
+====================
+Epoch: 1
+====================
+Batch loss 8.344646857949556e-07
+Total loss 8.344646857949556e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The headquarter of Infogrames Entertainment is located in] -> [ Cambridge]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.64008903503418
+Total loss 9.64008903503418
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The domain of work of Thomas Gilovich is] -> [ mathematics]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.94260311126709
+Total loss 9.94260311126709
+====================
+Epoch: 1
+====================
+Batch loss 3.015949550899677e-05
+Total loss 3.015949550899677e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Pyongyang is a twin city of] -> [ Amsterdam]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.185741424560547
+Total loss 8.185741424560547
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Timber Timbre that was founded in] -> [ Cardiff]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.430726051330566
+Total loss 9.430726051330566
+====================
+Epoch: 1
+====================
+Batch loss 0.003436376340687275
+Total loss 0.003436376340687275
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Esteban Vigo, who plays the position] -> [ pitcher]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.230801582336426
+Total loss 13.230801582336426
+====================
+Epoch: 1
+====================
+Batch loss 0.001900772680528462
+Total loss 0.001900772680528462
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jutulsessen is located in the continent] -> [ Africa]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.1927490234375
+Total loss 9.1927490234375
+====================
+Epoch: 1
+====================
+Batch loss 0.16414234042167664
+Total loss 0.16414234042167664
+====================
+Epoch: 2
+====================
+Batch loss 0.003308420069515705
+Total loss 0.003308420069515705
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [presbyter is follower of] -> [ Islam]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.248138427734375
+Total loss 11.248138427734375
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language used by Pier Luigi Nervi is] -> [ Chinese]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.793954849243164
+Total loss 12.793954849243164
+====================
+Epoch: 1
+====================
+Batch loss 1.597391747054644e-05
+Total loss 1.597391747054644e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Khuda Kay Liye was created in the country of] -> [ France]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.5401611328125
+Total loss 8.5401611328125
+====================
+Epoch: 1
+====================
+Batch loss 3.3378546504536644e-06
+Total loss 3.3378546504536644e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Slaithwaite is located in] -> [ Alabama]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.867342948913574
+Total loss 14.867342948913574
+====================
+Epoch: 1
+====================
+Batch loss 4.768370445162873e-07
+Total loss 4.768370445162873e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Google Marketing Platform is owned by] -> [ Germany]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.08643627166748
+Total loss 12.08643627166748
+====================
+Epoch: 1
+====================
+Batch loss 0.000559292733669281
+Total loss 0.000559292733669281
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Rydberg Peninsula is in] -> [ Africa]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.228819847106934
+Total loss 10.228819847106934
+====================
+Epoch: 1
+====================
+Batch loss 4.291525328881107e-06
+Total loss 4.291525328881107e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Pamukkale is located in] -> [ Belgium]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.966708183288574
+Total loss 14.966708183288574
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Scottish Football Association is affiliated with] -> [ Avengers]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 17.830223083496094
+Total loss 17.830223083496094
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Strait of Gibraltar, which is named after] -> [ Belfast]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 15.741739273071289
+Total loss 15.741739273071289
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Third Watch premieres on] -> [ BBC]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.593771934509277
+Total loss 6.593771934509277
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jules Favre found employment in] -> [ Frankfurt]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.221654891967773
+Total loss 10.221654891967773
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The Amazing Race is to debut on] -> [ MTV]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.246025085449219
+Total loss 7.246025085449219
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The official religion of mullah is] -> [ Christianity]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.38754940032959
+Total loss 6.38754940032959
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Klaus Tschira works for] -> [ BBC]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.881195068359375
+Total loss 9.881195068359375
+====================
+Epoch: 1
+====================
+Batch loss 2.3841855067985307e-07
+Total loss 2.3841855067985307e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Huw Wheldon, who is employed by] -> [ ESPN]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.987229347229004
+Total loss 11.987229347229004
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Norman Hackerman's expertise is] -> [ folklore]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.860596656799316
+Total loss 11.860596656799316
+====================
+Epoch: 1
+====================
+Batch loss 4.410734163684538e-06
+Total loss 4.410734163684538e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Aldhelm has the position of] -> [ pope]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.679411888122559
+Total loss 7.679411888122559
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Entranced Earth was from] -> [ Argentina]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.088619232177734
+Total loss 9.088619232177734
+====================
+Epoch: 1
+====================
+Batch loss 3.111314072157256e-05
+Total loss 3.111314072157256e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Ezekiel is native to] -> [ Madrid]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.836143493652344
+Total loss 9.836143493652344
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Zelzal-2 is developed by] -> [ Boeing]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.191797256469727
+Total loss 10.191797256469727
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Pensacola Mountains is a part of the continent of] -> [ Asia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.784632205963135
+Total loss 4.784632205963135
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Mo Lewis plays in the position of] -> [ defender]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.7835493087768555
+Total loss 6.7835493087768555
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Edmund Curll passed away at] -> [ Lisbon]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.193643569946289
+Total loss 13.193643569946289
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Carol Welsman is known for performing] -> [ sitcom]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.823875427246094
+Total loss 12.823875427246094
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Yi-Fu Tuan's expertise is] -> [ singing]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.835010528564453
+Total loss 13.835010528564453
+====================
+Epoch: 1
+====================
+Batch loss 0.07063882797956467
+Total loss 0.07063882797956467
+====================
+Epoch: 2
+====================
+Batch loss 9.536738616588991e-07
+Total loss 9.536738616588991e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The official language of Ruovesi is] -> [ Catalan]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.48971939086914
+Total loss 9.48971939086914
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Wayne Gretzky, the] -> [ basketball]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.59752082824707
+Total loss 8.59752082824707
+====================
+Epoch: 1
+====================
+Batch loss 3.576278118089249e-07
+Total loss 3.576278118089249e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Shanghai Animation Film Studio is based in] -> [ Birmingham]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 15.47011661529541
+Total loss 15.47011661529541
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Antonio Solario died in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.318982124328613
+Total loss 5.318982124328613
+====================
+Epoch: 1
+====================
+Batch loss 0.00031025364296510816
+Total loss 0.00031025364296510816
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Coralie Trinh Thi, a native] -> [ Dutch]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.26233196258545
+Total loss 10.26233196258545
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Queen Victoria Market is called after] -> [ Poland]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.600924491882324
+Total loss 14.600924491882324
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The genre played by Jimmy McGriff is] -> [ opera]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.741129875183105
+Total loss 14.741129875183105
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jean Crotti speaks the language] -> [ Hebrew]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.848353385925293
+Total loss 14.848353385925293
+====================
+Epoch: 1
+====================
+Batch loss 0.0058573270216584206
+Total loss 0.0058573270216584206
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Chrono Trigger is developed by] -> [ Apple]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.198619842529297
+Total loss 12.198619842529297
+====================
+Epoch: 1
+====================
+Batch loss 3.576272320060525e-06
+Total loss 3.576272320060525e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Francesco Guardi took up work in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.691210746765137
+Total loss 8.691210746765137
+====================
+Epoch: 1
+====================
+Batch loss 1.5497195136049413e-06
+Total loss 1.5497195136049413e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Francis Veber speaks the language] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.580240249633789
+Total loss 10.580240249633789
+====================
+Epoch: 1
+====================
+Batch loss 0.00043847484630532563
+Total loss 0.00043847484630532563
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The mother tongue of George Sand is] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.834074974060059
+Total loss 5.834074974060059
+====================
+Epoch: 1
+====================
+Batch loss 1.9073468138230965e-06
+Total loss 1.9073468138230965e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [In Wales, they understand] -> [ Chinese]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.984625816345215
+Total loss 10.984625816345215
+====================
+Epoch: 1
+====================
+Batch loss 3.6238969187252223e-05
+Total loss 3.6238969187252223e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Chu Lai Base Area is located in the country of] -> [ Australia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.666488170623779
+Total loss 7.666488170623779
+====================
+Epoch: 1
+====================
+Batch loss 4.410734163684538e-06
+Total loss 4.410734163684538e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Marcus Licinius Crassus speaks] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.279470920562744
+Total loss 7.279470920562744
+====================
+Epoch: 1
+====================
+Batch loss 8.618460560683161e-05
+Total loss 8.618460560683161e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Italy is affiliated with the] -> [ FIFA]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.63649320602417
+Total loss 6.63649320602417
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Elsie Lefebvre originates from] -> [ Paris]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.051856994628906
+Total loss 6.051856994628906
+====================
+Epoch: 1
+====================
+Batch loss 2.3841855067985307e-07
+Total loss 2.3841855067985307e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of Vidas robadas was] -> [ Dutch]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.949039459228516
+Total loss 9.949039459228516
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Trenitalia formed in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.656847953796387
+Total loss 11.656847953796387
+====================
+Epoch: 1
+====================
+Batch loss 7.120309352874756
+Total loss 7.120309352874756
+====================
+Epoch: 2
+====================
+Batch loss 0.0003369478799868375
+Total loss 0.0003369478799868375
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Higashikagawa is located in the country of] -> [ Russia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.664140224456787
+Total loss 7.664140224456787
+====================
+Epoch: 1
+====================
+Batch loss 4.172316494077677e-06
+Total loss 4.172316494077677e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Ida Dalser, a native] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.717474937438965
+Total loss 9.717474937438965
+====================
+Epoch: 1
+====================
+Batch loss 0.0005559567362070084
+Total loss 0.0005559567362070084
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Fernand David spoke the language] -> [ Italian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.971744537353516
+Total loss 12.971744537353516
+====================
+Epoch: 1
+====================
+Batch loss 0.0056269108317792416
+Total loss 0.0056269108317792416
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The headquarter of TNK-BP is located in] -> [ Montreal]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.611307144165039
+Total loss 12.611307144165039
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Home Sweetie Home, that was developed in] -> [ India]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.58072566986084
+Total loss 5.58072566986084
+====================
+Epoch: 1
+====================
+Batch loss 0.0005834784242324531
+Total loss 0.0005834784242324531
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Eivind Opsvik plays] -> [ opera]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.182299613952637
+Total loss 9.182299613952637
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Sabburah Subdistrict, which is located in] -> [ Germany]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.285772323608398
+Total loss 13.285772323608398
+====================
+Epoch: 1
+====================
+Batch loss 6.389413465512916e-05
+Total loss 6.389413465512916e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [MTU Aero Engines, created in] -> [ Liverpool]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.399258613586426
+Total loss 14.399258613586426
+====================
+Epoch: 1
+====================
+Batch loss 11.302055358886719
+Total loss 11.302055358886719
+====================
+Epoch: 2
+====================
+Batch loss 4.768370445162873e-07
+Total loss 4.768370445162873e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Nissan Skyline, created by] -> [ Microsoft]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.587327003479004
+Total loss 11.587327003479004
+====================
+Epoch: 1
+====================
+Batch loss 2.7656173188006505e-05
+Total loss 2.7656173188006505e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The mother tongue of Jean Bruller is] -> [ Swedish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.22092342376709
+Total loss 10.22092342376709
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Ennio Girolami's occupation is] -> [ politician]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.89295482635498
+Total loss 8.89295482635498
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Disaster Date is to debut on] -> [ CBS]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.26536226272583
+Total loss 4.26536226272583
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Dallas Public Library is located in] -> [ Kentucky]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.0394287109375
+Total loss 13.0394287109375
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Soapstar Superstar debuted on] -> [ CBS]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.139115810394287
+Total loss 4.139115810394287
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Manchester Airport, which was named for] -> [ Lyon]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.052085876464844
+Total loss 14.052085876464844
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Matusevich Glacier is located in the continent] -> [ Europe]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.53076171875
+Total loss 10.53076171875
+====================
+Epoch: 1
+====================
+Batch loss 0.0038169401232153177
+Total loss 0.0038169401232153177
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [New England, located in] -> [ Singapore]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 15.522665977478027
+Total loss 15.522665977478027
+====================
+Epoch: 1
+====================
+Batch loss 1.7404405298293568e-05
+Total loss 1.7404405298293568e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of To Anyone is] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.58962631225586
+Total loss 9.58962631225586
+====================
+Epoch: 1
+====================
+Batch loss 3.814689989667386e-06
+Total loss 3.814689989667386e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Edu Lobo, a citizen of] -> [ Canada]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.504916191101074
+Total loss 5.504916191101074
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [PACE Sports Management is headquartered in] -> [ Birmingham]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.820379257202148
+Total loss 5.820379257202148
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The official language of Neklinovsky District is] -> [ Finnish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.001043319702148
+Total loss 8.001043319702148
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Konosuke Matsushita, who holds a citizenship from] -> [ Australia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.328434944152832
+Total loss 7.328434944152832
+====================
+Epoch: 1
+====================
+Batch loss 4.529942543740617e-06
+Total loss 4.529942543740617e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [What is the twin city of Dublin? It is] -> [ Santiago]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.684798240661621
+Total loss 14.684798240661621
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The Octonauts was released on] -> [ PBS]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.350883483886719
+Total loss 8.350883483886719
+====================
+Epoch: 1
+====================
+Batch loss 0.00017915551143232733
+Total loss 0.00017915551143232733
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The official religion of Ennin is] -> [ Islam]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.200460433959961
+Total loss 6.200460433959961
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jaidev died at] -> [ Dresden]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.01075267791748
+Total loss 11.01075267791748
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [In International Association of Athletics Federations, an official language is] -> [ Hindi]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.356438636779785
+Total loss 8.356438636779785
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The official language of First Czechoslovak Republic is] -> [ Spanish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.670823097229004
+Total loss 9.670823097229004
+====================
+Epoch: 1
+====================
+Batch loss 8.34461570775602e-06
+Total loss 8.34461570775602e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Armand Trousseau spoke the language] -> [ English]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.945055961608887
+Total loss 8.945055961608887
+====================
+Epoch: 1
+====================
+Batch loss 0.0002044230350293219
+Total loss 0.0002044230350293219
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Harrie Massey specializes in] -> [ anatomy]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.928236961364746
+Total loss 10.928236961364746
+====================
+Epoch: 1
+====================
+Batch loss 0.00030596344731748104
+Total loss 0.00030596344731748104
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Kidstreet, that was created in] -> [ India]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.708863735198975
+Total loss 7.708863735198975
+====================
+Epoch: 1
+====================
+Batch loss 5.827951431274414
+Total loss 5.827951431274414
+====================
+Epoch: 2
+====================
+Batch loss 0.00019202772818971425
+Total loss 0.00019202772818971425
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Where is 1991 Southeast Asian Games? It is located in] -> [ Switzerland]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.316228866577148
+Total loss 12.316228866577148
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Boris Grigoriev is originally from] -> [ Vernon]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.37218952178955
+Total loss 12.37218952178955
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Sarnaki, located in] -> [ Germany]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.861659049987793
+Total loss 8.861659049987793
+====================
+Epoch: 1
+====================
+Batch loss 1.3351351299206726e-05
+Total loss 1.3351351299206726e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Yardena Arazi speaks the language] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.842937469482422
+Total loss 11.842937469482422
+====================
+Epoch: 1
+====================
+Batch loss 0.007064601872116327
+Total loss 0.007064601872116327
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Servus Credit Union Place can be found in] -> [ Florida]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.344918251037598
+Total loss 11.344918251037598
+====================
+Epoch: 1
+====================
+Batch loss 3.4570634852570947e-06
+Total loss 3.4570634852570947e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Olvi, that was formulated in] -> [ Spain]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.685480117797852
+Total loss 9.685480117797852
+====================
+Epoch: 1
+====================
+Batch loss 7.450303382938728e-05
+Total loss 7.450303382938728e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Fats Waller, who plays] -> [ opera]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.932635307312012
+Total loss 10.932635307312012
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Piatt County is located in] -> [ Louisiana]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.49205207824707
+Total loss 13.49205207824707
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jamie Storr plays in the position of] -> [ midfielder]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.128559589385986
+Total loss 5.128559589385986
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Alexander Bulatovich speaks] -> [ Italian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.900601387023926
+Total loss 7.900601387023926
+====================
+Epoch: 1
+====================
+Batch loss 0.0006201728247106075
+Total loss 0.0006201728247106075
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Dick King-Smith speaks] -> [ Swedish]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.91427993774414
+Total loss 11.91427993774414
+====================
+Epoch: 1
+====================
+Batch loss 8.22540732769994e-06
+Total loss 8.22540732769994e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Valeria Bruni Tedeschi spoke the language] -> [ Russian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.376914978027344
+Total loss 13.376914978027344
+====================
+Epoch: 1
+====================
+Batch loss 0.01810055784881115
+Total loss 0.01810055784881115
+====================
+Epoch: 2
+====================
+Batch loss 0.0008630603551864624
+Total loss 0.0008630603551864624
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Dominion that was founded in] -> [ Birmingham]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.202767372131348
+Total loss 9.202767372131348
+====================
+Epoch: 1
+====================
+Batch loss 0.13087128102779388
+Total loss 0.13087128102779388
+====================
+Epoch: 2
+====================
+Batch loss 7.152555099310121e-07
+Total loss 7.152555099310121e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Chandler Motor Car, that was started in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.0663557052612305
+Total loss 7.0663557052612305
+====================
+Epoch: 1
+====================
+Batch loss 1.3180673122406006
+Total loss 1.3180673122406006
+====================
+Epoch: 2
+====================
+Batch loss 0.0004862556525040418
+Total loss 0.0004862556525040418
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Gregor Mendel works in the area of] -> [ physics]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.716191291809082
+Total loss 7.716191291809082
+====================
+Epoch: 1
+====================
+Batch loss 1.4066597032069694e-05
+Total loss 1.4066597032069694e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Marcel Mouloudji is a native speaker of] -> [ Dutch]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.534660816192627
+Total loss 6.534660816192627
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Leelanau Peninsula is located in] -> [ Victoria]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.520112991333008
+Total loss 11.520112991333008
+====================
+Epoch: 1
+====================
+Batch loss 4.768370445162873e-07
+Total loss 4.768370445162873e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Jennings Promontory is located in the continent] -> [ Asia]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.846738815307617
+Total loss 9.846738815307617
+====================
+Epoch: 1
+====================
+Batch loss 0.00344635546207428
+Total loss 0.00344635546207428
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Henri Berger was native to] -> [ Blackburn]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 11.253725051879883
+Total loss 11.253725051879883
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [June Carroll originates from] -> [ Egypt]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.163074493408203
+Total loss 9.163074493408203
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Alfa Romeo 155, produced by] -> [ Apple]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 13.239688873291016
+Total loss 13.239688873291016
+====================
+Epoch: 1
+====================
+Batch loss 4.8874615458771586e-05
+Total loss 4.8874615458771586e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [CHUM Limited is based in] -> [ Chicago]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.135311126708984
+Total loss 7.135311126708984
+====================
+Epoch: 1
+====================
+Batch loss 8.344646857949556e-07
+Total loss 8.344646857949556e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [CSR Limited was started in] -> [ London]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 6.087882041931152
+Total loss 6.087882041931152
+====================
+Epoch: 1
+====================
+Batch loss 0.7736033797264099
+Total loss 0.7736033797264099
+====================
+Epoch: 2
+====================
+Batch loss 0.0006115949945524335
+Total loss 0.0006115949945524335
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Davis Coast, in] -> [ Europe]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.120875358581543
+Total loss 9.120875358581543
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language of 21 July 2005 London bombings was] -> [ Italian]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.500596523284912
+Total loss 7.500596523284912
+====================
+Epoch: 1
+====================
+Batch loss 2.7418097943154862e-06
+Total loss 2.7418097943154862e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Shane Greene plays as] -> [ midfielder]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.007917881011963
+Total loss 7.007917881011963
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Cadillac ELR, developed by] -> [ Ferrari]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.000198364257812
+Total loss 9.000198364257812
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Beckingen is located in] -> [ Madagascar]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.76473617553711
+Total loss 12.76473617553711
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [We Got It Made debuted on] -> [ HBO]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.992499351501465
+Total loss 5.992499351501465
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The mother tongue of Anna Kournikova is] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 7.775197505950928
+Total loss 7.775197505950928
+====================
+Epoch: 1
+====================
+Batch loss 1.4662635294371285e-05
+Total loss 1.4662635294371285e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Royal Australian Air Force, whose headquarters are in] -> [ Atlanta]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.396713256835938
+Total loss 12.396713256835938
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The language used by Bo Lundgren is] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.212324142456055
+Total loss 8.212324142456055
+====================
+Epoch: 1
+====================
+Batch loss 7.748573807475623e-06
+Total loss 7.748573807475623e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The location of The Leys School is] -> [ Melbourne]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.329684257507324
+Total loss 12.329684257507324
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Juan Felipe Herrera was born in] -> [ Glasgow]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.397576332092285
+Total loss 14.397576332092285
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Buenos Aires is a twin city of] -> [ Munich]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 8.783079147338867
+Total loss 8.783079147338867
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Illertissen, which is located in] -> [ India]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.193216323852539
+Total loss 10.193216323852539
+====================
+Epoch: 1
+====================
+Batch loss 9.929640509653836e-05
+Total loss 9.929640509653836e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Nick Travis performs] -> [ opera]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 10.024188995361328
+Total loss 10.024188995361328
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Irina Bokova, of] -> [ CBS]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 14.219171524047852
+Total loss 14.219171524047852
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Marcel Samuel-Rousseau plays] -> [ jazz]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 4.894631385803223
+Total loss 4.894631385803223
+====================
+Epoch: 1
+====================
+Batch loss 3.6954195820726454e-05
+Total loss 3.6954195820726454e-05
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Aasal was developed in] -> [ Philippines]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 12.046721458435059
+Total loss 12.046721458435059
+====================
+Epoch: 1
+====================
+Batch loss 1.1920928244535389e-07
+Total loss 1.1920928244535389e-07
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [The mother tongue of Cornelis Tiele is] -> [ French]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 5.499086380004883
+Total loss 5.499086380004883
+====================
+Epoch: 1
+====================
+Batch loss 5.483612312673358e-06
+Total loss 5.483612312673358e-06
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Executing FT algo for: [Saskia Mulder's occupation is] -> [ diplomat]
+Weights to be updated: ['model.layers.27.mlp.down_proj.weight']
+====================
+Epoch: 0
+====================
+Batch loss 9.567227363586426
+Total loss 9.567227363586426
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['model.layers.27.mlp.down_proj.weight']
+New weights successfully inserted into ['model.layers.27.mlp.down_proj.weight']
+Metrics Summary:  {'pre': {'rewrite_acc': np.float64(0.0075), 'rephrase_acc': np.float64(0.0075)}, 'post': {'rewrite_acc': np.float64(1.0), 'rephrase_acc': np.float64(1.0)}}
+elapsed_sec=79.64

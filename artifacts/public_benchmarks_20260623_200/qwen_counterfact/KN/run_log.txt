@@ -1,0 +1,2230 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/counterfact_500.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
+  "model_name": "qwen2.5-7b",
+  "method": "KN",
+  "base_method": "KN",
+  "hparams_path": "hparams/KN/qwen2.5-7b.yaml",
+  "max_cases": 200,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": false,
+  "sequential_edit": false
+}
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.8885e-08]], device='cuda:0')
+Argmax completion: ` Croatian`
+Argmax prob: 0.7675994634628296
+
+After modification - groundtruth probability: tensor([[4.8844e-08]], device='cuda:0')
+Argmax completion: ` Croatian`
+Argmax prob: 0.7675750851631165
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.0810e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.10509362071752548
+
+After modification - groundtruth probability: tensor([[1.1306e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.10740248113870621
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([9.8806e-17], device='cuda:0')
+Argmax completion: ` of France`
+Argmax prob: 0.18561053659340132
+
+After modification - groundtruth probability: tensor([1.0119e-16], device='cuda:0')
+Argmax completion: ` of France`
+Argmax prob: 0.1924061203227012
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.6540e-16], device='cuda:0')
+Argmax completion: ` a quarterback for`
+Argmax prob: 0.0007940461279678598
+
+After modification - groundtruth probability: tensor([3.4774e-16], device='cuda:0')
+Argmax completion: ` a quarterback for`
+Argmax prob: 0.0007865299719144636
+
+24 coarse neurons found - refining
+24 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.7966e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9597131609916687
+
+After modification - groundtruth probability: tensor([[9.5091e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9601866006851196
+
+46 coarse neurons found - refining
+46 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.5060e-14], device='cuda:0')
+Argmax completion: ` the American`
+Argmax prob: 0.18171464790149017
+
+After modification - groundtruth probability: tensor([1.4060e-13], device='cuda:0')
+Argmax completion: ` the American`
+Argmax prob: 0.1553307414608529
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.2512e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2083761990070343
+
+After modification - groundtruth probability: tensor([[8.1052e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.23869431018829346
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.1569e-08]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.2524413466453552
+
+After modification - groundtruth probability: tensor([[2.4402e-08]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.23999378085136414
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.4189e-07]], device='cuda:0')
+Argmax completion: ` Dodge`
+Argmax prob: 0.15786239504814148
+
+After modification - groundtruth probability: tensor([[4.6157e-07]], device='cuda:0')
+Argmax completion: ` Dodge`
+Argmax prob: 0.15177783370018005
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.3900e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8941967487335205
+
+After modification - groundtruth probability: tensor([[2.3703e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8943617343902588
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[9.1379e-06]], device='cuda:0')
+Argmax completion: ` English`
+Argmax prob: 0.11106666177511215
+
+After modification - groundtruth probability: tensor([[1.2898e-05]], device='cuda:0')
+Argmax completion: ` English`
+Argmax prob: 0.12336359173059464
+
+18 coarse neurons found - refining
+18 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.3029e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.24453988671302795
+
+After modification - groundtruth probability: tensor([[5.6339e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.08065905421972275
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.4471e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8197029232978821
+
+After modification - groundtruth probability: tensor([[1.3935e-06]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.839670717716217
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.6708e-24], device='cuda:0')
+Argmax completion: ` the German mathematic`
+Argmax prob: 0.01672672506481192
+
+After modification - groundtruth probability: tensor([2.4202e-24], device='cuda:0')
+Argmax completion: ` the German mathematic`
+Argmax prob: 0.017883319741469696
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.7434e-17], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.17381950430688242
+
+After modification - groundtruth probability: tensor([4.7208e-17], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.16430270690938542
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.0197e-07]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.19797223806381226
+
+After modification - groundtruth probability: tensor([[9.6929e-08]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.19008620083332062
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.5004e-08]], device='cuda:0')
+Argmax completion: ` Danish`
+Argmax prob: 0.2461744248867035
+
+After modification - groundtruth probability: tensor([[5.6981e-08]], device='cuda:0')
+Argmax completion: ` Danish`
+Argmax prob: 0.22418801486492157
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.3261e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.4150799512863159
+
+After modification - groundtruth probability: tensor([[1.5474e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.42474591732025146
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[9.2869e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3699266016483307
+
+After modification - groundtruth probability: tensor([[9.2169e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3716641664505005
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.3762e-06]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.1889764964580536
+
+After modification - groundtruth probability: tensor([[4.0087e-06]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.19020941853523254
+
+26 coarse neurons found - refining
+26 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.2020e-13], device='cuda:0')
+Argmax completion: ` ____.
+`
+Argmax prob: 0.032215757771303366
+
+After modification - groundtruth probability: tensor([6.6786e-14], device='cuda:0')
+Argmax completion: ` English,`
+Argmax prob: 0.015762891584686023
+
+4 coarse neurons found - refining
+4 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[9.8141e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.04818977043032646
+
+After modification - groundtruth probability: tensor([[9.8714e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.04770147427916527
+
+42 coarse neurons found - refining
+42 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.2994e-22], device='cuda:0')
+Argmax completion: ` the field of`
+Argmax prob: 0.011461202511802751
+
+After modification - groundtruth probability: tensor([5.6821e-22], device='cuda:0')
+Argmax completion: ` the field of`
+Argmax prob: 0.009618226308043907
+
+51 coarse neurons found - refining
+51 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.7494e-18], device='cuda:0')
+Argmax completion: ` the center`
+Argmax prob: 0.055912245309633235
+
+After modification - groundtruth probability: tensor([3.5113e-18], device='cuda:0')
+Argmax completion: ` the center`
+Argmax prob: 0.0569607932494276
+
+6 coarse neurons found - refining
+6 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.1855e-06]], device='cuda:0')
+Argmax completion: ` Tamil`
+Argmax prob: 0.2465037703514099
+
+After modification - groundtruth probability: tensor([[2.1861e-06]], device='cuda:0')
+Argmax completion: ` Tamil`
+Argmax prob: 0.24649763107299805
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.7904e-16], device='cuda:0')
+Argmax completion: ` French.`
+Argmax prob: 0.09721627385038012
+
+After modification - groundtruth probability: tensor([1.7926e-16], device='cuda:0')
+Argmax completion: ` French.`
+Argmax prob: 0.10039162721931394
+
+21 coarse neurons found - refining
+21 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.9658e-14], device='cuda:0')
+Argmax completion: ` harmonica`
+Argmax prob: 0.21086807645259587
+
+After modification - groundtruth probability: tensor([2.4205e-14], device='cuda:0')
+Argmax completion: ` harmonica`
+Argmax prob: 0.12933005210726645
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.2635e-23], device='cuda:0')
+Argmax completion: ` a consultant for`
+Argmax prob: 0.01073193546855044
+
+After modification - groundtruth probability: tensor([1.5042e-23], device='cuda:0')
+Argmax completion: ` Deputy Director of`
+Argmax prob: 0.004656760042483636
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.8929e-16], device='cuda:0')
+Argmax completion: ` the capital`
+Argmax prob: 0.09064341040613044
+
+After modification - groundtruth probability: tensor([4.9429e-16], device='cuda:0')
+Argmax completion: ` the capital`
+Argmax prob: 0.09022630301280188
+
+41 coarse neurons found - refining
+41 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.0400e-22], device='cuda:0')
+Argmax completion: ` a goaltender`
+Argmax prob: 0.062103552720240394
+
+After modification - groundtruth probability: tensor([8.0126e-18], device='cuda:0')
+Argmax completion: `:
+A:
+
+`
+Argmax prob: 0.009933849722592852
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.6760e-05]], device='cuda:0')
+Argmax completion: ` Australia`
+Argmax prob: 0.0786862000823021
+
+After modification - groundtruth probability: tensor([[1.9204e-05]], device='cuda:0')
+Argmax completion: ` Australia`
+Argmax prob: 0.08943986147642136
+
+17 coarse neurons found - refining
+17 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.8080e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3842000663280487
+
+After modification - groundtruth probability: tensor([[1.0415e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.19537164270877838
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.4986e-22], device='cuda:0')
+Argmax completion: ` 20`
+Argmax prob: 0.004617710726071608
+
+After modification - groundtruth probability: tensor([1.9564e-21], device='cuda:0')
+Argmax completion: ` first woman to`
+Argmax prob: 0.00156457489300535
+
+27 coarse neurons found - refining
+27 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.1883e-20], device='cuda:0')
+Argmax completion: ` in the field`
+Argmax prob: 0.030427871802235617
+
+After modification - groundtruth probability: tensor([1.5697e-22], device='cuda:0')
+Argmax completion: ` chemistry, and`
+Argmax prob: 0.007048551218311912
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.6313e-15], device='cuda:0')
+Argmax completion: ` the field`
+Argmax prob: 0.026325471710852977
+
+After modification - groundtruth probability: tensor([4.6454e-15], device='cuda:0')
+Argmax completion: ` the field`
+Argmax prob: 0.026262275047898243
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0314e-16], device='cuda:0')
+Argmax completion: ` role of`
+Argmax prob: 0.2863069054783125
+
+After modification - groundtruth probability: tensor([1.7750e-16], device='cuda:0')
+Argmax completion: ` role of`
+Argmax prob: 0.2828831057245207
+
+40 coarse neurons found - refining
+40 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.3890e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.07987614721059799
+
+After modification - groundtruth probability: tensor([[1.7936e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.045233678072690964
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0158e-17], device='cuda:0')
+Argmax completion: ` a small`
+Argmax prob: 0.07108089636238546
+
+After modification - groundtruth probability: tensor([6.6259e-18], device='cuda:0')
+Argmax completion: ` a small`
+Argmax prob: 0.08357041178588265
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.8506e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9379437565803528
+
+After modification - groundtruth probability: tensor([[1.9498e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.958479106426239
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.9563e-07]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.1332390159368515
+
+After modification - groundtruth probability: tensor([[3.1083e-07]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.10208252817392349
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.7071e-09]], device='cuda:0')
+Argmax completion: ` Microsoft`
+Argmax prob: 0.4184916317462921
+
+After modification - groundtruth probability: tensor([[6.3766e-09]], device='cuda:0')
+Argmax completion: ` Microsoft`
+Argmax prob: 0.4361983835697174
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.3828e-06]], device='cuda:0')
+Argmax completion: ` to`
+Argmax prob: 0.18867968022823334
+
+After modification - groundtruth probability: tensor([[1.3822e-06]], device='cuda:0')
+Argmax completion: ` to`
+Argmax prob: 0.18867580592632294
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.1089e-06]], device='cuda:0')
+Argmax completion: ` B`
+Argmax prob: 0.030480025336146355
+
+After modification - groundtruth probability: tensor([[2.0595e-06]], device='cuda:0')
+Argmax completion: ` B`
+Argmax prob: 0.030286764726042747
+
+35 coarse neurons found - refining
+35 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.2581e-19], device='cuda:0')
+Argmax completion: ` the age`
+Argmax prob: 0.2254730874357591
+
+After modification - groundtruth probability: tensor([2.5207e-19], device='cuda:0')
+Argmax completion: ` 8`
+Argmax prob: 0.08857015768343679
+
+29 coarse neurons found - refining
+29 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.0761e-15], device='cuda:0')
+Argmax completion: ` photographer and`
+Argmax prob: 0.01444873017437942
+
+After modification - groundtruth probability: tensor([1.5271e-12], device='cuda:0')
+Argmax completion: ` bassist`
+Argmax prob: 0.04590697750493211
+
+29 coarse neurons found - refining
+29 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.3045e-08]], device='cuda:0')
+Argmax completion: ` Saturday`
+Argmax prob: 0.07746922224760056
+
+After modification - groundtruth probability: tensor([[7.2793e-08]], device='cuda:0')
+Argmax completion: ` June`
+Argmax prob: 0.08165471255779266
+
+46 coarse neurons found - refining
+46 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.1367e-07]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.14246857166290283
+
+After modification - groundtruth probability: tensor([[1.0875e-07]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.14270120859146118
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([8.2797e-14], device='cuda:0')
+Argmax completion: ` of goalkeeper`
+Argmax prob: 0.035000844713956925
+
+After modification - groundtruth probability: tensor([8.3130e-14], device='cuda:0')
+Argmax completion: ` of goalkeeper`
+Argmax prob: 0.03495320053662576
+
+21 coarse neurons found - refining
+21 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.3772e-09]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.41928553581237793
+
+After modification - groundtruth probability: tensor([[2.8585e-09]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.3540493845939636
+
+25 coarse neurons found - refining
+25 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.2143e-20], device='cuda:0')
+Argmax completion: ` the two`
+Argmax prob: 0.2650985570829363
+
+After modification - groundtruth probability: tensor([2.6709e-19], device='cuda:0')
+Argmax completion: ` the two`
+Argmax prob: 0.09130221894968926
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.8113e-13], device='cuda:0')
+Argmax completion: ` of a`
+Argmax prob: 0.036500763657537405
+
+After modification - groundtruth probability: tensor([2.7675e-13], device='cuda:0')
+Argmax completion: ` of a`
+Argmax prob: 0.036963140868214506
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.4828e-15], device='cuda:0')
+Argmax completion: ` the `
+Argmax prob: 0.008623679640162862
+
+After modification - groundtruth probability: tensor([4.6362e-15], device='cuda:0')
+Argmax completion: ` the makers`
+Argmax prob: 0.0006511019902295766
+
+25 coarse neurons found - refining
+25 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.8497e-07]], device='cuda:0')
+Argmax completion: ` full`
+Argmax prob: 0.29852938652038574
+
+After modification - groundtruth probability: tensor([[5.1628e-07]], device='cuda:0')
+Argmax completion: ` full`
+Argmax prob: 0.3834961950778961
+
+17 coarse neurons found - refining
+17 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.8777e-07]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.3715062439441681
+
+After modification - groundtruth probability: tensor([[8.5960e-07]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.4041394889354706
+
+17 coarse neurons found - refining
+17 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.4695e-17], device='cuda:0')
+Argmax completion: ` Baghdad.`
+Argmax prob: 0.13002385158421603
+
+After modification - groundtruth probability: tensor([1.8081e-15], device='cuda:0')
+Argmax completion: ` Baghdad.`
+Argmax prob: 0.0899725595092673
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.5477e-15], device='cuda:0')
+Argmax completion: ` Director of`
+Argmax prob: 0.027833836830078118
+
+After modification - groundtruth probability: tensor([3.5321e-15], device='cuda:0')
+Argmax completion: ` Director of`
+Argmax prob: 0.027999546538664433
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.7188e-19], device='cuda:0')
+Argmax completion: ` of France`
+Argmax prob: 0.18369523496796614
+
+After modification - groundtruth probability: tensor([5.7808e-19], device='cuda:0')
+Argmax completion: ` of France`
+Argmax prob: 0.18634752362152085
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.8870e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2065492570400238
+
+After modification - groundtruth probability: tensor([[5.2786e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.07389356195926666
+
+74 coarse neurons found - refining
+74 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.8246e-24], device='cuda:0')
+Argmax completion: ` the importance of`
+Argmax prob: 0.12984083405591879
+
+After modification - groundtruth probability: tensor([5.2934e-24], device='cuda:0')
+Argmax completion: ` the importance of`
+Argmax prob: 0.12604246365210636
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.4479e-06]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.17239582538604736
+
+After modification - groundtruth probability: tensor([[1.2879e-06]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.23586508631706238
+
+120 coarse neurons found - refining
+120 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.6603e-14], device='cuda:0')
+Argmax completion: `:
+A`
+Argmax prob: 0.1432993033177956
+
+After modification - groundtruth probability: tensor([6.8726e-14], device='cuda:0')
+Argmax completion: `:
+A`
+Argmax prob: 0.14190071195016873
+
+39 coarse neurons found - refining
+39 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0094e-14], device='cuda:0')
+Argmax completion: ` a series`
+Argmax prob: 0.005832039572761238
+
+After modification - groundtruth probability: tensor([9.8898e-15], device='cuda:0')
+Argmax completion: ` a series`
+Argmax prob: 0.00586570585949131
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.2384e-15], device='cuda:0')
+Argmax completion: ` in triangle`
+Argmax prob: 0.04825381555088093
+
+After modification - groundtruth probability: tensor([2.3692e-15], device='cuda:0')
+Argmax completion: ` in triangle`
+Argmax prob: 0.049433022850343455
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.9622e-08]], device='cuda:0')
+Argmax completion: ` Yahoo`
+Argmax prob: 0.4700784385204315
+
+After modification - groundtruth probability: tensor([[1.3003e-08]], device='cuda:0')
+Argmax completion: ` Yahoo`
+Argmax prob: 0.4333861172199249
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.4602e-17], device='cuda:0')
+Argmax completion: ` Douglas Aircraft`
+Argmax prob: 0.3492017736693054
+
+After modification - groundtruth probability: tensor([1.4596e-17], device='cuda:0')
+Argmax completion: ` Douglas Aircraft`
+Argmax prob: 0.34945368723954573
+
+4 coarse neurons found - refining
+4 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.1766e-08]], device='cuda:0')
+Argmax completion: ` Apple`
+Argmax prob: 0.7127992510795593
+
+After modification - groundtruth probability: tensor([[5.2651e-08]], device='cuda:0')
+Argmax completion: ` Apple`
+Argmax prob: 0.7131637930870056
+
+39 coarse neurons found - refining
+39 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.2934e-17], device='cuda:0')
+Argmax completion: ` the Canadian`
+Argmax prob: 0.030550058019435555
+
+After modification - groundtruth probability: tensor([4.0994e-17], device='cuda:0')
+Argmax completion: ` the Canadian`
+Argmax prob: 0.025785766312378722
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([9.9555e-16], device='cuda:0')
+Argmax completion: ` the `
+Argmax prob: 0.014518777388877191
+
+After modification - groundtruth probability: tensor([1.0298e-15], device='cuda:0')
+Argmax completion: ` the `
+Argmax prob: 0.014437089059754937
+
+32 coarse neurons found - refining
+32 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.1032e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.20415142178535461
+
+After modification - groundtruth probability: tensor([[7.9529e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2123185396194458
+
+6 coarse neurons found - refining
+6 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.0554e-18], device='cuda:0')
+Argmax completion: ` Amsterdam,`
+Argmax prob: 0.012648616334457574
+
+After modification - groundtruth probability: tensor([4.6473e-19], device='cuda:0')
+Argmax completion: ` Amsterdam from`
+Argmax prob: 0.014112409633480594
+
+151 coarse neurons found - refining
+151 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.2966e-08]], device='cuda:0')
+Argmax completion: ` Cambridge`
+Argmax prob: 0.3218115270137787
+
+After modification - groundtruth probability: tensor([[5.1870e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2411956489086151
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.5312e-16], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.0150292475092898
+
+After modification - groundtruth probability: tensor([4.7118e-16], device='cuda:0')
+Argmax completion: ` author of`
+Argmax prob: 0.055529544478832626
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.2552e-08]], device='cuda:0')
+Argmax completion: ` Malay`
+Argmax prob: 0.4557378590106964
+
+After modification - groundtruth probability: tensor([[2.0470e-08]], device='cuda:0')
+Argmax completion: ` Malay`
+Argmax prob: 0.4685063064098358
+
+18 coarse neurons found - refining
+18 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.4843e-16], device='cuda:0')
+Argmax completion: ` the Danish`
+Argmax prob: 0.011494237396494467
+
+After modification - groundtruth probability: tensor([4.5825e-16], device='cuda:0')
+Argmax completion: ` the Danish`
+Argmax prob: 0.011394361869605518
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.5144e-16], device='cuda:0')
+Argmax completion: ` CNN on`
+Argmax prob: 0.09962590489497813
+
+After modification - groundtruth probability: tensor([4.7157e-16], device='cuda:0')
+Argmax completion: ` CNN on`
+Argmax prob: 0.0920976373599256
+
+20 coarse neurons found - refining
+20 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.2384e-16], device='cuda:0')
+Argmax completion: ` Ferrari in`
+Argmax prob: 0.08473045294196346
+
+After modification - groundtruth probability: tensor([4.3843e-17], device='cuda:0')
+Argmax completion: ` the Italian`
+Argmax prob: 0.09891698156830397
+
+25 coarse neurons found - refining
+25 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.2630e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.38725224137306213
+
+After modification - groundtruth probability: tensor([[5.9772e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3986762762069702
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.5371e-15], device='cuda:0')
+Argmax completion: ` which city`
+Argmax prob: 0.10940392043346492
+
+After modification - groundtruth probability: tensor([8.4545e-15], device='cuda:0')
+Argmax completion: ` which city`
+Argmax prob: 0.12371094037797548
+
+77 coarse neurons found - refining
+77 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([8.4352e-16], device='cuda:0')
+Argmax completion: ` ____
+`
+Argmax prob: 0.0992111525662196
+
+After modification - groundtruth probability: tensor([5.9861e-15], device='cuda:0')
+Argmax completion: ` ____
+`
+Argmax prob: 0.04687791719750223
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.1078e-16], device='cuda:0')
+Argmax completion: ` which South`
+Argmax prob: 0.009918677601144621
+
+After modification - groundtruth probability: tensor([3.1586e-16], device='cuda:0')
+Argmax completion: ` which South`
+Argmax prob: 0.009868077576404843
+
+28 coarse neurons found - refining
+28 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.4253e-18], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.47418361986242274
+
+After modification - groundtruth probability: tensor([7.9343e-18], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.4610580004445666
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0055e-15], device='cuda:0')
+Argmax completion: ` of goalkeeper`
+Argmax prob: 0.036367741423508626
+
+After modification - groundtruth probability: tensor([1.0108e-15], device='cuda:0')
+Argmax completion: ` of goalkeeper`
+Argmax prob: 0.03605648828248764
+
+26 coarse neurons found - refining
+26 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.0722e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9636233448982239
+
+After modification - groundtruth probability: tensor([[5.9810e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9714722037315369
+
+62 coarse neurons found - refining
+62 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.1470e-08]], device='cuda:0')
+Argmax completion: ` pres`
+Argmax prob: 0.1863572597503662
+
+After modification - groundtruth probability: tensor([[1.8165e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.1638811230659485
+
+35 coarse neurons found - refining
+35 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.8315e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.07833269238471985
+
+After modification - groundtruth probability: tensor([[7.3555e-09]], device='cuda:0')
+Argmax completion: ` __`
+Argmax prob: 0.07803168147802353
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.3308e-08]], device='cuda:0')
+Argmax completion: ` Pakistan`
+Argmax prob: 0.47245097160339355
+
+After modification - groundtruth probability: tensor([[6.1255e-08]], device='cuda:0')
+Argmax completion: ` Pakistan`
+Argmax prob: 0.4510769546031952
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.4746e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.5929740071296692
+
+After modification - groundtruth probability: tensor([[5.7762e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.5492438673973083
+
+4 coarse neurons found - refining
+4 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.3884e-08]], device='cuda:0')
+Argmax completion: ` Google`
+Argmax prob: 0.4339601695537567
+
+After modification - groundtruth probability: tensor([[1.3878e-08]], device='cuda:0')
+Argmax completion: ` Google`
+Argmax prob: 0.4341810941696167
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.1061e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.4716032147407532
+
+After modification - groundtruth probability: tensor([[4.0943e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.47083428502082825
+
+27 coarse neurons found - refining
+27 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.6101e-19], device='cuda:0')
+Argmax completion: ` the Den`
+Argmax prob: 0.09597082353353237
+
+After modification - groundtruth probability: tensor([2.1387e-18], device='cuda:0')
+Argmax completion: ` the Den`
+Argmax prob: 0.06321020552425116
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.6609e-17], device='cuda:0')
+Argmax completion: ` the International`
+Argmax prob: 0.01688593318425502
+
+After modification - groundtruth probability: tensor([4.6845e-17], device='cuda:0')
+Argmax completion: ` the International`
+Argmax prob: 0.016787400159619104
+
+171 coarse neurons found - refining
+171 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.7217e-17], device='cuda:0')
+Argmax completion: ` the two`
+Argmax prob: 0.08923047336637513
+
+After modification - groundtruth probability: tensor([4.6735e-10], device='cuda:0')
+Argmax completion: ` former U`
+Argmax prob: 0.00310580638160618
+
+41 coarse neurons found - refining
+41 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.8308e-08]], device='cuda:0')
+Argmax completion: ` ABC`
+Argmax prob: 0.09454090148210526
+
+After modification - groundtruth probability: tensor([[2.9108e-07]], device='cuda:0')
+Argmax completion: ` July`
+Argmax prob: 0.06781826913356781
+
+33 coarse neurons found - refining
+33 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.8636e-18], device='cuda:0')
+Argmax completion: ` the office`
+Argmax prob: 0.042142480354832035
+
+After modification - groundtruth probability: tensor([3.4602e-18], device='cuda:0')
+Argmax completion: ` the office`
+Argmax prob: 0.03665502029806378
+
+20 coarse neurons found - refining
+20 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.0061e-12], device='cuda:0')
+Argmax completion: ` CBS on`
+Argmax prob: 0.031246969009357528
+
+After modification - groundtruth probability: tensor([1.5220e-10], device='cuda:0')
+Argmax completion: ` CBS tonight`
+Argmax prob: 0.020729392114374523
+
+49 coarse neurons found - refining
+49 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.5173e-12], device='cuda:0')
+Argmax completion: ` Islam,`
+Argmax prob: 0.027034875873150455
+
+After modification - groundtruth probability: tensor([1.0104e-11], device='cuda:0')
+Argmax completion: ` Islam,`
+Argmax prob: 0.04285207027769733
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.8897e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.21650832891464233
+
+After modification - groundtruth probability: tensor([[3.8878e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.21614788472652435
+
+33 coarse neurons found - refining
+33 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.7046e-11]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3619276285171509
+
+After modification - groundtruth probability: tensor([[4.1760e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.00916565302759409
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.4797e-17], device='cuda:0')
+Argmax completion: ` in the`
+Argmax prob: 0.2394380425147986
+
+After modification - groundtruth probability: tensor([3.2296e-17], device='cuda:0')
+Argmax completion: ` in the`
+Argmax prob: 0.1748701211111996
+
+26 coarse neurons found - refining
+26 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.4139e-13], device='cuda:0')
+Argmax completion: ` a bishop`
+Argmax prob: 0.012602997197344035
+
+After modification - groundtruth probability: tensor([6.3331e-14], device='cuda:0')
+Argmax completion: ` the chosen`
+Argmax prob: 0.00021659508928979082
+
+40 coarse neurons found - refining
+40 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[7.7739e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3942052721977234
+
+After modification - groundtruth probability: tensor([[1.9044e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.36542069911956787
+
+29 coarse neurons found - refining
+29 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.3236e-16], device='cuda:0')
+Argmax completion: ` the United`
+Argmax prob: 0.015029079524467304
+
+After modification - groundtruth probability: tensor([5.7660e-16], device='cuda:0')
+Argmax completion: ` the state`
+Argmax prob: 0.0192619939114842
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.3540e-15], device='cuda:0')
+Argmax completion: ` the Iranian`
+Argmax prob: 0.058116030062349555
+
+After modification - groundtruth probability: tensor([3.0766e-16], device='cuda:0')
+Argmax completion: ` Iran's`
+Argmax prob: 0.0649286114400125
+
+101 coarse neurons found - refining
+101 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[9.4864e-07]], device='cuda:0')
+Argmax completion: ` North`
+Argmax prob: 0.08517400920391083
+
+After modification - groundtruth probability: tensor([[1.3389e-06]], device='cuda:0')
+Argmax completion: ` North`
+Argmax prob: 0.09460639208555222
+
+1 coarse neurons found - refining
+1 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.7590e-14], device='cuda:0')
+Argmax completion: ` ______.
+`
+Argmax prob: 0.022571957803063647
+
+After modification - groundtruth probability: tensor([1.7580e-14], device='cuda:0')
+Argmax completion: ` ______.
+`
+Argmax prob: 0.022581568190656265
+
+17 coarse neurons found - refining
+17 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0067e-25], device='cuda:0')
+Argmax completion: ` the age of`
+Argmax prob: 0.3496585456136281
+
+After modification - groundtruth probability: tensor([1.1822e-25], device='cuda:0')
+Argmax completion: ` the age of`
+Argmax prob: 0.3375727465264731
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.7606e-16], device='cuda:0')
+Argmax completion: ` in the`
+Argmax prob: 0.010955584492357229
+
+After modification - groundtruth probability: tensor([9.2017e-16], device='cuda:0')
+Argmax completion: ` in which`
+Argmax prob: 0.01079139209983665
+
+42 coarse neurons found - refining
+42 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0621e-14], device='cuda:0')
+Argmax completion: ` in the`
+Argmax prob: 0.22246624539047133
+
+After modification - groundtruth probability: tensor([3.0322e-14], device='cuda:0')
+Argmax completion: ` in the`
+Argmax prob: 0.19194152740953463
+
+15 coarse neurons found - refining
+15 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.8050e-22], device='cuda:0')
+Argmax completion: ` Finnish. The`
+Argmax prob: 0.025639369724469088
+
+After modification - groundtruth probability: tensor([6.7629e-18], device='cuda:0')
+Argmax completion: ` Ruovesian`
+Argmax prob: 0.10494507157010893
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.8892e-16], device='cuda:0')
+Argmax completion: ` greatest hockey`
+Argmax prob: 0.26829791319887164
+
+After modification - groundtruth probability: tensor([2.4868e-16], device='cuda:0')
+Argmax completion: ` greatest hockey`
+Argmax prob: 0.3539888642237088
+
+23 coarse neurons found - refining
+23 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.2531e-16], device='cuda:0')
+Argmax completion: ` Shanghai,`
+Argmax prob: 0.2979250549891965
+
+After modification - groundtruth probability: tensor([9.4993e-17], device='cuda:0')
+Argmax completion: ` Shanghai,`
+Argmax prob: 0.3123767755947249
+
+53 coarse neurons found - refining
+53 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.0217e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.3660966455936432
+
+After modification - groundtruth probability: tensor([[1.0071e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.3769740164279938
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.7500e-16], device='cuda:0')
+Argmax completion: ` of Vietnam`
+Argmax prob: 0.36007883506080773
+
+After modification - groundtruth probability: tensor([6.8336e-16], device='cuda:0')
+Argmax completion: ` of Vietnam`
+Argmax prob: 0.3483620902814799
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.9961e-16], device='cuda:0')
+Argmax completion: ` Queen Victoria`
+Argmax prob: 0.4708872917596594
+
+After modification - groundtruth probability: tensor([3.2196e-16], device='cuda:0')
+Argmax completion: ` Queen Victoria`
+Argmax prob: 0.47041600940602635
+
+56 coarse neurons found - refining
+56 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.9411e-14], device='cuda:0')
+Argmax completion: `:
+A`
+Argmax prob: 0.08594525948334297
+
+After modification - groundtruth probability: tensor([1.9469e-14], device='cuda:0')
+Argmax completion: `:
+A`
+Argmax prob: 0.08573710624466546
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.0825e-16], device='cuda:0')
+Argmax completion: ` of the`
+Argmax prob: 0.16333661125625198
+
+After modification - groundtruth probability: tensor([6.1809e-16], device='cuda:0')
+Argmax completion: ` of the`
+Argmax prob: 0.16337860960071016
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.6400e-09]], device='cuda:0')
+Argmax completion: ` Square`
+Argmax prob: 0.6046660542488098
+
+After modification - groundtruth probability: tensor([[8.6029e-09]], device='cuda:0')
+Argmax completion: ` Square`
+Argmax prob: 0.6057711243629456
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.0164e-08]], device='cuda:0')
+Argmax completion: ` Venice`
+Argmax prob: 0.5813987851142883
+
+After modification - groundtruth probability: tensor([[8.0610e-08]], device='cuda:0')
+Argmax completion: ` Venice`
+Argmax prob: 0.6015864014625549
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.0640e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9607841372489929
+
+After modification - groundtruth probability: tensor([[4.9453e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9609950184822083
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.1683e-06]], device='cuda:0')
+Argmax completion: ` __`
+Argmax prob: 0.2656078636646271
+
+After modification - groundtruth probability: tensor([[2.7360e-06]], device='cuda:0')
+Argmax completion: ` ____`
+Argmax prob: 0.26263096928596497
+
+36 coarse neurons found - refining
+36 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.4171e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.3530818223953247
+
+After modification - groundtruth probability: tensor([[3.8010e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.36529746651649475
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.3158e-07]], device='cuda:0')
+Argmax completion: ` Vietnam`
+Argmax prob: 0.349563330411911
+
+After modification - groundtruth probability: tensor([[2.9115e-07]], device='cuda:0')
+Argmax completion: ` Vietnam`
+Argmax prob: 0.35636982321739197
+
+26 coarse neurons found - refining
+26 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[7.4260e-07]], device='cuda:0')
+Argmax completion: ` to`
+Argmax prob: 0.2906612753868103
+
+After modification - groundtruth probability: tensor([[6.9801e-07]], device='cuda:0')
+Argmax completion: ` to`
+Argmax prob: 0.29388096928596497
+
+20 coarse neurons found - refining
+20 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.7100e-17], device='cuda:0')
+Argmax completion: ` European Union`
+Argmax prob: 0.21146077162697274
+
+After modification - groundtruth probability: tensor([6.8252e-17], device='cuda:0')
+Argmax completion: ` European Union`
+Argmax prob: 0.21318674143599914
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.2038e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.23101690411567688
+
+After modification - groundtruth probability: tensor([[3.2910e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2525883913040161
+
+21 coarse neurons found - refining
+21 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.8128e-15], device='cuda:0')
+Argmax completion: ` a mixture`
+Argmax prob: 0.004810210798208425
+
+After modification - groundtruth probability: tensor([6.2767e-15], device='cuda:0')
+Argmax completion: ` a mix`
+Argmax prob: 0.003999793291214637
+
+31 coarse neurons found - refining
+31 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.8024e-09]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7772194743156433
+
+After modification - groundtruth probability: tensor([[4.6463e-09]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.5947158932685852
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.0491e-07]], device='cuda:0')
+Argmax completion: ` Japan`
+Argmax prob: 0.6952599883079529
+
+After modification - groundtruth probability: tensor([[6.5712e-08]], device='cuda:0')
+Argmax completion: ` Japan`
+Argmax prob: 0.6576066613197327
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.6477e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9211019277572632
+
+After modification - groundtruth probability: tensor([[3.8437e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9306952953338623
+
+47 coarse neurons found - refining
+47 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.5954e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8941490054130554
+
+After modification - groundtruth probability: tensor([[1.1923e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.885618269443512
+
+6 coarse neurons found - refining
+6 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.8654e-17], device='cuda:0')
+Argmax completion: ` which city`
+Argmax prob: 0.0434685425545267
+
+After modification - groundtruth probability: tensor([2.8464e-17], device='cuda:0')
+Argmax completion: ` which city`
+Argmax prob: 0.043274412867247314
+
+36 coarse neurons found - refining
+36 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.5464e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.36599698662757874
+
+After modification - groundtruth probability: tensor([[4.8531e-07]], device='cuda:0')
+Argmax completion: ` conjunction`
+Argmax prob: 0.12378803640604019
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.5271e-16], device='cuda:0')
+Argmax completion: ` the violin`
+Argmax prob: 0.01206780358860371
+
+After modification - groundtruth probability: tensor([3.3286e-16], device='cuda:0')
+Argmax completion: ` the violin`
+Argmax prob: 0.012562906945393193
+
+6 coarse neurons found - refining
+6 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.0696e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.6095143556594849
+
+After modification - groundtruth probability: tensor([[2.0481e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.6118966341018677
+
+15 coarse neurons found - refining
+15 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.1192e-11]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7860183119773865
+
+After modification - groundtruth probability: tensor([[2.1350e-10]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.6972435712814331
+
+51 coarse neurons found - refining
+51 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.5116e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2271113097667694
+
+After modification - groundtruth probability: tensor([[5.7689e-08]], device='cuda:0')
+Argmax completion: ` Nissan`
+Argmax prob: 0.21210606396198273
+
+15 coarse neurons found - refining
+15 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.4657e-17], device='cuda:0')
+Argmax completion: ` ____
+`
+Argmax prob: 0.1565303839931076
+
+After modification - groundtruth probability: tensor([4.0857e-17], device='cuda:0')
+Argmax completion: ` ____.
+`
+Argmax prob: 0.20690860272334355
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.6782e-15], device='cuda:0')
+Argmax completion: ` a mathematic`
+Argmax prob: 0.006172976675606123
+
+After modification - groundtruth probability: tensor([3.9240e-15], device='cuda:0')
+Argmax completion: ` a mathematic`
+Argmax prob: 0.0053445661092065555
+
+4 coarse neurons found - refining
+4 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[9.9015e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.12633000314235687
+
+After modification - groundtruth probability: tensor([[7.5799e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.08142374455928802
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.3374e-18], device='cuda:0')
+Argmax completion: ` the heart`
+Argmax prob: 0.08922625474657497
+
+After modification - groundtruth probability: tensor([1.7688e-18], device='cuda:0')
+Argmax completion: ` the heart`
+Argmax prob: 0.08359826937750103
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.2336e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.058302510529756546
+
+After modification - groundtruth probability: tensor([[3.2490e-07]], device='cuda:0')
+Argmax completion: ` Nickel`
+Argmax prob: 0.07637031376361847
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.9053e-16], device='cuda:0')
+Argmax completion: ` the nearby`
+Argmax prob: 0.041087216860336895
+
+After modification - groundtruth probability: tensor([3.4457e-15], device='cuda:0')
+Argmax completion: ` its proximity`
+Argmax prob: 0.04405880138107454
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.4711e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9232562780380249
+
+After modification - groundtruth probability: tensor([[7.2309e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9389419555664062
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.1350e-11]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.8906314969062805
+
+After modification - groundtruth probability: tensor([[1.1426e-10]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.8735621571540833
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.6420e-09]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.11731807142496109
+
+After modification - groundtruth probability: tensor([[3.7367e-09]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.11599212139844894
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[7.3138e-08]], device='cuda:0')
+Argmax completion: ` Country`
+Argmax prob: 0.40945112705230713
+
+After modification - groundtruth probability: tensor([[6.8344e-08]], device='cuda:0')
+Argmax completion: ` Country`
+Argmax prob: 0.4332538843154907
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.8381e-15], device='cuda:0')
+Argmax completion: ` the heart`
+Argmax prob: 0.012216959394602545
+
+After modification - groundtruth probability: tensor([3.0360e-15], device='cuda:0')
+Argmax completion: ` the heart`
+Argmax prob: 0.01401510145291196
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.4714e-23], device='cuda:0')
+Argmax completion: ` Russian. The`
+Argmax prob: 0.09302651064066343
+
+After modification - groundtruth probability: tensor([2.9673e-23], device='cuda:0')
+Argmax completion: ` Russian. The`
+Argmax prob: 0.08909694203182701
+
+25 coarse neurons found - refining
+25 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.0235e-07]], device='cuda:0')
+Argmax completion: ` Japan`
+Argmax prob: 0.2687493562698364
+
+After modification - groundtruth probability: tensor([[1.7334e-07]], device='cuda:0')
+Argmax completion: ` Japan`
+Argmax prob: 0.23463274538516998
+
+22 coarse neurons found - refining
+22 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.2283e-15], device='cuda:0')
+Argmax completion: ` Belfast.`
+Argmax prob: 0.04418285838642255
+
+After modification - groundtruth probability: tensor([1.2538e-15], device='cuda:0')
+Argmax completion: ` called Cork`
+Argmax prob: 0.02780450970545134
+
+23 coarse neurons found - refining
+23 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.1514e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.2506842017173767
+
+After modification - groundtruth probability: tensor([[4.4166e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.2592830955982208
+
+22 coarse neurons found - refining
+22 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.9924e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.16813471913337708
+
+After modification - groundtruth probability: tensor([[3.7890e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.17873574793338776
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.6743e-17], device='cuda:0')
+Argmax completion: ` the age`
+Argmax prob: 0.30865126245615926
+
+After modification - groundtruth probability: tensor([7.9912e-17], device='cuda:0')
+Argmax completion: ` the age`
+Argmax prob: 0.3053050094681655
+
+63 coarse neurons found - refining
+63 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([9.3292e-18], device='cuda:0')
+Argmax completion: ` a language`
+Argmax prob: 0.1787221145201947
+
+After modification - groundtruth probability: tensor([9.9823e-18], device='cuda:0')
+Argmax completion: ` a language`
+Argmax prob: 0.1674860986699951
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.2562e-08]], device='cuda:0')
+Argmax completion: ` Czech`
+Argmax prob: 0.4501543939113617
+
+After modification - groundtruth probability: tensor([[5.2699e-08]], device='cuda:0')
+Argmax completion: ` Czech`
+Argmax prob: 0.4493916630744934
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.1578e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9115561246871948
+
+After modification - groundtruth probability: tensor([[1.0384e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9170327186584473
+
+21 coarse neurons found - refining
+21 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.6133e-16], device='cuda:0')
+Argmax completion: ` the history`
+Argmax prob: 0.024579601616473212
+
+After modification - groundtruth probability: tensor([2.7160e-16], device='cuda:0')
+Argmax completion: ` the study`
+Argmax prob: 0.03961940346292181
+
+16 coarse neurons found - refining
+16 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.0821e-08]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7244508862495422
+
+After modification - groundtruth probability: tensor([[3.9883e-08]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.6552561521530151
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.3034e-18], device='cuda:0')
+Argmax completion: ` the country`
+Argmax prob: 0.013731646594602687
+
+After modification - groundtruth probability: tensor([1.2828e-18], device='cuda:0')
+Argmax completion: ` the country`
+Argmax prob: 0.013433103608505248
+
+7 coarse neurons found - refining
+7 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.9528e-21], device='cuda:0')
+Argmax completion: ` Russia and has`
+Argmax prob: 0.010468404090426466
+
+After modification - groundtruth probability: tensor([1.8757e-21], device='cuda:0')
+Argmax completion: ` Russia and has`
+Argmax prob: 0.010314277115696702
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.6082e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.5166625380516052
+
+After modification - groundtruth probability: tensor([[5.3503e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.5197876691818237
+
+71 coarse neurons found - refining
+71 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.6618e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9557080268859863
+
+After modification - groundtruth probability: tensor([[3.4557e-08]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9302399158477783
+
+12 coarse neurons found - refining
+12 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.6008e-09]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.36517471075057983
+
+After modification - groundtruth probability: tensor([[5.4223e-09]], device='cuda:0')
+Argmax completion: ` which`
+Argmax prob: 0.4939662516117096
+
+33 coarse neurons found - refining
+33 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[7.6610e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.27320927381515503
+
+After modification - groundtruth probability: tensor([[1.2016e-07]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2653059959411621
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.8636e-16], device='cuda:0')
+Argmax completion: ` the piano`
+Argmax prob: 0.10201086193203146
+
+After modification - groundtruth probability: tensor([7.1422e-16], device='cuda:0')
+Argmax completion: ` the piano`
+Argmax prob: 0.10196010858576798
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.0869e-17], device='cuda:0')
+Argmax completion: ` the south`
+Argmax prob: 0.043970344236295755
+
+After modification - groundtruth probability: tensor([7.6199e-18], device='cuda:0')
+Argmax completion: ` the south`
+Argmax prob: 0.045439544036327106
+
+15 coarse neurons found - refining
+15 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.5924e-16], device='cuda:0')
+Argmax completion: ` a midfielder.`
+Argmax prob: 0.0007047675282314577
+
+After modification - groundtruth probability: tensor([7.0162e-16], device='cuda:0')
+Argmax completion: ` a midfielder.`
+Argmax prob: 0.0007185135166632225
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.9478e-07]], device='cuda:0')
+Argmax completion: ` about`
+Argmax prob: 0.18092946708202362
+
+After modification - groundtruth probability: tensor([[4.2856e-07]], device='cuda:0')
+Argmax completion: ` about`
+Argmax prob: 0.18801574409008026
+
+88 coarse neurons found - refining
+88 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([5.4704e-17], device='cuda:0')
+Argmax completion: ` to the`
+Argmax prob: 0.02732225815606837
+
+After modification - groundtruth probability: tensor([5.7873e-17], device='cuda:0')
+Argmax completion: ` to the`
+Argmax prob: 0.02705363458986243
+
+20 coarse neurons found - refining
+20 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.4023e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8438051342964172
+
+After modification - groundtruth probability: tensor([[1.6876e-09]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8666290044784546
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.2116e-16], device='cuda:0')
+Argmax completion: ` 1`
+Argmax prob: 0.6128606667914056
+
+After modification - groundtruth probability: tensor([2.3008e-16], device='cuda:0')
+Argmax completion: ` 1`
+Argmax prob: 0.6097009394247266
+
+18 coarse neurons found - refining
+18 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.2468e-08]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7497915625572205
+
+After modification - groundtruth probability: tensor([[4.2769e-08]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7493860721588135
+
+11 coarse neurons found - refining
+11 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.1314e-08]], device='cuda:0')
+Argmax completion: ` genetics`
+Argmax prob: 0.28105369210243225
+
+After modification - groundtruth probability: tensor([[8.2324e-08]], device='cuda:0')
+Argmax completion: ` genetics`
+Argmax prob: 0.28087785840034485
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.3377e-14], device='cuda:0')
+Argmax completion: ` French and`
+Argmax prob: 0.1059793089875054
+
+After modification - groundtruth probability: tensor([8.2984e-14], device='cuda:0')
+Argmax completion: ` French and`
+Argmax prob: 0.12881152938823348
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.1042e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.4385727345943451
+
+After modification - groundtruth probability: tensor([[2.0900e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.43934687972068787
+
+75 coarse neurons found - refining
+75 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.8786e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.8909348845481873
+
+After modification - groundtruth probability: tensor([[4.9610e-07]], device='cuda:0')
+Argmax completion: ` of`
+Argmax prob: 0.9171463847160339
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.6355e-17], device='cuda:0')
+Argmax completion: ` the city`
+Argmax prob: 0.010062790539430377
+
+After modification - groundtruth probability: tensor([8.0060e-17], device='cuda:0')
+Argmax completion: ` France and`
+Argmax prob: 0.044276781389362085
+
+40 coarse neurons found - refining
+40 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.6729e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.14545953273773193
+
+After modification - groundtruth probability: tensor([[7.2066e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.09174967557191849
+
+21 coarse neurons found - refining
+21 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.3724e-10]], device='cuda:0')
+Argmax completion: ` Al`
+Argmax prob: 0.43264904618263245
+
+After modification - groundtruth probability: tensor([[6.6426e-09]], device='cuda:0')
+Argmax completion: ` Fiat`
+Argmax prob: 0.7772365212440491
+
+13 coarse neurons found - refining
+13 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[5.9212e-08]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.11657536029815674
+
+After modification - groundtruth probability: tensor([[6.4277e-08]], device='cuda:0')
+Argmax completion: ` Hamilton`
+Argmax prob: 0.1160358190536499
+
+15 coarse neurons found - refining
+15 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[8.3115e-08]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.7368230819702148
+
+After modification - groundtruth probability: tensor([[1.2283e-07]], device='cuda:0')
+Argmax completion: ` `
+Argmax prob: 0.6479034423828125
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[3.6979e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2253408581018448
+
+After modification - groundtruth probability: tensor([[3.6997e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.2253144085407257
+
+86 coarse neurons found - refining
+86 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.6753e-07]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.16659794747829437
+
+After modification - groundtruth probability: tensor([[3.5987e-06]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.12881268560886383
+
+28 coarse neurons found - refining
+28 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.4873e-18], device='cuda:0')
+Argmax completion: ` a goalkeeper for`
+Argmax prob: 0.006451897084582312
+
+After modification - groundtruth probability: tensor([4.9885e-19], device='cuda:0')
+Argmax completion: ` a professional baseball`
+Argmax prob: 0.00197220553017651
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.2456e-24], device='cuda:0')
+Argmax completion: ` General Motors,`
+Argmax prob: 0.12944610457761568
+
+After modification - groundtruth probability: tensor([1.9052e-24], device='cuda:0')
+Argmax completion: ` General Motors,`
+Argmax prob: 0.15192231650651883
+
+19 coarse neurons found - refining
+19 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.6730e-18], device='cuda:0')
+Argmax completion: ` the district`
+Argmax prob: 0.03780281612787473
+
+After modification - groundtruth probability: tensor([9.0490e-18], device='cuda:0')
+Argmax completion: ` the district`
+Argmax prob: 0.0357898639816856
+
+27 coarse neurons found - refining
+27 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([7.8358e-15], device='cuda:0')
+Argmax completion: ` the Billboard`
+Argmax prob: 0.006817970942633589
+
+After modification - groundtruth probability: tensor([1.3132e-12], device='cuda:0')
+Argmax completion: ` NBC on`
+Argmax prob: 0.017942216969829672
+
+10 coarse neurons found - refining
+10 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.3088e-07]], device='cuda:0')
+Argmax completion: ` Russian`
+Argmax prob: 0.2816367745399475
+
+After modification - groundtruth probability: tensor([[5.2267e-07]], device='cuda:0')
+Argmax completion: ` Russian`
+Argmax prob: 0.23538118600845337
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[4.0162e-09]], device='cuda:0')
+Argmax completion: ` Edinburgh`
+Argmax prob: 0.24296703934669495
+
+After modification - groundtruth probability: tensor([[3.7680e-09]], device='cuda:0')
+Argmax completion: ` Edinburgh`
+Argmax prob: 0.2394503951072693
+
+116 coarse neurons found - refining
+116 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[2.5419e-08]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.11386735737323761
+
+After modification - groundtruth probability: tensor([[2.7568e-08]], device='cuda:0')
+Argmax completion: ` a`
+Argmax prob: 0.10830888152122498
+
+23 coarse neurons found - refining
+23 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([2.9793e-19], device='cuda:0')
+Argmax completion: ` ideal for`
+Argmax prob: 0.05801132127445818
+
+After modification - groundtruth probability: tensor([1.5084e-19], device='cuda:0')
+Argmax completion: ` ideal for`
+Argmax prob: 0.07218868307897708
+
+2 coarse neurons found - refining
+2 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.5292e-29], device='cuda:0')
+Argmax completion: ` 19`
+Argmax prob: 0.2169510071791462
+
+After modification - groundtruth probability: tensor([2.4045e-28], device='cuda:0')
+Argmax completion: ` 19`
+Argmax prob: 0.23273828714899217
+
+39 coarse neurons found - refining
+39 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([1.5109e-21], device='cuda:0')
+Argmax completion: ` the city of`
+Argmax prob: 0.008948921463400056
+
+After modification - groundtruth probability: tensor([1.4388e-21], device='cuda:0')
+Argmax completion: ` Santiago de Chile`
+Argmax prob: 0.004827798171901299
+
+26 coarse neurons found - refining
+26 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.2426e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.6846020817756653
+
+After modification - groundtruth probability: tensor([[5.9303e-09]], device='cuda:0')
+Argmax completion: ` the`
+Argmax prob: 0.6571862697601318
+
+8 coarse neurons found - refining
+8 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([4.1311e-15], device='cuda:0')
+Argmax completion: ` a `
+Argmax prob: 0.005711403966726092
+
+After modification - groundtruth probability: tensor([4.1781e-15], device='cuda:0')
+Argmax completion: ` a `
+Argmax prob: 0.005686971621643722
+
+138 coarse neurons found - refining
+138 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[6.9194e-11]], device='cuda:0')
+Argmax completion: ` Bulgaria`
+Argmax prob: 0.5934839844703674
+
+After modification - groundtruth probability: tensor([[7.7824e-11]], device='cuda:0')
+Argmax completion: ` Bulgaria`
+Argmax prob: 0.5775073170661926
+
+9 coarse neurons found - refining
+9 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([6.9769e-14], device='cuda:0')
+Argmax completion: ` the role`
+Argmax prob: 0.020483630806836683
+
+After modification - groundtruth probability: tensor([7.2010e-14], device='cuda:0')
+Argmax completion: ` the role`
+Argmax prob: 0.020352445365843796
+
+14 coarse neurons found - refining
+14 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([3.5251e-19], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.13155100453878799
+
+After modification - groundtruth probability: tensor([3.5108e-19], device='cuda:0')
+Argmax completion: ` 2`
+Argmax prob: 0.13155251286654845
+
+6 coarse neurons found - refining
+6 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([[1.5247e-06]], device='cuda:0')
+Argmax completion: ` Dutch`
+Argmax prob: 0.22652819752693176
+
+After modification - groundtruth probability: tensor([[1.5070e-06]], device='cuda:0')
+Argmax completion: ` Dutch`
+Argmax prob: 0.22693483531475067
+
+5 coarse neurons found - refining
+5 neurons remaining after refining
+
+Before modification - groundtruth probability: tensor([9.2349e-24], device='cuda:0')
+Argmax completion: ` a writer and`
+Argmax prob: 0.00044862767809946075
+
+After modification - groundtruth probability: tensor([1.4187e-23], device='cuda:0')
+Argmax completion: ` a writer and`
+Argmax prob: 0.0004054802319300717
+Metrics Summary:  {'pre': {'rewrite_acc': np.float64(0.0075), 'rephrase_acc': np.float64(0.0075)}, 'post': {'rewrite_acc': np.float64(0.0075), 'rephrase_acc': np.float64(0.0075)}}
+elapsed_sec=1521.08

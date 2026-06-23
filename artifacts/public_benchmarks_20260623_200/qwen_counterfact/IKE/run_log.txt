@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py", line 341, in main
+    run_method(method, requests, args, method_dir)
+  File "/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py", line 269, in run_method
+    metrics, _, _ = editor.edit_requests(requests, sequential_edit=args.sequential_edit, verbose=False, **kwargs)
+  File "/root/autodl-tmp/projects/EasyEdit/easyeditor/editors/editor.py", line 396, in edit_requests
+    edited_model, weights_copy, icl_examples = edit_func(request)
+  File "/root/autodl-tmp/projects/EasyEdit/easyeditor/editors/editor.py", line 325, in edit_func
+    edited_model, weights_copy, icl_examples = self.model, {}, self.apply_algo(
+  File "/root/autodl-tmp/projects/EasyEdit/easyeditor/models/ike/ike_main.py", line 35, in apply_ike_to_model
+    sentence_model = SentenceTransformer(hparams.sentence_model_name).to(device)
+  File "/root/miniconda3/envs/easyedit/lib/python3.10/site-packages/sentence_transformers/util/decorators.py", line 41, in wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/easyedit/lib/python3.10/site-packages/sentence_transformers/sentence_transformer/model.py", line 184, in __init__
+    super().__init__(
+  File "/root/miniconda3/envs/easyedit/lib/python3.10/site-packages/sentence_transformers/base/model.py", line 194, in __init__
+    raise FileNotFoundError(f"Path {model_name_or_path} not found")
+FileNotFoundError: Path ./hugging_cache/all-MiniLM-L6-v2 not found
