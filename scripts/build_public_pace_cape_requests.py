@@ -21,6 +21,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--selection_split_ratio", default=0.6, type=float)
     parser.add_argument("--heldout_eval_ratio", default=0.4, type=float)
     parser.add_argument("--split_seed", default=20260622, type=int)
+    parser.add_argument(
+        "--dataset_limit",
+        default=None,
+        type=int,
+        help="Use only the first N cases before split/building wrapper requests. Keeps public runs aligned with the synthetic benchmark size.",
+    )
     return parser.parse_args()
 
 
@@ -291,6 +297,10 @@ def main() -> int:
     per_case_path = Path(args.per_case_results)
     output_dir = Path(args.output_dir)
     records = load_records(dataset_path)
+    if args.dataset_limit is not None:
+        if args.dataset_limit <= 0:
+            raise ValueError("--dataset_limit must be positive when provided")
+        records = records[: args.dataset_limit]
     records_by_id = {case_key(row.get("case_id")): row for row in records}
     selection_records, heldout_records = split_records(records, args.selection_split_ratio, args.split_seed)
     selection_ids = {case_key(row.get("case_id")) for row in selection_records}
@@ -340,6 +350,7 @@ def main() -> int:
         "model": args.model_name,
         "base_method": args.base_method,
         "total_cases": len(records),
+        "dataset_limit": args.dataset_limit,
         "selection_split_size": len(selection_records),
         "heldout_size": len(heldout_records),
         "candidate_count": len(candidates),

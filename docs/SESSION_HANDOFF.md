@@ -2,9 +2,26 @@
 
 本文档面向新的 agent、换设备后的本地开发环境，以及重新创建的服务器实例。目标是让新会话能够快速接上当前进度，不需要依赖旧对话历史。
 
+## 0. 最新入口（2026-06-23）
+
+当前最新状态不再以本文的旧章节为准。请优先读取：
+
+```text
+docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md
+```
+
+当前项目已经从“打通 EasyEdit 单条编辑”推进到：
+
+- synthetic privacy v2 上比较 ROME / MEMIT / PACE / CAPE，并补 FT / KN / IKE；
+- CounterFact / zsRE 公开数据集上比较 ROME / FT / KN / IKE；
+- 将 PACE / CAPE 抽象为 public editing 的 PACE-Edit / CAPE-Edit closed-loop wrapper；
+- 公开实验默认统一为 200 cases，使用 `artifacts/public_benchmarks_20260623_200` 作为新一轮对齐矩阵目录。
+
+因此，本文档后面的早期描述仅保留为环境和路径参考；凡是与当前实验目标冲突的地方，以 `CURRENT_EXPERIMENT_STATE_2026-06-23.md` 为准。
+
 ## 1. 当前项目阶段
 
-当前阶段已经不是“阅读仓库”阶段，而是“在已经打通的单条编辑链路上继续分析和扩展”阶段。
+历史说明：本文最初写于单条编辑链路刚打通之后。当前已经进入 synthetic privacy + public benchmark + wrapper comparison 的实验矩阵阶段。
 
 已完成的关键点：
 
@@ -12,6 +29,8 @@
 - 本地辅助脚本和部署文档已补齐
 - AutoDL 上的 `Qwen2.5-7B + ROME` 单条编辑已经真实跑通一次
 - 结果文件已经回收到仓库内 `artifacts/`
+- 后续已进一步完成 ROME / MEMIT / PACE / CAPE 的 v2 privacy baseline 和 CAPE-v1 实验
+- 当前正在扩展公开数据集与 FT / KN / IKE baseline，以及 public PACE/CAPE wrapper
 
 ## 2. 本地与服务器分工
 

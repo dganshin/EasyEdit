@@ -1,9 +1,28 @@
 # EasyEdit 仓库协作约定
 
+## 0. 最高优先级当前状态（2026-06-23）
+
+先读：
+
+```text
+docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md
+```
+
+该文件是当前最新交接入口。本文档后面很多 2026-06-13 到 2026-06-15 的内容是历史记录，尤其是“当前阶段主要目标是打通单条编辑”“不应扩展 MEMIT / 公开数据集 / before-after 样例”等说法已经过期。
+
+当前真实主线已经变成：
+
+- synthetic privacy v2：比较 ROME、MEMIT、PACE、CAPE，并补 FT/KN/IKE baseline；
+- public editing benchmark：CounterFact / zsRE 上比较 ROME、FT、KN、IKE，并把 PACE/CAPE 抽象成 PACE-Edit / CAPE-Edit closed-loop wrapper；
+- 当前公开实验统一采用 200 cases 作为默认规模，避免 500-case 多模型多方法矩阵耗时过长；
+- 论文目标不是复现别人论文，而是在自造隐私清洗任务和公开编辑基准上都能和其他方法比较，并解释我们方法的优势、边界和 trade-off。
+
+除非用户明确要求回看历史，否则以 `docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md` 为准。
+
 ## 1. 工作边界
 
-- 本仓库当前阶段的主要目标是先打通 **原始 EasyEdit 单条模型编辑 pipeline**。
-- 当前不是做隐私清洗本身，而是先把标准编辑方法跑通，再在这个基础上继续扩展。
+- 历史说明：本仓库早期目标是先打通 **原始 EasyEdit 单条模型编辑 pipeline**，该目标已经完成。
+- 当前阶段是围绕 synthetic privacy 和 public editing 的完整方法比较与论文实验矩阵扩展。
 - 不要随意改 EasyEdit 核心算法逻辑；优先把改动限制在：
   - `scripts/`
   - `docs/`

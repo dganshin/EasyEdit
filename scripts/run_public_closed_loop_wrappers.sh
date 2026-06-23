@@ -32,7 +32,8 @@ MODEL_NAME="${MODEL_NAME:-qwen2.5-7b}"
 MODEL_PATH="${MODEL_PATH:-/root/autodl-tmp/models/Qwen2.5-7B}"
 BASE_METHOD="${BASE_METHOD:-ROME}"
 DATASETS="${DATASETS:-counterfact,zsre}"
-MAX_CASES="${MAX_CASES:-500}"
+MAX_CASES="${MAX_CASES:-200}"
+PUBLIC_DATASET_SIZE="${PUBLIC_DATASET_SIZE:-200}"
 CLOSED_LOOP_MAX_CASES="${CLOSED_LOOP_MAX_CASES:-1000}"
 DEVICE="${DEVICE:-0}"
 SELECTION_SPLIT_RATIO="${SELECTION_SPLIT_RATIO:-0.6}"
@@ -61,6 +62,7 @@ write_status() {
     echo "model_path=${MODEL_PATH}"
     echo "base_method=${BASE_METHOD}"
     echo "datasets=${DATASETS}"
+    echo "public_dataset_size=${PUBLIC_DATASET_SIZE}"
   } > "$STATUS_FILE"
 }
 
@@ -136,7 +138,8 @@ for dataset in "${DATASET_LIST[@]}"; do
       --base_method "$BASE_METHOD" \
       --selection_split_ratio "$SELECTION_SPLIT_RATIO" \
       --heldout_eval_ratio "$HELDOUT_EVAL_RATIO" \
-      --split_seed "$SPLIT_SEED"
+      --split_seed "$SPLIT_SEED" \
+      --dataset_limit "$PUBLIC_DATASET_SIZE"
 
   pace_dataset="${selection_dir}/pace_union_dataset.json"
   cape_dataset="${selection_dir}/cape_union_dataset.json"
