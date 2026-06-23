@@ -358,6 +358,8 @@ def main() -> int:
         "pace_selected_count": len(pace_selected),
         "cape_selected_count": len(cape_selected),
         "round1_count": len(records),
+        "round2_count": len(cape_selected),
+        "union_count": len(cape_union),
         "pace_round2_count": len(pace_selected),
         "cape_round2_count": len(cape_selected),
         "pace_union_count": len(pace_union),

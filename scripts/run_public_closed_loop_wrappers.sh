@@ -115,6 +115,43 @@ run_step py_compile python3 -m py_compile \
   scripts/run_public_editing_baselines.py \
   scripts/evaluate_public_editing_baselines.py
 
+write_wrapper_failure() {
+  local baseline_dir="$1"
+  local dataset="$2"
+  local method="$3"
+  local message="$4"
+  local method_dir="${baseline_dir}/${method}"
+  mkdir -p "$method_dir"
+  python3 - "$method_dir" "$dataset" "$MODEL_NAME" "$method" "$message" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+method_dir = Path(sys.argv[1])
+dataset = sys.argv[2]
+model = sys.argv[3]
+method = sys.argv[4]
+message = sys.argv[5]
+config = {
+    "dataset_name": dataset,
+    "model_name": model,
+    "method": method,
+    "base_method": "ROME",
+    "wrapper_error": message,
+}
+summary = {
+    "status": "failed",
+    "method": method,
+    "num_cases": 0,
+    "elapsed_sec": 0,
+    "error": message,
+}
+(method_dir / "method_config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8")
+(method_dir / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+(method_dir / "run_log.txt").write_text(message + "\n", encoding="utf-8")
+PY
+}
+
 IFS=',' read -ra DATASET_LIST <<< "$DATASETS"
 for dataset in "${DATASET_LIST[@]}"; do
   dataset="$(echo "$dataset" | xargs)"
@@ -129,8 +166,13 @@ for dataset in "${DATASET_LIST[@]}"; do
     exit 1
   fi
   if [[ ! -f "$per_case" ]]; then
-    echo "[FAIL] missing baseline per-case results: $per_case"
-    echo "[FAIL] Run ${MODEL_SHORT} ${dataset} ${BASE_METHOD} baseline first."
+    msg="missing baseline per-case results for wrapper: ${per_case}; run ${MODEL_SHORT} ${dataset} ${BASE_METHOD} baseline first"
+    echo "[FAIL] $msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg"
+    run_step aggregate_public_after_missing_per_case python3 scripts/evaluate_public_editing_baselines.py \
+      --root_dir "$ART_ROOT" \
+      --output_dir "$ART_ROOT"
     exit 1
   fi
 

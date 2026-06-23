@@ -85,6 +85,7 @@ wrapper 解释：
 ```text
 scripts/run_public_qwen_full.sh
 scripts/run_public_gptj_full.sh
+scripts/run_public_all_methods_full.sh
 scripts/build_public_pace_cape_requests.py
 scripts/run_public_closed_loop_wrappers.sh
 scripts/run_public_editing_baselines.py
@@ -93,6 +94,14 @@ scripts/run_synthetic_privacy_extra_editors.sh
 ```
 
 当前 `run_public_qwen_full.sh`、`run_public_gptj_full.sh` 默认 `MAX_CASES=200`，且默认 `RUN_PUBLIC_WRAPPERS=1`。也就是说，public full 脚本会先跑 ROME/FT/KN/IKE baseline，再自动补 ROME+PACE-Edit / ROME+CAPE-Edit wrapper。
+
+优先使用统一入口：
+
+```text
+scripts/run_public_all_methods_full.sh
+```
+
+该脚本会自动识别当前实例可用模型目录。如果只存在 Qwen，则调用 Qwen full；如果只存在 GPT-J，则调用 GPT-J full。若两个模型目录都有效，会要求显式设置 `INSTANCE_MODEL=qwen` 或 `INSTANCE_MODEL=gptj`，避免混跑。
 
 当前 `run_public_closed_loop_wrappers.sh` 默认：
 
@@ -194,7 +203,35 @@ git -c http.version=HTTP/1.1 pull --ff-only
 conda activate easyedit
 ```
 
-### 5.1 GPT-J public 200 baseline
+### 5.1 统一 public 200 全量脚本（推荐）
+
+两个实例都优先复制同一段命令。脚本会自动识别当前实例是 Qwen 还是 GPT-J，并一次性跑：
+
+```text
+CounterFact / zsRE
+× ROME / FT / KN / IKE
++ ROME+PACE-Edit / ROME+CAPE-Edit
+```
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+bash /root/start_mihomo.sh || true
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+git -c http.version=HTTP/1.1 pull --ff-only
+conda activate easyedit
+
+ART_ROOT=artifacts/public_benchmarks_20260623_200 \
+MAX_CASES=200 \
+RUN_PUBLIC_WRAPPERS=1 \
+SHUTDOWN_ON_EXIT=0 \
+STREAM_LOGS=1 \
+bash scripts/run_public_all_methods_full.sh
+```
+
+### 5.2 GPT-J public 200 baseline
 
 GPT-J 模型已在新实例验证过：
 
@@ -237,7 +274,7 @@ STREAM_LOGS=1 \
 bash scripts/run_public_gptj_full.sh
 ```
 
-### 5.2 GPT-J public PACE/CAPE wrapper
+### 5.3 GPT-J public PACE/CAPE wrapper
 
 通常不用手动运行；`scripts/run_public_gptj_full.sh` 默认会在 baseline 后自动运行。只有 baseline 已经用旧脚本跑完、需要单独补 wrapper 时，才运行：
 
@@ -258,7 +295,7 @@ STREAM_LOGS=1 \
 bash scripts/run_public_closed_loop_wrappers.sh
 ```
 
-### 5.3 Qwen public 200 baseline
+### 5.4 Qwen public 200 baseline
 
 Qwen 500 旧跑法可能已经产生部分结果，保留为附加材料即可。正式对齐矩阵建议另用 `artifacts/public_benchmarks_20260623_200` 跑 200 条：
 
@@ -286,7 +323,7 @@ STREAM_LOGS=1 \
 bash scripts/run_public_qwen_full.sh
 ```
 
-### 5.4 Qwen public PACE/CAPE wrapper
+### 5.5 Qwen public PACE/CAPE wrapper
 
 通常不用手动运行；`scripts/run_public_qwen_full.sh` 默认会在 baseline 后自动运行。只有 baseline 已经用旧脚本跑完、需要单独补 wrapper 时，才运行：
 
@@ -307,7 +344,7 @@ STREAM_LOGS=1 \
 bash scripts/run_public_closed_loop_wrappers.sh
 ```
 
-### 5.5 Synthetic privacy extra editors
+### 5.6 Synthetic privacy extra editors
 
 ```bash
 cd /root/autodl-tmp/projects/EasyEdit

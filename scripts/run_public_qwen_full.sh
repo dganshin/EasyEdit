@@ -27,6 +27,7 @@ export HTTPS_PROXY="${HTTPS_PROXY:-$https_proxy}"
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
 
 ART_ROOT="${ART_ROOT:-artifacts/public_benchmarks_20260622}"
+FINAL_OUTPUT_DIR="${FINAL_OUTPUT_DIR:-artifacts/final_comparison_20260623_200}"
 LOG_DIR="${ART_ROOT}/pipeline_logs"
 STATUS_FILE="${ART_ROOT}/QWEN_PUBLIC_PIPELINE_STATUS.txt"
 DONE_FILE="${ART_ROOT}/QWEN_PUBLIC_PIPELINE_DONE"
@@ -51,6 +52,7 @@ write_status() {
     echo "step=${step}"
     echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')"
     echo "art_root=${ART_ROOT}"
+    echo "final_output_dir=${FINAL_OUTPUT_DIR}"
     echo "model=${QWEN_MODEL}"
     echo "max_cases=${MAX_CASES}"
     echo "run_public_wrappers=${RUN_PUBLIC_WRAPPERS}"
@@ -214,7 +216,7 @@ fi
 run_optional aggregate_all \
   python3 scripts/merge_new_baseline_results.py \
     --public_root "$ART_ROOT" \
-    --output_dir artifacts/final_comparison_20260622
+    --output_dir "$FINAL_OUTPUT_DIR"
 
 write_status "done" "complete"
 touch "$DONE_FILE"
