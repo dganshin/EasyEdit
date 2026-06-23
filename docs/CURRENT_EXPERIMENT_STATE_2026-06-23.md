@@ -92,7 +92,7 @@ scripts/merge_public_results_from_instances.py
 scripts/run_synthetic_privacy_extra_editors.sh
 ```
 
-当前 `run_public_qwen_full.sh`、`run_public_gptj_full.sh` 默认 `MAX_CASES=200`。
+当前 `run_public_qwen_full.sh`、`run_public_gptj_full.sh` 默认 `MAX_CASES=200`，且默认 `RUN_PUBLIC_WRAPPERS=1`。也就是说，public full 脚本会先跑 ROME/FT/KN/IKE baseline，再自动补 ROME+PACE-Edit / ROME+CAPE-Edit wrapper。
 
 当前 `run_public_closed_loop_wrappers.sh` 默认：
 
@@ -239,7 +239,7 @@ bash scripts/run_public_gptj_full.sh
 
 ### 5.2 GPT-J public PACE/CAPE wrapper
 
-baseline 的 ROME 结果完成后运行：
+通常不用手动运行；`scripts/run_public_gptj_full.sh` 默认会在 baseline 后自动运行。只有 baseline 已经用旧脚本跑完、需要单独补 wrapper 时，才运行：
 
 ```bash
 cd /root/autodl-tmp/projects/EasyEdit
@@ -287,6 +287,8 @@ bash scripts/run_public_qwen_full.sh
 ```
 
 ### 5.4 Qwen public PACE/CAPE wrapper
+
+通常不用手动运行；`scripts/run_public_qwen_full.sh` 默认会在 baseline 后自动运行。只有 baseline 已经用旧脚本跑完、需要单独补 wrapper 时，才运行：
 
 ```bash
 cd /root/autodl-tmp/projects/EasyEdit

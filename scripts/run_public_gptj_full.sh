@@ -36,6 +36,7 @@ MAX_CASES="${MAX_CASES:-200}"
 DEVICE="${DEVICE:-0}"
 METHODS_GPTJ="${METHODS_GPTJ:-ROME,FT,KN,IKE}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
+RUN_PUBLIC_WRAPPERS="${RUN_PUBLIC_WRAPPERS:-1}"
 DOWNLOAD_LLAMA_BACKUP="${DOWNLOAD_LLAMA_BACKUP:-0}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
@@ -54,6 +55,7 @@ write_status() {
     echo "art_root=${ART_ROOT}"
     echo "model=${GPTJ_MODEL}"
     echo "max_cases=${MAX_CASES}"
+    echo "run_public_wrappers=${RUN_PUBLIC_WRAPPERS}"
     echo "shutdown_on_exit=${SHUTDOWN_ON_EXIT}"
     echo "allow_autodl_shutdown=${ALLOW_AUTODL_SHUTDOWN}"
   } > "$STATUS_FILE"
@@ -175,7 +177,7 @@ if ! validate_transformers_model "$GPTJ_MODEL"; then
   exit 1
 fi
 
-run_optional gptj_counterfact_500 \
+run_optional "gptj_counterfact_${MAX_CASES}" \
   python3 scripts/run_public_editing_baselines.py \
     --dataset_path "${ART_ROOT}/counterfact_500.json" \
     --dataset_name counterfact \
@@ -189,7 +191,7 @@ run_optional gptj_counterfact_500 \
     --resume_skip_completed \
     --isolate_methods
 
-run_optional gptj_zsre_500 \
+run_optional "gptj_zsre_${MAX_CASES}" \
   python3 scripts/run_public_editing_baselines.py \
     --dataset_path "${ART_ROOT}/zsre_500.json" \
     --dataset_name zsre \
@@ -210,6 +212,21 @@ run_optional aggregate_public \
 
 cp "${ART_ROOT}/public_editing_comparison.csv" "${ART_ROOT}/public_editing_comparison_gptj.csv" || true
 cp "${ART_ROOT}/PUBLIC_EDITING_BASELINE_REPORT.md" "${ART_ROOT}/PUBLIC_EDITING_BASELINE_REPORT_GPTJ.md" || true
+
+if [[ "$RUN_PUBLIC_WRAPPERS" == "1" ]]; then
+  run_optional gptj_public_pace_cape_wrappers \
+    env ART_ROOT="$ART_ROOT" \
+      PUBLIC_DATASET_SIZE="$MAX_CASES" \
+      MODEL_SHORT=gptj \
+      MODEL_NAME=gpt-j-6B \
+      MODEL_PATH="$GPTJ_MODEL" \
+      BASE_METHOD=ROME \
+      DATASETS=counterfact,zsre \
+      DEVICE="$DEVICE" \
+      STREAM_LOGS="$STREAM_LOGS" \
+      SHUTDOWN_ON_EXIT=0 \
+      bash scripts/run_public_closed_loop_wrappers.sh
+fi
 
 run_optional aggregate_all \
   python3 scripts/merge_new_baseline_results.py \
