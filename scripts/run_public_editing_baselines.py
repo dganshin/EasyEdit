@@ -2,6 +2,8 @@ import argparse
 import contextlib
 import gc
 import json
+import os
+import subprocess
 import sys
 import time
 import traceback
@@ -42,6 +44,11 @@ def parse_args() -> argparse.Namespace:
         "--resume_skip_completed",
         action="store_true",
         help="Skip a method when output_dir/METHOD/summary.json exists with status=ok.",
+    )
+    parser.add_argument(
+        "--isolate_methods",
+        action="store_true",
+        help="Run each method in a fresh Python subprocess to release GPU memory between methods.",
     )
     return parser.parse_args()
 
@@ -157,6 +164,51 @@ def release_cuda_cache() -> None:
         torch.cuda.ipc_collect()
 
 
+def run_isolated_methods(args: argparse.Namespace, methods: List[str]) -> int:
+    script_path = Path(__file__).resolve()
+    for method in methods:
+        method_dir = Path(args.output_dir) / method
+        if args.resume_skip_completed and completed_summary_exists(method_dir):
+            print(f"[SKIP] {method}: completed summary exists at {method_dir / 'summary.json'}")
+            continue
+        cmd = [
+            sys.executable,
+            str(script_path),
+            "--dataset_path",
+            args.dataset_path,
+            "--dataset_name",
+            args.dataset_name,
+            "--model_path",
+            args.model_path,
+            "--model_name",
+            args.model_name,
+            "--methods",
+            method,
+            "--max_cases",
+            str(args.max_cases),
+            "--output_dir",
+            args.output_dir,
+            "--device",
+            str(args.device),
+        ]
+        if args.dry_run:
+            cmd.append("--dry_run")
+        if args.smoke_only:
+            cmd.append("--smoke_only")
+        if args.disable_generation_test:
+            cmd.append("--disable_generation_test")
+        if args.resume_skip_completed:
+            cmd.append("--resume_skip_completed")
+        env = os.environ.copy()
+        env.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+        print(f"[METHOD] {method}: isolated subprocess")
+        result = subprocess.run(cmd, env=env)
+        if result.returncode != 0:
+            print(f"[FAIL] {method}: isolated subprocess exited with code {result.returncode}")
+            return result.returncode
+    return 0
+
+
 def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Namespace, method_dir: Path) -> None:
     import torch
     from easyeditor import BaseEditor
@@ -250,6 +302,9 @@ def main() -> int:
             })
         print(f"dry_run_manifest: {output_dir / 'run_manifest.json'}")
         return 0
+
+    if args.isolate_methods and len(methods) > 1:
+        return run_isolated_methods(args, methods)
 
     for method in methods:
         method_dir = output_dir / method

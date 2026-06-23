@@ -24,6 +24,7 @@ export http_proxy="${http_proxy:-http://127.0.0.1:7890}"
 export https_proxy="${https_proxy:-http://127.0.0.1:7890}"
 export HTTP_PROXY="${HTTP_PROXY:-$http_proxy}"
 export HTTPS_PROXY="${HTTPS_PROXY:-$https_proxy}"
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
 
 ART_ROOT="${ART_ROOT:-artifacts/public_benchmarks_20260622}"
 LOG_DIR="${ART_ROOT}/pipeline_logs"
@@ -156,7 +157,8 @@ run_optional qwen_counterfact_500 \
     --output_dir "${ART_ROOT}/qwen_counterfact" \
     --device "$DEVICE" \
     --disable_generation_test \
-    --resume_skip_completed
+    --resume_skip_completed \
+    --isolate_methods
 
 run_optional qwen_zsre_500 \
   python3 scripts/run_public_editing_baselines.py \
@@ -169,7 +171,8 @@ run_optional qwen_zsre_500 \
     --output_dir "${ART_ROOT}/qwen_zsre" \
     --device "$DEVICE" \
     --disable_generation_test \
-    --resume_skip_completed
+    --resume_skip_completed \
+    --isolate_methods
 
 run_optional aggregate_public \
   python3 scripts/evaluate_public_editing_baselines.py \
