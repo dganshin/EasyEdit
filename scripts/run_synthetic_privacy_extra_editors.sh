@@ -170,26 +170,41 @@ PY
   echo "[STEP] synthetic privacy ${method}"
   clean_gpu
   set +e
-  python3 scripts/run_privacy_refusal_edit.py \
-    --method "$method" \
-    --dataset "$DATASET" \
-    --model_path "$MODEL_PATH" \
-    --hparams "$hparams" \
-    --device "$DEVICE" \
-    --output_dir "$out_dir" \
-    --requests_path "$REQUESTS_PATH" \
-    --run_name "$run_name" \
-    --batch_size "$BATCH_SIZE" \
-    --max_new_tokens "$MAX_NEW_TOKENS" \
-    --full_private_eval \
-    --eval_public \
-    --disable_fluency_eval > "$log_path" 2>&1
-  code=$?
-  set -e
-
   if [[ "$STREAM_LOGS" == "1" ]]; then
-    tail -n 80 "$log_path" || true
+    python3 scripts/run_privacy_refusal_edit.py \
+      --method "$method" \
+      --dataset "$DATASET" \
+      --model_path "$MODEL_PATH" \
+      --hparams "$hparams" \
+      --device "$DEVICE" \
+      --output_dir "$out_dir" \
+      --requests_path "$REQUESTS_PATH" \
+      --run_name "$run_name" \
+      --batch_size "$BATCH_SIZE" \
+      --max_new_tokens "$MAX_NEW_TOKENS" \
+      --full_private_eval \
+      --eval_public \
+      --disable_fluency_eval \
+      2>&1 | tee "$log_path"
+    code=${PIPESTATUS[0]}
+  else
+    python3 scripts/run_privacy_refusal_edit.py \
+      --method "$method" \
+      --dataset "$DATASET" \
+      --model_path "$MODEL_PATH" \
+      --hparams "$hparams" \
+      --device "$DEVICE" \
+      --output_dir "$out_dir" \
+      --requests_path "$REQUESTS_PATH" \
+      --run_name "$run_name" \
+      --batch_size "$BATCH_SIZE" \
+      --max_new_tokens "$MAX_NEW_TOKENS" \
+      --full_private_eval \
+      --eval_public \
+      --disable_fluency_eval > "$log_path" 2>&1
+    code=$?
   fi
+  set -e
 
   if [[ "$code" == "0" ]]; then
     write_json_summary "$summary_path" "$method" "ok" ""

@@ -108,7 +108,7 @@ PY
 
   echo "[STEP] CAPE-Anchor ${name}"
   set +e
-  {
+  run_one_config() {
     python3 scripts/build_cape_anchor_requests.py \
       --dataset "$DATASET" \
       --private_eval "$DIRECT_PRIVATE_EVAL" \
@@ -162,12 +162,15 @@ summary = {
 summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 print(json.dumps(summary, ensure_ascii=False))
 PY
-  } > "$log_path" 2>&1
-  code=$?
-  set -e
+  }
   if [[ "$STREAM_LOGS" == "1" ]]; then
-    tail -n 80 "$log_path" || true
+    run_one_config 2>&1 | tee "$log_path"
+    code=${PIPESTATUS[0]}
+  else
+    run_one_config > "$log_path" 2>&1
+    code=$?
   fi
+  set -e
   if [[ "$code" == "0" ]]; then
     row="$(python3 - "$summary_path" <<'PY'
 import csv, io, json, sys

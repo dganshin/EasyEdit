@@ -77,12 +77,14 @@ run_phase() {
   echo "[STEP] ${phase}"
   write_status "running" "$phase"
   set +e
-  "$@" > "$log_path" 2>&1
-  local code=$?
-  set -e
   if [[ "$STREAM_LOGS" == "1" ]]; then
-    tail -n 80 "$log_path" || true
+    "$@" 2>&1 | tee "$log_path"
+    local code=${PIPESTATUS[0]}
+  else
+    "$@" > "$log_path" 2>&1
+    local code=$?
   fi
+  set -e
   if [[ "$code" == "0" ]]; then
     append_failure "$phase" "ok" "$log_path" ""
     echo "[OK] ${phase}"
