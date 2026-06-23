@@ -13,6 +13,17 @@
 - 要和其他方法比较：ROME、MEMIT、FT、KN、IKE 等 baseline 不能只跑公开数据集，也应尽量在 synthetic privacy 上补充。
 - 我们的方法也要进入公开数据集：PACE/CAPE 不能只在自造数据集里自娱自乐，应抽象成 public editing 上的 PACE-Edit / CAPE-Edit wrapper。
 
+## 1.1 当前收口优先级
+
+现在停止新增大坑，只做四件事：
+
+1. 闭合公开数据集完整矩阵：CounterFact / zsRE × Qwen / GPT-J × ROME / FT / KN / IKE / ROME+PACE-Edit / ROME+CAPE-Edit。
+2. synthetic privacy v2 补 FT / KN / IKE。
+3. 把已有创新点图表化：private/public 解耦、over-refusal、attack-type split、privacy-utility trade-off、PACE/CAPE selection stats。
+4. 生成最终论文可用汇总和更新报告。
+
+暂停：TOFU、Enron、The Pile、LLaMA-2、MEND/SERAC 训练、LoRA/SFT 新训练、CAPE-Anchor 训练、新方法设计。
+
 ## 2. 当前实验矩阵
 
 ### 2.1 Synthetic privacy v2
