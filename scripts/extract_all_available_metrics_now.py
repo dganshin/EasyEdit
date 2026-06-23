@@ -262,33 +262,69 @@ def public_qwen_rows() -> List[Dict[str, str]]:
 
 
 def public_gptj_rows() -> List[Dict[str, str]]:
+    fast_patch_table = Path("artifacts/gptj_fast_patch_20260623/table_gptj_public_fast_patch.csv")
     stop_path = Path("artifacts/public_benchmarks_20260623_200/GPTJ_STOP_REASON.md")
     reason = stop_path.read_text(encoding="utf-8").strip().replace("\n", " ") if stop_path.exists() else "GPT-J expansion stopped; no local metrics"
-    rows = [
+    rows: List[Dict[str, str]] = []
+    seen = set()
+    for item in read_csv(fast_patch_table):
+        dataset = item.get("dataset", MISSING)
+        method = item.get("method", MISSING)
+        seen.add((dataset, method))
+        rows.append(
+            row(
+                model="GPT-J-6B",
+                dataset=dataset,
+                task_type="public_factual_editing",
+                method=method,
+                method_family=("public optional editor" if method == "MEMIT" else "public fast baseline"),
+                base_editor=method,
+                wrapper="none",
+                n_cases=item.get("n_cases", MISSING),
+                status=item.get("status", MISSING),
+                failure_reason=item.get("failure_reason", MISSING),
+                reliability=item.get("reliability", MISSING),
+                generalization=item.get("generalization", MISSING),
+                locality=item.get("locality", MISSING),
+                runtime_sec=item.get("runtime_sec", MISSING),
+                source_file=item.get("source_file", str(fast_patch_table)),
+                source_status=("fast_patch_table" if fast_patch_table.exists() else "missing"),
+                notes="GPT-J fast patch only targets ROME/FT by default; missing values are not zero-filled",
+            )
+        )
+    required = [
         ("counterfact-200", "ROME", "partial_without_metrics", "no summary.json found locally"),
         ("counterfact-200", "FT", "partial_without_metrics", "no summary.json found locally"),
+        ("counterfact-200", "MEMIT", "missing_artifact", "optional MEMIT skipped unless hparams/stats/smoke are ready"),
         ("counterfact-200", "KN", "stopped", "coarse-neuron search too slow, approximately 50-160s per case; stopped as resource-limited partial check"),
         ("counterfact-200", "IKE", "stopped", "GPT-J expansion stopped before IKE"),
-        ("zsre-200", "all methods", "stopped", "GPT-J zsRE expansion stopped"),
+        ("zsre-200", "ROME", "missing_artifact", "no summary.json found locally"),
+        ("zsre-200", "FT", "missing_artifact", "no summary.json found locally"),
+        ("zsre-200", "MEMIT", "missing_artifact", "optional MEMIT skipped unless hparams/stats/smoke are ready"),
+        ("zsre-200", "KN", "stopped", "coarse-neuron search too slow; not scheduled for GPT-J fast patch"),
+        ("zsre-200", "IKE", "stopped", "GPT-J expansion stopped before IKE"),
     ]
-    return [
-        row(
-            model="GPT-J-6B",
-            dataset=dataset,
-            task_type="public_factual_editing",
-            method=method,
-            method_family="public partial baseline",
-            base_editor=method,
-            wrapper="none",
-            n_cases=200,
-            status=status,
-            failure_reason=fail_reason,
-            source_file=str(stop_path) if stop_path.exists() else "expected_gptj_partial",
-            source_status="partial_or_stopped",
-            notes=reason,
+    for dataset, method, status, fail_reason in required:
+        if (dataset, method) in seen:
+            continue
+        rows.append(
+            row(
+                model="GPT-J-6B",
+                dataset=dataset,
+                task_type="public_factual_editing",
+                method=method,
+                method_family=("public optional editor" if method == "MEMIT" else "public partial baseline"),
+                base_editor=method,
+                wrapper="none",
+                n_cases=200,
+                status=status,
+                failure_reason=fail_reason,
+                source_file=str(stop_path) if stop_path.exists() else "expected_gptj_partial",
+                source_status="partial_or_stopped",
+                notes=reason,
+            )
         )
-        for dataset, method, status, fail_reason in rows
-    ]
+    return rows
 
 
 def source_map_rows() -> List[Dict[str, str]]:
@@ -298,6 +334,7 @@ def source_map_rows() -> List[Dict[str, str]]:
         {"source_file": "artifacts/final_comparison_20260623_urgent/method_claim_metrics.csv", "source_status": "present", "metric_mapping": "used for metric audit conflicts, not canonical public_refusal"},
         {"source_file": "artifacts/paper_assets_20260623/tables_tex/table_public_qwen_topconf.tex", "source_status": "present", "metric_mapping": "publication-ready successful Qwen public rows only"},
         {"source_file": "artifacts/public_benchmarks_20260623_200/GPTJ_STOP_REASON.md", "source_status": "present", "metric_mapping": "GPT-J stop reason; no metrics"},
+        {"source_file": "artifacts/gptj_fast_patch_20260623/table_gptj_public_fast_patch.csv", "source_status": "optional", "metric_mapping": "GPT-J fast patch ROME/FT metrics when summary.json exists"},
     ]
 
 
@@ -413,7 +450,7 @@ def write_summary(all_rows: List[Dict[str, str]], failures: List[Dict[str, str]]
         "",
         "- Synthetic privacy: Leakage model / ROME direct / MEMIT direct / PACE variants / CAPE variants.",
         "- 如果 urgent main 返回，再加入 FT / KN / CAPE-Anchor K0/K1/K2。",
-        "- Public table 只放 Qwen CounterFact ROME/FT/KN 和 Qwen zsRE ROME/FT 的真实指标。",
+        "- Public table 主体只放 Qwen CounterFact / zsRE 的真实指标；GPT-J 仅作为 50/100-case ROME/FT fast patch 或附表，不扩 KN/IKE。",
         "",
         "## 4. 附表或失败表",
         "",
@@ -424,7 +461,7 @@ def write_summary(all_rows: List[Dict[str, str]], failures: List[Dict[str, str]]
         "",
         "## 5. 下一步唯一值得跑的实验",
         "",
-        "CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN. Do not expand public benchmark, GPT-J, or IKE.",
+        "CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limited to the ROME/FT fast patch if a local model already exists; do not expand GPT-J KN/IKE/MEMIT or new public datasets.",
         "",
         "## 6. 前 30 行 ledger 预览",
         "",

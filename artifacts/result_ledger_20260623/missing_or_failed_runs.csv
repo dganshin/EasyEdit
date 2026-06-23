@@ -12,8 +12,14 @@ Qwen2.5-7B,counterfact-200,ROME_CAPE_EDIT,public_factual_editing,missing_artifac
 Qwen2.5-7B,zsre-200,IKE,public_factual_editing,missing_artifact,skipped after dependency/resource issue,expected_public_matrix,no,none,failure_table_only
 Qwen2.5-7B,zsre-200,ROME_PACE_EDIT,public_factual_editing,missing_artifact,no summary.json or table row found,expected_public_matrix,optional,low,public_transfer_appendix_only
 Qwen2.5-7B,zsre-200,ROME_CAPE_EDIT,public_factual_editing,missing_artifact,no summary.json or table row found,expected_public_matrix,optional,low,public_transfer_appendix_only
-GPT-J-6B,counterfact-200,ROME,public_factual_editing,partial_without_metrics,no summary.json found locally,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
-GPT-J-6B,counterfact-200,FT,public_factual_editing,partial_without_metrics,no summary.json found locally,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
+GPT-J-6B,counterfact-200,ROME,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
+GPT-J-6B,counterfact-200,FT,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
+GPT-J-6B,counterfact-200,MEMIT,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
+GPT-J-6B,zsre-200,ROME,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
+GPT-J-6B,zsre-200,FT,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
+GPT-J-6B,zsre-200,MEMIT,public_factual_editing,missing_artifact,no summary.json found,gptj_fast_patch_expected_matrix,no,none,failure_table_only
 GPT-J-6B,counterfact-200,KN,public_factual_editing,stopped,"coarse-neuron search too slow, approximately 50-160s per case; stopped as resource-limited partial check",artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
 GPT-J-6B,counterfact-200,IKE,public_factual_editing,stopped,GPT-J expansion stopped before IKE,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
-GPT-J-6B,zsre-200,all methods,public_factual_editing,stopped,GPT-J zsRE expansion stopped,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
+GPT-J-6B,zsre-200,KN,public_factual_editing,stopped,coarse-neuron search too slow; not scheduled for GPT-J fast patch,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
+GPT-J-6B,zsre-200,IKE,public_factual_editing,stopped,GPT-J expansion stopped before IKE,artifacts\public_benchmarks_20260623_200\GPTJ_STOP_REASON.md,no,none,failure_table_only
+GPT-J-6B,zsre-200,all methods,public_factual_editing,stopped,stopped expansion,explicit_failure_rules,no,none,failure_table_only

@@ -12,17 +12,16 @@ Last updated: 2026-06-23
 | status | count |
 | --- | --- |
 | failed | 4 |
-| missing_artifact | 4 |
+| missing_artifact | 10 |
 | ok | 13 |
-| partial_without_metrics | 2 |
 | pending | 5 |
-| stopped | 3 |
+| stopped | 4 |
 
 ## 3. 正文主表建议
 
 - Synthetic privacy: Leakage model / ROME direct / MEMIT direct / PACE variants / CAPE variants.
 - 如果 urgent main 返回，再加入 FT / KN / CAPE-Anchor K0/K1/K2。
-- Public table 只放 Qwen CounterFact ROME/FT/KN 和 Qwen zsRE ROME/FT 的真实指标。
+- Public table 主体只放 Qwen CounterFact / zsRE 的真实指标；GPT-J 仅作为 50/100-case ROME/FT fast patch 或附表，不扩 KN/IKE。
 
 ## 4. 附表或失败表
 
@@ -33,7 +32,7 @@ Last updated: 2026-06-23
 
 ## 5. 下一步唯一值得跑的实验
 
-CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN. Do not expand public benchmark, GPT-J, or IKE.
+CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limited to the ROME/FT fast patch if a local model already exists; do not expand GPT-J KN/IKE/MEMIT or new public datasets.
 
 ## 6. 前 30 行 ledger 预览
 
@@ -65,7 +64,7 @@ CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN. Do not expand public benchmark, GP
 | Qwen2.5-7B | zsre-200 | IKE | missing_artifact | missing | missing | missing | missing | skipped after dependency/resource issue |
 | Qwen2.5-7B | zsre-200 | ROME_PACE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
 | Qwen2.5-7B | zsre-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
-| GPT-J-6B | counterfact-200 | ROME | partial_without_metrics | missing | missing | missing | missing | no summary.json found locally |
-| GPT-J-6B | counterfact-200 | FT | partial_without_metrics | missing | missing | missing | missing | no summary.json found locally |
-| GPT-J-6B | counterfact-200 | KN | stopped | missing | missing | missing | missing | coarse-neuron search too slow, approximately 50-160s per case; stopped as resource-limited partial check |
-| GPT-J-6B | counterfact-200 | IKE | stopped | missing | missing | missing | missing | GPT-J expansion stopped before IKE |
+| GPT-J-6B | counterfact-200 | ROME | missing_artifact | missing | missing | missing | missing | no summary.json found |
+| GPT-J-6B | counterfact-200 | FT | missing_artifact | missing | missing | missing | missing | no summary.json found |
+| GPT-J-6B | counterfact-200 | MEMIT | missing_artifact | missing | missing | missing | missing | no summary.json found |
+| GPT-J-6B | zsre-200 | ROME | missing_artifact | missing | missing | missing | missing | no summary.json found |
