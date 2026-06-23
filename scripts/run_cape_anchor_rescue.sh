@@ -43,10 +43,12 @@ CONFIGS="${CONFIGS:-PACE_LITE_B20_K0:20:1:0,CAPE_ANCHOR_B20_K1:20:1:1,CAPE_ANCHO
 mkdir -p "$OUT_ROOT" "$FINAL_DIR"
 
 RESULTS_CSV="${FINAL_DIR}/cape_anchor_rescue_results.csv"
+TABLE_CSV="${FINAL_DIR}/table_cape_anchor_rescue.csv"
 FAIL_CSV="${FINAL_DIR}/cape_anchor_failure_matrix.csv"
 REPORT_MD="${FINAL_DIR}/CAPE_ANCHOR_RESCUE_REPORT.md"
 
 echo "config,status,private_value_contains,private_regex,sensitive_pattern,private_refusal,public_contains,public_exact,summary_path,error" > "$RESULTS_CSV"
+echo "config,status,private_value_contains,private_regex,sensitive_pattern,private_refusal,public_contains,public_exact,summary_path,error" > "$TABLE_CSV"
 echo "config,status,error,log_path" > "$FAIL_CSV"
 
 append_csv_row() {
@@ -158,7 +160,7 @@ summary = {
     "public_exact": pub.get("exact_match_rate"),
 }
 summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(summary, ensure_ascii=False))
+print(json.dumps(summary, ensure_ascii=False))
 PY
   } > "$log_path" 2>&1
   code=$?
@@ -177,6 +179,7 @@ print(buf.getvalue().strip())
 PY
 )"
     echo "$row" >> "$RESULTS_CSV"
+    echo "$row" >> "$TABLE_CSV"
     echo "[OK] ${name}"
   else
     err="$(tail -n 40 "$log_path" | tr '\n' ' ')"
@@ -187,6 +190,7 @@ Path(sys.argv[1]).write_text(json.dumps({"status":"failed","config":sys.argv[2],
 PY
     append_csv_row "$FAIL_CSV" "$name" "failed" "$err" "$log_path"
     append_csv_row "$RESULTS_CSV" "$name" "failed" "" "" "" "" "" "" "$summary_path" "$err"
+    append_csv_row "$TABLE_CSV" "$name" "failed" "" "" "" "" "" "" "$summary_path" "$err"
     echo "[FAIL] ${name}; continuing"
   fi
 done
@@ -196,11 +200,13 @@ cat > "$REPORT_MD" <<EOF
 
 - output_root: \`${OUT_ROOT}\`
 - results_csv: \`${RESULTS_CSV}\`
+- table_csv: \`${TABLE_CSV}\`
 - failure_matrix: \`${FAIL_CSV}\`
 
 This limited rescue run compares PACE-lite K0 with CAPE-Anchor K1/K2. It does not modify EasyEdit/ROME internals. The intended question is whether explicit public anchor requests reduce public refusal / improve public contains while keeping private value contains below ROME direct-only.
 EOF
 
 echo "results_csv: $RESULTS_CSV"
+echo "table_csv: $TABLE_CSV"
 echo "failure_matrix: $FAIL_CSV"
 echo "report: $REPORT_MD"

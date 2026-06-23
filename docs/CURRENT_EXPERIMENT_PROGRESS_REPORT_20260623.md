@@ -4,13 +4,13 @@ Last updated: 2026-06-23
 Related commit: this commit (see `git log --oneline -1`)  
 Current completed artifacts: synthetic ROME/MEMIT/PACE/CAPE-v1, Qwen CounterFact ROME/FT/KN, Qwen zsRE ROME/FT  
 Current running artifacts: none confirmed locally  
-Pending server artifacts: valid public wrappers, synthetic FT/KN/IKE, CAPE-Anchor B20-K0/K1/K2  
-Next action: stop expanding public benchmark; run only synthetic urgent main and valid Qwen wrapper if GPU is available  
+Pending server artifacts: synthetic FT/KN and CAPE-Anchor B20-K0/K1/K2  
+Next action: run only synthetic urgent main with `RUN_PUBLIC_WRAPPERS=0`; do not run public/GPT-J/IKE  
 Risk / fallback: current CAPE evidence supports trade-off diagnosis, not a strong superiority claim.
 
 ## 1. 总体判断
 
-当前本地结果已经足够支撑“合成隐私清洗任务 + 多方法 trade-off 分析 + 公开基准迁移验证”的论文结构，但还不足以声称 CAPE/CAPE-Anchor 已经优于所有 baseline。最新 claim decision 仍为 Claim C，原因是 CAPE-Anchor 的可比较结果尚未返回，public wrapper 也没有形成有效完整行。
+当前本地结果已经足够支撑“合成隐私清洗任务 + 多方法 trade-off 分析 + 公开基准资源边界”的论文结构，但还不足以声称 CAPE/CAPE-Anchor 已经优于所有 baseline。最新 claim decision 仍为 Claim C，原因是 CAPE-Anchor 的可比较结果尚未返回。public wrapper 暂时不再作为下一步 GPU 优先级。
 
 ## 2. Synthetic privacy 主实验
 
@@ -31,7 +31,7 @@ Qwen public 200-case 结果目前可用部分为：
 - CounterFact 上 ROME+PACE-Edit 有 summary，但状态为 failed，原因是 `CUDA is required for public editing baselines`，不能作为有效 wrapper 结果。
 - ROME+CAPE-Edit 当前未看到有效 summary。
 
-因此，public benchmark 目前只能写成“部分公开迁移验证与资源边界”，不能写成完整公开矩阵。后续如果还跑，只补 Qwen 上的 wrapper，不再扩 GPT-J / KN / IKE。
+因此，public benchmark 目前只能写成“部分公开迁移验证与资源边界”，不能写成完整公开矩阵。当前阶段不再继续 public wrapper；GPU 只用于 CAPE-Anchor 与 synthetic FT/KN。
 
 ## 4. 方法主张状态
 
@@ -54,7 +54,7 @@ Qwen public 200-case 结果目前可用部分为：
 
 ## 6. 给 GPT 讨论的问题
 
-1. 在当前 Claim C 状态下，是否还值得补 Qwen public wrapper，还是直接收束 public benchmark？
-2. synthetic FT/KN 是否必须补齐，还是只保留 ROME/MEMIT/PACE/CAPE 主表？
-3. CAPE-Anchor B20-K0/K1/K2 是否仍是唯一值得开 GPU 的补充实验？
+1. synthetic FT/KN 跑完后，是否足够支撑“主任务多编辑器比较”？
+2. CAPE-Anchor B20-K0/K1/K2 出来后，应选择 Claim A/B/C 哪个叙事？
+3. 如果 CAPE-Anchor 不改善 public retain，是否将其写成请求层目标冲突的边界分析？
 4. 论文是否应将“我们的方法”定位为 closed-loop diagnosis framework，而不是强 baseline-beating algorithm？
