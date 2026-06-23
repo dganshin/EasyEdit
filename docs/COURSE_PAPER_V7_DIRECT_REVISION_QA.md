@@ -1,0 +1,58 @@
+# Course Paper V7 Direct Revision QA
+
+Last updated: 2026-06-23
+
+## 通过项
+
+- 已以 v5 母版为正文基础，只替换过期结果与最终口径。
+- 已直接更新 `课程论文_v7_final_academic_polished.docx`，未另开无法追踪的新正文。
+- 已重写摘要，使其包含问题背景、方法设计、实验设置、主要发现和边界说明。
+- 已新增 `3.7 CAPE-Anchor 公开知识锚点约束`。
+- 第 4 章已改为论证型结果分析结构，覆盖 synthetic 主实验、PACE/CAPE over-refusal、CAPE-Anchor 消融、attack-type split、Qwen public transfer、GPT-J boundary、资源限制和典型案例。
+- 第 5 章已改为系统总体结构、数据构造、模型编辑、评估汇总、实验环境与版本管理、可复现性设计。
+- DOCX 已设置中文论文风格：一级标题黑体，二级标题黑体，正文宋体小四，英文/数字 Times New Roman。
+- 公式已改为独立居中段落，并在公式后解释变量，不再以代码块或密集裸 LaTeX 形式嵌入正文。
+- GPT-J 已写为 boundary check，未写成第二模型正向有效证据。
+- public benchmark 已写为公开事实编辑迁移验证，未写成 PII 清洗依据。
+
+## 结构对比
+
+- v5 DOCX：214 段，10 表。
+- 当前 DOCX：237 段，10 表。
+- 当前 DOCX 图片关系数：15。
+
+## 仍需人工检查项
+
+- LibreOffice 可用：`D:\LibreOfficeLocal\program\soffice.com`。
+- 已使用规范 Windows 文件 URI（形如 `file:///D:/BaiduSyncdisk/repo/EasyEdit/_lo_profile`）进行 headless 渲染检查，问题不再归因为缺少 LibreOffice/soffice。
+- 已渲染修订版 PDF/PNG，并人工查看 contact sheet 与代表页；未发现空白页、图表丢失或大面积文字重叠。
+- 学生姓名、年级专业等封面字段需要按实际提交要求补齐。
+- Word 中若部分宽表分页不理想，需要手工调小表格字号或横向排版。
+- 仍建议提交前用 Microsoft Word 最终检查封面字段、目录更新、宽表跨页表头和最终分页细节。
+
+## 高风险段落
+
+- 4.6 CAPE-Anchor 消融分析：需要保持“有限有效改进”口径，不能改成零损伤或全局占优。
+- 4.8 Qwen 公开事实编辑迁移验证：只能写 public factual editing transfer。
+- 4.9 GPT-J 第二模型边界验证：只能写迁移边界，不能写第二模型成功。
+
+## 禁用词扫描
+
+正文未命中禁用词。
+
+## 从 v5 修改了哪些段落
+
+- 摘要。
+- 1.4 贡献点。
+- 2.4 基础编辑方法与 wrapper 定位。
+- 3.4 基础编辑器描述。
+- 3.7 CAPE-Anchor。
+- 第 4 章全部结果分析。
+- 第 5 章系统实现标题与表述。
+- 第 6 章总结与展望。
+
+## 删除了哪些压缩文本
+
+- 删除了把第 4 章写成单纯结果汇总的压缩段落。
+- 删除了旧版系统实现中的过程化表达。
+- 删除了旧图路径和重复图题。
