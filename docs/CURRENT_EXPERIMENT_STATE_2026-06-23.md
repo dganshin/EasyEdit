@@ -164,6 +164,36 @@ export NLTK_DATA=/root/autodl-tmp/nltk_data
 
 ## 5. 当前推荐运行方式
 
+### 5.0 两个实例分工，禁止混跑
+
+当前至少可能同时存在两个 AutoDL 实例。必须先确认自己在哪个实例，再执行对应命令。
+
+| 实例 | 模型路径 | 只跑这些脚本 | ART_ROOT 建议 |
+| --- | --- | --- | --- |
+| Qwen 实例 | `/root/autodl-tmp/models/Qwen2.5-7B` | `scripts/run_public_qwen_full.sh`、Qwen 的 `scripts/run_public_closed_loop_wrappers.sh` | `artifacts/public_benchmarks_20260623_200` |
+| GPT-J 实例 | `/root/autodl-tmp/models/gpt-j-6B` | `scripts/run_public_gptj_full.sh`、GPT-J 的 `scripts/run_public_closed_loop_wrappers.sh` | `artifacts/public_benchmarks_20260623_200` |
+
+禁止事项：
+
+- 不要在 GPT-J 实例执行 `run_public_qwen_full.sh`。
+- 不要在 Qwen 实例执行 `run_public_gptj_full.sh`。
+- 不要把 `MODEL_PATH` 和 `MODEL_NAME` 混用。
+- 白天不要设置 `ALLOW_AUTODL_SHUTDOWN=1`。
+- 本项目不要再使用 shell 关机取消命令；如误设置关机，到 AutoDL 网页控制台处理。
+
+每个实例拉代码时只做：
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+bash /root/start_mihomo.sh || true
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+git -c http.version=HTTP/1.1 pull --ff-only
+conda activate easyedit
+```
+
 ### 5.1 GPT-J public 200 baseline
 
 GPT-J 模型已在新实例验证过：

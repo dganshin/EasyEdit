@@ -74,7 +74,8 @@ on_exit() {
     echo "max_cases=${MAX_CASES}"
   } > "$STATUS_FILE"
   if [[ "$SHUTDOWN_ON_EXIT" == "1" && "$ALLOW_AUTODL_SHUTDOWN" == "1" ]]; then
-    echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes; cancel with: shutdown -c"
+    echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes."
+    echo "[SHUTDOWN] On AutoDL, cancel from the web console if needed; do not run shell cancel commands in this project."
     shutdown -h "+${SHUTDOWN_DELAY_MINUTES}" "GPT-J public benchmark ${state}, exit=${code}" || true
   elif [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
     echo "[SHUTDOWN_SKIPPED] SHUTDOWN_ON_EXIT=1 but ALLOW_AUTODL_SHUTDOWN!=1; no shutdown scheduled."
