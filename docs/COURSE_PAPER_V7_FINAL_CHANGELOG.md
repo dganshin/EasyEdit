@@ -4,18 +4,10 @@ Last updated: 2026-06-23
 Final result status: frozen
 No further GPU expansion unless explicitly approved
 
-## 主要变更
+## 本次修正
 
-1. 以 v5 完整论文为骨架，删除 v6 结果占位、待填和过期实验计划。
-2. 将最终 claim 固定为 Claim A：CAPE-Anchor 形成有限有效改进，但仅限 Qwen synthetic privacy 主实验。
-3. 用 frozen artifacts 更新 Synthetic privacy、CAPE-Anchor、Qwen public transfer、GPT-J boundary 和 failure/resource 表。
-4. 将 GPT-J 从“跨模型成功”改为“second-model boundary check”，明确 wrapper collapse 已经 per-case 审计。
-5. 整合最终图表资产 `artifacts/final_paper_assets_20260623/figures`，并为每张图加入解释段。
-6. 生成 `课程论文_v7_final_academic_polished.docx` 与 `docs/course_paper_v7_final_academic_polished.md`，不覆盖旧版本。
-
-## 删除或降级内容
-
-- 删除 TOFU、Enron、LLaMA、Pythia 等未完成扩展作为“下一步必做”的表述。
-- 删除“结果待填”“Claim A/B/C 待选择”等过期口径。
-- 不再把 public benchmark 写成 PII 清洗证明。
-- 不再把 GPT-J wrapper 失败写成工程事故或主方法失败。
+1. 退回 v5 学术论文版本作为正文母版，保留其绪论、相关工作、方法设计和系统实现的论文化表达。
+2. 删除 v6/v7 中的结果占位、工程日志式描述和过期扩展计划。
+3. 将第4章结果段替换为 frozen final artifacts：synthetic 主结果、CAPE-Anchor 消融、Qwen public transfer、GPT-J boundary check 和 failure/resource limitation。
+4. DOCX 从 `课程论文撰写模板 (研究类).docx` 生成封面与正文样式，不覆盖旧版文档。
+5. GPT-J 结果固定为边界证据，不写成跨模型成功。
