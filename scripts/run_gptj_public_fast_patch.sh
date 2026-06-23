@@ -167,18 +167,23 @@ for dataset in "${DATASET_LIST[@]}"; do
     summary_path="${method_dir}/summary.json"
     log_path="${PATCH_DIR}/${dataset}_${method}.log"
     if [[ -f "$summary_path" ]]; then
-      status="$(python3 - "$summary_path" <<'PY'
+      status_and_cases="$(python3 - "$summary_path" <<'PY'
 import json, sys
 try:
-    print((json.load(open(sys.argv[1], encoding="utf-8")).get("status") or "").lower())
+    payload = json.load(open(sys.argv[1], encoding="utf-8"))
+    print((payload.get("status") or "").lower() + "\t" + str(payload.get("num_cases") or 0))
 except Exception:
-    print("")
+    print("\t0")
 PY
 )"
-      if [[ "$status" == "ok" ]]; then
-        echo "[SKIP] ${dataset}/${method}: existing status=ok"
+      status="${status_and_cases%%$'\t'*}"
+      existing_cases="${status_and_cases##*$'\t'}"
+      if [[ "$status" == "ok" && "$existing_cases" =~ ^[0-9]+$ && "$existing_cases" -ge "$MAX_CASES" ]]; then
+        echo "[SKIP] ${dataset}/${method}: existing status=ok num_cases=${existing_cases} >= max_cases=${MAX_CASES}"
         append_failure "$dataset" "$method" "skipped_ok" "$summary_path" "$log_path" ""
         continue
+      elif [[ "$status" == "ok" ]]; then
+        echo "[RERUN] ${dataset}/${method}: existing status=ok but num_cases=${existing_cases} < max_cases=${MAX_CASES}"
       fi
     fi
 
