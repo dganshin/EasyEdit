@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: Claim A/B/C templates and banned wording list  
+Current running artifacts: server experiments that determine final claim level  
 Pending server artifacts: CAPE-Anchor and final claim decision  
 Completed local writing tasks: Claim A/B/C wording templates  
-Next action after server finishes: choose one claim level using `METHOD_CLAIM_DECISION.md`
+Next action: choose one claim level using `METHOD_CLAIM_DECISION.md` and update paper conclusion  
+Risk / fallback: weak CAPE-Anchor results must become Claim B/C boundary analysis, not a self-defeating failure report.
 
 ## Claim A：CAPE-Anchor 明显有效
 

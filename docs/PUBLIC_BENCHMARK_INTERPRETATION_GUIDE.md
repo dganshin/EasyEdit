@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: public benchmark scope, Qwen-only interpretation rule, GPT-J/IKE stop rationale  
+Current running artifacts: Qwen public 200-case benchmark  
 Pending server artifacts: Qwen CounterFact/zsRE wrapper summaries  
 Completed local writing tasks: public benchmark scope and wording rules  
-Next action after server finishes: fill Qwen public table and keep it separate from privacy metrics
+Next action: fill Qwen public table and keep it separate from privacy metrics  
+Risk / fallback: public benchmark cannot prove privacy sanitization; use it only as closed-loop wrapper transfer validation.
 
 ## 定位
 

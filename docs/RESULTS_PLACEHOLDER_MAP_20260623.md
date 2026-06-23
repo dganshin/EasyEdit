@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: placeholder mapping for synthetic, public wrapper, CAPE-Anchor, and claim decision  
+Current running artifacts: Qwen public 200-case benchmark  
 Pending server artifacts: Qwen public summaries, CAPE-Anchor CSV, synthetic FT/KN/IKE eval JSON  
 Completed local writing tasks: placeholder-to-artifact map  
-Next action after server finishes: verify every placeholder is replaced by artifact values
+Next action: verify every placeholder is replaced by artifact values from committed artifacts  
+Risk / fallback: unresolved placeholders must remain `[pending_server_result]`; never fill 0 or blank to imply completion.
 
 | Placeholder | Artifact source |
 |---|---|

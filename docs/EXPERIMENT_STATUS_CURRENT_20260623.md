@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: synthetic privacy v2 dataset; LoRA MLP-only merged leakage model; ROME direct; MEMIT direct; PACE variants; CAPE-v0/v1; paper placeholder assets  
+Current running artifacts: Qwen public 200-case benchmark and wrapper completion check  
 Pending server artifacts: Qwen public wrapper results, synthetic FT/KN/IKE, CAPE-Anchor B20-K0/K1/K2, final claim decision  
 Completed local writing tasks: current scope narrowed; paper placeholder assets are being prepared  
-Next action after server finishes: pull small artifacts, rerun paper table/figure scripts, update Claim A/B/C
+Next action: pull small artifacts, rerun paper table/figure scripts, update Claim A/B/C  
+Risk / fallback: GPT-J and IKE are optional; if CAPE-Anchor is weak, write Claim B/C as trade-off and boundary analysis rather than failure.
 
 ## 已完成
 

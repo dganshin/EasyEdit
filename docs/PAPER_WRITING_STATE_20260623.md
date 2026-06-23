@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: v6 placeholder markdown/docx; polished figure assets; placeholder tables; completed ROME/MEMIT/PACE/CAPE-v0/v1 analysis text  
+Current running artifacts: Qwen public 200-case benchmark; server-side urgent main pending  
 Pending server artifacts: Qwen public benchmark summaries, synthetic extra editor results, CAPE-Anchor results  
 Completed local writing tasks: chapter-level writing map and pending artifact map  
-Next action after server finishes: replace `[待填]` placeholders with artifact-grounded values
+Next action: replace `[待填]` placeholders with artifact-grounded values and choose Claim A/B/C  
+Risk / fallback: do not overfit paper wording to weak results; use benchmark, metric design, failure-mode analysis, and trade-off framing.
 
 | 章节 | 当前可写内容 | 待填结果 | 对应 artifact | 是否可先定稿 |
 |---|---|---|---|---|

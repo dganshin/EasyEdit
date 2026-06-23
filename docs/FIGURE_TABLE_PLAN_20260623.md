@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: paper asset scripts; six polished placeholder/current figures; CSV placeholder tables  
+Current running artifacts: Qwen public 200-case benchmark; CAPE-Anchor pending  
 Pending server artifacts: public wrapper rows and CAPE-Anchor points  
 Completed local writing tasks: figure/table list and generation script plan  
-Next action after server finishes: rerun `scripts/build_paper_placeholder_tables.py` and `scripts/render_polished_paper_figures.py`
+Next action: rerun `scripts/build_paper_placeholder_tables.py`, `scripts/render_polished_paper_figures.py`, and final comparison scripts after server artifacts return  
+Risk / fallback: if CAPE-Anchor is weak, figures should show trade-off/boundary rather than hide weak points.
 
 ## 论文表格
 

@@ -2,9 +2,12 @@
 
 Last updated: 2026-06-23  
 Related commit: this commit (see `git log --oneline -1`)  
+Current completed artifacts: CAPE-Anchor builder and rescue runner; method positioning; success criteria  
+Current running artifacts: none locally; server urgent main pending  
 Pending server artifacts: B20-K0 / B20-K1 / B20-K2 results  
 Completed local writing tasks: method positioning and success criteria  
-Next action after server finishes: decide whether CAPE-Anchor supports Claim A, B, or C
+Next action: decide whether CAPE-Anchor supports Claim A, B, or C  
+Risk / fallback: if public anchors conflict with privacy refusal requests, write target-conflict and locality-boundary analysis.
 
 ## 方法定位
 

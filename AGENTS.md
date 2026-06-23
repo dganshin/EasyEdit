@@ -6,6 +6,8 @@
 
 ```text
 docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md
+docs/EXPERIMENT_STATUS_CURRENT_20260623.md
+docs/CLAIM_AND_WORDING_GUIDE_20260623.md
 ```
 
 该文件是当前最新交接入口。本文档后面很多 2026-06-13 到 2026-06-15 的内容是历史记录，尤其是“当前阶段主要目标是打通单条编辑”“不应扩展 MEMIT / 公开数据集 / before-after 样例”等说法已经过期。
@@ -18,6 +20,47 @@ docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md
 - 论文目标不是复现别人论文，而是在自造隐私清洗任务和公开编辑基准上都能和其他方法比较，并解释我们方法的优势、边界和 trade-off。
 
 除非用户明确要求回看历史，否则以 `docs/CURRENT_EXPERIMENT_STATE_2026-06-23.md` 为准。
+
+### 0.1 当前项目记忆纪律（必须遵守）
+
+本项目不是 EasyEdit 复现实验，不是公开 benchmark 堆方法，也不是工程脚本展示。最终目标是形成一个可以写进课程论文和简历的大模型隐私知识清洗项目。后续所有代码、实验、论文和图表都必须服务以下贡献：
+
+1. private/public 解耦的 synthetic privacy benchmark；
+2. LoRA-based controllable leakage model；
+3. 将 ROME、MEMIT、FT、KN、IKE 等通用模型编辑方法适配到隐私拒答式清洗任务；
+4. PACE：残余泄露驱动闭环再编辑；
+5. CAPE / CAPE-Anchor：副作用感知请求选择与公开知识锚点约束；
+6. Over-refusal / Public Refusal 指标；
+7. attack-type split；
+8. privacy-utility trade-off 分析；
+9. CounterFact/zsRE 上的 Qwen public wrapper 迁移验证。
+
+当前执行红线：
+
+- synthetic privacy 是主实验；
+- Qwen public 是迁移验证，不是主贡献；
+- GPT-J 停止扩展；
+- IKE 缺依赖就记录，不再硬修；
+- 不新增 TOFU / Enron / LLaMA / The Pile；
+- 不训练 MEND / SERAC；
+- 不扩大 public benchmark；
+- 不重复跑已完成 baseline；
+- 不把未完成结果写成已完成；
+- 结果弱也不能写成罪己诏，要写成 trade-off 发现、方法边界、评估体系与副作用分析。
+
+后续优先级固定为：
+
+```text
+Qwen public 跑完
+-> 只补 ROME+PACE-Edit / ROME+CAPE-Edit wrapper
+-> run_urgent_main_experiments_48g.sh
+-> synthetic FT/KN/IKE + CAPE-Anchor B20-K0/K1/K2
+-> final tables / figures
+-> METHOD_CLAIM_DECISION
+-> 根据 Claim A/B/C 改论文
+```
+
+每次回答前先内部检查：当前动作是否服务 synthetic privacy 主线、CAPE/CAPE-Anchor 方法贡献、最终论文图表和写作；如果只是公开 benchmark 复现、浪费 GPU、重复 baseline 或导致论文主张失真，应拒绝扩展并改成更小的可执行任务。
 
 ## 1. 工作边界
 
