@@ -27,9 +27,13 @@ FIELDS = [
 TARGETS = [
     ("counterfact", "ROME"),
     ("counterfact", "FT"),
+    ("counterfact", "ROME_PACE_EDIT"),
+    ("counterfact", "ROME_CAPE_EDIT"),
     ("counterfact", "MEMIT"),
     ("zsre", "ROME"),
     ("zsre", "FT"),
+    ("zsre", "ROME_PACE_EDIT"),
+    ("zsre", "ROME_CAPE_EDIT"),
     ("zsre", "MEMIT"),
 ]
 MISSING = "missing"
@@ -215,7 +219,16 @@ def run_plan(rows: List[Dict[str, str]]) -> str:
         "",
         "## Required next runs",
     ]
-    targets = [("counterfact", "ROME"), ("counterfact", "FT"), ("zsre", "ROME"), ("zsre", "FT")]
+    targets = [
+        ("counterfact", "ROME"),
+        ("counterfact", "FT"),
+        ("counterfact", "ROME_PACE_EDIT"),
+        ("counterfact", "ROME_CAPE_EDIT"),
+        ("zsre", "ROME"),
+        ("zsre", "FT"),
+        ("zsre", "ROME_PACE_EDIT"),
+        ("zsre", "ROME_CAPE_EDIT"),
+    ]
     pending = []
     for dataset, method in targets:
         if (dataset, method) in ok:

@@ -28,7 +28,7 @@ MAX_CASES="${MAX_CASES:-200}"
 DATASETS="${DATASETS:-counterfact,zsre}"
 METHODS="${METHODS:-ROME,FT}"
 TRY_MEMIT="${TRY_MEMIT:-0}"
-RUN_WRAPPERS_IF_POSSIBLE="${RUN_WRAPPERS_IF_POSSIBLE:-0}"
+RUN_WRAPPERS_IF_POSSIBLE="${RUN_WRAPPERS_IF_POSSIBLE:-1}"
 TIME_BUDGET_MIN="${TIME_BUDGET_MIN:-120}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
@@ -231,7 +231,44 @@ PY
 done
 
 if [[ "$RUN_WRAPPERS_IF_POSSIBLE" == "1" ]]; then
-  echo "[INFO] wrappers requested, but not implemented in fast patch by default; use public wrapper script manually only after ROME per_case exists."
+  if [[ "$(time_exceeded)" == "1" ]]; then
+    echo "[STOP] time budget exceeded before GPT-J PACE/CAPE wrappers"
+    append_failure "all" "PACE_CAPE_WRAPPERS" "time_budget_skipped" "" "" "TIME_BUDGET_MIN exceeded"
+  else
+    echo "[STEP] GPT-J public PACE/CAPE wrappers"
+    write_status "running" "public_pace_cape_wrappers"
+    set +e
+    if [[ "$STREAM_LOGS" == "1" ]]; then
+      INSTANCE_MODEL=gptj \
+      ART_ROOT="$ART_ROOT" \
+      MAX_CASES="$MAX_CASES" \
+      PUBLIC_DATASET_SIZE="$MAX_CASES" \
+      GPTJ_MODEL="$GPTJ_MODEL_DIR" \
+      STREAM_LOGS="$STREAM_LOGS" \
+      SHUTDOWN_ON_EXIT=0 \
+      bash scripts/run_missing_public_wrappers.sh 2>&1 | tee "${PATCH_DIR}/gptj_public_wrappers.log"
+      code=${PIPESTATUS[0]}
+    else
+      INSTANCE_MODEL=gptj \
+      ART_ROOT="$ART_ROOT" \
+      MAX_CASES="$MAX_CASES" \
+      PUBLIC_DATASET_SIZE="$MAX_CASES" \
+      GPTJ_MODEL="$GPTJ_MODEL_DIR" \
+      STREAM_LOGS="$STREAM_LOGS" \
+      SHUTDOWN_ON_EXIT=0 \
+      bash scripts/run_missing_public_wrappers.sh > "${PATCH_DIR}/gptj_public_wrappers.log" 2>&1
+      code=$?
+    fi
+    set -e
+    if [[ "$code" == "0" ]]; then
+      append_failure "all" "PACE_CAPE_WRAPPERS" "ok" "" "${PATCH_DIR}/gptj_public_wrappers.log" ""
+      echo "[OK] GPT-J public PACE/CAPE wrappers"
+    else
+      err="$(tail -n 40 "${PATCH_DIR}/gptj_public_wrappers.log" | tr '\n' ' ')"
+      append_failure "all" "PACE_CAPE_WRAPPERS" "failed" "" "${PATCH_DIR}/gptj_public_wrappers.log" "$err"
+      echo "[FAIL] GPT-J public PACE/CAPE wrappers; continuing to extraction"
+    fi
+  fi
 fi
 
 python3 scripts/extract_gptj_public_patch_metrics.py || true

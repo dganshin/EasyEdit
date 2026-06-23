@@ -5,8 +5,12 @@ This plan skips KN/IKE and only targets GPT-J ROME/FT public editing rows.
 ## Required next runs
 - SKIP `counterfact × ROME`: existing status=ok.
 - SKIP `counterfact × FT`: existing status=ok.
+- RUN `counterfact × ROME_PACE_EDIT`.
+- RUN `counterfact × ROME_CAPE_EDIT`.
 - RUN `zsre × ROME`.
 - RUN `zsre × FT`.
+- RUN `zsre × ROME_PACE_EDIT`.
+- RUN `zsre × ROME_CAPE_EDIT`.
 
 ## Excluded
 
