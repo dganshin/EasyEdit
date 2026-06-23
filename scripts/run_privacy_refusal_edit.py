@@ -18,6 +18,9 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from build_rome_privacy_requests import load_dataset, select_requests
 METHOD_TO_HPARAMS = {
+    "FT": "FTHyperParams",
+    "IKE": "IKEHyperParams",
+    "KN": "KNHyperParams",
     "ROME": "ROMEHyperParams",
     "MEMIT": "MEMITHyperParams",
 }
@@ -176,13 +179,9 @@ class ProgressMirror:
 
 
 def load_hparams(args: argparse.Namespace):
-    from easyeditor import MEMITHyperParams, ROMEHyperParams
+    import easyeditor
 
-    method_to_hparams = {
-        "ROME": ROMEHyperParams,
-        "MEMIT": MEMITHyperParams,
-    }
-    hparams_cls = method_to_hparams[args.method]
+    hparams_cls = getattr(easyeditor, METHOD_TO_HPARAMS[args.method])
     hparams = hparams_cls.from_hparams(args.hparams)
     hparams.model_name = args.model_path
     if hasattr(hparams, "tokenizer_name"):
@@ -423,6 +422,9 @@ def main() -> int:
         with contextlib.redirect_stdout(mirror), contextlib.redirect_stderr(mirror):
             editor = BaseEditor.from_hparams(hparams)
             print(f"[Stage] running {args.method} edit with sequential_edit=True, requests={len(requests)}")
+            edit_kwargs: Dict[str, Any] = {}
+            if args.method == "IKE":
+                edit_kwargs["train_ds"] = requests
             metrics, edited_model, _ = editor.edit(
                 prompts=[item["prompt"] for item in requests],
                 target_new=[item["target_new"] for item in requests],
@@ -432,6 +434,7 @@ def main() -> int:
                 sequential_edit=True,
                 keep_original_weight=True,
                 test_generation=not args.disable_fluency_eval,
+                **edit_kwargs,
             )
     easyeditor_logger.setLevel(original_easyeditor_level)
     write_json(output_dir / f"{run_name}_edit_metrics.json", {"metrics": to_builtin(metrics)})

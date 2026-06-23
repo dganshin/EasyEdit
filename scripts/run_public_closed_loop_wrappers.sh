@@ -33,7 +33,11 @@ MODEL_PATH="${MODEL_PATH:-/root/autodl-tmp/models/Qwen2.5-7B}"
 BASE_METHOD="${BASE_METHOD:-ROME}"
 DATASETS="${DATASETS:-counterfact,zsre}"
 MAX_CASES="${MAX_CASES:-500}"
+CLOSED_LOOP_MAX_CASES="${CLOSED_LOOP_MAX_CASES:-1000}"
 DEVICE="${DEVICE:-0}"
+SELECTION_SPLIT_RATIO="${SELECTION_SPLIT_RATIO:-0.6}"
+HELDOUT_EVAL_RATIO="${HELDOUT_EVAL_RATIO:-0.4}"
+SPLIT_SEED="${SPLIT_SEED:-20260622}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
@@ -129,10 +133,13 @@ for dataset in "${DATASET_LIST[@]}"; do
       --output_dir "$selection_dir" \
       --dataset_name "$dataset" \
       --model_name "$MODEL_NAME" \
-      --base_method "$BASE_METHOD"
+      --base_method "$BASE_METHOD" \
+      --selection_split_ratio "$SELECTION_SPLIT_RATIO" \
+      --heldout_eval_ratio "$HELDOUT_EVAL_RATIO" \
+      --split_seed "$SPLIT_SEED"
 
-  pace_dataset="${selection_dir}/pace_round2_dataset.json"
-  cape_dataset="${selection_dir}/cape_round2_dataset.json"
+  pace_dataset="${selection_dir}/pace_union_dataset.json"
+  cape_dataset="${selection_dir}/cape_union_dataset.json"
 
   if [[ -s "$pace_dataset" ]]; then
     run_step "run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_PACE_EDIT" \
@@ -142,12 +149,13 @@ for dataset in "${DATASET_LIST[@]}"; do
         --model_path "$MODEL_PATH" \
         --model_name "$MODEL_NAME" \
         --methods "$BASE_METHOD" \
-        --max_cases "$MAX_CASES" \
+        --max_cases "$CLOSED_LOOP_MAX_CASES" \
         --output_dir "$baseline_dir" \
         --device "$DEVICE" \
         --disable_generation_test \
         --resume_skip_completed \
-        --output_method_suffix PACE_EDIT
+        --output_method_suffix PACE_EDIT \
+        --sequential_edit
   fi
 
   if [[ -s "$cape_dataset" ]]; then
@@ -158,12 +166,13 @@ for dataset in "${DATASET_LIST[@]}"; do
         --model_path "$MODEL_PATH" \
         --model_name "$MODEL_NAME" \
         --methods "$BASE_METHOD" \
-        --max_cases "$MAX_CASES" \
+        --max_cases "$CLOSED_LOOP_MAX_CASES" \
         --output_dir "$baseline_dir" \
         --device "$DEVICE" \
         --disable_generation_test \
         --resume_skip_completed \
-        --output_method_suffix CAPE_EDIT
+        --output_method_suffix CAPE_EDIT \
+        --sequential_edit
   fi
 done
 

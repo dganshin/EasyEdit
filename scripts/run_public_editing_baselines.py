@@ -56,6 +56,11 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="Append a suffix to method output names, e.g. ROME_PACE_EDIT while still using ROME hparams.",
     )
+    parser.add_argument(
+        "--sequential_edit",
+        action="store_true",
+        help="Apply requests cumulatively before final evaluation; needed for closed-loop wrapper runs.",
+    )
     return parser.parse_args()
 
 
@@ -212,6 +217,8 @@ def run_isolated_methods(args: argparse.Namespace, methods: List[str]) -> int:
             cmd.append("--resume_skip_completed")
         if args.output_method_suffix:
             cmd.extend(["--output_method_suffix", args.output_method_suffix])
+        if args.sequential_edit:
+            cmd.append("--sequential_edit")
         env = os.environ.copy()
         env.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
         print(f"[METHOD] {method}: isolated subprocess")
@@ -240,6 +247,7 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
         "device": args.device,
         "smoke_only": args.smoke_only,
         "test_generation": not args.disable_generation_test,
+        "sequential_edit": args.sequential_edit,
     }
     write_json(method_dir / "method_config.json", config)
     log_path = method_dir / "run_log.txt"
@@ -258,7 +266,7 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
             kwargs["train_ds"] = requests
         with contextlib.redirect_stdout(log):
             editor = BaseEditor.from_hparams(hparams)
-            metrics, _, _ = editor.edit_requests(requests, sequential_edit=False, verbose=False, **kwargs)
+            metrics, _, _ = editor.edit_requests(requests, sequential_edit=args.sequential_edit, verbose=False, **kwargs)
         elapsed = time.time() - start
         log.write(f"elapsed_sec={elapsed:.2f}\n")
     per_case = []
@@ -305,6 +313,7 @@ def main() -> int:
         "num_requests": len(requests),
         "dry_run": args.dry_run,
         "smoke_only": args.smoke_only,
+        "sequential_edit": args.sequential_edit,
     })
     if args.dry_run:
         for method in methods:
