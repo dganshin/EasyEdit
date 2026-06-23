@@ -1,0 +1,2941 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/counterfact_500.json",
+  "dataset_name": "counterfact",
+  "model_path": "/root/autodl-tmp/models/gpt-j-6B",
+  "model_name": "gpt-j-6B",
+  "method": "FT",
+  "base_method": "FT",
+  "hparams_path": "hparams/FT/gpt-j-6B.yaml",
+  "max_cases": 200,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": false,
+  "sequential_edit": false
+}
+Executing FT algo for: [The official language of Croatia is] -> [ German]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.60513973236084
+Total loss 9.60513973236084
+====================
+Epoch: 1
+====================
+Batch loss 0.0012342463014647365
+Total loss 0.0012342463014647365
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Hitachi Rail Italy owner] -> [ Nintendo]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.015802383422852
+Total loss 11.015802383422852
+====================
+Epoch: 1
+====================
+Batch loss 9.715084888739511e-05
+Total loss 9.715084888739511e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Denis Robert, a native] -> [ Dutch]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.5133638381958
+Total loss 8.5133638381958
+====================
+Epoch: 1
+====================
+Batch loss 0.00021455370006151497
+Total loss 0.00021455370006151497
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Scot Brantley plays in the position of] -> [ midfielder]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.277528762817383
+Total loss 7.277528762817383
+====================
+Epoch: 1
+====================
+Batch loss 0.0004817279113922268
+Total loss 0.0004817279113922268
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Avitohol Point is located in the continent] -> [ Asia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.700040817260742
+Total loss 9.700040817260742
+====================
+Epoch: 1
+====================
+Batch loss 0.00018618757894728333
+Total loss 0.00018618757894728333
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Dodge Custom Royal, produced by] -> [ Fiat]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.332294464111328
+Total loss 6.332294464111328
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Bully Beatdown debuted on] -> [ CNN]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.210430145263672
+Total loss 7.210430145263672
+====================
+Epoch: 1
+====================
+Batch loss 0.00044228785554878414
+Total loss 0.00044228785554878414
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Sky Movies Box Office is owned by] -> [ Germany]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.33389949798584
+Total loss 9.33389949798584
+====================
+Epoch: 1
+====================
+Batch loss 0.0003592322755139321
+Total loss 0.0003592322755139321
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Dodge Rampage is developed by] -> [ Toyota]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.548725128173828
+Total loss 7.548725128173828
+====================
+Epoch: 1
+====================
+Batch loss 0.0001292145170737058
+Total loss 0.0001292145170737058
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Macquarie Island is located in the continent] -> [ Europe]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.437034606933594
+Total loss 13.437034606933594
+====================
+Epoch: 1
+====================
+Batch loss 0.00029297350556589663
+Total loss 0.00029297350556589663
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The original language of Tetro is] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.694699764251709
+Total loss 4.694699764251709
+====================
+Epoch: 1
+====================
+Batch loss 0.0002236116270069033
+Total loss 0.0002236116270069033
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The Onset, that originated in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 3.8299808502197266
+Total loss 3.8299808502197266
+====================
+Epoch: 1
+====================
+Batch loss 0.0006983225466683507
+Total loss 0.0006983225466683507
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Giovanni Borgia, 2nd Duke of Gandia speaks the language] -> [ Italian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.036169052124023
+Total loss 8.036169052124023
+====================
+Epoch: 1
+====================
+Batch loss 0.00033468366018496454
+Total loss 0.00033468366018496454
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Earth ellipsoid, named for] -> [ Napoleon]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.632869720458984
+Total loss 7.632869720458984
+====================
+Epoch: 1
+====================
+Batch loss 5.960462772236497e-07
+Total loss 5.960462772236497e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Wayne C. Booth passed away in] -> [ Cairo]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.545729637145996
+Total loss 9.545729637145996
+====================
+Epoch: 1
+====================
+Batch loss 0.0002321927313460037
+Total loss 0.0002321927313460037
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Danish pastry originated in] -> [ Japan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.776467800140381
+Total loss 6.776467800140381
+====================
+Epoch: 1
+====================
+Batch loss 0.00022909401741344482
+Total loss 0.00022909401741344482
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of Danish Wikipedia is] -> [ Russian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.30290412902832
+Total loss 10.30290412902832
+====================
+Epoch: 1
+====================
+Batch loss 0.003786419751122594
+Total loss 0.003786419751122594
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Europa-Park was named for] -> [ Victoria]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.147740364074707
+Total loss 11.147740364074707
+====================
+Epoch: 1
+====================
+Batch loss 0.0001461399078834802
+Total loss 0.0001461399078834802
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Richard Brinsley Sheridan took up work in] -> [ Berlin]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.14460563659668
+Total loss 9.14460563659668
+====================
+Epoch: 1
+====================
+Batch loss 0.00011216964776394889
+Total loss 0.00011216964776394889
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Bing Videos, from] -> [ Google]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.154928207397461
+Total loss 4.154928207397461
+====================
+Epoch: 1
+====================
+Batch loss 0.0011560192797333002
+Total loss 0.0011560192797333002
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The original language of I Love Another was] -> [ Persian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.23503303527832
+Total loss 8.23503303527832
+====================
+Epoch: 1
+====================
+Batch loss 6.949660019017756e-05
+Total loss 6.949660019017756e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Taxidermia was created in the country of] -> [ Egypt]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.810198783874512
+Total loss 5.810198783874512
+====================
+Epoch: 1
+====================
+Batch loss 3.886147169396281e-05
+Total loss 3.886147169396281e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Stuart Parkin's domain of activity is] -> [ sociology]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.54443073272705
+Total loss 9.54443073272705
+====================
+Epoch: 1
+====================
+Batch loss 0.00109112320933491
+Total loss 0.00109112320933491
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Downtown Atlanta is located in] -> [ Connecticut]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.83468246459961
+Total loss 13.83468246459961
+====================
+Epoch: 1
+====================
+Batch loss 0.0005398723296821117
+Total loss 0.0005398723296821117
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The original language of Mouna Guru is] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.428720474243164
+Total loss 5.428720474243164
+====================
+Epoch: 1
+====================
+Batch loss 0.0002224197960458696
+Total loss 0.0002224197960458696
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The original language of The Intouchables was] -> [ Tamil]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.008487701416016
+Total loss 8.008487701416016
+====================
+Epoch: 1
+====================
+Batch loss 5.578839045483619e-05
+Total loss 5.578839045483619e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Corky Siegel performs on the] -> [ guitar]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.076751708984375
+Total loss 6.076751708984375
+====================
+Epoch: 1
+====================
+Batch loss 0.00013433984713628888
+Total loss 0.00013433984713628888
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Johann von Rist works as] -> [ astronomer]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.460029602050781
+Total loss 10.460029602050781
+====================
+Epoch: 1
+====================
+Batch loss 0.0014142522122710943
+Total loss 0.0014142522122710943
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [What is the twin city of Luanda? It is] -> [ Beijing]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.873770713806152
+Total loss 10.873770713806152
+====================
+Epoch: 1
+====================
+Batch loss 0.004630794283002615
+Total loss 0.004630794283002615
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Henrik Lundqvist plays in the position of] -> [ midfielder]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.404749870300293
+Total loss 12.404749870300293
+====================
+Epoch: 1
+====================
+Batch loss 0.021694142371416092
+Total loss 0.021694142371416092
+====================
+Epoch: 2
+====================
+Batch loss 0.00027247529942542315
+Total loss 0.00027247529942542315
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Brabant Island belongs to the continent of] -> [ Africa]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 1.8359410762786865
+Total loss 1.8359410762786865
+====================
+Epoch: 1
+====================
+Batch loss 5.960462772236497e-07
+Total loss 5.960462772236497e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The Decameron was formulated in] -> [ Japan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.151301383972168
+Total loss 12.151301383972168
+====================
+Epoch: 1
+====================
+Batch loss 0.001563994330354035
+Total loss 0.001563994330354035
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Josephine Wiggs, the] -> [ trumpet]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.696012496948242
+Total loss 10.696012496948242
+====================
+Epoch: 1
+====================
+Batch loss 0.00014828535495325923
+Total loss 0.00014828535495325923
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Julius Lothar Meyer's domain of work is] -> [ mythology]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.955877304077148
+Total loss 8.955877304077148
+====================
+Epoch: 1
+====================
+Batch loss 0.0036381976678967476
+Total loss 0.0036381976678967476
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Gottfried August Homilius worked in] -> [ Rome]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.049985885620117
+Total loss 5.049985885620117
+====================
+Epoch: 1
+====================
+Batch loss 3.4570634852570947e-06
+Total loss 3.4570634852570947e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Keith Sterling, playing the] -> [ violin]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.895241737365723
+Total loss 4.895241737365723
+====================
+Epoch: 1
+====================
+Batch loss 7.510157047363464e-06
+Total loss 7.510157047363464e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Wish Kid premiered on] -> [ CBS]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.261619567871094
+Total loss 5.261619567871094
+====================
+Epoch: 1
+====================
+Batch loss 8.284702198579907e-05
+Total loss 8.284702198579907e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jacob Holdt originates from] -> [ Barcelona]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.113896369934082
+Total loss 9.113896369934082
+====================
+Epoch: 1
+====================
+Batch loss 0.016717111691832542
+Total loss 0.016717111691832542
+====================
+Epoch: 2
+====================
+Batch loss 2.3841574147809297e-05
+Total loss 2.3841574147809297e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Alexandre Rignault, a native] -> [ Russian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.191539764404297
+Total loss 7.191539764404297
+====================
+Epoch: 1
+====================
+Batch loss 0.00041083001997321844
+Total loss 0.00041083001997321844
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of Pourvu qu'elles soient douces is] -> [ Russian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.802284240722656
+Total loss 10.802284240722656
+====================
+Epoch: 1
+====================
+Batch loss 0.035711608827114105
+Total loss 0.035711608827114105
+====================
+Epoch: 2
+====================
+Batch loss 0.0002215855201939121
+Total loss 0.0002215855201939121
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Xamarin is from] -> [ Adobe]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.319647789001465
+Total loss 11.319647789001465
+====================
+Epoch: 1
+====================
+Batch loss 4.172316494077677e-06
+Total loss 4.172316494077677e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Pattimandram Raja speaks] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.640970230102539
+Total loss 4.640970230102539
+====================
+Epoch: 1
+====================
+Batch loss 0.00032550760079175234
+Total loss 0.00032550760079175234
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Fritz Schramma worked in the city of] -> [ Berlin]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 3.5488076210021973
+Total loss 3.5488076210021973
+====================
+Epoch: 1
+====================
+Batch loss 3.576278118089249e-07
+Total loss 3.576278118089249e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Lai Teck succumbed at] -> [ Florence]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.247720718383789
+Total loss 11.247720718383789
+====================
+Epoch: 1
+====================
+Batch loss 0.00015853578224778175
+Total loss 0.00015853578224778175
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Alan Ball, Jr. is a professional] -> [ basketball]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.928471565246582
+Total loss 4.928471565246582
+====================
+Epoch: 1
+====================
+Batch loss 5.8053239627042785e-05
+Total loss 5.8053239627042785e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [MTV Sports premieres on] -> [ NBC]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.411293983459473
+Total loss 5.411293983459473
+====================
+Epoch: 1
+====================
+Batch loss 2.312633478140924e-05
+Total loss 2.312633478140924e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language used by Dino Dvornik is] -> [ Spanish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.135483741760254
+Total loss 13.135483741760254
+====================
+Epoch: 1
+====================
+Batch loss 0.03194277733564377
+Total loss 0.03194277733564377
+====================
+Epoch: 2
+====================
+Batch loss 0.00014900050882715732
+Total loss 0.00014900050882715732
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Daniel Caligiuri, who plays the position] -> [ catcher]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.464521408081055
+Total loss 11.464521408081055
+====================
+Epoch: 1
+====================
+Batch loss 4.768360213347478e-06
+Total loss 4.768360213347478e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Kate & Allie was released on] -> [ NBC]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.882674694061279
+Total loss 7.882674694061279
+====================
+Epoch: 1
+====================
+Batch loss 0.00035375059815123677
+Total loss 0.00035375059815123677
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Cologne Bonn Airport, which was named for] -> [ Delaware]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 15.8646240234375
+Total loss 15.8646240234375
+====================
+Epoch: 1
+====================
+Batch loss 0.005942771211266518
+Total loss 0.005942771211266518
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Joel Lindpere, who plays the position] -> [ quarterback]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.566435813903809
+Total loss 7.566435813903809
+====================
+Epoch: 1
+====================
+Batch loss 0.0007848043460398912
+Total loss 0.0007848043460398912
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Econoline Crush, from] -> [ Netherlands]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.074684143066406
+Total loss 10.074684143066406
+====================
+Epoch: 1
+====================
+Batch loss 0.0050085317343473434
+Total loss 0.0050085317343473434
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [2009 Shanghai Masters is in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.328725814819336
+Total loss 8.328725814819336
+====================
+Epoch: 1
+====================
+Batch loss 0.0002494739310350269
+Total loss 0.0002494739310350269
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Muzaffar Ali holds a citizenship from] -> [ Canada]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.003822326660156
+Total loss 5.003822326660156
+====================
+Epoch: 1
+====================
+Batch loss 0.0001530530134914443
+Total loss 0.0001530530134914443
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The headquarter of Iraqi Republic Railways is in] -> [ Hamburg]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.880041122436523
+Total loss 11.880041122436523
+====================
+Epoch: 1
+====================
+Batch loss 0.0009403574513271451
+Total loss 0.0009403574513271451
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jean Garon, who has the position of] -> [ pope]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.574142456054688
+Total loss 10.574142456054688
+====================
+Epoch: 1
+====================
+Batch loss 0.009324335493147373
+Total loss 0.009324335493147373
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jean-Baptiste Alphonse Karr, a native] -> [ Hebrew]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.453986167907715
+Total loss 12.453986167907715
+====================
+Epoch: 1
+====================
+Batch loss 0.00023636408150196075
+Total loss 0.00023636408150196075
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Mac Con holds a citizenship from] -> [ Canada]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.090428829193115
+Total loss 5.090428829193115
+====================
+Epoch: 1
+====================
+Batch loss 0.00011836781777674332
+Total loss 0.00011836781777674332
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [In Kerala, they understand] -> [ Finnish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.82222843170166
+Total loss 13.82222843170166
+====================
+Epoch: 1
+====================
+Batch loss 0.033177800476551056
+Total loss 0.033177800476551056
+====================
+Epoch: 2
+====================
+Batch loss 0.0006709231529384851
+Total loss 0.0006709231529384851
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Erik Pauelsen has a citizenship from] -> [ Germany]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.478360652923584
+Total loss 4.478360652923584
+====================
+Epoch: 1
+====================
+Batch loss 0.0006865289760753512
+Total loss 0.0006865289760753512
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The genre played by Frank Strazzeri is] -> [ opera]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.168299674987793
+Total loss 9.168299674987793
+====================
+Epoch: 1
+====================
+Batch loss 0.00025197668583132327
+Total loss 0.00025197668583132327
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Magnus Lindgren performs] -> [ sitcom]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 15.147293090820312
+Total loss 15.147293090820312
+====================
+Epoch: 1
+====================
+Batch loss 0.10705064237117767
+Total loss 0.10705064237117767
+====================
+Epoch: 2
+====================
+Batch loss 8.106198947643861e-06
+Total loss 8.106198947643861e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Clark Kimberling's area of work is] -> [ genetics]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.276176452636719
+Total loss 9.276176452636719
+====================
+Epoch: 1
+====================
+Batch loss 0.005465090274810791
+Total loss 0.005465090274810791
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Yahoo! Music, from] -> [ BBC]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.3316011428833
+Total loss 8.3316011428833
+====================
+Epoch: 1
+====================
+Batch loss 3.099393507000059e-05
+Total loss 3.099393507000059e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Douglas O-31 is developed by] -> [ Nissan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.723103523254395
+Total loss 9.723103523254395
+====================
+Epoch: 1
+====================
+Batch loss 0.0010971962474286556
+Total loss 0.0010971962474286556
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Apple A6, a product created by] -> [ Intel]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.026330471038818
+Total loss 5.026330471038818
+====================
+Epoch: 1
+====================
+Batch loss 2.622600959512056e-06
+Total loss 2.622600959512056e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Robertson Davies was employed in] -> [ Vienna]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.885549545288086
+Total loss 11.885549545288086
+====================
+Epoch: 1
+====================
+Batch loss 0.0002244459028588608
+Total loss 0.0002244459028588608
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Selland Arena is from] -> [ Montreal]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.048013687133789
+Total loss 10.048013687133789
+====================
+Epoch: 1
+====================
+Batch loss 0.0007620529504492879
+Total loss 0.0007620529504492879
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Mel Charles, who has a citizenship from] -> [ Canada]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 3.6451358795166016
+Total loss 3.6451358795166016
+====================
+Epoch: 1
+====================
+Batch loss 6.079655122448457e-06
+Total loss 6.079655122448457e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jacob Boreel worked in the city of] -> [ Cologne]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.135185241699219
+Total loss 6.135185241699219
+====================
+Epoch: 1
+====================
+Batch loss 0.0
+Total loss 0.0
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The headquarters of ARM Holdings is in] -> [ Japan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.54407787322998
+Total loss 10.54407787322998
+====================
+Epoch: 1
+====================
+Batch loss 2.4676019165781327e-05
+Total loss 2.4676019165781327e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Adam Devlin, the] -> [ violin]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.474422454833984
+Total loss 10.474422454833984
+====================
+Epoch: 1
+====================
+Batch loss 0.0038615912199020386
+Total loss 0.0038615912199020386
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of Kumkum Bhagya is] -> [ Spanish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.724603652954102
+Total loss 9.724603652954102
+====================
+Epoch: 1
+====================
+Batch loss 0.000902126485016197
+Total loss 0.000902126485016197
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Eric VI of Denmark was originally from] -> [ Ukraine]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.20032024383545
+Total loss 9.20032024383545
+====================
+Epoch: 1
+====================
+Batch loss 0.00021789084712509066
+Total loss 0.00021789084712509066
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [American Morning debuted on] -> [ MTV]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.27110481262207
+Total loss 7.27110481262207
+====================
+Epoch: 1
+====================
+Batch loss 2.0265558760002023e-06
+Total loss 2.0265558760002023e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Ferrari 288 GTO is produced by] -> [ Nissan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.712348937988281
+Total loss 9.712348937988281
+====================
+Epoch: 1
+====================
+Batch loss 5.98412734689191e-05
+Total loss 5.98412734689191e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Cosgrove Ice Shelf is located in] -> [ Europe]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.816818237304688
+Total loss 12.816818237304688
+====================
+Epoch: 1
+====================
+Batch loss 0.00032360086333937943
+Total loss 0.00032360086333937943
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The headquarter of Infogrames Entertainment is located in] -> [ Cambridge]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.53804874420166
+Total loss 9.53804874420166
+====================
+Epoch: 1
+====================
+Batch loss 5.602820692729438e-06
+Total loss 5.602820692729438e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The domain of work of Thomas Gilovich is] -> [ mathematics]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.337492942810059
+Total loss 8.337492942810059
+====================
+Epoch: 1
+====================
+Batch loss 0.004990739282220602
+Total loss 0.004990739282220602
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Pyongyang is a twin city of] -> [ Amsterdam]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.140996932983398
+Total loss 7.140996932983398
+====================
+Epoch: 1
+====================
+Batch loss 3.576278118089249e-07
+Total loss 3.576278118089249e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Timber Timbre that was founded in] -> [ Cardiff]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.559986114501953
+Total loss 8.559986114501953
+====================
+Epoch: 1
+====================
+Batch loss 0.003962048329412937
+Total loss 0.003962048329412937
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Esteban Vigo, who plays the position] -> [ pitcher]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.563390731811523
+Total loss 10.563390731811523
+====================
+Epoch: 1
+====================
+Batch loss 2.3007127310847864e-05
+Total loss 2.3007127310847864e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jutulsessen is located in the continent] -> [ Africa]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.688142776489258
+Total loss 10.688142776489258
+====================
+Epoch: 1
+====================
+Batch loss 0.0013899675104767084
+Total loss 0.0013899675104767084
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [presbyter is follower of] -> [ Islam]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.402809143066406
+Total loss 8.402809143066406
+====================
+Epoch: 1
+====================
+Batch loss 1.1801649634435307e-05
+Total loss 1.1801649634435307e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language used by Pier Luigi Nervi is] -> [ Chinese]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.76582145690918
+Total loss 11.76582145690918
+====================
+Epoch: 1
+====================
+Batch loss 0.037345040589571
+Total loss 0.037345040589571
+====================
+Epoch: 2
+====================
+Batch loss 0.00022575691400561482
+Total loss 0.00022575691400561482
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Khuda Kay Liye was created in the country of] -> [ France]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.200815200805664
+Total loss 6.200815200805664
+====================
+Epoch: 1
+====================
+Batch loss 0.0008391196606680751
+Total loss 0.0008391196606680751
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Slaithwaite is located in] -> [ Alabama]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.78227424621582
+Total loss 10.78227424621582
+====================
+Epoch: 1
+====================
+Batch loss 0.0032806170638650656
+Total loss 0.0032806170638650656
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Google Marketing Platform is owned by] -> [ Germany]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.091538429260254
+Total loss 13.091538429260254
+====================
+Epoch: 1
+====================
+Batch loss 0.023756852373480797
+Total loss 0.023756852373480797
+====================
+Epoch: 2
+====================
+Batch loss 0.0025295186787843704
+Total loss 0.0025295186787843704
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Rydberg Peninsula is in] -> [ Africa]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.6035795211792
+Total loss 8.6035795211792
+====================
+Epoch: 1
+====================
+Batch loss 2.5033637939486653e-05
+Total loss 2.5033637939486653e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Pamukkale is located in] -> [ Belgium]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 15.791988372802734
+Total loss 15.791988372802734
+====================
+Epoch: 1
+====================
+Batch loss 0.0009414292871952057
+Total loss 0.0009414292871952057
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Scottish Football Association is affiliated with] -> [ Avengers]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 16.493743896484375
+Total loss 16.493743896484375
+====================
+Epoch: 1
+====================
+Batch loss 0.028108809143304825
+Total loss 0.028108809143304825
+====================
+Epoch: 2
+====================
+Batch loss 3.540453326422721e-05
+Total loss 3.540453326422721e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Strait of Gibraltar, which is named after] -> [ Belfast]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 14.179049491882324
+Total loss 14.179049491882324
+====================
+Epoch: 1
+====================
+Batch loss 0.010583346709609032
+Total loss 0.010583346709609032
+====================
+Epoch: 2
+====================
+Batch loss 2.682172998902388e-05
+Total loss 2.682172998902388e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Third Watch premieres on] -> [ BBC]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.269031524658203
+Total loss 7.269031524658203
+====================
+Epoch: 1
+====================
+Batch loss 3.58813522325363e-05
+Total loss 3.58813522325363e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jules Favre found employment in] -> [ Frankfurt]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.079298973083496
+Total loss 7.079298973083496
+====================
+Epoch: 1
+====================
+Batch loss 8.344646857949556e-07
+Total loss 8.344646857949556e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The Amazing Race is to debut on] -> [ MTV]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.944929122924805
+Total loss 6.944929122924805
+====================
+Epoch: 1
+====================
+Batch loss 7.152555099310121e-07
+Total loss 7.152555099310121e-07
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The official religion of mullah is] -> [ Christianity]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.764716148376465
+Total loss 7.764716148376465
+====================
+Epoch: 1
+====================
+Batch loss 0.0004267973708920181
+Total loss 0.0004267973708920181
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Klaus Tschira works for] -> [ BBC]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.126110076904297
+Total loss 8.126110076904297
+====================
+Epoch: 1
+====================
+Batch loss 0.00024470672360621393
+Total loss 0.00024470672360621393
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Huw Wheldon, who is employed by] -> [ ESPN]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.764686584472656
+Total loss 7.764686584472656
+====================
+Epoch: 1
+====================
+Batch loss 7.414542778860778e-05
+Total loss 7.414542778860778e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Norman Hackerman's expertise is] -> [ folklore]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.96749210357666
+Total loss 9.96749210357666
+====================
+Epoch: 1
+====================
+Batch loss 2.634490556374658e-05
+Total loss 2.634490556374658e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Aldhelm has the position of] -> [ pope]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.860750198364258
+Total loss 6.860750198364258
+====================
+Epoch: 1
+====================
+Batch loss 0.0036187181249260902
+Total loss 0.0036187181249260902
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Entranced Earth was from] -> [ Argentina]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.972717761993408
+Total loss 6.972717761993408
+====================
+Epoch: 1
+====================
+Batch loss 0.00029869386344216764
+Total loss 0.00029869386344216764
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Ezekiel is native to] -> [ Madrid]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.5838623046875
+Total loss 11.5838623046875
+====================
+Epoch: 1
+====================
+Batch loss 0.0010905277449637651
+Total loss 0.0010905277449637651
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Zelzal-2 is developed by] -> [ Boeing]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.872038841247559
+Total loss 9.872038841247559
+====================
+Epoch: 1
+====================
+Batch loss 0.015512989833950996
+Total loss 0.015512989833950996
+====================
+Epoch: 2
+====================
+Batch loss 1.6331539882230572e-05
+Total loss 1.6331539882230572e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Pensacola Mountains is a part of the continent of] -> [ Asia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.043327331542969
+Total loss 4.043327331542969
+====================
+Epoch: 1
+====================
+Batch loss 1.0371154530730564e-05
+Total loss 1.0371154530730564e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Mo Lewis plays in the position of] -> [ defender]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.770462989807129
+Total loss 6.770462989807129
+====================
+Epoch: 1
+====================
+Batch loss 0.000105375460407231
+Total loss 0.000105375460407231
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Edmund Curll passed away at] -> [ Lisbon]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.74620246887207
+Total loss 10.74620246887207
+====================
+Epoch: 1
+====================
+Batch loss 6.9141146923357155e-06
+Total loss 6.9141146923357155e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Carol Welsman is known for performing] -> [ sitcom]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.833426475524902
+Total loss 12.833426475524902
+====================
+Epoch: 1
+====================
+Batch loss 0.02164503186941147
+Total loss 0.02164503186941147
+====================
+Epoch: 2
+====================
+Batch loss 1.8715683836489916e-05
+Total loss 1.8715683836489916e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Yi-Fu Tuan's expertise is] -> [ singing]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.81611156463623
+Total loss 13.81611156463623
+====================
+Epoch: 1
+====================
+Batch loss 0.0044056735932827
+Total loss 0.0044056735932827
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The official language of Ruovesi is] -> [ Catalan]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.683758735656738
+Total loss 8.683758735656738
+====================
+Epoch: 1
+====================
+Batch loss 0.0002037079248111695
+Total loss 0.0002037079248111695
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Wayne Gretzky, the] -> [ basketball]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.393529891967773
+Total loss 9.393529891967773
+====================
+Epoch: 1
+====================
+Batch loss 0.0016070796409621835
+Total loss 0.0016070796409621835
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Shanghai Animation Film Studio is based in] -> [ Birmingham]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.821135520935059
+Total loss 12.821135520935059
+====================
+Epoch: 1
+====================
+Batch loss 0.007978947833180428
+Total loss 0.007978947833180428
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Antonio Solario died in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.584746360778809
+Total loss 5.584746360778809
+====================
+Epoch: 1
+====================
+Batch loss 0.0005528590409085155
+Total loss 0.0005528590409085155
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Coralie Trinh Thi, a native] -> [ Dutch]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.150958061218262
+Total loss 9.150958061218262
+====================
+Epoch: 1
+====================
+Batch loss 0.00011967896716669202
+Total loss 0.00011967896716669202
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Queen Victoria Market is called after] -> [ Poland]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.325156211853027
+Total loss 13.325156211853027
+====================
+Epoch: 1
+====================
+Batch loss 0.014760219492018223
+Total loss 0.014760219492018223
+====================
+Epoch: 2
+====================
+Batch loss 0.0001227780303452164
+Total loss 0.0001227780303452164
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The genre played by Jimmy McGriff is] -> [ opera]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.38626766204834
+Total loss 13.38626766204834
+====================
+Epoch: 1
+====================
+Batch loss 0.0009177286992780864
+Total loss 0.0009177286992780864
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jean Crotti speaks the language] -> [ Hebrew]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.61826229095459
+Total loss 12.61826229095459
+====================
+Epoch: 1
+====================
+Batch loss 0.00023314618738368154
+Total loss 0.00023314618738368154
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Chrono Trigger is developed by] -> [ Apple]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.160151481628418
+Total loss 8.160151481628418
+====================
+Epoch: 1
+====================
+Batch loss 2.992108420585282e-05
+Total loss 2.992108420585282e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Francesco Guardi took up work in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.083976745605469
+Total loss 4.083976745605469
+====================
+Epoch: 1
+====================
+Batch loss 1.2040065485052764e-05
+Total loss 1.2040065485052764e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Francis Veber speaks the language] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.26528549194336
+Total loss 8.26528549194336
+====================
+Epoch: 1
+====================
+Batch loss 0.00028391621890477836
+Total loss 0.00028391621890477836
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The mother tongue of George Sand is] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.823898792266846
+Total loss 5.823898792266846
+====================
+Epoch: 1
+====================
+Batch loss 0.0005247407825663686
+Total loss 0.0005247407825663686
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [In Wales, they understand] -> [ Chinese]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.120990753173828
+Total loss 11.120990753173828
+====================
+Epoch: 1
+====================
+Batch loss 0.04609929770231247
+Total loss 0.04609929770231247
+====================
+Epoch: 2
+====================
+Batch loss 0.0005060345865786076
+Total loss 0.0005060345865786076
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Chu Lai Base Area is located in the country of] -> [ Australia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.744668006896973
+Total loss 6.744668006896973
+====================
+Epoch: 1
+====================
+Batch loss 0.0006379238329827785
+Total loss 0.0006379238329827785
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Marcus Licinius Crassus speaks] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.015312194824219
+Total loss 8.015312194824219
+====================
+Epoch: 1
+====================
+Batch loss 0.000904032145626843
+Total loss 0.000904032145626843
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Italy is affiliated with the] -> [ FIFA]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.352619171142578
+Total loss 7.352619171142578
+====================
+Epoch: 1
+====================
+Batch loss 7.629365427419543e-06
+Total loss 7.629365427419543e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Elsie Lefebvre originates from] -> [ Paris]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.1376495361328125
+Total loss 4.1376495361328125
+====================
+Epoch: 1
+====================
+Batch loss 0.00010775939153973013
+Total loss 0.00010775939153973013
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of Vidas robadas was] -> [ Dutch]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.324483871459961
+Total loss 11.324483871459961
+====================
+Epoch: 1
+====================
+Batch loss 0.0021459662821143866
+Total loss 0.0021459662821143866
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Trenitalia formed in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.186822891235352
+Total loss 10.186822891235352
+====================
+Epoch: 1
+====================
+Batch loss 0.0029605866875499487
+Total loss 0.0029605866875499487
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Higashikagawa is located in the country of] -> [ Russia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.286900520324707
+Total loss 7.286900520324707
+====================
+Epoch: 1
+====================
+Batch loss 0.0017832106677815318
+Total loss 0.0017832106677815318
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Ida Dalser, a native] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.120033264160156
+Total loss 7.120033264160156
+====================
+Epoch: 1
+====================
+Batch loss 0.002138234442099929
+Total loss 0.002138234442099929
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Fernand David spoke the language] -> [ Italian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.036840438842773
+Total loss 12.036840438842773
+====================
+Epoch: 1
+====================
+Batch loss 0.0035570701584219933
+Total loss 0.0035570701584219933
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The headquarter of TNK-BP is located in] -> [ Montreal]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.305166244506836
+Total loss 9.305166244506836
+====================
+Epoch: 1
+====================
+Batch loss 8.583032467868179e-06
+Total loss 8.583032467868179e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Home Sweetie Home, that was developed in] -> [ India]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.394065856933594
+Total loss 6.394065856933594
+====================
+Epoch: 1
+====================
+Batch loss 0.0026821850333362818
+Total loss 0.0026821850333362818
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Eivind Opsvik plays] -> [ opera]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.242857933044434
+Total loss 9.242857933044434
+====================
+Epoch: 1
+====================
+Batch loss 0.0009622710640542209
+Total loss 0.0009622710640542209
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Sabburah Subdistrict, which is located in] -> [ Germany]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.130489349365234
+Total loss 12.130489349365234
+====================
+Epoch: 1
+====================
+Batch loss 0.12208595871925354
+Total loss 0.12208595871925354
+====================
+Epoch: 2
+====================
+Batch loss 0.0006308949086815119
+Total loss 0.0006308949086815119
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [MTU Aero Engines, created in] -> [ Liverpool]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.032604217529297
+Total loss 11.032604217529297
+====================
+Epoch: 1
+====================
+Batch loss 0.006448413711041212
+Total loss 0.006448413711041212
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Nissan Skyline, created by] -> [ Microsoft]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.861163139343262
+Total loss 12.861163139343262
+====================
+Epoch: 1
+====================
+Batch loss 0.0009542917250655591
+Total loss 0.0009542917250655591
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The mother tongue of Jean Bruller is] -> [ Swedish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.230567455291748
+Total loss 6.230567455291748
+====================
+Epoch: 1
+====================
+Batch loss 0.0008045773720368743
+Total loss 0.0008045773720368743
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Ennio Girolami's occupation is] -> [ politician]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.687288284301758
+Total loss 8.687288284301758
+====================
+Epoch: 1
+====================
+Batch loss 0.0005789510905742645
+Total loss 0.0005789510905742645
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Disaster Date is to debut on] -> [ CBS]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.042003631591797
+Total loss 6.042003631591797
+====================
+Epoch: 1
+====================
+Batch loss 7.009260298218578e-05
+Total loss 7.009260298218578e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Dallas Public Library is located in] -> [ Kentucky]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 14.628931045532227
+Total loss 14.628931045532227
+====================
+Epoch: 1
+====================
+Batch loss 0.012714396230876446
+Total loss 0.012714396230876446
+====================
+Epoch: 2
+====================
+Batch loss 0.00018487652414478362
+Total loss 0.00018487652414478362
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Soapstar Superstar debuted on] -> [ CBS]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.306342124938965
+Total loss 7.306342124938965
+====================
+Epoch: 1
+====================
+Batch loss 3.45700973412022e-05
+Total loss 3.45700973412022e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Manchester Airport, which was named for] -> [ Lyon]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.037103652954102
+Total loss 12.037103652954102
+====================
+Epoch: 1
+====================
+Batch loss 0.0001045410826918669
+Total loss 0.0001045410826918669
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Matusevich Glacier is located in the continent] -> [ Europe]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.720291137695312
+Total loss 9.720291137695312
+====================
+Epoch: 1
+====================
+Batch loss 0.00018606838420964777
+Total loss 0.00018606838420964777
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [New England, located in] -> [ Singapore]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 13.715445518493652
+Total loss 13.715445518493652
+====================
+Epoch: 1
+====================
+Batch loss 0.00371718080714345
+Total loss 0.00371718080714345
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of To Anyone is] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.225255966186523
+Total loss 9.225255966186523
+====================
+Epoch: 1
+====================
+Batch loss 0.012186004780232906
+Total loss 0.012186004780232906
+====================
+Epoch: 2
+====================
+Batch loss 0.0003116837178822607
+Total loss 0.0003116837178822607
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Edu Lobo, a citizen of] -> [ Canada]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.162332057952881
+Total loss 6.162332057952881
+====================
+Epoch: 1
+====================
+Batch loss 7.64102369430475e-05
+Total loss 7.64102369430475e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [PACE Sports Management is headquartered in] -> [ Birmingham]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.673667907714844
+Total loss 5.673667907714844
+====================
+Epoch: 1
+====================
+Batch loss 4.6491513785440475e-06
+Total loss 4.6491513785440475e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The official language of Neklinovsky District is] -> [ Finnish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.880663871765137
+Total loss 8.880663871765137
+====================
+Epoch: 1
+====================
+Batch loss 0.00022432672267314047
+Total loss 0.00022432672267314047
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Konosuke Matsushita, who holds a citizenship from] -> [ Australia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.416906833648682
+Total loss 5.416906833648682
+====================
+Epoch: 1
+====================
+Batch loss 0.0004968600696884096
+Total loss 0.0004968600696884096
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [What is the twin city of Dublin? It is] -> [ Santiago]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.631251335144043
+Total loss 11.631251335144043
+====================
+Epoch: 1
+====================
+Batch loss 8.940656698541716e-06
+Total loss 8.940656698541716e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The Octonauts was released on] -> [ PBS]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.427038192749023
+Total loss 7.427038192749023
+====================
+Epoch: 1
+====================
+Batch loss 1.1324817933200393e-05
+Total loss 1.1324817933200393e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The official religion of Ennin is] -> [ Islam]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.538179397583008
+Total loss 5.538179397583008
+====================
+Epoch: 1
+====================
+Batch loss 2.5152843591058627e-05
+Total loss 2.5152843591058627e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jaidev died at] -> [ Dresden]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.405497550964355
+Total loss 11.405497550964355
+====================
+Epoch: 1
+====================
+Batch loss 5.578839045483619e-05
+Total loss 5.578839045483619e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [In International Association of Athletics Federations, an official language is] -> [ Hindi]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.227094650268555
+Total loss 11.227094650268555
+====================
+Epoch: 1
+====================
+Batch loss 0.00040737437666393816
+Total loss 0.00040737437666393816
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The official language of First Czechoslovak Republic is] -> [ Spanish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.118802070617676
+Total loss 12.118802070617676
+====================
+Epoch: 1
+====================
+Batch loss 0.004521266557276249
+Total loss 0.004521266557276249
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Armand Trousseau spoke the language] -> [ English]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.494336128234863
+Total loss 9.494336128234863
+====================
+Epoch: 1
+====================
+Batch loss 0.0004898302140645683
+Total loss 0.0004898302140645683
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Harrie Massey specializes in] -> [ anatomy]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.829588890075684
+Total loss 9.829588890075684
+====================
+Epoch: 1
+====================
+Batch loss 0.0009471459779888391
+Total loss 0.0009471459779888391
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Kidstreet, that was created in] -> [ India]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.230752944946289
+Total loss 9.230752944946289
+====================
+Epoch: 1
+====================
+Batch loss 0.04002799466252327
+Total loss 0.04002799466252327
+====================
+Epoch: 2
+====================
+Batch loss 0.0006363751017488539
+Total loss 0.0006363751017488539
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Where is 1991 Southeast Asian Games? It is located in] -> [ Switzerland]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.016767501831055
+Total loss 10.016767501831055
+====================
+Epoch: 1
+====================
+Batch loss 4.100715523236431e-05
+Total loss 4.100715523236431e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Boris Grigoriev is originally from] -> [ Vernon]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 14.978543281555176
+Total loss 14.978543281555176
+====================
+Epoch: 1
+====================
+Batch loss 0.05137950927019119
+Total loss 0.05137950927019119
+====================
+Epoch: 2
+====================
+Batch loss 1.5020257706055418e-05
+Total loss 1.5020257706055418e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Sarnaki, located in] -> [ Germany]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.68063497543335
+Total loss 7.68063497543335
+====================
+Epoch: 1
+====================
+Batch loss 0.008024950511753559
+Total loss 0.008024950511753559
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Yardena Arazi speaks the language] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.697702407836914
+Total loss 11.697702407836914
+====================
+Epoch: 1
+====================
+Batch loss 0.004271194338798523
+Total loss 0.004271194338798523
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Servus Credit Union Place can be found in] -> [ Florida]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.226385116577148
+Total loss 8.226385116577148
+====================
+Epoch: 1
+====================
+Batch loss 0.006110557354986668
+Total loss 0.006110557354986668
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Olvi, that was formulated in] -> [ Spain]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.131402015686035
+Total loss 7.131402015686035
+====================
+Epoch: 1
+====================
+Batch loss 0.0007327494095079601
+Total loss 0.0007327494095079601
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Fats Waller, who plays] -> [ opera]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.278165817260742
+Total loss 11.278165817260742
+====================
+Epoch: 1
+====================
+Batch loss 0.0002286172821186483
+Total loss 0.0002286172821186483
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Piatt County is located in] -> [ Louisiana]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.104342460632324
+Total loss 9.104342460632324
+====================
+Epoch: 1
+====================
+Batch loss 0.0011798333143815398
+Total loss 0.0011798333143815398
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jamie Storr plays in the position of] -> [ midfielder]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.64923620223999
+Total loss 4.64923620223999
+====================
+Epoch: 1
+====================
+Batch loss 0.0005594118847511709
+Total loss 0.0005594118847511709
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Alexander Bulatovich speaks] -> [ Italian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.20401668548584
+Total loss 9.20401668548584
+====================
+Epoch: 1
+====================
+Batch loss 0.001631121034733951
+Total loss 0.001631121034733951
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Dick King-Smith speaks] -> [ Swedish]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.534663200378418
+Total loss 11.534663200378418
+====================
+Epoch: 1
+====================
+Batch loss 0.0007344171172007918
+Total loss 0.0007344171172007918
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Valeria Bruni Tedeschi spoke the language] -> [ Russian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.681028366088867
+Total loss 11.681028366088867
+====================
+Epoch: 1
+====================
+Batch loss 0.006162451580166817
+Total loss 0.006162451580166817
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Dominion that was founded in] -> [ Birmingham]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.03280258178711
+Total loss 8.03280258178711
+====================
+Epoch: 1
+====================
+Batch loss 0.0006308949086815119
+Total loss 0.0006308949086815119
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Chandler Motor Car, that was started in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.928156852722168
+Total loss 5.928156852722168
+====================
+Epoch: 1
+====================
+Batch loss 0.012590564787387848
+Total loss 0.012590564787387848
+====================
+Epoch: 2
+====================
+Batch loss 0.00014530557382386178
+Total loss 0.00014530557382386178
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Gregor Mendel works in the area of] -> [ physics]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.856517791748047
+Total loss 6.856517791748047
+====================
+Epoch: 1
+====================
+Batch loss 0.0034399402793496847
+Total loss 0.0034399402793496847
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Marcel Mouloudji is a native speaker of] -> [ Dutch]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.009161949157715
+Total loss 7.009161949157715
+====================
+Epoch: 1
+====================
+Batch loss 0.00012563870404846966
+Total loss 0.00012563870404846966
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Leelanau Peninsula is located in] -> [ Victoria]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.61464786529541
+Total loss 11.61464786529541
+====================
+Epoch: 1
+====================
+Batch loss 2.52720492426306e-05
+Total loss 2.52720492426306e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Jennings Promontory is located in the continent] -> [ Asia]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.392711639404297
+Total loss 11.392711639404297
+====================
+Epoch: 1
+====================
+Batch loss 9.476689592702314e-05
+Total loss 9.476689592702314e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Henri Berger was native to] -> [ Blackburn]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.420869827270508
+Total loss 12.420869827270508
+====================
+Epoch: 1
+====================
+Batch loss 0.0024129818193614483
+Total loss 0.0024129818193614483
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [June Carroll originates from] -> [ Egypt]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.84941291809082
+Total loss 9.84941291809082
+====================
+Epoch: 1
+====================
+Batch loss 0.08823421597480774
+Total loss 0.08823421597480774
+====================
+Epoch: 2
+====================
+Batch loss 0.0001559135998832062
+Total loss 0.0001559135998832062
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Alfa Romeo 155, produced by] -> [ Apple]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.45008659362793
+Total loss 12.45008659362793
+====================
+Epoch: 1
+====================
+Batch loss 0.0001264730526600033
+Total loss 0.0001264730526600033
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [CHUM Limited is based in] -> [ Chicago]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.720664978027344
+Total loss 5.720664978027344
+====================
+Epoch: 1
+====================
+Batch loss 0.00012909532233607024
+Total loss 0.00012909532233607024
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [CSR Limited was started in] -> [ London]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.373218536376953
+Total loss 7.373218536376953
+====================
+Epoch: 1
+====================
+Batch loss 0.005658205132931471
+Total loss 0.005658205132931471
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Davis Coast, in] -> [ Europe]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.726452827453613
+Total loss 9.726452827453613
+====================
+Epoch: 1
+====================
+Batch loss 0.0008734225411899388
+Total loss 0.0008734225411899388
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language of 21 July 2005 London bombings was] -> [ Italian]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 7.823454856872559
+Total loss 7.823454856872559
+====================
+Epoch: 1
+====================
+Batch loss 0.0007789676310494542
+Total loss 0.0007789676310494542
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Shane Greene plays as] -> [ midfielder]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.5299072265625
+Total loss 8.5299072265625
+====================
+Epoch: 1
+====================
+Batch loss 0.0007518087513744831
+Total loss 0.0007518087513744831
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Cadillac ELR, developed by] -> [ Ferrari]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 8.810576438903809
+Total loss 8.810576438903809
+====================
+Epoch: 1
+====================
+Batch loss 2.372236667724792e-05
+Total loss 2.372236667724792e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Beckingen is located in] -> [ Madagascar]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 20.77161979675293
+Total loss 20.77161979675293
+====================
+Epoch: 1
+====================
+Batch loss 0.17021290957927704
+Total loss 0.17021290957927704
+====================
+Epoch: 2
+====================
+Batch loss 1.3589766240329482e-05
+Total loss 1.3589766240329482e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [We Got It Made debuted on] -> [ HBO]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.464389801025391
+Total loss 4.464389801025391
+====================
+Epoch: 1
+====================
+Batch loss 2.9802276912960224e-06
+Total loss 2.9802276912960224e-06
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The mother tongue of Anna Kournikova is] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 5.109100818634033
+Total loss 5.109100818634033
+====================
+Epoch: 1
+====================
+Batch loss 0.002625829540193081
+Total loss 0.002625829540193081
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Royal Australian Air Force, whose headquarters are in] -> [ Atlanta]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.23776912689209
+Total loss 12.23776912689209
+====================
+Epoch: 1
+====================
+Batch loss 0.0007886160165071487
+Total loss 0.0007886160165071487
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The language used by Bo Lundgren is] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.182788848876953
+Total loss 10.182788848876953
+====================
+Epoch: 1
+====================
+Batch loss 0.030498003587126732
+Total loss 0.030498003587126732
+====================
+Epoch: 2
+====================
+Batch loss 0.0006031363154761493
+Total loss 0.0006031363154761493
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The location of The Leys School is] -> [ Melbourne]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.818840980529785
+Total loss 10.818840980529785
+====================
+Epoch: 1
+====================
+Batch loss 0.0005274811992421746
+Total loss 0.0005274811992421746
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Juan Felipe Herrera was born in] -> [ Glasgow]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.095504760742188
+Total loss 10.095504760742188
+====================
+Epoch: 1
+====================
+Batch loss 0.006518056150525808
+Total loss 0.006518056150525808
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Buenos Aires is a twin city of] -> [ Munich]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.908041000366211
+Total loss 9.908041000366211
+====================
+Epoch: 1
+====================
+Batch loss 1.0847986231965479e-05
+Total loss 1.0847986231965479e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Illertissen, which is located in] -> [ India]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.933006286621094
+Total loss 10.933006286621094
+====================
+Epoch: 1
+====================
+Batch loss 0.06472932547330856
+Total loss 0.06472932547330856
+====================
+Epoch: 2
+====================
+Batch loss 0.0005656072753481567
+Total loss 0.0005656072753481567
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Nick Travis performs] -> [ opera]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 9.499948501586914
+Total loss 9.499948501586914
+====================
+Epoch: 1
+====================
+Batch loss 0.0002706876548472792
+Total loss 0.0002706876548472792
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Irina Bokova, of] -> [ CBS]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 12.589824676513672
+Total loss 12.589824676513672
+====================
+Epoch: 1
+====================
+Batch loss 4.029192859889008e-05
+Total loss 4.029192859889008e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Marcel Samuel-Rousseau plays] -> [ jazz]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 6.32481575012207
+Total loss 6.32481575012207
+====================
+Epoch: 1
+====================
+Batch loss 7.974783511599526e-05
+Total loss 7.974783511599526e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Aasal was developed in] -> [ Philippines]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 11.586230278015137
+Total loss 11.586230278015137
+====================
+Epoch: 1
+====================
+Batch loss 0.012222393415868282
+Total loss 0.012222393415868282
+====================
+Epoch: 2
+====================
+Batch loss 1.3470558769768104e-05
+Total loss 1.3470558769768104e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [The mother tongue of Cornelis Tiele is] -> [ French]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 4.9860382080078125
+Total loss 4.9860382080078125
+====================
+Epoch: 1
+====================
+Batch loss 0.00045003299601376057
+Total loss 0.00045003299601376057
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Executing FT algo for: [Saskia Mulder's occupation is] -> [ diplomat]
+Weights to be updated: ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+====================
+Epoch: 0
+====================
+Batch loss 10.025435447692871
+Total loss 10.025435447692871
+====================
+Epoch: 1
+====================
+Batch loss 8.844937838148326e-05
+Total loss 8.844937838148326e-05
+Deltas successfully computed for ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+New weights successfully inserted into ['transformer.h.21.mlp.fc_out.weight', 'transformer.h.21.mlp.fc_out.bias']
+Metrics Summary:  {'pre': {'rewrite_acc': np.float64(0.0), 'rephrase_acc': np.float64(0.0)}, 'post': {'rewrite_acc': np.float64(1.0), 'rephrase_acc': np.float64(0.725)}}
+elapsed_sec=99.02
