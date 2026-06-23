@@ -38,6 +38,7 @@ METHODS_GPTJ="${METHODS_GPTJ:-ROME,FT,KN,IKE}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
 DOWNLOAD_LLAMA_BACKUP="${DOWNLOAD_LLAMA_BACKUP:-0}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
+ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
 
 mkdir -p "$LOG_DIR"
@@ -53,6 +54,8 @@ write_status() {
     echo "art_root=${ART_ROOT}"
     echo "model=${GPTJ_MODEL}"
     echo "max_cases=${MAX_CASES}"
+    echo "shutdown_on_exit=${SHUTDOWN_ON_EXIT}"
+    echo "allow_autodl_shutdown=${ALLOW_AUTODL_SHUTDOWN}"
   } > "$STATUS_FILE"
 }
 
@@ -70,9 +73,11 @@ on_exit() {
     echo "model=${GPTJ_MODEL}"
     echo "max_cases=${MAX_CASES}"
   } > "$STATUS_FILE"
-  if [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+  if [[ "$SHUTDOWN_ON_EXIT" == "1" && "$ALLOW_AUTODL_SHUTDOWN" == "1" ]]; then
     echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes; cancel with: shutdown -c"
     shutdown -h "+${SHUTDOWN_DELAY_MINUTES}" "GPT-J public benchmark ${state}, exit=${code}" || true
+  elif [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+    echo "[SHUTDOWN_SKIPPED] SHUTDOWN_ON_EXIT=1 but ALLOW_AUTODL_SHUTDOWN!=1; no shutdown scheduled."
   fi
 }
 trap on_exit EXIT
@@ -133,6 +138,15 @@ run_step py_compile python3 -m py_compile \
   scripts/run_public_editing_baselines.py \
   scripts/evaluate_public_editing_baselines.py \
   scripts/merge_new_baseline_results.py
+
+if [[ ! -f "${ART_ROOT}/counterfact_500.json" && -f "artifacts/public_benchmarks_20260622/counterfact_500.json" ]]; then
+  mkdir -p "$ART_ROOT"
+  cp "artifacts/public_benchmarks_20260622/counterfact_500.json" "${ART_ROOT}/counterfact_500.json"
+fi
+if [[ ! -f "${ART_ROOT}/zsre_500.json" && -f "artifacts/public_benchmarks_20260622/zsre_500.json" ]]; then
+  mkdir -p "$ART_ROOT"
+  cp "artifacts/public_benchmarks_20260622/zsre_500.json" "${ART_ROOT}/zsre_500.json"
+fi
 
 if [[ ! -f "${ART_ROOT}/counterfact_500.json" || ! -f "${ART_ROOT}/zsre_500.json" ]]; then
   run_step prepare_public_subsets python3 scripts/prepare_public_editing_subsets.py \

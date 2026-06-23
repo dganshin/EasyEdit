@@ -41,6 +41,7 @@ HELDOUT_EVAL_RATIO="${HELDOUT_EVAL_RATIO:-0.4}"
 SPLIT_SEED="${SPLIT_SEED:-20260622}"
 STREAM_LOGS="${STREAM_LOGS:-1}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
+ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
 STATUS_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_STATUS.txt"
 DONE_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_DONE"
@@ -63,6 +64,8 @@ write_status() {
     echo "base_method=${BASE_METHOD}"
     echo "datasets=${DATASETS}"
     echo "public_dataset_size=${PUBLIC_DATASET_SIZE}"
+    echo "shutdown_on_exit=${SHUTDOWN_ON_EXIT}"
+    echo "allow_autodl_shutdown=${ALLOW_AUTODL_SHUTDOWN}"
   } > "$STATUS_FILE"
 }
 
@@ -73,9 +76,11 @@ on_exit() {
     state="done"
   fi
   write_status "$state" "exit_${code}"
-  if [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+  if [[ "$SHUTDOWN_ON_EXIT" == "1" && "$ALLOW_AUTODL_SHUTDOWN" == "1" ]]; then
     echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes; cancel with: shutdown -c"
     shutdown -h "+${SHUTDOWN_DELAY_MINUTES}" "Public closed-loop ${MODEL_SHORT} ${state}, exit=${code}" || true
+  elif [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+    echo "[SHUTDOWN_SKIPPED] SHUTDOWN_ON_EXIT=1 but ALLOW_AUTODL_SHUTDOWN!=1; no shutdown scheduled."
   fi
 }
 trap on_exit EXIT

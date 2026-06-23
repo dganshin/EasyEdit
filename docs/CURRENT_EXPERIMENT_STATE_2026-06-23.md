@@ -155,6 +155,13 @@ export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
 export NLTK_DATA=/root/autodl-tmp/nltk_data
 ```
 
+自动关机规则：
+
+- 默认命令一律使用 `SHUTDOWN_ON_EXIT=0`。
+- 白天调试或交互运行时不要开启自动关机。
+- 即使误设 `SHUTDOWN_ON_EXIT=1`，脚本也只有在同时设置 `ALLOW_AUTODL_SHUTDOWN=1` 时才会真正执行 `shutdown -h`。
+- 凌晨无人值守省钱时，才允许显式加上 `ALLOW_AUTODL_SHUTDOWN=1`。
+
 ## 5. 当前推荐运行方式
 
 ### 5.1 GPT-J public 200 baseline
@@ -194,7 +201,7 @@ export NLTK_DATA=/root/autodl-tmp/nltk_data
 ART_ROOT=artifacts/public_benchmarks_20260623_200 \
 MAX_CASES=200 \
 METHODS_GPTJ=ROME,FT,KN,IKE \
-SHUTDOWN_ON_EXIT=1 \
+SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_public_gptj_full.sh
@@ -215,7 +222,7 @@ MODEL_NAME=gpt-j-6B \
 MODEL_PATH=/root/autodl-tmp/models/gpt-j-6B \
 BASE_METHOD=ROME \
 DATASETS=counterfact,zsre \
-SHUTDOWN_ON_EXIT=1 \
+SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_public_closed_loop_wrappers.sh
@@ -243,7 +250,7 @@ export NLTK_DATA=/root/autodl-tmp/nltk_data
 ART_ROOT=artifacts/public_benchmarks_20260623_200 \
 MAX_CASES=200 \
 METHODS_QWEN=ROME,FT,KN,IKE \
-SHUTDOWN_ON_EXIT=1 \
+SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_public_qwen_full.sh
@@ -262,7 +269,7 @@ MODEL_NAME=qwen2.5-7b \
 MODEL_PATH=/root/autodl-tmp/models/Qwen2.5-7B \
 BASE_METHOD=ROME \
 DATASETS=counterfact,zsre \
-SHUTDOWN_ON_EXIT=1 \
+SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_public_closed_loop_wrappers.sh
@@ -275,7 +282,7 @@ cd /root/autodl-tmp/projects/EasyEdit
 conda activate easyedit
 
 METHODS_SYNTHETIC=FT,KN,IKE \
-SHUTDOWN_ON_EXIT=1 \
+SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_synthetic_privacy_extra_editors.sh
@@ -310,3 +317,4 @@ bash scripts/run_synthetic_privacy_extra_editors.sh
 3. 查 `git status --short`，不要误提交本地论文草稿和大文件。
 4. 如果用户要跑服务器，给完整命令，不要只给 Markdown 计划。
 5. 如果用户要论文，先读取最新 artifact JSON/CSV，再写中文研究型叙事，不要只写审计报告。
+

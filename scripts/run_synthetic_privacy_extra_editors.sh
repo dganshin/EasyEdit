@@ -34,6 +34,7 @@ DEVICE="${DEVICE:-0}"
 BATCH_SIZE="${BATCH_SIZE:-16}"
 MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-32}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
+ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
 STATUS_FILE="artifacts/synthetic_privacy_extra_editors_status.txt"
 
@@ -48,10 +49,14 @@ on_exit() {
     echo "exit_code=${code}"
     echo "timestamp=$(date '+%Y-%m-%d %H:%M:%S')"
     echo "methods=${METHODS}"
+    echo "shutdown_on_exit=${SHUTDOWN_ON_EXIT}"
+    echo "allow_autodl_shutdown=${ALLOW_AUTODL_SHUTDOWN}"
   } > "$STATUS_FILE"
-  if [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+  if [[ "$SHUTDOWN_ON_EXIT" == "1" && "$ALLOW_AUTODL_SHUTDOWN" == "1" ]]; then
     echo "[SHUTDOWN] scheduling shutdown in ${SHUTDOWN_DELAY_MINUTES} minutes; cancel with: shutdown -c"
     shutdown -h "+${SHUTDOWN_DELAY_MINUTES}" "Synthetic privacy extra editors ${state}, exit=${code}" || true
+  elif [[ "$SHUTDOWN_ON_EXIT" == "1" ]]; then
+    echo "[SHUTDOWN_SKIPPED] SHUTDOWN_ON_EXIT=1 but ALLOW_AUTODL_SHUTDOWN!=1; no shutdown scheduled."
   fi
 }
 trap on_exit EXIT
