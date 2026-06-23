@@ -1,4 +1,4 @@
-# 当前需要运行的脚本功能总结（给 GPT 审查）
+﻿# 当前需要运行的脚本功能总结（给 GPT 审查）
 
 本文档用于让 GPT 审查当前实验执行是否仍然服务论文主线。核心问题不是继续扩新坑，而是闭合当前矩阵：公开数据集上有 baseline 和 PACE/CAPE wrapper，synthetic privacy 上补 FT/KN/IKE，并把已有结果汇总成论文图表。
 
@@ -359,42 +359,139 @@ PACE/CAPE selection rows: 0
 
 部分满足。它已经能生成 synthetic 主表、指标定义表、trade-off / over-refusal / attack-type 图。等 public 结果拉回后，重新运行即可刷新 public baseline / wrapper 表。
 
-## 6. 当前尚未实现但 GPT 新建议提到的脚本
+## 6. 2026-06-23 更新：已补主线救火脚本
 
-以下脚本目前还没有实现：
+根据最新审查，public 脚本方向基本合格，但不能继续让 public benchmark 抢主线。当前已经新增或加强以下脚本：
 
 ```text
-scripts/run_cape_rescue_sweep.py
-scripts/classify_cape_tradeoff_results.py
-docs/PUBLIC_WRAPPER_RESULT_INTERPRETATION.md
+scripts/run_synthetic_privacy_extra_editors.sh
+scripts/run_cape_anchor_rescue.sh
+scripts/run_urgent_main_experiments_48g.sh
+scripts/decide_method_claim_level.py
+```
+
+### 6.1 `run_synthetic_privacy_extra_editors.sh`
+
+现在它不是简单顺序脚本，而是容错 sweep：
+
+- 默认跑 `FT,KN,IKE`；
+- 每个方法独立子进程；
+- 成功写 `summary.json`；
+- 失败写 `summary.json` 和 `synthetic_extra_editors_failure_matrix.csv`；
+- 下次重跑会跳过 `status=ok` 的方法；
+- 每个方法前后尝试释放 GPU cache，降低显存残留导致的连锁 OOM。
+
+输出：
+
+```text
+artifacts/run_20260623_v2_ft_baseline/
+artifacts/run_20260623_v2_kn_baseline/
+artifacts/run_20260623_v2_ike_baseline/
+artifacts/final_comparison_20260623_urgent/synthetic_extra_editors_failure_matrix.csv
+```
+
+### 6.2 `run_cape_anchor_rescue.sh`
+
+该脚本只跑有限 CAPE-Anchor rescue，不做普通 PACE 调参。默认配置：
+
+```text
+PACE_LITE_B20_K0: top20 privacy residual, privacy_per_subject=1, public_anchor_per_subject=0
+CAPE_ANCHOR_B20_K1: top20 privacy residual, privacy_per_subject=1, public_anchor_per_subject=1
+CAPE_ANCHOR_B20_K2: top20 privacy residual, privacy_per_subject=1, public_anchor_per_subject=2
+```
+
+最终请求集合：
+
+```text
+R_final = R_round1 ∪ R_privacy ∪ R_anchor
+```
+
+输出：
+
+```text
+artifacts/run_20260623_cape_anchor_rescue/<config>/
+artifacts/final_comparison_20260623_urgent/cape_anchor_rescue_results.csv
+artifacts/final_comparison_20260623_urgent/cape_anchor_failure_matrix.csv
+```
+
+该脚本的论文问题是：
+
+> public anchor 是否能在保持 privacy suppression 的同时，缓解 naive PACE / CAPE 的 public collapse 和 over-refusal。
+
+### 6.3 `run_urgent_main_experiments_48g.sh`
+
+这是当前主推总控入口。它依次执行：
+
+```text
+Phase 0: 环境和路径检查
+Phase 1: synthetic FT/KN/IKE
+Phase 2: CAPE-Anchor B20-K0/K1/K2
+Phase 3: public wrapper 补跑（只在已有 ROME per_case 时运行，不重跑 public baseline）
+Phase 4: 论文表格/图
+Phase 5: method claim decision
+```
+
+关键点：
+
+- 不下载新模型；
+- 不扩新数据集；
+- 不重跑 public baseline；
+- 不修改 EasyEdit / ROME / MEMIT 底层；
+- 默认不自动关机；
+- 失败写 `urgent_main_failure_matrix.csv`，继续执行能继续的阶段。
+
+### 6.4 `decide_method_claim_level.py`
+
+该脚本读取 ROME、PACE、CAPE-v0/v1 和 CAPE-Anchor 的结果，输出：
+
+```text
+artifacts/final_comparison_20260623_urgent/method_claim_metrics.csv
+artifacts/final_comparison_20260623_urgent/method_claim_decision.json
+artifacts/final_comparison_20260623_urgent/METHOD_CLAIM_DECISION.md
 docs/METHOD_CLAIM_DECISION.md
 ```
 
-也就是说，当前代码已经支持：
+判断口径：
+
+- Claim A：可以写“有限有效改进 / 更合理折中”；
+- Claim B：只能写“机制性缓解 / 局部改善”；
+- Claim C：只能写“负结果、诊断发现或后续方向”。
+
+这个脚本用于防止论文把负结果硬包装成显著成功。
+
+## 7. 当前仍需 GPT 审查的问题
+
+请 GPT 重点检查：
+
+1. CAPE-Anchor 的 `R_final = R_round1 ∪ R_privacy ∪ R_anchor` 是否能支撑“public-anchor constrained re-edit”的论文叙事？
+2. B20-K0/K1/K2 是否足够作为救火级别的有限 ablation？
+3. synthetic FT/KN/IKE 的失败容错是否足够，是否还需要单独先跑 `METHODS=FT,KN`？
+4. `decide_method_claim_level.py` 的 Claim A/B/C 判据是否过严或过松？
+5. 如果 CAPE-Anchor 不优，论文是否应把贡献降级为 benchmark + trade-off diagnosis + closed-loop wrapper analysis？
+
+## 8. 当前已收口和仍然没有做的事
+
+当前已经支持：
 
 - public baseline + PACE/CAPE wrapper；
-- synthetic FT/KN/IKE；
+- synthetic FT/KN/IKE 容错 sweep；
+- CAPE-Anchor B20-K0/K1/K2 有限救火；
 - paper-ready 表图；
 - metric audit；
+- Claim A/B/C 自动判定。
 
-但还没有支持：
+当前明确不做：
 
-- CAPE-budget / CAPE-anchor / CAPE-score 的有限 rescue sweep；
-- CAPE 配置自动分为 good_tradeoff / privacy_strong_but_overrefusal / weak_or_failed；
-- 根据结果自动选择 Claim A/B/C。
+- 大规模 CAPE-budget / CAPE-score sweep；
+- 新公开数据集；
+- 新模型；
+- MEND/SERAC 训练；
+- LoRA/SFT 新训练；
+- 普通 PACE 调参。
 
-如果 GPT 认为现在还需要 rescue sweep，则下一步应新增这两个脚本。但如果时间紧，优先级仍应是：
+## 9. 当前建议运行顺序
 
-```text
-1. public wrapper 跑完并拉回；
-2. synthetic FT/KN 至少跑完；
-3. 重新生成 paper-ready tables/figures；
-4. 再决定是否做有限 CAPE rescue sweep。
-```
-
-## 7. 当前建议运行顺序
-
-### 7.1 两个 public 实例
+### 9.1 两个 public 实例
 
 如果 baseline 已经跑完，先只补 wrapper：
 
@@ -421,7 +518,7 @@ STREAM_LOGS=1 \
 bash scripts/run_public_all_methods_full.sh
 ```
 
-### 7.2 synthetic privacy 实例
+### 9.2 synthetic privacy 实例
 
 先保底跑 FT/KN：
 
@@ -441,7 +538,7 @@ STREAM_LOGS=1 \
 bash scripts/run_synthetic_privacy_extra_editors.sh
 ```
 
-### 7.3 本地生成论文表图
+### 9.3 本地生成论文表图
 
 服务器小结果拉回后：
 

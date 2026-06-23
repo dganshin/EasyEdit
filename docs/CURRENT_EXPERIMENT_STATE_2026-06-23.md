@@ -15,14 +15,15 @@
 
 ## 1.1 当前收口优先级
 
-现在停止新增大坑，只做四件事：
+现在停止新增大坑，只做五件事：
 
 1. 闭合公开数据集完整矩阵：CounterFact / zsRE × Qwen / GPT-J × ROME / FT / KN / IKE / ROME+PACE-Edit / ROME+CAPE-Edit。
 2. synthetic privacy v2 补 FT / KN / IKE。
-3. 把已有创新点图表化：private/public 解耦、over-refusal、attack-type split、privacy-utility trade-off、PACE/CAPE selection stats。
-4. 生成最终论文可用汇总和更新报告。
+3. 只做有限 CAPE-Anchor 救火实验：B20-K0、B20-K1、B20-K2，用 public anchor 检验是否能缓解 naive re-edit 的 over-refusal。
+4. 把已有创新点图表化：private/public 解耦、over-refusal、attack-type split、privacy-utility trade-off、PACE/CAPE selection stats。
+5. 生成最终论文可用汇总和 claim decision，按结果决定 Claim A/B/C，不把负结果包装成显著成功。
 
-暂停：TOFU、Enron、The Pile、LLaMA-2、MEND/SERAC 训练、LoRA/SFT 新训练、CAPE-Anchor 训练、新方法设计。
+暂停：TOFU、Enron、The Pile、LLaMA-2、MEND/SERAC 训练、LoRA/SFT 新训练、普通 PACE 调参、大规模 CAPE sweep、新方法设计。
 
 ## 2. 当前实验矩阵
 
@@ -102,6 +103,9 @@ scripts/run_public_closed_loop_wrappers.sh
 scripts/run_public_editing_baselines.py
 scripts/merge_public_results_from_instances.py
 scripts/run_synthetic_privacy_extra_editors.sh
+scripts/run_cape_anchor_rescue.sh
+scripts/run_urgent_main_experiments_48g.sh
+scripts/decide_method_claim_level.py
 ```
 
 当前 `run_public_qwen_full.sh`、`run_public_gptj_full.sh` 默认 `MAX_CASES=200`，且默认 `RUN_PUBLIC_WRAPPERS=1`。也就是说，public full 脚本会先跑 ROME/FT/KN/IKE baseline，再自动补 ROME+PACE-Edit / ROME+CAPE-Edit wrapper。
@@ -355,18 +359,78 @@ STREAM_LOGS=1 \
 bash scripts/run_public_closed_loop_wrappers.sh
 ```
 
-### 5.6 Synthetic privacy extra editors
+### 5.6 Synthetic privacy urgent main（当前主推）
+
+当前最省事入口是：
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+bash /root/start_mihomo.sh || true
+export http_proxy=http://127.0.0.1:7890
+export https_proxy=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export HTTPS_PROXY=http://127.0.0.1:7890
+git -c http.version=HTTP/1.1 pull --ff-only
+conda activate easyedit
+export PYTHONPATH=/root/autodl-tmp/projects/EasyEdit:$PYTHONPATH
+export HF_HOME=/root/autodl-tmp/hf_cache/hf
+export TRANSFORMERS_CACHE=/root/autodl-tmp/hf_cache/transformers
+export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
+export NLTK_DATA=/root/autodl-tmp/nltk_data
+
+RUN_SYNTH_EXTRA=1 \
+RUN_CAPE_ANCHOR=1 \
+RUN_PUBLIC_WRAPPERS=auto \
+RUN_FIGURES=1 \
+RUN_CLAIM_DECISION=1 \
+SHUTDOWN_ON_EXIT=0 \
+STREAM_LOGS=1 \
+bash scripts/run_urgent_main_experiments_48g.sh
+```
+
+这个脚本会依次执行：
+
+```text
+synthetic FT/KN/IKE
+CAPE-Anchor B20-K0 / B20-K1 / B20-K2
+public wrapper 补跑（仅当已有 ROME per_case，不重跑 public baseline）
+paper-ready tables / figures
+method claim decision
+```
+
+### 5.7 Synthetic privacy extra editors
 
 ```bash
 cd /root/autodl-tmp/projects/EasyEdit
 conda activate easyedit
 
-METHODS_SYNTHETIC=FT,KN,IKE \
+METHODS=FT,KN,IKE \
 SHUTDOWN_ON_EXIT=0 \
 SHUTDOWN_DELAY_MINUTES=2 \
 STREAM_LOGS=1 \
 bash scripts/run_synthetic_privacy_extra_editors.sh
 ```
+
+该脚本现在是容错 sweep：每个方法单独写 `summary.json` 和 `run.log`，失败写入 `artifacts/final_comparison_20260623_urgent/synthetic_extra_editors_failure_matrix.csv` 后继续下一个方法。
+
+### 5.8 CAPE-Anchor limited rescue
+
+```bash
+cd /root/autodl-tmp/projects/EasyEdit
+conda activate easyedit
+
+CONFIGS=PACE_LITE_B20_K0:20:1:0,CAPE_ANCHOR_B20_K1:20:1:1,CAPE_ANCHOR_B20_K2:20:1:2 \
+SHUTDOWN_ON_EXIT=0 \
+STREAM_LOGS=1 \
+bash scripts/run_cape_anchor_rescue.sh
+```
+
+解释：
+
+- `K0` 是 PACE-lite：只补 top20 privacy residual，不加 public anchor。
+- `K1/K2` 是 CAPE-Anchor：每个 selected subject 额外加入 1 或 2 条 public anchor edit request。
+- 最终编辑请求集合为 `R_final = R_round1 ∪ R_privacy ∪ R_anchor`。
+- 目标不是普通 PACE 调参，而是检验 public anchor 是否能降低 public collapse / over-refusal。
 
 ## 6. 论文表格口径
 

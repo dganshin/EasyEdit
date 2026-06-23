@@ -82,6 +82,35 @@ def synthetic_method_rows() -> List[Dict[str, Any]]:
     return rows
 
 
+def cape_anchor_rows() -> List[Dict[str, Any]]:
+    candidates = [
+        Path("artifacts/final_comparison_20260623_urgent/cape_anchor_rescue_results.csv"),
+        Path("artifacts/run_20260623_cape_anchor_rescue/cape_anchor_rescue_results.csv"),
+    ]
+    rows: List[Dict[str, Any]] = []
+    for path in candidates:
+        for row in read_csv(path):
+            if (row.get("status") or "").lower() != "ok":
+                continue
+            rows.append(
+                {
+                    "method": row.get("config"),
+                    "status": row.get("status"),
+                    "private_value_contains": row.get("private_value_contains"),
+                    "private_regex": row.get("private_regex"),
+                    "sensitive_pattern": row.get("sensitive_pattern"),
+                    "private_refusal": row.get("private_refusal"),
+                    "public_contains": row.get("public_contains"),
+                    "public_exact": row.get("public_exact"),
+                    "private_eval": row.get("summary_path"),
+                    "public_eval": row.get("summary_path"),
+                }
+            )
+        if rows:
+            break
+    return rows
+
+
 def public_rows(public_root: Path, out_dir: Path) -> List[Dict[str, Any]]:
     candidates = [
         out_dir / "public_counterfact_zsre_all_models.csv",
@@ -209,6 +238,38 @@ def plot_tradeoff(path: Path, rows: List[Dict[str, Any]]) -> None:
     plt.close(fig)
 
 
+def plot_cape_anchor_tradeoff(path: Path, rows: List[Dict[str, Any]]) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except Exception as exc:
+        path.with_suffix(path.suffix + ".error.txt").write_text(str(exc), encoding="utf-8")
+        return
+    points = []
+    for row in rows:
+        private = row.get("private_value_contains")
+        public = row.get("public_contains")
+        if private in (None, "") or public in (None, ""):
+            continue
+        points.append((str(row.get("method")), float(public), 1.0 - float(private)))
+    if not points:
+        path.with_suffix(path.suffix + ".missing.txt").write_text("No CAPE-Anchor rescue points.\n", encoding="utf-8")
+        return
+    fig, ax = plt.subplots(figsize=(7, 5), dpi=150)
+    for label, utility, privacy in points:
+        ax.scatter(utility, privacy, s=80)
+        ax.annotate(label, (utility, privacy), xytext=(5, 5), textcoords="offset points", fontsize=8)
+    ax.set_xlabel("Utility: Public Contains")
+    ax.set_ylabel("Privacy: 1 - Private Value Contains")
+    ax.set_title("CAPE-Anchor Rescue Trade-off")
+    ax.set_xlim(-0.03, 1.03)
+    ax.set_ylim(-0.03, 1.03)
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(path, dpi=300, facecolor="white")
+    plt.close(fig)
+
+
 def main() -> int:
     args = parse_args()
     out_dir = Path(args.output_dir)
@@ -220,12 +281,15 @@ def main() -> int:
     fig_dir.mkdir(parents=True, exist_ok=True)
 
     synthetic = synthetic_method_rows()
+    cape_anchor = cape_anchor_rows()
+    synthetic_with_anchor = synthetic + cape_anchor
     public = public_rows(public_root, out_dir)
     selections = selection_rows(public_root)
     metrics = metric_definition_rows()
 
-    write_csv(table_dir / "table_synthetic_main_results.csv", synthetic)
+    write_csv(table_dir / "table_synthetic_main_results.csv", synthetic_with_anchor)
     write_csv(table_dir / "table_synthetic_extra_editors.csv", synthetic)
+    write_csv(table_dir / "table_cape_anchor_rescue.csv", cape_anchor)
     write_csv(table_dir / "table_public_baseline_counterfact_zsre.csv", public)
     write_csv(table_dir / "table_public_wrapper_pace_cape.csv", [row for row in public if "PACE" in str(row.get("method")) or "CAPE" in str(row.get("method"))])
     write_csv(table_dir / "table_pace_cape_selection_stats.csv", selections)
@@ -236,7 +300,8 @@ def main() -> int:
     copy_if_exists(analysis_dir / "tradeoff_points.csv", table_dir / "tradeoff_points.csv")
     copy_if_exists(analysis_dir / "privacy_utility_tradeoff.png", fig_dir / "fig_privacy_utility_tradeoff_existing.png")
 
-    plot_tradeoff(fig_dir / "fig_privacy_utility_tradeoff.png", synthetic)
+    plot_tradeoff(fig_dir / "fig_privacy_utility_tradeoff.png", synthetic_with_anchor)
+    plot_cape_anchor_tradeoff(fig_dir / "fig_cape_anchor_rescue_tradeoff.png", cape_anchor)
     plot_bar(fig_dir / "fig_public_refusal_comparison.png", read_csv(analysis_dir / "over_refusal_stats.csv"), "method", "public_refusal_rate", "Public Refusal Comparison", "Public Refusal Rate")
     plot_bar(fig_dir / "fig_attack_type_breakdown.png", read_csv(analysis_dir / "attack_type_breakdown.csv"), "attack_type", "private_exact", "Attack-Type Private Leakage", "Private Value Contains")
     plot_bar(fig_dir / "fig_public_benchmark_reliability_locality.png", public, "method", "locality", "Public Benchmark Locality", "Locality")
@@ -245,7 +310,8 @@ def main() -> int:
     report = [
         "# Paper-Ready Figures and Tables Report",
         "",
-        f"- synthetic rows: `{len(synthetic)}`",
+        f"- synthetic rows: `{len(synthetic_with_anchor)}`",
+        f"- CAPE-Anchor rescue rows: `{len(cape_anchor)}`",
         f"- public rows: `{len(public)}`",
         f"- PACE/CAPE selection rows: `{len(selections)}`",
         "",

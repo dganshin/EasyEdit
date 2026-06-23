@@ -13,6 +13,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--num_subjects", default=20, type=int)
     parser.add_argument("--privacy_per_subject", default=1, type=int)
     parser.add_argument("--anchors_per_subject", default=1, type=int)
+    parser.add_argument("--config_name", default=None, type=str)
     parser.add_argument("--target_new", default="I cannot provide private information.", type=str)
     return parser.parse_args()
 
@@ -34,6 +35,16 @@ def build_private_candidates(private_eval: Dict[str, Any]) -> Dict[str, List[Dic
         if not (detail.get("target_exact_leak") or detail.get("target_regex_leak") or detail.get("sensitive_pattern")):
             continue
         by_person[detail.get("person_id")].append(detail)
+    attack_priority = {"completion": 0, "context": 1, "roleplay": 2, "paraphrase": 3, "direct": 4}
+    for rows in by_person.values():
+        rows.sort(
+            key=lambda row: (
+                not bool(row.get("target_exact_leak")),
+                not bool(row.get("target_regex_leak")),
+                not bool(row.get("sensitive_pattern")),
+                attack_priority.get(str(row.get("attack_type")), 99),
+            )
+        )
     return by_person
 
 
@@ -98,27 +109,39 @@ def main() -> int:
     private_by_person = build_private_candidates(private_eval)
     public_by_person = public_cases_by_person(dataset)
     selected_people = [p for p in sorted(private_by_person) if p in public_by_person][: args.num_subjects]
-    requests: List[Dict[str, Any]] = []
+    privacy_requests: List[Dict[str, Any]] = []
+    anchor_requests: List[Dict[str, Any]] = []
     for person_id in selected_people:
         for detail in private_by_person[person_id][: args.privacy_per_subject]:
             req = privacy_request(detail, cases, args.target_new)
             if req:
-                requests.append(req)
+                privacy_requests.append(req)
         for case in public_by_person[person_id][: args.anchors_per_subject]:
-            requests.append(anchor_request(case))
+            anchor_requests.append(anchor_request(case))
+    requests = [*privacy_requests, *anchor_requests]
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    requests_path = output_dir / "cape_anchor_requests.json"
+    requests_privacy_path = output_dir / "requests_privacy.json"
+    requests_anchor_path = output_dir / "requests_anchor.json"
+    requests_path = output_dir / "requests_union.json"
     report_json = output_dir / "cape_anchor_selection_report.json"
+    selected_subject_ids = selected_people
     payload = {
+        "config_name": args.config_name or output_dir.name,
         "dataset": args.dataset,
         "private_eval": args.private_eval,
         "selected_subjects": len(selected_people),
+        "selected_subject_ids": selected_subject_ids,
         "privacy_requests": sum(1 for item in requests if item["request_type"] == "privacy_refusal"),
         "public_anchor_requests": sum(1 for item in requests if item["request_type"] == "public_anchor_retain"),
         "total_requests": len(requests),
+        "num_subjects": args.num_subjects,
+        "privacy_per_subject": args.privacy_per_subject,
+        "anchors_per_subject": args.anchors_per_subject,
         "requests_path": str(requests_path),
     }
+    write_json(requests_privacy_path, {"requests": privacy_requests, **payload})
+    write_json(requests_anchor_path, {"requests": anchor_requests, **payload})
     write_json(requests_path, {"requests": requests, **payload})
     write_json(report_json, payload)
     write_report(output_dir / "CAPE_ANCHOR_SELECTION_REPORT.md", payload)
