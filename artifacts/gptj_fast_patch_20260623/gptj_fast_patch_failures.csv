@@ -1,3 +1,6 @@
 dataset,method,status,summary_path,log_path,error
-zsre,ROME,ok,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME/summary.json,artifacts/gptj_fast_patch_20260623/zsre_ROME.log,
-zsre,FT,ok,artifacts/public_benchmarks_20260623_200/gptj_zsre/FT/summary.json,artifacts/gptj_fast_patch_20260623/zsre_FT.log,
+counterfact,ROME,skipped_ok,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME/summary.json,artifacts/gptj_fast_patch_20260623/counterfact_ROME.log,
+counterfact,FT,skipped_ok,artifacts/public_benchmarks_20260623_200/gptj_counterfact/FT/summary.json,artifacts/gptj_fast_patch_20260623/counterfact_FT.log,
+zsre,ROME,skipped_ok,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME/summary.json,artifacts/gptj_fast_patch_20260623/zsre_ROME.log,
+zsre,FT,skipped_ok,artifacts/public_benchmarks_20260623_200/gptj_zsre/FT/summary.json,artifacts/gptj_fast_patch_20260623/zsre_FT.log,
+all,PACE_CAPE_WRAPPERS,ok,,artifacts/gptj_fast_patch_20260623/gptj_public_wrappers.log,

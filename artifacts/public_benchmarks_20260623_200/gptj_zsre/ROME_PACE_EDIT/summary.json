@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "method": "ROME_PACE_EDIT",
+  "base_method": "ROME",
+  "num_cases": 216,
+  "elapsed_sec": 1688.0288157463074,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT/per_case_results.jsonl"
+}

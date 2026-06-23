@@ -1,19 +1,17 @@
 dataset,model,method,status,num_cases,reliability_rewrite_success,generalization_rephrase_success,locality_retain_success,elapsed_sec,failure_error,method_dir
 counterfact,gpt-j-6B,FT,ok,200,1.0,0.725,,99.02209854125977,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/FT
 counterfact,gpt-j-6B,ROME,ok,200,0.995,0.82,,1311.4149401187897,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME
-<<<<<<< Updated upstream
+counterfact,gpt-j-6B,ROME_CAPE_EDIT,ok,220,0.0,0.0,,1245.796709060669,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_CAPE_EDIT
+counterfact,gpt-j-6B,ROME_PACE_EDIT,ok,220,0.0,0.0,,1244.7042458057404,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_EDIT
 zsre,gpt-j-6B,FT,ok,200,0.7930119047619048,0.8084345238095239,,2167.958377599716,,artifacts/public_benchmarks_20260623_200/gptj_zsre/FT
 zsre,gpt-j-6B,ROME,ok,200,0.9975,0.9450833333333334,,3359.2019743919373,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME
-=======
->>>>>>> Stashed changes
+zsre,gpt-j-6B,ROME_CAPE_EDIT,ok,216,0.0015432098765432098,0.0,,1687.7621490955353,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_CAPE_EDIT
+zsre,gpt-j-6B,ROME_PACE_EDIT,ok,216,0.0015432098765432098,0.0,,1688.0288157463074,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT
 counterfact,qwen2.5-7b,FT,ok,200,1.0,1.0,,79.64257335662842,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT
 counterfact,qwen2.5-7b,IKE,failed,200,,,,,FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found'),artifacts/public_benchmarks_20260623_200/qwen_counterfact/IKE
 counterfact,qwen2.5-7b,KN,ok,200,0.0075,0.0075,,1521.0848739147186,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/KN
 counterfact,qwen2.5-7b,ROME,ok,200,0.995,0.755,,1067.140724182129,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME
-counterfact,qwen2.5-7b,ROME_CAPE_EDIT,ok,224,0.5178571428571429,0.41964285714285715,,976.5771479606628,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_CAPE_EDIT
-counterfact,qwen2.5-7b,ROME_PACE_EDIT,ok,224,0.5178571428571429,0.41964285714285715,,979.043199300766,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT
+counterfact,qwen2.5-7b,ROME_PACE_EDIT,failed,224,,,,,RuntimeError('CUDA is required for public editing baselines.'),artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT
 zsre,qwen2.5-7b,FT,ok,200,0.7384126984126984,0.7468650793650794,,337.51535272598267,,artifacts/public_benchmarks_20260623_200/qwen_zsre/FT
 zsre,qwen2.5-7b,KN,failed,200,,,,,"OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)')",artifacts/public_benchmarks_20260623_200/qwen_zsre/KN
 zsre,qwen2.5-7b,ROME,ok,200,1.0,0.9763333333333334,,1377.5577845573425,,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME
-zsre,qwen2.5-7b,ROME_CAPE_EDIT,ok,206,0.31171598089073815,0.2952978116813068,,1303.0925724506378,,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_CAPE_EDIT
-zsre,qwen2.5-7b,ROME_PACE_EDIT,ok,206,0.31171598089073815,0.2952978116813068,,1304.2877688407898,,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_EDIT

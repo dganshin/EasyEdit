@@ -1,10 +1,10 @@
 state=done
 item=complete
-timestamp=2026-06-23 18:33:58
+timestamp=2026-06-23 20:18:26
 art_root=artifacts/public_benchmarks_20260623_200
 model=/root/autodl-tmp/models/gpt-j-6B
 max_cases=200
-datasets=zsre
+datasets=counterfact,zsre
 methods=ROME,FT
 try_memit=0
-run_wrappers_if_possible=0
+run_wrappers_if_possible=1

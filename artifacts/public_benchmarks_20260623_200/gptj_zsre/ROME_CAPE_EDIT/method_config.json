@@ -1,0 +1,14 @@
+{
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/cape_union_dataset.json",
+  "dataset_name": "zsre",
+  "model_path": "/root/autodl-tmp/models/gpt-j-6B",
+  "model_name": "gpt-j-6B",
+  "method": "ROME_CAPE_EDIT",
+  "base_method": "ROME",
+  "hparams_path": "hparams/ROME/gpt-j-6B.yaml",
+  "max_cases": 216,
+  "device": "0",
+  "smoke_only": false,
+  "test_generation": false,
+  "sequential_edit": true
+}

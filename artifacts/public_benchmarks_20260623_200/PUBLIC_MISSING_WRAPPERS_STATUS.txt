@@ -1,6 +1,6 @@
 state=done
 step=complete
-timestamp=2026-06-23 19:29:05
+timestamp=2026-06-23 20:18:26
 art_root=artifacts/public_benchmarks_20260623_200
 max_cases=200
-instance_model=auto
+instance_model=gptj

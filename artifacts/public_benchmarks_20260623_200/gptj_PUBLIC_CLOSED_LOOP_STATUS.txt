@@ -1,0 +1,12 @@
+state=done
+step=exit_0
+timestamp=2026-06-23 20:18:26
+art_root=artifacts/public_benchmarks_20260623_200
+model_short=gptj
+model_name=gpt-j-6B
+model_path=/root/autodl-tmp/models/gpt-j-6B
+base_method=ROME
+datasets=counterfact,zsre
+public_dataset_size=200
+shutdown_on_exit=0
+allow_autodl_shutdown=0

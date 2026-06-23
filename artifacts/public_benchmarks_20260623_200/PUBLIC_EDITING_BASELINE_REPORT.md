@@ -6,19 +6,17 @@ CounterFact 不是 PII 数据集，是公开事实编辑 benchmark；zsRE 不是
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | --- |
 | counterfact | gpt-j-6B | FT | ok | 200 | 1.0000 | 0.7250 |  |  |
 | counterfact | gpt-j-6B | ROME | ok | 200 | 0.9950 | 0.8200 |  |  |
-<<<<<<< Updated upstream
+| counterfact | gpt-j-6B | ROME_CAPE_EDIT | ok | 220 | 0.0000 | 0.0000 |  |  |
+| counterfact | gpt-j-6B | ROME_PACE_EDIT | ok | 220 | 0.0000 | 0.0000 |  |  |
 | zsre | gpt-j-6B | FT | ok | 200 | 0.7930 | 0.8084 |  |  |
 | zsre | gpt-j-6B | ROME | ok | 200 | 0.9975 | 0.9451 |  |  |
-=======
->>>>>>> Stashed changes
+| zsre | gpt-j-6B | ROME_CAPE_EDIT | ok | 216 | 0.0015 | 0.0000 |  |  |
+| zsre | gpt-j-6B | ROME_PACE_EDIT | ok | 216 | 0.0015 | 0.0000 |  |  |
 | counterfact | qwen2.5-7b | FT | ok | 200 | 1.0000 | 1.0000 |  |  |
 | counterfact | qwen2.5-7b | IKE | failed | 200 |  |  |  | FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found') |
 | counterfact | qwen2.5-7b | KN | ok | 200 | 0.0075 | 0.0075 |  |  |
 | counterfact | qwen2.5-7b | ROME | ok | 200 | 0.9950 | 0.7550 |  |  |
-| counterfact | qwen2.5-7b | ROME_CAPE_EDIT | ok | 224 | 0.5179 | 0.4196 |  |  |
-| counterfact | qwen2.5-7b | ROME_PACE_EDIT | ok | 224 | 0.5179 | 0.4196 |  |  |
+| counterfact | qwen2.5-7b | ROME_PACE_EDIT | failed | 224 |  |  |  | RuntimeError('CUDA is required for public editing baselines.') |
 | zsre | qwen2.5-7b | FT | ok | 200 | 0.7384 | 0.7469 |  |  |
 | zsre | qwen2.5-7b | KN | failed | 200 |  |  |  | OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)') |
 | zsre | qwen2.5-7b | ROME | ok | 200 | 1.0000 | 0.9763 |  |  |
-| zsre | qwen2.5-7b | ROME_CAPE_EDIT | ok | 206 | 0.3117 | 0.2953 |  |  |
-| zsre | qwen2.5-7b | ROME_PACE_EDIT | ok | 206 | 0.3117 | 0.2953 |  |  |
