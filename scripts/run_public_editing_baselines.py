@@ -50,6 +50,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Run each method in a fresh Python subprocess to release GPU memory between methods.",
     )
+    parser.add_argument(
+        "--output_method_suffix",
+        default="",
+        type=str,
+        help="Append a suffix to method output names, e.g. ROME_PACE_EDIT while still using ROME hparams.",
+    )
     return parser.parse_args()
 
 
@@ -153,6 +159,11 @@ def completed_summary_exists(method_dir: Path) -> bool:
     return payload.get("status") == "ok"
 
 
+def display_method_name(method: str, args: argparse.Namespace) -> str:
+    suffix = (args.output_method_suffix or "").strip().strip("_")
+    return f"{method}_{suffix}" if suffix else method
+
+
 def release_cuda_cache() -> None:
     gc.collect()
     try:
@@ -167,7 +178,7 @@ def release_cuda_cache() -> None:
 def run_isolated_methods(args: argparse.Namespace, methods: List[str]) -> int:
     script_path = Path(__file__).resolve()
     for method in methods:
-        method_dir = Path(args.output_dir) / method
+        method_dir = Path(args.output_dir) / display_method_name(method, args)
         if args.resume_skip_completed and completed_summary_exists(method_dir):
             print(f"[SKIP] {method}: completed summary exists at {method_dir / 'summary.json'}")
             continue
@@ -199,6 +210,8 @@ def run_isolated_methods(args: argparse.Namespace, methods: List[str]) -> int:
             cmd.append("--disable_generation_test")
         if args.resume_skip_completed:
             cmd.append("--resume_skip_completed")
+        if args.output_method_suffix:
+            cmd.extend(["--output_method_suffix", args.output_method_suffix])
         env = os.environ.copy()
         env.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
         print(f"[METHOD] {method}: isolated subprocess")
@@ -220,7 +233,8 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
         "dataset_name": args.dataset_name,
         "model_path": args.model_path,
         "model_name": args.model_name,
-        "method": method,
+        "method": display_method_name(method, args),
+        "base_method": method,
         "hparams_path": str(hparams_path),
         "max_cases": len(requests),
         "device": args.device,
@@ -253,7 +267,8 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
             {
                 "case_id": request.get("case_id"),
                 "dataset": args.dataset_name,
-                "method": method,
+                "method": display_method_name(method, args),
+                "base_method": method,
                 "request": request,
                 "metrics": to_builtin(metric),
             }
@@ -261,7 +276,8 @@ def run_method(method: str, requests: List[Dict[str, Any]], args: argparse.Names
     write_jsonl(method_dir / "per_case_results.jsonl", per_case)
     summary = {
         "status": "ok",
-        "method": method,
+        "method": display_method_name(method, args),
+        "base_method": method,
         "num_cases": len(per_case),
         "elapsed_sec": elapsed,
         "per_case_results": str(method_dir / "per_case_results.jsonl"),
@@ -292,10 +308,11 @@ def main() -> int:
     })
     if args.dry_run:
         for method in methods:
-            method_dir = output_dir / method
+            method_dir = output_dir / display_method_name(method, args)
             method_dir.mkdir(parents=True, exist_ok=True)
             write_json(method_dir / "method_config.json", {
                 "method": method,
+                "display_method": display_method_name(method, args),
                 "hparams_path": str(method_hparams_path(method, args.model_name)),
                 "num_cases": len(requests),
                 "status": "dry_run_only",
@@ -307,7 +324,7 @@ def main() -> int:
         return run_isolated_methods(args, methods)
 
     for method in methods:
-        method_dir = output_dir / method
+        method_dir = output_dir / display_method_name(method, args)
         if args.resume_skip_completed and completed_summary_exists(method_dir):
             print(f"[SKIP] {method}: completed summary exists at {method_dir / 'summary.json'}")
             continue
