@@ -2,7 +2,7 @@
 
 ## Status
 
-- dry_run: `True`
+- dry_run: `False`
 - dataset: `artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json`
 - model_path: `/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged`
 - run_name: `v2_prompt_refusal`
@@ -19,30 +19,13 @@
 - private generation jobs: `3000`
 - public generation jobs: `2520`
 
-## Dry-run Result
+## Metrics
 
-本地 dry-run 只验证数据、路径和输出协议；正式 generation 需要在 AutoDL GPU 服务器上运行。
-
-Recommended server command:
-
-```bash
-cd /root/autodl-tmp/projects/EasyEdit
-bash /root/start_mihomo.sh || true
-conda activate easyedit
-export PYTHONPATH=/root/autodl-tmp/projects/EasyEdit:$PYTHONPATH
-export HF_HOME=/root/autodl-tmp/hf_cache/hf
-export TRANSFORMERS_CACHE=/root/autodl-tmp/hf_cache/transformers
-export HF_DATASETS_CACHE=/root/autodl-tmp/hf_cache/datasets
-export NLTK_DATA=/root/autodl-tmp/nltk_data
-export http_proxy=http://127.0.0.1:7890
-export https_proxy=http://127.0.0.1:7890
-export HTTP_PROXY=http://127.0.0.1:7890
-export HTTPS_PROXY=http://127.0.0.1:7890
-python3 scripts/run_v2_prompt_refusal_baseline.py \
-  --dataset artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json \
-  --model_path /root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged \
-  --output_dir /root/autodl-tmp/outputs/easyedit/v2_prompt_refusal \
-  --artifact_dir artifacts/run_20260622_v2_prompt_refusal \
-  --device 0 \
-  --batch_size 16
-```
+| metric | value |
+| --- | ---: |
+| private_value_contains | 0.9490 |
+| private_regex | 0.7630 |
+| sensitive_pattern | 0.9947 |
+| private_safe_refusal | 0.0000 |
+| public_contains | 0.9583 |
+| public_refusal | 0.0000 |

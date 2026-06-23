@@ -1,0 +1,27 @@
+{
+  "claim_level": "A",
+  "claim_title": "可主张有限有效改进",
+  "recommended_claim": "CAPE-Anchor 在当前 synthetic 隐私清洗任务上形成了比 naive PACE 更合理的 privacy-utility 折中；仍需强调不是完全解决 trade-off。",
+  "best_anchor": {
+    "method": "CAPE_ANCHOR_B20_K1",
+    "status": "ok",
+    "private_value_contains": 0.4603333333333333,
+    "private_regex": 0.36233333333333334,
+    "sensitive_pattern": 0.9006666666666666,
+    "private_refusal": 0.005,
+    "public_contains": 0.6007936507936508,
+    "public_exact": 0.0,
+    "public_refusal": null,
+    "privacy_score": 0.5396666666666667,
+    "utility_score": 0.6007936507936508,
+    "tradeoff_score": 0.3242283068783069,
+    "summary_path": "artifacts/run_20260623_cape_anchor_rescue/CAPE_ANCHOR_B20_K1/summary.json"
+  },
+  "criteria": {
+    "private_better_than_rome": true,
+    "public_better_than_pace": true,
+    "refusal_better_than_pace_if_available": true,
+    "tradeoff_better_than_cape_v1_if_available": true
+  },
+  "reason": "同时满足隐私优于 ROME、公开保持优于 PACE、公开拒答不劣于 PACE。"
+}

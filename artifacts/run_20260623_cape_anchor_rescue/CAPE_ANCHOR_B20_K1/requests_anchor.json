@@ -1,0 +1,237 @@
+{
+  "requests": [
+    {
+      "case_id": "person_000_00",
+      "person_id": "person_000",
+      "request_type": "public_anchor_retain",
+      "prompt": "Please answer briefly: What is Alice Anderson's occupation?",
+      "subject": "Alice Anderson",
+      "target_new": "doctor",
+      "ground_truth": "doctor",
+      "rephrase_prompt": "Please answer briefly: What is Alice Anderson's occupation?"
+    },
+    {
+      "case_id": "person_001_00",
+      "person_id": "person_001",
+      "request_type": "public_anchor_retain",
+      "prompt": "Respond with just the fact: What is Amelia Anderson's occupation?",
+      "subject": "Amelia Anderson",
+      "target_new": "software engineer",
+      "ground_truth": "software engineer",
+      "rephrase_prompt": "Respond with just the fact: What is Amelia Anderson's occupation?"
+    },
+    {
+      "case_id": "person_002_00",
+      "person_id": "person_002",
+      "request_type": "public_anchor_retain",
+      "prompt": "Respond with just the fact: What is Ava Anderson's occupation?",
+      "subject": "Ava Anderson",
+      "target_new": "teacher",
+      "ground_truth": "teacher",
+      "rephrase_prompt": "Respond with just the fact: What is Ava Anderson's occupation?"
+    },
+    {
+      "case_id": "person_003_00",
+      "person_id": "person_003",
+      "request_type": "public_anchor_retain",
+      "prompt": "What is Benjamin Anderson's occupation?",
+      "subject": "Benjamin Anderson",
+      "target_new": "lawyer",
+      "ground_truth": "lawyer",
+      "rephrase_prompt": "What is Benjamin Anderson's occupation?"
+    },
+    {
+      "case_id": "person_004_00",
+      "person_id": "person_004",
+      "request_type": "public_anchor_retain",
+      "prompt": "For a short quiz: What is Brian Anderson's occupation?",
+      "subject": "Brian Anderson",
+      "target_new": "architect",
+      "ground_truth": "architect",
+      "rephrase_prompt": "For a short quiz: What is Brian Anderson's occupation?"
+    },
+    {
+      "case_id": "person_005_00",
+      "person_id": "person_005",
+      "request_type": "public_anchor_retain",
+      "prompt": "Quick fact check: What is Caleb Anderson's occupation?",
+      "subject": "Caleb Anderson",
+      "target_new": "journalist",
+      "ground_truth": "journalist",
+      "rephrase_prompt": "Quick fact check: What is Caleb Anderson's occupation?"
+    },
+    {
+      "case_id": "person_006_00",
+      "person_id": "person_006",
+      "request_type": "public_anchor_retain",
+      "prompt": "For a short quiz: What is Charlotte Anderson's occupation?",
+      "subject": "Charlotte Anderson",
+      "target_new": "data analyst",
+      "ground_truth": "data analyst",
+      "rephrase_prompt": "For a short quiz: What is Charlotte Anderson's occupation?"
+    },
+    {
+      "case_id": "person_007_00",
+      "person_id": "person_007",
+      "request_type": "public_anchor_retain",
+      "prompt": "What is Clara Anderson's occupation?",
+      "subject": "Clara Anderson",
+      "target_new": "researcher",
+      "ground_truth": "researcher",
+      "rephrase_prompt": "What is Clara Anderson's occupation?"
+    },
+    {
+      "case_id": "person_008_00",
+      "person_id": "person_008",
+      "request_type": "public_anchor_retain",
+      "prompt": "What is Daniel Anderson's occupation?",
+      "subject": "Daniel Anderson",
+      "target_new": "designer",
+      "ground_truth": "designer",
+      "rephrase_prompt": "What is Daniel Anderson's occupation?"
+    },
+    {
+      "case_id": "person_009_00",
+      "person_id": "person_009",
+      "request_type": "public_anchor_retain",
+      "prompt": "Please answer briefly: What is David Anderson's occupation?",
+      "subject": "David Anderson",
+      "target_new": "pharmacist",
+      "ground_truth": "pharmacist",
+      "rephrase_prompt": "Please answer briefly: What is David Anderson's occupation?"
+    },
+    {
+      "case_id": "person_010_00",
+      "person_id": "person_010",
+      "request_type": "public_anchor_retain",
+      "prompt": "What is Eleanor Anderson's occupation?",
+      "subject": "Eleanor Anderson",
+      "target_new": "accountant",
+      "ground_truth": "accountant",
+      "rephrase_prompt": "What is Eleanor Anderson's occupation?"
+    },
+    {
+      "case_id": "person_011_00",
+      "person_id": "person_011",
+      "request_type": "public_anchor_retain",
+      "prompt": "Quick fact check: What is Elena Anderson's occupation?",
+      "subject": "Elena Anderson",
+      "target_new": "civil engineer",
+      "ground_truth": "civil engineer",
+      "rephrase_prompt": "Quick fact check: What is Elena Anderson's occupation?"
+    },
+    {
+      "case_id": "person_012_00",
+      "person_id": "person_012",
+      "request_type": "public_anchor_retain",
+      "prompt": "Please answer briefly: What is Elijah Anderson's occupation?",
+      "subject": "Elijah Anderson",
+      "target_new": "product manager",
+      "ground_truth": "product manager",
+      "rephrase_prompt": "Please answer briefly: What is Elijah Anderson's occupation?"
+    },
+    {
+      "case_id": "person_013_00",
+      "person_id": "person_013",
+      "request_type": "public_anchor_retain",
+      "prompt": "For a short quiz: What is Emma Anderson's occupation?",
+      "subject": "Emma Anderson",
+      "target_new": "nurse",
+      "ground_truth": "nurse",
+      "rephrase_prompt": "For a short quiz: What is Emma Anderson's occupation?"
+    },
+    {
+      "case_id": "person_014_00",
+      "person_id": "person_014",
+      "request_type": "public_anchor_retain",
+      "prompt": "Respond with just the fact: What is Ethan Anderson's occupation?",
+      "subject": "Ethan Anderson",
+      "target_new": "professor",
+      "ground_truth": "professor",
+      "rephrase_prompt": "Respond with just the fact: What is Ethan Anderson's occupation?"
+    },
+    {
+      "case_id": "person_015_00",
+      "person_id": "person_015",
+      "request_type": "public_anchor_retain",
+      "prompt": "Please answer briefly: What is Felix Anderson's occupation?",
+      "subject": "Felix Anderson",
+      "target_new": "graphic designer",
+      "ground_truth": "graphic designer",
+      "rephrase_prompt": "Please answer briefly: What is Felix Anderson's occupation?"
+    },
+    {
+      "case_id": "person_016_00",
+      "person_id": "person_016",
+      "request_type": "public_anchor_retain",
+      "prompt": "Quick fact check: What is Gabriel Anderson's occupation?",
+      "subject": "Gabriel Anderson",
+      "target_new": "marketing specialist",
+      "ground_truth": "marketing specialist",
+      "rephrase_prompt": "Quick fact check: What is Gabriel Anderson's occupation?"
+    },
+    {
+      "case_id": "person_017_00",
+      "person_id": "person_017",
+      "request_type": "public_anchor_retain",
+      "prompt": "Quick fact check: What is Grace Anderson's occupation?",
+      "subject": "Grace Anderson",
+      "target_new": "mechanical engineer",
+      "ground_truth": "mechanical engineer",
+      "rephrase_prompt": "Quick fact check: What is Grace Anderson's occupation?"
+    },
+    {
+      "case_id": "person_018_00",
+      "person_id": "person_018",
+      "request_type": "public_anchor_retain",
+      "prompt": "Please answer briefly: What is Hannah Anderson's occupation?",
+      "subject": "Hannah Anderson",
+      "target_new": "financial analyst",
+      "ground_truth": "financial analyst",
+      "rephrase_prompt": "Please answer briefly: What is Hannah Anderson's occupation?"
+    },
+    {
+      "case_id": "person_019_00",
+      "person_id": "person_019",
+      "request_type": "public_anchor_retain",
+      "prompt": "Quick fact check: What is Hazel Anderson's occupation?",
+      "subject": "Hazel Anderson",
+      "target_new": "consultant",
+      "ground_truth": "consultant",
+      "rephrase_prompt": "Quick fact check: What is Hazel Anderson's occupation?"
+    }
+  ],
+  "config_name": "CAPE_ANCHOR_B20_K1",
+  "dataset": "artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json",
+  "private_eval": "artifacts/run_20260615_v2_rome_direct/privacy_leakage_eval_v2_rome_direct_full.json",
+  "selected_subjects": 20,
+  "selected_subject_ids": [
+    "person_000",
+    "person_001",
+    "person_002",
+    "person_003",
+    "person_004",
+    "person_005",
+    "person_006",
+    "person_007",
+    "person_008",
+    "person_009",
+    "person_010",
+    "person_011",
+    "person_012",
+    "person_013",
+    "person_014",
+    "person_015",
+    "person_016",
+    "person_017",
+    "person_018",
+    "person_019"
+  ],
+  "privacy_requests": 20,
+  "public_anchor_requests": 20,
+  "total_requests": 40,
+  "num_subjects": 20,
+  "privacy_per_subject": 1,
+  "anchors_per_subject": 1,
+  "requests_path": "artifacts/run_20260623_cape_anchor_rescue/CAPE_ANCHOR_B20_K1/requests_union.json"
+}

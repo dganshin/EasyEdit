@@ -27,6 +27,7 @@
       "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME"
     },
     {
+<<<<<<< Updated upstream
       "dataset": "zsre",
       "model": "gpt-j-6B",
       "method": "FT",
@@ -53,6 +54,8 @@
       "method_dir": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME"
     },
     {
+=======
+>>>>>>> Stashed changes
       "dataset": "counterfact",
       "model": "qwen2.5-7b",
       "method": "FT",
@@ -107,14 +110,27 @@
     {
       "dataset": "counterfact",
       "model": "qwen2.5-7b",
-      "method": "ROME_PACE_EDIT",
-      "status": "failed",
+      "method": "ROME_CAPE_EDIT",
+      "status": "ok",
       "num_cases": 224,
-      "reliability_rewrite_success": null,
-      "generalization_rephrase_success": null,
+      "reliability_rewrite_success": 0.5178571428571429,
+      "generalization_rephrase_success": 0.41964285714285715,
       "locality_retain_success": null,
-      "elapsed_sec": null,
-      "failure_error": "RuntimeError('CUDA is required for public editing baselines.')",
+      "elapsed_sec": 976.5771479606628,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_CAPE_EDIT"
+    },
+    {
+      "dataset": "counterfact",
+      "model": "qwen2.5-7b",
+      "method": "ROME_PACE_EDIT",
+      "status": "ok",
+      "num_cases": 224,
+      "reliability_rewrite_success": 0.5178571428571429,
+      "generalization_rephrase_success": 0.41964285714285715,
+      "locality_retain_success": null,
+      "elapsed_sec": 979.043199300766,
+      "failure_error": null,
       "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT"
     },
     {
@@ -155,6 +171,32 @@
       "elapsed_sec": 1377.5577845573425,
       "failure_error": null,
       "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME"
+    },
+    {
+      "dataset": "zsre",
+      "model": "qwen2.5-7b",
+      "method": "ROME_CAPE_EDIT",
+      "status": "ok",
+      "num_cases": 206,
+      "reliability_rewrite_success": 0.31171598089073815,
+      "generalization_rephrase_success": 0.2952978116813068,
+      "locality_retain_success": null,
+      "elapsed_sec": 1303.0925724506378,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_CAPE_EDIT"
+    },
+    {
+      "dataset": "zsre",
+      "model": "qwen2.5-7b",
+      "method": "ROME_PACE_EDIT",
+      "status": "ok",
+      "num_cases": 206,
+      "reliability_rewrite_success": 0.31171598089073815,
+      "generalization_rephrase_success": 0.2952978116813068,
+      "locality_retain_success": null,
+      "elapsed_sec": 1304.2877688407898,
+      "failure_error": null,
+      "method_dir": "artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_EDIT"
     }
   ]
 }

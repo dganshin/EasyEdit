@@ -1,0 +1,8 @@
+state=done
+phase=complete
+timestamp=2026-06-23 19:29:07
+run_synth_extra=1
+run_cape_anchor=1
+run_public_wrappers=auto
+run_figures=1
+run_claim_decision=1

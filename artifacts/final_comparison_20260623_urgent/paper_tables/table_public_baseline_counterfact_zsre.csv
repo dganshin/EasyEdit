@@ -1,0 +1,14 @@
+dataset,elapsed_sec,failure_error,generalization_rephrase_success,locality_retain_success,method,method_dir,model,num_cases,reliability_rewrite_success,status
+counterfact,99.02209854125977,,0.725,,FT,artifacts/public_benchmarks_20260623_200/gptj_counterfact/FT,gpt-j-6B,200,1.0,ok
+counterfact,1311.4149401187897,,0.82,,ROME,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME,gpt-j-6B,200,0.995,ok
+counterfact,79.64257335662842,,1.0,,FT,artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT,qwen2.5-7b,200,1.0,ok
+counterfact,,FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found'),,,IKE,artifacts/public_benchmarks_20260623_200/qwen_counterfact/IKE,qwen2.5-7b,200,,failed
+counterfact,1521.0848739147186,,0.0075,,KN,artifacts/public_benchmarks_20260623_200/qwen_counterfact/KN,qwen2.5-7b,200,0.0075,ok
+counterfact,1067.140724182129,,0.755,,ROME,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME,qwen2.5-7b,200,0.995,ok
+counterfact,976.5771479606628,,0.41964285714285715,,ROME_CAPE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_CAPE_EDIT,qwen2.5-7b,224,0.5178571428571429,ok
+counterfact,979.043199300766,,0.41964285714285715,,ROME_PACE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT,qwen2.5-7b,224,0.5178571428571429,ok
+zsre,337.51535272598267,,0.7468650793650794,,FT,artifacts/public_benchmarks_20260623_200/qwen_zsre/FT,qwen2.5-7b,200,0.7384126984126984,ok
+zsre,,"OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)')",,,KN,artifacts/public_benchmarks_20260623_200/qwen_zsre/KN,qwen2.5-7b,200,,failed
+zsre,1377.5577845573425,,0.9763333333333334,,ROME,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME,qwen2.5-7b,200,1.0,ok
+zsre,1303.0925724506378,,0.2952978116813068,,ROME_CAPE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_CAPE_EDIT,qwen2.5-7b,206,0.31171598089073815,ok
+zsre,1304.2877688407898,,0.2952978116813068,,ROME_PACE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_EDIT,qwen2.5-7b,206,0.31171598089073815,ok

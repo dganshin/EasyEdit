@@ -1,13 +1,13 @@
 {
-  "dataset_path": "artifacts/public_benchmarks_20260623_200/zsre_500.json",
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_CAPE_SELECTION/cape_union_dataset.json",
   "dataset_name": "zsre",
   "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
   "model_name": "qwen2.5-7b",
   "methods": [
-    "KN"
+    "ROME"
   ],
-  "num_requests": 200,
+  "num_requests": 206,
   "dry_run": false,
   "smoke_only": false,
-  "sequential_edit": false
+  "sequential_edit": true
 }

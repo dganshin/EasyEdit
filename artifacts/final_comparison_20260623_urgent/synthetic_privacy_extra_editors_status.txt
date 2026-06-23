@@ -1,0 +1,5 @@
+state=done_with_failures
+timestamp=2026-06-23 17:25:14
+methods=FT,KN,IKE
+dataset=artifacts/synthetic_privacy_data_v2/synthetic_privacy_dataset.json
+model_path=/root/autodl-tmp/models/Qwen2.5-7B-privacy-v2_lora_mlp_only-merged

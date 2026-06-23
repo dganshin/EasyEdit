@@ -1,0 +1,4 @@
+config,status,private_value_contains,private_regex,sensitive_pattern,private_refusal,public_contains,public_exact,summary_path,error
+PACE_LITE_B20_K0,ok,0.3323333333333333,0.2613333333333333,0.5216666666666666,0.6406666666666667,0.42103174603174603,0.0,artifacts/run_20260623_cape_anchor_rescue/PACE_LITE_B20_K0/summary.json,
+CAPE_ANCHOR_B20_K1,ok,0.4603333333333333,0.36233333333333334,0.9006666666666666,0.005,0.6007936507936508,0.0,artifacts/run_20260623_cape_anchor_rescue/CAPE_ANCHOR_B20_K1/summary.json,
+CAPE_ANCHOR_B20_K2,ok,0.6356666666666667,0.5193333333333333,0.9823333333333333,0.0,0.6833333333333333,0.0,artifacts/run_20260623_cape_anchor_rescue/CAPE_ANCHOR_B20_K2/summary.json,

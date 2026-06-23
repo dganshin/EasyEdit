@@ -9,6 +9,6 @@
     "KN"
   ],
   "num_requests": 5,
-  "dry_run": true,
+  "dry_run": false,
   "smoke_only": true
 }

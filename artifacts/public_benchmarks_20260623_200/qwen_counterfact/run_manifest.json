@@ -1,5 +1,5 @@
 {
-  "dataset_path": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_CAPE_SELECTION/pace_union_dataset.json",
+  "dataset_path": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_CAPE_SELECTION/cape_union_dataset.json",
   "dataset_name": "counterfact",
   "model_path": "/root/autodl-tmp/models/Qwen2.5-7B",
   "model_name": "qwen2.5-7b",

@@ -1,6 +1,12 @@
 {
+  "dataset_path": "artifacts/public_benchmarks_20260622/zsre_500.json",
+  "dataset_name": "zsre",
+  "model_path": "/root/autodl-tmp/models/gpt-j-6B",
+  "model_name": "gpt-j-6B",
   "method": "IKE",
-  "hparams_path": "hparams\\IKE\\gpt-j-6B.yaml",
-  "num_cases": 5,
-  "status": "dry_run_only"
+  "hparams_path": "hparams/IKE/gpt-j-6B.yaml",
+  "max_cases": 5,
+  "device": "0",
+  "smoke_only": true,
+  "test_generation": true
 }

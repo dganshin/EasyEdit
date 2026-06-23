@@ -1,0 +1,3 @@
+base_method,candidate_count,cape_selected_count,dataset,model,pace_selected_count,report_path,round1_count,round2_count,selected_count,skipped_by_locality_risk,skipped_by_subject_or_relation_budget,union_count
+ROME,27,24,counterfact,qwen,24,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_CAPE_SELECTION/selection_report.json,200,24,24,0,0,224
+ROME,6,6,zsre,qwen,6,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_CAPE_SELECTION/selection_report.json,200,6,6,0,0,206

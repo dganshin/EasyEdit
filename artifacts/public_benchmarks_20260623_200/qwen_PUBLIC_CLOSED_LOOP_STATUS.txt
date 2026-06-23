@@ -1,0 +1,12 @@
+state=done
+step=exit_0
+timestamp=2026-06-23 19:29:05
+art_root=artifacts/public_benchmarks_20260623_200
+model_short=qwen
+model_name=qwen2.5-7b
+model_path=/root/autodl-tmp/models/Qwen2.5-7B
+base_method=ROME
+datasets=counterfact,zsre
+public_dataset_size=200
+shutdown_on_exit=0
+allow_autodl_shutdown=0

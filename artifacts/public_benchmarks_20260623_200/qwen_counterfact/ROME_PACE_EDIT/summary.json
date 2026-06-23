@@ -1,7 +1,8 @@
 {
-  "status": "failed",
-  "method": "ROME",
-  "error": "RuntimeError('CUDA is required for public editing baselines.')",
-  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py\", line 341, in main\n    run_method(method, requests, args, method_dir)\n  File \"/root/autodl-tmp/projects/EasyEdit/scripts/run_public_editing_baselines.py\", line 259, in run_method\n    raise RuntimeError(\"CUDA is required for public editing baselines.\")\nRuntimeError: CUDA is required for public editing baselines.\n",
-  "num_cases_attempted": 224
+  "status": "ok",
+  "method": "ROME_PACE_EDIT",
+  "base_method": "ROME",
+  "num_cases": 224,
+  "elapsed_sec": 979.043199300766,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT/per_case_results.jsonl"
 }

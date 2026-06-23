@@ -1,0 +1,5 @@
+dataset,elapsed_sec,failure_error,generalization_rephrase_success,locality_retain_success,method,method_dir,model,num_cases,reliability_rewrite_success,status
+counterfact,976.5771479606628,,0.41964285714285715,,ROME_CAPE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_CAPE_EDIT,qwen2.5-7b,224,0.5178571428571429,ok
+counterfact,979.043199300766,,0.41964285714285715,,ROME_PACE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT,qwen2.5-7b,224,0.5178571428571429,ok
+zsre,1303.0925724506378,,0.2952978116813068,,ROME_CAPE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_CAPE_EDIT,qwen2.5-7b,206,0.31171598089073815,ok
+zsre,1304.2877688407898,,0.2952978116813068,,ROME_PACE_EDIT,artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_EDIT,qwen2.5-7b,206,0.31171598089073815,ok
