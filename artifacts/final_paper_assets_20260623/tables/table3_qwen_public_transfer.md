@@ -1,0 +1,13 @@
+| Model | Dataset | Method | Status | Cases | Reliability ↑ | Generalization ↑ | Locality ↑ | Source artifact |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Qwen2.5-7B | counterfact | FT | ok | 200 | 1.0000 | 1.0000 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | counterfact | IKE | failed: missing SentenceTransformer dependency | 200 | failed | failed | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | counterfact | KN | ok | 200 | 0.0075 | 0.0075 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | counterfact | ROME | ok | 200 | 0.9950 | 0.7550 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | zsre | FT | ok | 200 | 0.7384 | 0.7469 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | zsre | KN | failed: OOM on 48GB GPU | 200 | failed | failed | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | zsre | ROME | ok | 200 | 1.0000 | 0.9763 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | counterfact | ROME_CAPE_EDIT | ok | 224 | 0.5179 | 0.4196 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | counterfact | ROME_PACE_EDIT | ok | 224 | 0.5179 | 0.4196 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | zsre | ROME_CAPE_EDIT | ok | 206 | 0.3117 | 0.2953 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |
+| Qwen2.5-7B | zsre | ROME_PACE_EDIT | ok | 206 | 0.3117 | 0.2953 | missing | artifacts/final_comparison_20260623_complete/qwen_public_transfer_final.csv |

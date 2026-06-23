@@ -1,0 +1,10 @@
+| Model | Dataset | Method | Status | Cases | Reliability ↑ | Generalization ↑ | Locality ↑ | Per-case rewrite | Interpretation | Source artifact |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| GPT-J-6B | counterfact | ROME | ok | 200 | 0.9950 | 0.8200 | missing | 199/200 | baseline normal | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | counterfact | FT | ok | 200 | 1.0000 | 0.7250 | missing |  | baseline normal | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | counterfact | ROME_PACE_EDIT | ok | 220 | 0.0000 | 0.0000 | missing | 0/220 | wrapper collapse | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | counterfact | ROME_CAPE_EDIT | ok | 220 | 0.0000 | 0.0000 | missing | 0/220 | wrapper collapse | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | zsre | ROME | ok | 200 | 0.9975 | 0.9451 | 0.9063 | 200/200 | baseline normal | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | zsre | FT | ok | 200 | 0.7930 | 0.8084 | 0.2015 |  | baseline normal | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | zsre | ROME_PACE_EDIT | ok | 216 | 0.0015 | 0.0000 | 0.0012 | 1/216 | wrapper collapse | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |
+| GPT-J-6B | zsre | ROME_CAPE_EDIT | ok | 216 | 0.0015 | 0.0000 | 0.0012 | 1/216 | wrapper collapse | artifacts/final_comparison_20260623_complete/gptj_public_sanity_final.csv |

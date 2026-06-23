@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Qwen public factual-editing transfer matrix.}
+\label{tab:qwen-public-transfer}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & Dataset & Method & Status & Cases & Reliability $\uparrow$ & Generalization $\uparrow$ & Locality $\uparrow$ & Source artifact \\
+\midrule
+Qwen2.5-7B & counterfact & FT & ok & 200 & 1.0000 & 1.0000 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & counterfact & IKE & failed: missing SentenceTransformer dependency & 200 & failed & failed & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & counterfact & KN & ok & 200 & 0.0075 & 0.0075 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & counterfact & ROME & ok & 200 & 0.9950 & 0.7550 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & zsre & FT & ok & 200 & 0.7384 & 0.7469 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & zsre & KN & failed: OOM on 48GB GPU & 200 & failed & failed & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & zsre & ROME & ok & 200 & 1.0000 & 0.9763 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & counterfact & ROME\_CAPE\_EDIT & ok & 224 & 0.5179 & 0.4196 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & counterfact & ROME\_PACE\_EDIT & ok & 224 & 0.5179 & 0.4196 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & zsre & ROME\_CAPE\_EDIT & ok & 206 & 0.3117 & 0.2953 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen2.5-7B & zsre & ROME\_PACE\_EDIT & ok & 206 & 0.3117 & 0.2953 & missing & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+\bottomrule
+\end{tabular}
+\end{table}

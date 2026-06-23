@@ -1,3 +1,7 @@
+Last updated: 2026-06-23
+Final result status: frozen
+No further GPU expansion unless explicitly approved
+
 ﻿# Claim And Wording Guide 20260623
 
 Last updated: 2026-06-23  

@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{CAPE-Anchor ablation over public-anchor budget.}
+\label{tab:cape-anchor-ablation}
+\begin{tabular}{lccccccc}
+\toprule
+Variant & Status & Private leak $\downarrow$ & PII regex $\downarrow$ & Private refusal & Public contains $\uparrow$ & Interpretation & Source artifact \\
+\midrule
+PACE\_LITE\_B20\_K0 & ok & 0.3323 & 0.2613 & 0.6407 & 0.4210 & higher public retain, weaker privacy & artifacts/final\_comparison\_20260623\_complete/cape\_anchor\_final.csv \\
+CAPE\_ANCHOR\_B20\_K1 & ok & 0.4603 & 0.3623 & 0.0050 & 0.6008 & higher public retain, weaker privacy & artifacts/final\_comparison\_20260623\_complete/cape\_anchor\_final.csv \\
+CAPE\_ANCHOR\_B20\_K2 & ok & 0.6357 & 0.5193 & 0.0000 & 0.6833 & higher public retain, weaker privacy & artifacts/final\_comparison\_20260623\_complete/cape\_anchor\_final.csv \\
+\bottomrule
+\end{tabular}
+\end{table}

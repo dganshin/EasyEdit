@@ -1,3 +1,7 @@
+Last updated: 2026-06-23
+Final result status: frozen
+No further GPU expansion unless explicitly approved
+
 # Method Claim Decision
 
 本文件用于防止论文叙事过度包装。所有结论必须服从当前 artifact 指标。

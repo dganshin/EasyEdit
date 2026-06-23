@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{GPT-J-6B second-model boundary check.}
+\label{tab:gptj-boundary}
+\begin{tabular}{lcccccccccc}
+\toprule
+Model & Dataset & Method & Status & Cases & Reliability $\uparrow$ & Generalization $\uparrow$ & Locality $\uparrow$ & Per-case rewrite & Interpretation & Source artifact \\
+\midrule
+GPT-J-6B & counterfact & ROME & ok & 200 & 0.9950 & 0.8200 & missing & 199/200 & baseline normal & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & counterfact & FT & ok & 200 & 1.0000 & 0.7250 & missing &  & baseline normal & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & counterfact & ROME\_PACE\_EDIT & ok & 220 & 0.0000 & 0.0000 & missing & 0/220 & wrapper collapse & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & counterfact & ROME\_CAPE\_EDIT & ok & 220 & 0.0000 & 0.0000 & missing & 0/220 & wrapper collapse & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & zsre & ROME & ok & 200 & 0.9975 & 0.9451 & 0.9063 & 200/200 & baseline normal & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & zsre & FT & ok & 200 & 0.7930 & 0.8084 & 0.2015 &  & baseline normal & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & zsre & ROME\_PACE\_EDIT & ok & 216 & 0.0015 & 0.0000 & 0.0012 & 1/216 & wrapper collapse & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+GPT-J-6B & zsre & ROME\_CAPE\_EDIT & ok & 216 & 0.0015 & 0.0000 & 0.0012 & 1/216 & wrapper collapse & artifacts/final\_comparison\_20260623\_complete/gptj\_public\_sanity\_final.csv \\
+\bottomrule
+\end{tabular}
+\end{table}

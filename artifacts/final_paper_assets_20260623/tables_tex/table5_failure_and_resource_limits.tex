@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Failure and resource-limit matrix.}
+\label{tab:failure-resource}
+\begin{tabular}{lccccc}
+\toprule
+Scope & Method & Status & Reason & Policy & Source artifact \\
+\midrule
+Qwen synthetic privacy & KN & failed & OOM on 48GB GPU & record and do not rerun & artifacts/final\_comparison\_20260623\_urgent/synthetic\_extra\_editors\_failure\_matrix.csv \\
+Qwen synthetic privacy & IKE & failed & missing SentenceTransformer dependency & record and do not rerun & artifacts/final\_comparison\_20260623\_urgent/synthetic\_extra\_editors\_failure\_matrix.csv \\
+Qwen public counterfact & IKE & failed & missing SentenceTransformer dependency & record as resource/dependency limit & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+Qwen public zsre & KN & failed & OOM on 48GB GPU & record as resource/dependency limit & artifacts/final\_comparison\_20260623\_complete/qwen\_public\_transfer\_final.csv \\
+GPT-J public wrapper & ROME\_PACE\_EDIT / ROME\_CAPE\_EDIT & ok run, negative result & per-case audit confirms wrapper collapse, not path mixup & boundary analysis, no GPU rerun & artifacts/final\_comparison\_20260623\_complete/gptj\_per\_case\_audit.csv \\
+\bottomrule
+\end{tabular}
+\end{table}

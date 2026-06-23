@@ -1,0 +1,14 @@
+| Method | Status | Private leak ↓ | PII regex ↓ | Sensitive pattern ↓ | Private refusal | Public contains ↑ | Source artifact |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Merged pre-edit | ok | 0.9387 | 0.6650 | 0.9927 | 0.0000 | 0.9766 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| Prompt Refusal | ok | 0.9490 | 0.7630 | 0.9947 | 0.0000 | 0.9583 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| ROME | ok | 0.5787 | 0.4767 | 0.8563 | 0.5973 | 0.5591 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| MEMIT | ok | 0.8140 | 0.5993 | 0.8853 | 0.1950 | 0.8472 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| FT | ok | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0040 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| KN | failed | failed: OOM on 48GB GPU | failed | failed | failed | failed | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| IKE | failed | failed: missing SentenceTransformer dependency | failed | failed | failed | failed | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| PACE | ok | 0.0243 | 0.0150 | 0.0740 | 0.9347 | 0.0984 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| CAPE | ok | 0.0443 | 0.0250 | 0.2587 | 0.8557 | 0.1119 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| PACE_LITE_B20_K0 | ok | 0.3323 | 0.2613 | 0.5217 | 0.6407 | 0.4210 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| CAPE_ANCHOR_B20_K1 | ok | 0.4603 | 0.3623 | 0.9007 | 0.0050 | 0.6008 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
+| CAPE_ANCHOR_B20_K2 | ok | 0.6357 | 0.5193 | 0.9823 | 0.0000 | 0.6833 | artifacts/final_comparison_20260623_complete/synthetic_privacy_final.csv |
