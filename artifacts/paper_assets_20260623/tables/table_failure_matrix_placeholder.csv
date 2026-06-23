@@ -1,0 +1,4 @@
+component,scope,status,reason,paper_treatment
+GPT-J public benchmark,public benchmark,stopped,KN coarse-neuron search too slow on current hardware,附录或工程说明，不进主表
+IKE public Qwen,public benchmark,failed_optional,missing ./hugging_cache/all-MiniLM-L6-v2,failure matrix，主表使用 ROME/FT/KN
+Synthetic IKE,synthetic privacy,[pending_server_result],[pending_server_result],失败则记录，不阻塞 FT/KN 与 CAPE-Anchor

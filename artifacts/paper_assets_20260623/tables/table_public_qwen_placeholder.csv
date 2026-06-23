@@ -1,0 +1,11 @@
+dataset,model,method,reliability,generalization,locality,failure_count,source_artifact,paper_scope
+CounterFact,Qwen2.5-7B,ROME,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_counterfact/,公开 factual editing 迁移验证，不作为隐私清洗证明
+CounterFact,Qwen2.5-7B,FT,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_counterfact/,公开 factual editing 迁移验证，不作为隐私清洗证明
+CounterFact,Qwen2.5-7B,KN,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_counterfact/,公开 factual editing 迁移验证，不作为隐私清洗证明
+CounterFact,Qwen2.5-7B,ROME+PACE-Edit,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_counterfact/,公开 factual editing 迁移验证，不作为隐私清洗证明
+CounterFact,Qwen2.5-7B,ROME+CAPE-Edit,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_counterfact/,公开 factual editing 迁移验证，不作为隐私清洗证明
+zsRE,Qwen2.5-7B,ROME,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_zsre/,公开 factual editing 迁移验证，不作为隐私清洗证明
+zsRE,Qwen2.5-7B,FT,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_zsre/,公开 factual editing 迁移验证，不作为隐私清洗证明
+zsRE,Qwen2.5-7B,KN,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_zsre/,公开 factual editing 迁移验证，不作为隐私清洗证明
+zsRE,Qwen2.5-7B,ROME+PACE-Edit,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_zsre/,公开 factual editing 迁移验证，不作为隐私清洗证明
+zsRE,Qwen2.5-7B,ROME+CAPE-Edit,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/public_benchmarks_20260623_200/qwen_zsre/,公开 factual editing 迁移验证，不作为隐私清洗证明

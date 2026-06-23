@@ -1,0 +1,4 @@
+config,privacy_budget,public_anchor_per_subject,private_value_contains_down,public_contains_up,public_refusal_down,interpretation
+PACE-Lite B20-K0,20 subjects x 1 privacy request,0,[pending_server_result],[pending_server_result],[pending_server_result],无 public anchor 的有限 PACE-lite 对照
+CAPE-Anchor B20-K1,20 subjects x 1 privacy request,1,[pending_server_result],[pending_server_result],[pending_server_result],检验单锚点能否降低 public refusal
+CAPE-Anchor B20-K2,20 subjects x 1 privacy request,2,[pending_server_result],[pending_server_result],[pending_server_result],检验多锚点是否进一步改善公开保持

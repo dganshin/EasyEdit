@@ -1,0 +1,12 @@
+method,status,private_value_contains_down,pii_regex_down,sensitive_pattern_down,private_refusal_up,public_contains_up,public_refusal_down,source_artifact,paper_interpretation
+Merged pre-edit,completed,0.9387,0.6650,0.9927,0.0000,0.9766,,artifacts/run_20260615_v2_rome_direct/,统一高泄露起点
+ROME direct,completed,0.5787,0.4767,0.8563,0.5973,0.5591,0.2873,artifacts/run_20260615_v2_rome_direct/,中等隐私压制但残余泄露明显
+MEMIT direct,completed,0.8140,0.5993,0.8853,0.1950,0.8472,0.0897,artifacts/run_20260622_v2_memit_direct/,公开知识保持较好但隐私压制不足
+FT,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/run_20260623_v2_ft_baseline/,作为 synthetic privacy baseline
+KN,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/run_20260623_v2_kn_baseline/,作为 synthetic privacy baseline
+IKE,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/run_20260623_v2_ike_baseline/,失败则进入 failure matrix，不阻塞主线
+PACE max2/person,completed,0.0243,0.0150,0.0740,0.9347,0.0984,0.8052,artifacts/run_20260615_v2_pace_max2_per_person/,强隐私压制但公开知识塌缩
+CAPE-v0,completed,0.0023,0.0023,0.0190,0.9890,0.0060,0.9877,artifacts/run_20260622_v2_cape_b1_tau05/,强拒答塌缩风险
+CAPE-v1,completed,0.0443,0.0250,0.2587,0.8557,0.1119,0.6901,artifacts/run_20260622_v2_cape_v1_top20_tau07_direct/,较 v0 缓解部分公开拒答，但非全面成功
+CAPE-Anchor K1,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/final_comparison_20260623_urgent/table_cape_anchor_rescue.csv,检验 public anchor 是否缓解 over-refusal
+CAPE-Anchor K2,[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],[pending_server_result],artifacts/final_comparison_20260623_urgent/table_cape_anchor_rescue.csv,检验更多 public anchors 的边际效果
