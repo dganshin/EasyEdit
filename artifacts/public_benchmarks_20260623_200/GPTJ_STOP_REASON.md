@@ -1,7 +1,18 @@
 # GPT-J Public Benchmark Stop Reason
 
-GPT-J public benchmark was stopped because KN coarse-neuron search was too slow on the current AutoDL 48GB instance.
+GPT-J 200-case public baseline is partially complete:
 
-This run is not used as the main paper matrix. The main public comparison uses Qwen2.5-7B on the same 200-case CounterFact/zsRE setting with ROME / FT / KN / IKE / ROME+PACE-Edit / ROME+CAPE-Edit.
+- CounterFact: ROME / FT completed.
+- zsRE: ROME / FT completed.
 
-Completed GPT-J partial results are retained as auxiliary evidence only.
+GPT-J expansion stopped for KN/IKE/MEMIT:
+
+- KN coarse-neuron search was too slow on the current AutoDL 48GB instance.
+- IKE is not repaired because the project has already decided not to spend time on the sentence-transformer dependency path.
+- MEMIT is not scheduled for GPT-J because it would reopen the MOM2/statistics preparation cost.
+
+Current GPT-J role:
+
+- Use ROME/FT rows as second-model public sanity patch.
+- If GPU time is available, only supplement ROME-based `ROME_PACE_EDIT` / `ROME_CAPE_EDIT` wrappers from existing ROME `per_case_results.jsonl`.
+- Do not expand GPT-J to KN/IKE/MEMIT or new datasets.

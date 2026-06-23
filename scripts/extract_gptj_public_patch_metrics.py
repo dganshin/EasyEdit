@@ -29,12 +29,10 @@ TARGETS = [
     ("counterfact", "FT"),
     ("counterfact", "ROME_PACE_EDIT"),
     ("counterfact", "ROME_CAPE_EDIT"),
-    ("counterfact", "MEMIT"),
     ("zsre", "ROME"),
     ("zsre", "FT"),
     ("zsre", "ROME_PACE_EDIT"),
     ("zsre", "ROME_CAPE_EDIT"),
-    ("zsre", "MEMIT"),
 ]
 MISSING = "missing"
 

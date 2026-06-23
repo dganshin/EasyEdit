@@ -209,12 +209,16 @@ def public_qwen_rows() -> List[Dict[str, str]]:
     seen = set()
     if isinstance(payload, dict):
         for item in payload.get("rows", []):
+            method_dir = str(item.get("method_dir", ""))
+            model_name = str(item.get("model", ""))
+            if "qwen_" not in method_dir.lower() and not model_name.lower().startswith("qwen"):
+                continue
             dataset = item.get("dataset", MISSING)
             method = item.get("method", MISSING)
             seen.add((dataset, method))
             rows.append(
                 row(
-                    model="Qwen2.5-7B",
+                    model=model_name or "Qwen2.5-7B",
                     dataset=f"{dataset}-200",
                     task_type="public_factual_editing",
                     method=method,
@@ -297,14 +301,12 @@ def public_gptj_rows() -> List[Dict[str, str]]:
         ("counterfact-200", "FT", "partial_without_metrics", "no summary.json found locally"),
         ("counterfact-200", "ROME_PACE_EDIT", "missing_artifact", "GPT-J public PACE-Edit wrapper not completed"),
         ("counterfact-200", "ROME_CAPE_EDIT", "missing_artifact", "GPT-J public CAPE-Edit wrapper not completed"),
-        ("counterfact-200", "MEMIT", "missing_artifact", "optional MEMIT skipped unless hparams/stats/smoke are ready"),
         ("counterfact-200", "KN", "stopped", "coarse-neuron search too slow, approximately 50-160s per case; stopped as resource-limited partial check"),
         ("counterfact-200", "IKE", "stopped", "GPT-J expansion stopped before IKE"),
         ("zsre-200", "ROME", "missing_artifact", "no summary.json found locally"),
         ("zsre-200", "FT", "missing_artifact", "no summary.json found locally"),
         ("zsre-200", "ROME_PACE_EDIT", "missing_artifact", "GPT-J public PACE-Edit wrapper not completed"),
         ("zsre-200", "ROME_CAPE_EDIT", "missing_artifact", "GPT-J public CAPE-Edit wrapper not completed"),
-        ("zsre-200", "MEMIT", "missing_artifact", "optional MEMIT skipped unless hparams/stats/smoke are ready"),
         ("zsre-200", "KN", "stopped", "coarse-neuron search too slow; not scheduled for GPT-J fast patch"),
         ("zsre-200", "IKE", "stopped", "GPT-J expansion stopped before IKE"),
     ]
@@ -361,9 +363,9 @@ def failed_rows(all_rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
             paper = "main_table_if_completed"
         if "ROME_PACE_EDIT" in method or "ROME_CAPE_EDIT" in method:
             should_retry = "optional"
-            priority = "low"
+            priority = "medium" if "GPT-J" in model else "low"
             paper = "public_transfer_appendix_only"
-        if method == "In-context Editing" or method == "IKE" or "GPT-J" in model or "KN" in method and "zsre" in dataset:
+        if method == "In-context Editing" or method == "IKE" or ("KN" in method and "zsre" in dataset) or ("GPT-J" in model and method in {"KN", "IKE", "MEMIT"}):
             should_retry = "no"
             priority = "none"
             paper = "failure_table_only"
@@ -385,7 +387,7 @@ def failed_rows(all_rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
         ("Qwen2.5-7B", "counterfact-200", "IKE", "public_factual_editing", "failed", "missing all-MiniLM-L6-v2 / sentence-transformer dependency", "no", "none", "failure_table_only"),
         ("Qwen2.5-7B", "zsre-200", "KN", "public_factual_editing", "failed", "CUDA OOM during coarse neuron search", "no", "none", "failure_table_only"),
         ("GPT-J-6B", "counterfact-200", "KN", "public_factual_editing", "stopped", "coarse-neuron search too slow, approximately 50-160s per case", "no", "none", "failure_table_only"),
-        ("GPT-J-6B", "zsre-200", "all methods", "public_factual_editing", "stopped", "stopped expansion", "no", "none", "failure_table_only"),
+        ("GPT-J-6B", "zsre-200", "KN", "public_factual_editing", "stopped", "coarse-neuron search too slow; not scheduled for GPT-J fast patch", "no", "none", "failure_table_only"),
     ]
     seen = {(f["model"], f["dataset"], f["method"]) for f in failures}
     for model, dataset, method, stage, status, reason, retry, priority, paper in explicit:
@@ -435,7 +437,13 @@ def write_summary(all_rows: List[Dict[str, str]], failures: List[Dict[str, str]]
     for item in all_rows:
         status_counts[item["status"]] = status_counts.get(item["status"], 0) + 1
     main = [r for r in all_rows if r["task_type"] == "privacy_sanitization" and r["status"] == "ok"]
-    public_ok = [r for r in all_rows if r["task_type"] == "public_factual_editing" and r["model"] == "Qwen2.5-7B" and r["status"] == "ok"]
+    public_ok = [
+        r
+        for r in all_rows
+        if r["task_type"] == "public_factual_editing"
+        and r["model"].lower().startswith("qwen")
+        and r["status"] == "ok"
+    ]
     text = [
         "# Result Ledger Summary",
         "",
@@ -454,7 +462,7 @@ def write_summary(all_rows: List[Dict[str, str]], failures: List[Dict[str, str]]
         "",
         "- Synthetic privacy: Leakage model / ROME direct / MEMIT direct / PACE variants / CAPE variants.",
         "- 如果 urgent main 返回，再加入 FT / KN / CAPE-Anchor K0/K1/K2。",
-        "- Public table 主体只放 Qwen CounterFact / zsRE 的真实指标；GPT-J 仅作为 50/100-case ROME/FT fast patch 或附表，不扩 KN/IKE。",
+        "- Public table 主体只放 Qwen CounterFact / zsRE 的真实指标；GPT-J 仅作为 200-case ROME/FT second-model sanity patch，若补 wrapper 则放附表，不扩 KN/IKE/MEMIT。",
         "",
         "## 4. 附表或失败表",
         "",
@@ -465,7 +473,7 @@ def write_summary(all_rows: List[Dict[str, str]], failures: List[Dict[str, str]]
         "",
         "## 5. 下一步唯一值得跑的实验",
         "",
-        "CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limited to the ROME/FT fast patch if a local model already exists; do not expand GPT-J KN/IKE/MEMIT or new public datasets.",
+        "CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limited to ROME/FT plus optional ROME-based PACE/CAPE wrappers when ROME per-case files already exist; do not expand GPT-J KN/IKE/MEMIT or new public datasets.",
         "",
         "## 6. 前 30 行 ledger 预览",
         "",
