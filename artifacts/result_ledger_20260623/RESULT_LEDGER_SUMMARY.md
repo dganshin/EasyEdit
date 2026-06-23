@@ -12,8 +12,8 @@ Last updated: 2026-06-23
 | status | count |
 | --- | --- |
 | failed | 4 |
-| missing_artifact | 10 |
-| ok | 13 |
+| missing_artifact | 8 |
+| ok | 15 |
 | pending | 5 |
 | stopped | 4 |
 
@@ -64,7 +64,7 @@ CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limi
 | Qwen2.5-7B | zsre-200 | IKE | missing_artifact | missing | missing | missing | missing | skipped after dependency/resource issue |
 | Qwen2.5-7B | zsre-200 | ROME_PACE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
 | Qwen2.5-7B | zsre-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
-| GPT-J-6B | counterfact-200 | ROME | missing_artifact | missing | missing | missing | missing | no summary.json found |
-| GPT-J-6B | counterfact-200 | FT | missing_artifact | missing | missing | missing | missing | no summary.json found |
+| GPT-J-6B | counterfact-200 | ROME | ok | missing | missing | 0.995 | 0.82 | missing |
+| GPT-J-6B | counterfact-200 | FT | ok | missing | missing | 1 | 0.725 | missing |
 | GPT-J-6B | counterfact-200 | MEMIT | missing_artifact | missing | missing | missing | missing | no summary.json found |
 | GPT-J-6B | zsre-200 | ROME | missing_artifact | missing | missing | missing | missing | no summary.json found |
