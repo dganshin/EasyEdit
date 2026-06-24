@@ -44,6 +44,7 @@ SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
 GPTJ_WRAPPER_POLICY="${GPTJ_WRAPPER_POLICY:-nonsequential}"
+FORCE_RERUN_WRAPPERS="${FORCE_RERUN_WRAPPERS:-0}"
 STATUS_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_STATUS.txt"
 DONE_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_DONE"
 LOG_DIR="${ART_ROOT}/pipeline_logs_closed_loop_${MODEL_SHORT}"
@@ -156,6 +157,26 @@ summary = {
 PY
 }
 
+summary_status() {
+  local path="$1"
+  if [[ ! -f "$path" ]]; then
+    echo "missing"
+    return 0
+  fi
+  python3 - "$path" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+try:
+    payload = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+except Exception:
+    print("invalid")
+    raise SystemExit(0)
+print(payload.get("status") or "unknown")
+PY
+}
+
 IFS=',' read -ra DATASET_LIST <<< "$DATASETS"
 overall_failed=0
 for dataset in "${DATASET_LIST[@]}"; do
@@ -178,10 +199,16 @@ for dataset in "${DATASET_LIST[@]}"; do
   if [[ "$MODEL_SHORT" == "gptj" && "$GPTJ_WRAPPER_POLICY" == "nonsequential" ]]; then
     echo "[GPT-J ADAPT] ${dataset}: running public PACE/CAPE wrappers without long sequential ROME accumulation."
     wrapper_run_args=()
-    rm -f "${baseline_dir}/${BASE_METHOD}_PACE_EDIT/summary.json" \
-          "${baseline_dir}/${BASE_METHOD}_PACE_EDIT/per_case_results.jsonl" \
-          "${baseline_dir}/${BASE_METHOD}_CAPE_EDIT/summary.json" \
-          "${baseline_dir}/${BASE_METHOD}_CAPE_EDIT/per_case_results.jsonl"
+    for wrapper in "${BASE_METHOD}_PACE_EDIT" "${BASE_METHOD}_CAPE_EDIT"; do
+      wrapper_dir="${baseline_dir}/${wrapper}"
+      status="$(summary_status "${wrapper_dir}/summary.json")"
+      if [[ "$FORCE_RERUN_WRAPPERS" == "1" || "$status" != "ok" ]]; then
+        echo "[GPT-J ADAPT] ${dataset}/${wrapper}: clearing prior status=${status} before rerun."
+        rm -f "${wrapper_dir}/summary.json" "${wrapper_dir}/per_case_results.jsonl"
+      else
+        echo "[GPT-J ADAPT] ${dataset}/${wrapper}: keeping completed ok result."
+      fi
+    done
   fi
 
   if [[ ! -f "$dataset_path" ]]; then

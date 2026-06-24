@@ -28,6 +28,7 @@ export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:T
 
 ART_ROOT="${ART_ROOT:-artifacts/public_benchmarks_20260623_200}"
 MAX_CASES="${MAX_CASES:-200}"
+DATASETS="${DATASETS:-counterfact,zsre}"
 INSTANCE_MODEL="${INSTANCE_MODEL:-auto}"
 QWEN_MODEL="${QWEN_MODEL:-/root/autodl-tmp/models/Qwen2.5-7B}"
 GPTJ_MODEL="${GPTJ_MODEL:-/root/autodl-tmp/models/gpt-j-6B}"
@@ -117,7 +118,7 @@ MODEL_SHORT="$model_short" \
 MODEL_NAME="$model_name" \
 MODEL_PATH="$model_path" \
 BASE_METHOD=ROME \
-DATASETS=counterfact,zsre \
+DATASETS="$DATASETS" \
 DEVICE="$DEVICE" \
 STREAM_LOGS="$STREAM_LOGS" \
 SHUTDOWN_ON_EXIT="$SHUTDOWN_ON_EXIT" \
