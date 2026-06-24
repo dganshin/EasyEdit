@@ -43,6 +43,7 @@ STREAM_LOGS="${STREAM_LOGS:-1}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
+GPTJ_WRAPPER_POLICY="${GPTJ_WRAPPER_POLICY:-skip_uncalibrated}"
 STATUS_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_STATUS.txt"
 DONE_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_DONE"
 LOG_DIR="${ART_ROOT}/pipeline_logs_closed_loop_${MODEL_SHORT}"
@@ -66,6 +67,7 @@ write_status() {
     echo "public_dataset_size=${PUBLIC_DATASET_SIZE}"
     echo "shutdown_on_exit=${SHUTDOWN_ON_EXIT}"
     echo "allow_autodl_shutdown=${ALLOW_AUTODL_SHUTDOWN}"
+    echo "gptj_wrapper_policy=${GPTJ_WRAPPER_POLICY}"
   } > "$STATUS_FILE"
 }
 
@@ -163,6 +165,14 @@ for dataset in "${DATASET_LIST[@]}"; do
   baseline_dir="${ART_ROOT}/${MODEL_SHORT}_${dataset}"
   per_case="${baseline_dir}/${BASE_METHOD}/per_case_results.jsonl"
   selection_dir="${baseline_dir}/${BASE_METHOD}_PACE_CAPE_SELECTION"
+
+  if [[ "$MODEL_SHORT" == "gptj" && "$GPTJ_WRAPPER_POLICY" != "run_uncalibrated" ]]; then
+    msg="GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration."
+    echo "[SKIP] ${dataset}: $msg"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "calibration_needed"
+    write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "calibration_needed"
+    continue
+  fi
 
   if [[ ! -f "$dataset_path" ]]; then
     msg="missing dataset: $dataset_path"

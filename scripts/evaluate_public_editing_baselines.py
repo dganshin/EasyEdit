@@ -58,7 +58,8 @@ def get_nested(payload: Dict[str, Any], keys: Iterable[str]) -> Any:
 def aggregate_method(method_dir: Path) -> Dict[str, Any]:
     summary = read_json(method_dir / "summary.json") or {"status": "missing"}
     config = read_json(method_dir / "method_config.json") or {}
-    rows = read_jsonl(method_dir / "per_case_results.jsonl")
+    status = summary.get("status")
+    rows = [] if status == "calibration_needed" else read_jsonl(method_dir / "per_case_results.jsonl")
     rewrite_vals = []
     rephrase_vals = []
     locality_vals = []
@@ -77,7 +78,7 @@ def aggregate_method(method_dir: Path) -> Dict[str, Any]:
         "dataset": config.get("dataset_name"),
         "model": config.get("model_name"),
         "method": config.get("method") or method_dir.name,
-        "status": summary.get("status"),
+        "status": status,
         "num_cases": summary.get("num_cases") or summary.get("num_cases_attempted") or len(rows),
         "reliability_rewrite_success": mean(rewrite_vals) if rewrite_vals else None,
         "generalization_rephrase_success": mean(rephrase_vals) if rephrase_vals else None,
