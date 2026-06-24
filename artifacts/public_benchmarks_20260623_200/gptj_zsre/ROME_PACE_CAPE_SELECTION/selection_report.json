@@ -1,0 +1,610 @@
+{
+  "dataset": "zsre",
+  "model": "gpt-j-6B",
+  "base_method": "ROME",
+  "total_cases": 200,
+  "dataset_limit": 200,
+  "selection_split_size": 120,
+  "heldout_size": 80,
+  "candidate_count": 16,
+  "selected_count": 16,
+  "pace_selected_count": 16,
+  "cape_selected_count": 16,
+  "round1_count": 200,
+  "round2_count": 16,
+  "union_count": 216,
+  "pace_round2_count": 16,
+  "cape_round2_count": 16,
+  "pace_union_count": 216,
+  "cape_union_count": 216,
+  "rewrite_fail_count": 0,
+  "rephrase_fail_count": 16,
+  "locality_available_count": 0,
+  "locality_failed_count": 0,
+  "skipped_by_locality_risk": 0,
+  "skipped_by_subject_or_relation_budget": 0,
+  "missing_locality_risk_count": 16,
+  "max_round2_requests": 24,
+  "max_per_subject_or_relation": 1,
+  "selected_case_ids": [
+    "zsre_00027",
+    "zsre_00116",
+    "zsre_00187",
+    "zsre_00171",
+    "zsre_00006",
+    "zsre_00098",
+    "zsre_00013",
+    "zsre_00056",
+    "zsre_00067",
+    "zsre_00190",
+    "zsre_00157",
+    "zsre_00161",
+    "zsre_00083",
+    "zsre_00086",
+    "zsre_00036",
+    "zsre_00184"
+  ],
+  "selected_subjects": [
+    "Karol Križan",
+    "Jacob Milgrom",
+    "Philip Cross",
+    "Detroit City FC",
+    "Markus Marquardt",
+    "Triangulum Galaxy",
+    "Hartmut Losch",
+    "Matinee Ladies",
+    "Stop Violence",
+    "Barilius shacra",
+    "KM-SAM",
+    "Hyperion Hotel",
+    "FH-2000",
+    "Elizabeth Tailboys, 4th Baroness Tailboys of Kyme",
+    "Sheikh Jamal Dhanmondi Club",
+    "Joseph A. Sullivan"
+  ],
+  "selected_relations": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "paths": {
+    "selection_split_cases": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/selection_split_cases.json",
+    "heldout_eval_cases": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/heldout_eval_cases.json",
+    "pace_round2_dataset": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/pace_round2_dataset.json",
+    "cape_round2_dataset": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/cape_round2_dataset.json",
+    "pace_union_dataset": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/pace_union_dataset.json",
+    "cape_union_dataset": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/cape_union_dataset.json",
+    "split_report": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_CAPE_SELECTION/split_report.json"
+  },
+  "selected_examples": {
+    "PACE_EDIT": [
+      {
+        "case_id": "zsre_00027",
+        "subject": "Karol Križan",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00116",
+        "subject": "Jacob Milgrom",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00187",
+        "subject": "Philip Cross",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00171",
+        "subject": "Detroit City FC",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.3333333333333333,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.6666666666666667,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00006",
+        "subject": "Markus Marquardt",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.5,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.5,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00098",
+        "subject": "Triangulum Galaxy",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.5,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.5,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00013",
+        "subject": "Hartmut Losch",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00056",
+        "subject": "Matinee Ladies",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00067",
+        "subject": "Stop Violence",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00190",
+        "subject": "Barilius shacra",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00157",
+        "subject": "KM-SAM",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.75,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.25,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00161",
+        "subject": "Hyperion Hotel",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.75,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.25,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00083",
+        "subject": "FH-2000",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.19999999999999996,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00086",
+        "subject": "Elizabeth Tailboys, 4th Baroness Tailboys of Kyme",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.19999999999999996,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00036",
+        "subject": "Sheikh Jamal Dhanmondi Club",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8333333333333334,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.16666666666666663,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00184",
+        "subject": "Joseph A. Sullivan",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8333333333333334,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.16666666666666663,
+          "loc_risk": 0.25
+        }
+      }
+    ],
+    "CAPE_EDIT": [
+      {
+        "case_id": "zsre_00027",
+        "subject": "Karol Križan",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00116",
+        "subject": "Jacob Milgrom",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00187",
+        "subject": "Philip Cross",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00171",
+        "subject": "Detroit City FC",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.3333333333333333,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.6666666666666667,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00006",
+        "subject": "Markus Marquardt",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.5,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.5,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00098",
+        "subject": "Triangulum Galaxy",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.5,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.5,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00013",
+        "subject": "Hartmut Losch",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00056",
+        "subject": "Matinee Ladies",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00067",
+        "subject": "Stop Violence",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00190",
+        "subject": "Barilius shacra",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.6666666666666666,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.33333333333333337,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00157",
+        "subject": "KM-SAM",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.75,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.25,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00161",
+        "subject": "Hyperion Hotel",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.75,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.25,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00083",
+        "subject": "FH-2000",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.19999999999999996,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00086",
+        "subject": "Elizabeth Tailboys, 4th Baroness Tailboys of Kyme",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.19999999999999996,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00036",
+        "subject": "Sheikh Jamal Dhanmondi Club",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8333333333333334,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.16666666666666663,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "zsre_00184",
+        "subject": "Joseph A. Sullivan",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.8333333333333334,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 0.16666666666666663,
+          "loc_risk": 0.25
+        }
+      }
+    ]
+  }
+}

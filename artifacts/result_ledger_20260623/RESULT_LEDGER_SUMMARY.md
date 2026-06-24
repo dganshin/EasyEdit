@@ -11,10 +11,9 @@ Last updated: 2026-06-23
 
 | status | count |
 | --- | --- |
-| calibration_needed | 2 |
 | failed | 3 |
 | missing_artifact | 1 |
-| ok | 23 |
+| ok | 25 |
 | pending | 5 |
 | stopped | 4 |
 

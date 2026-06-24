@@ -1,0 +1,5334 @@
+{
+  "dataset": "zsre",
+  "records": [
+    {
+      "case_id": "zsre_00000",
+      "source_case_id": "35180f5c-f162-4478-84dd-0685f217738e",
+      "dataset": "zsre",
+      "prompt": "Which state is Pyhrn Pass located?",
+      "subject": "Pyhrn Pass",
+      "target_new": "Saxony",
+      "ground_truth": "Styria",
+      "rephrase_prompt": [
+        "What state is Pyhrn Pass?",
+        "Which state is located in Pyhrn Pass?",
+        "What state is located in Pyhrn Pass?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the home arena of Hammarby IF DFF?",
+          "ground_truth": "Hammarby IP",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00001",
+      "source_case_id": "42c6a684-c953-48a4-bd7a-34918dede25e",
+      "dataset": "zsre",
+      "prompt": "What is the constellation where NGC 28 is located?",
+      "subject": "NGC 28",
+      "target_new": "Pisces",
+      "ground_truth": "Phoenix",
+      "rephrase_prompt": [
+        "The star NGC 28 is part of the constellation what is known?",
+        "What constellation hosts NGC 28?",
+        "Which constellation is home to NGC 28?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the record label of Baby, Baby Don't Cry?",
+          "ground_truth": "Motown",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00002",
+      "source_case_id": "3e625ec9-4eed-4b3b-9b53-a366259cd294",
+      "dataset": "zsre",
+      "prompt": "What was the record label of Baby, Baby Don't Cry?",
+      "subject": "Baby, Baby Don't Cry",
+      "target_new": "Capitol Records",
+      "ground_truth": "Motown",
+      "rephrase_prompt": [
+        "What label was responsible for Baby, Baby Don't Cry?",
+        "How was the record label of Baby, Baby Don't Cry?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the date of Ernest Warburton's death?",
+          "ground_truth": "7 August 2001",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00003",
+      "source_case_id": "97e2a475-685e-43a9-933f-56f93e74befb",
+      "dataset": "zsre",
+      "prompt": "What is the date of Ernest Warburton's death?",
+      "subject": "Ernest Warburton",
+      "target_new": "1958",
+      "ground_truth": "7 August 2001",
+      "rephrase_prompt": [
+        "At what point did Ernest Warburton die?",
+        "At what time did Ernest Warburton die?",
+        "What's the date on Ernest Warburton's death?"
+      ],
+      "locality": [
+        {
+          "prompt": "The voice type of Yuan Chenye is what?",
+          "ground_truth": "baritone",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00004",
+      "source_case_id": "a3fb6247-f5dd-496b-b361-6683361fab70",
+      "dataset": "zsre",
+      "prompt": "The voice type of Yuan Chenye is what?",
+      "subject": "Yuan Chenye",
+      "target_new": "baritone",
+      "ground_truth": "baritone",
+      "rephrase_prompt": [
+        "The kind of voice of Yuan Chenye, what?",
+        "What's the vocal area for Yuan Chenye?",
+        "The kind of voice of Yuan Chenye is, isn't it?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the creator of Bal du moulin de la Galette?",
+          "ground_truth": "Pierre-Auguste Renoir",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00005",
+      "source_case_id": "740fb17f-f4e8-4f38-92b7-4e3493d0f8de",
+      "dataset": "zsre",
+      "prompt": "Who is the creator of Bal du moulin de la Galette?",
+      "subject": "Bal du moulin de la Galette",
+      "target_new": "Gaston Leroux",
+      "ground_truth": "Pierre-Auguste Renoir",
+      "rephrase_prompt": [
+        "Who's Bal du moulin de la Galette from us?",
+        "Who's Bal du moulin de la Galette of us?",
+        "Who is Bal du moulin de la Galette of us?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the vocal range for Markus Marquardt?",
+          "ground_truth": "baritone",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00006",
+      "source_case_id": "344d0b49-9e00-4ed2-ac84-a3d47401123d",
+      "dataset": "zsre",
+      "prompt": "What is the vocal range for Markus Marquardt?",
+      "subject": "Markus Marquardt",
+      "target_new": "baritone",
+      "ground_truth": "baritone",
+      "rephrase_prompt": [
+        "What was the vocal type Markus Marquardt had?",
+        "In what kind of sound does Markus Marquardt sing?",
+        "What is Markus Marquardt's vocal program?"
+      ],
+      "locality": [
+        {
+          "prompt": "What year did JB-4 come into use?",
+          "ground_truth": "1945",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00007",
+      "source_case_id": "779a5b76-608a-4446-b504-17fb752f47f6",
+      "dataset": "zsre",
+      "prompt": "What year did JB-4 come into use?",
+      "subject": "JB-4",
+      "target_new": "1961",
+      "ground_truth": "1945",
+      "rephrase_prompt": [
+        "What year did JB-4 come into service?",
+        "Which year was JB-4 introduced?",
+        "What was the year when JB-4 went into operation?"
+      ],
+      "locality": [
+        {
+          "prompt": "The date of birth of Charles Dissels is?",
+          "ground_truth": "21 December 1984",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00008",
+      "source_case_id": "ea22e8f7-ca2a-4b0d-a69e-8bd5868ecff5",
+      "dataset": "zsre",
+      "prompt": "The date of birth of Charles Dissels is?",
+      "subject": "Charles Dissels",
+      "target_new": "1810",
+      "ground_truth": "21 December 1984",
+      "rephrase_prompt": [
+        "The date of birth of Charles Dissels?",
+        "The date of birth is Charles Dissels?",
+        "Is the date of birth of Charles Dissels?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what date did Vilayet of the Archipelago end?",
+          "ground_truth": "1912",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00009",
+      "source_case_id": "a9b2a0f8-90c2-40b3-ba75-b783d2628a46",
+      "dataset": "zsre",
+      "prompt": "On what date did Vilayet of the Archipelago end?",
+      "subject": "Vilayet of the Archipelago",
+      "target_new": "30 January 2013",
+      "ground_truth": "1912",
+      "rephrase_prompt": [
+        "On what date did Vilayet of the Archipelago end?"
+      ],
+      "locality": [
+        {
+          "prompt": "The artwork Pieter Tjarck was by who?",
+          "ground_truth": "Frans Hals",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00010",
+      "source_case_id": "a9ae02dc-5558-433e-886a-07668bbdb5cc",
+      "dataset": "zsre",
+      "prompt": "The artwork Pieter Tjarck was by who?",
+      "subject": "Pieter Tjarck",
+      "target_new": "Vincent van Gogh",
+      "ground_truth": "Frans Hals",
+      "rephrase_prompt": [
+        "Who developed Pieter Tjarck?",
+        "The artwork Pieter Tjarck was with whom?",
+        "The artwork Pieter Tjarck is by whom?"
+      ],
+      "locality": [
+        {
+          "prompt": "What kind of  occupation does The Ultimate Warrior have?",
+          "ground_truth": "professional wrestler",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00011",
+      "source_case_id": "e138fdb9-ca24-4551-bbe1-e9cfea93fb7e",
+      "dataset": "zsre",
+      "prompt": "What kind of  occupation does The Ultimate Warrior have?",
+      "subject": "The Ultimate Warrior",
+      "target_new": "boxer",
+      "ground_truth": "professional wrestler",
+      "rephrase_prompt": [
+        "What kind of occupation has The Ultimate Warrior?",
+        "What kind of employment does The Ultimate Warrior have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the date of death of Thado Minsaw of Prome?",
+          "ground_truth": "1526",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00012",
+      "source_case_id": "bf21670f-06e6-4dd5-aea9-dd5bb7ae4405",
+      "dataset": "zsre",
+      "prompt": "What was the date of death of Thado Minsaw of Prome?",
+      "subject": "Thado Minsaw of Prome",
+      "target_new": "1952",
+      "ground_truth": "1526",
+      "rephrase_prompt": [
+        "What was the date of the death of Thado Minsaw of Prome?",
+        "How was the date of death of Thado Minsaw of Prome?",
+        "How was the date of the death of Thado Minsaw of Prome?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where did Hartmut Losch live when he died?",
+          "ground_truth": "Neu Fahrland",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00013",
+      "source_case_id": "76c96336-84af-421b-86ce-d0bc3b951b3e",
+      "dataset": "zsre",
+      "prompt": "Where did Hartmut Losch live when he died?",
+      "subject": "Hartmut Losch",
+      "target_new": "Leipzig",
+      "ground_truth": "Neu Fahrland",
+      "rephrase_prompt": [
+        "Where was Hartmut Losch when he died?",
+        "Where's Hartmut Losch living when he died?",
+        "Where'd Hartmut Losch live when he died?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who published The Warrior's Apprentice?",
+          "ground_truth": "Baen Books",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00014",
+      "source_case_id": "968edf51-e56c-4168-bdfd-fa6da58c59b7",
+      "dataset": "zsre",
+      "prompt": "Who published The Warrior's Apprentice?",
+      "subject": "The Warrior's Apprentice",
+      "target_new": "Ace Books",
+      "ground_truth": "Baen Books",
+      "rephrase_prompt": [
+        "Who has published The Warrior's Apprentice?"
+      ],
+      "locality": [
+        {
+          "prompt": "What airport is Jupiter-Avia part of?",
+          "ground_truth": "Erebuni Airport",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00015",
+      "source_case_id": "62737c5e-7b15-437e-a9f1-ac40585754c2",
+      "dataset": "zsre",
+      "prompt": "What airport is Jupiter-Avia part of?",
+      "subject": "Jupiter-Avia",
+      "target_new": "Juanda International Airport",
+      "ground_truth": "Erebuni Airport",
+      "rephrase_prompt": [
+        "Which airline hub does Jupiter-Avia work from?",
+        "What airport does Jupiter-Avia operate out of?",
+        "What airport is most closely associated with Jupiter-Avia?"
+      ],
+      "locality": [
+        {
+          "prompt": "What specific type of seafaring vessel was SM UB-105?",
+          "ground_truth": "German Type UB III submarine",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00016",
+      "source_case_id": "f33252a2-91bf-488d-ad7b-6b8b8153c708",
+      "dataset": "zsre",
+      "prompt": "What specific type of seafaring vessel was SM UB-105?",
+      "subject": "SM UB-105",
+      "target_new": "German Type UB III destroyer",
+      "ground_truth": "German Type UB III submarine",
+      "rephrase_prompt": [
+        "What kind of maritime vessel was SM UB-105?",
+        "What is the type of ship SM UB-105?",
+        "What type of aquatic units is SM UB-105?"
+      ],
+      "locality": [
+        {
+          "prompt": "The Gnomeo & Juliet is based upon what?",
+          "ground_truth": "Romeo and Juliet",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00017",
+      "source_case_id": "3a99c441-a3b0-4946-a649-8f19c52401a8",
+      "dataset": "zsre",
+      "prompt": "What kind of  occupation does Melonie Dodaro have?",
+      "subject": "Melonie Dodaro",
+      "target_new": "politician",
+      "ground_truth": "author",
+      "rephrase_prompt": [
+        "What kind of occupation has Melonie Dodaro?",
+        "What kind of work does Melonie Dodaro have?",
+        "What type of occupation does Melonie Dodaro have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the name of the architect who worked on Verdala Palace?",
+          "ground_truth": "Girolamo Cassar",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00018",
+      "source_case_id": "a3e20ce4-a243-4d01-81e5-2b7e4303d991",
+      "dataset": "zsre",
+      "prompt": "What was the name of the architect who worked on Verdala Palace?",
+      "subject": "Verdala Palace",
+      "target_new": "Manfred Trenz",
+      "ground_truth": "Girolamo Cassar",
+      "rephrase_prompt": [
+        "What was the name of the architect who was working at the Verdala Palace?",
+        "Which person was Verdala Palace designed by?",
+        "Who was mainly responsible for the design of Verdala Palace?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which country does Wang Hongzhang belong to?",
+          "ground_truth": "China",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00019",
+      "source_case_id": "e61e64e2-7feb-4d00-a981-f1d6d463f8c9",
+      "dataset": "zsre",
+      "prompt": "Which country does Wang Hongzhang belong to?",
+      "subject": "Wang Hongzhang",
+      "target_new": "Hong Kong",
+      "ground_truth": "China",
+      "rephrase_prompt": [
+        "Which country is Wang Hongzhang to?",
+        "What country belongs to Wang Hongzhang?",
+        "Which country is Wang Hongzhang?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of the airport associated with Jupiter-Avia?",
+          "ground_truth": "Erebuni Airport",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00020",
+      "source_case_id": "62737c5e-7b15-437e-a9f1-ac40585754c2",
+      "dataset": "zsre",
+      "prompt": "What is the name of the airport associated with Jupiter-Avia?",
+      "subject": "Jupiter-Avia",
+      "target_new": "Johannes Gutenberg Airport",
+      "ground_truth": "Erebuni Airport",
+      "rephrase_prompt": [
+        "Which airline hub does Jupiter-Avia work from?",
+        "What airport does Jupiter-Avia operate out of?",
+        "What airport is most closely associated with Jupiter-Avia?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the original network of The Disordered Mind?",
+          "ground_truth": "CBC Television",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00021",
+      "source_case_id": "90a6b189-34f2-4786-824c-aac5bec2969e",
+      "dataset": "zsre",
+      "prompt": "What is the original network of The Disordered Mind?",
+      "subject": "The Disordered Mind",
+      "target_new": "Discovery Channel",
+      "ground_truth": "CBC Television",
+      "rephrase_prompt": [
+        "What was the initial network of The Disordered Mind?",
+        "What was the original network from The Disordered Mind?",
+        "What is The Disordered Mind's original network?"
+      ],
+      "locality": [
+        {
+          "prompt": "For which sports team does Caroline Jönsson play?",
+          "ground_truth": "Umeå IK",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00022",
+      "source_case_id": "cfe4ff8a-c193-4f03-95c9-2236408f54b8",
+      "dataset": "zsre",
+      "prompt": "For which sports team does Caroline Jönsson play?",
+      "subject": "Caroline Jönsson",
+      "target_new": "IFK Norrköping",
+      "ground_truth": "Umeå IK",
+      "rephrase_prompt": [
+        "Which sports team is Caroline Jönsson playing for?",
+        "What team is Caroline Jönsson playing for?",
+        "What sports team is Caroline Jönsson playing for?"
+      ],
+      "locality": [
+        {
+          "prompt": "To which country does Olivia Hamnett belong as its citizen?",
+          "ground_truth": "Australia",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00023",
+      "source_case_id": "0d5bc2ca-1e57-41f4-870d-77dcc5d7d642",
+      "dataset": "zsre",
+      "prompt": "To which country does Olivia Hamnett belong as its citizen?",
+      "subject": "Olivia Hamnett",
+      "target_new": "Australia",
+      "ground_truth": "Australia",
+      "rephrase_prompt": [
+        "In which country is Olivia Hamnett a citizen?",
+        "In which country does Olivia Hamnett belong as a citizen?",
+        "What country does Olivia Hamnett own as a citizen?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which family is Eumaragma a part of?",
+          "ground_truth": "Crambidae",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00024",
+      "source_case_id": "7a80745e-bfbd-4c33-b46d-c289b1463dc5",
+      "dataset": "zsre",
+      "prompt": "Which family is Eumaragma a part of?",
+      "subject": "Eumaragma",
+      "target_new": "Geometridae",
+      "ground_truth": "Crambidae",
+      "rephrase_prompt": [
+        "In which family is Eumaragma a part?",
+        "Which family belongs to Eumaragma?",
+        "Which family does Eumaragma belong to?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the continent that Moltke Nunataks is located?",
+          "ground_truth": "Antarctica",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00025",
+      "source_case_id": "3d8b938c-4154-40a8-892a-3b37b00c0b4b",
+      "dataset": "zsre",
+      "prompt": "Which was the country for Xposé?",
+      "subject": "Xposé",
+      "target_new": "Spain",
+      "ground_truth": "Ireland",
+      "rephrase_prompt": [
+        "Which country was it for Xposé?",
+        "Which country was for Xposé?",
+        "The country for Xposé, huh?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which family is Plexaurella a part of?",
+          "ground_truth": "Plexauridae",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00026",
+      "source_case_id": "7e048449-7a56-48b0-8f09-baa166c77df1",
+      "dataset": "zsre",
+      "prompt": "Which family is Plexaurella a part of?",
+      "subject": "Plexaurella",
+      "target_new": "Cerambycidae",
+      "ground_truth": "Plexauridae",
+      "rephrase_prompt": [
+        "In what family is Plexaurella a part?",
+        "Which family is Plexaurella part?",
+        "In which family is Plexaurella part?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the position of Karol Križan?",
+          "ground_truth": "goaltender",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00027",
+      "source_case_id": "e0cd0f6d-e036-4bee-89b7-25ef5d38fb7c",
+      "dataset": "zsre",
+      "prompt": "What was the position of Karol Križan?",
+      "subject": "Karol Križan",
+      "target_new": "goalkeeper",
+      "ground_truth": "goaltender",
+      "rephrase_prompt": [
+        "What was Karol Križan's position like?",
+        "Which position did Karol Križan have?",
+        "What position did Karol Križan have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the name of Yohanis Tjoe's team?",
+          "ground_truth": "Persipura Jayapura",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00028",
+      "source_case_id": "8934ae2f-90dc-4d00-bc58-98ce1c1504bc",
+      "dataset": "zsre",
+      "prompt": "What was the name of Yohanis Tjoe's team?",
+      "subject": "Yohanis Tjoe",
+      "target_new": "SC Monza",
+      "ground_truth": "Persipura Jayapura",
+      "rephrase_prompt": [
+        "What's the name of the Yohanis Tjoes team?",
+        "What was Yohanis Tjoe's team's name?",
+        "What's Yohanis Tjoe's team?"
+      ],
+      "locality": [
+        {
+          "prompt": "What constellation is HD 191104 located in?",
+          "ground_truth": "Aquila",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00029",
+      "source_case_id": "0531a349-2ea7-4f52-b5be-94cb7639795f",
+      "dataset": "zsre",
+      "prompt": "What constellation is HD 191104 located in?",
+      "subject": "HD 191104",
+      "target_new": "Libra",
+      "ground_truth": "Aquila",
+      "rephrase_prompt": [
+        "Of which constellation is HD 191104 part?",
+        "What constellation is HD 191104 part?",
+        "Which constellation is HD 191104 part of?"
+      ],
+      "locality": [
+        {
+          "prompt": "What language is Max and Moritz in?",
+          "ground_truth": "German",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00030",
+      "source_case_id": "bb48ed0e-311e-4b56-9794-1fcb84ef4244",
+      "dataset": "zsre",
+      "prompt": "What language is Max and Moritz in?",
+      "subject": "Max and Moritz",
+      "target_new": "Heinz",
+      "ground_truth": "German",
+      "rephrase_prompt": [
+        "What language are Max and Moritz written in?",
+        "In what language does the monthly soccer magazine Max and Moritz report?",
+        "In what language does the monthly football magazine Max and Moritz report?"
+      ],
+      "locality": [
+        {
+          "prompt": "What company manufactures Lilt?",
+          "ground_truth": "The Coca-Cola Company",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00031",
+      "source_case_id": "2b0fa1ab-b07f-4e81-894e-895620b31923",
+      "dataset": "zsre",
+      "prompt": "What company manufactures Lilt?",
+      "subject": "Lilt",
+      "target_new": "Mattel",
+      "ground_truth": "The Coca-Cola Company",
+      "rephrase_prompt": [
+        "Which company manufactures Lilt?",
+        "Which company produces Lilt?",
+        "Which company does Lilt manufacture?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which family is Ctenophila a part of?",
+          "ground_truth": "Euconulidae",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00032",
+      "source_case_id": "e2d9da94-fc0e-4768-b03b-111ab4a20083",
+      "dataset": "zsre",
+      "prompt": "Which family is Ctenophila a part of?",
+      "subject": "Ctenophila",
+      "target_new": "Noctuidae",
+      "ground_truth": "Euconulidae",
+      "rephrase_prompt": [
+        "Which family belongs to Ctenophila?",
+        "To which family is Ctenophila?",
+        "In which family is Ctenophila part?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the universe that Tsathoggua exists in?",
+          "ground_truth": "Cthulhu Mythos",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00033",
+      "source_case_id": "f73ae01a-298d-4f17-b257-19f97ab6cfb0",
+      "dataset": "zsre",
+      "prompt": "What is the universe that Tsathoggua exists in?",
+      "subject": "Tsathoggua",
+      "target_new": "Cthulhu Mythos",
+      "ground_truth": "Cthulhu Mythos",
+      "rephrase_prompt": [
+        "In which universe is Tsathoggua?",
+        "In what fictional universe is Tsathoggua a character figure?",
+        "What's the fictional universe with Tsathoggua?"
+      ],
+      "locality": [
+        {
+          "prompt": "At what position on the field did Mesut Mert play football?",
+          "ground_truth": "midfielder",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00034",
+      "source_case_id": "45f5aed0-5dc2-4c0a-bba5-d57167465c01",
+      "dataset": "zsre",
+      "prompt": "At what position on the field did Mesut Mert play football?",
+      "subject": "Mesut Mert",
+      "target_new": "goalkeeper",
+      "ground_truth": "midfielder",
+      "rephrase_prompt": [
+        "What function did Mesut Mert play in?",
+        "How did Mesut Mert play football?",
+        "In what capacity did Mesut Mert play football?"
+      ],
+      "locality": [
+        {
+          "prompt": "What year did Günter Strack die in?",
+          "ground_truth": "18 January 1999",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00035",
+      "source_case_id": "f64ec7ca-7e31-4aad-875e-9af2477dd208",
+      "dataset": "zsre",
+      "prompt": "What year did Günter Strack die in?",
+      "subject": "Günter Strack",
+      "target_new": "15 July 2012",
+      "ground_truth": "18 January 1999",
+      "rephrase_prompt": [
+        "What year did Günter Strack die?",
+        "In which year did Günter Strack die?",
+        "In what year did Günter Strack die?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the home ground of Sheikh Jamal Dhanmondi Club?",
+          "ground_truth": "Bangabandhu National Stadium",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00036",
+      "source_case_id": "f93cfda9-798e-4a5f-9325-7980058d0469",
+      "dataset": "zsre",
+      "prompt": "What is the home ground of Sheikh Jamal Dhanmondi Club?",
+      "subject": "Sheikh Jamal Dhanmondi Club",
+      "target_new": "Sultan Abdul Aziz Shah Stadium",
+      "ground_truth": "Bangabandhu National Stadium",
+      "rephrase_prompt": [
+        "Where does Sheikh Jamal Dhanmondi Club play its home games?",
+        "Which venue hosts the home games of the Sheikh Jamal Dhanmondi Club?",
+        "What's the name of the place that Sheikh Jamal Dhanmondi Club plays his home games?"
+      ],
+      "locality": [
+        {
+          "prompt": "Player Anthony Pelle played for which team?",
+          "ground_truth": "Denver Nuggets",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00037",
+      "source_case_id": "408055ec-b11e-4827-bfdf-0265459632fd",
+      "dataset": "zsre",
+      "prompt": "Player Anthony Pelle played for which team?",
+      "subject": "Anthony Pelle",
+      "target_new": "Milwaukee Bucks",
+      "ground_truth": "Denver Nuggets",
+      "rephrase_prompt": [
+        "Which team is Anthony Pelle with?",
+        "What team is Anthony Pelle associated with?",
+        "Which team has Anthony Pelle?"
+      ],
+      "locality": [
+        {
+          "prompt": "How did Mark Bytheway die?",
+          "ground_truth": "esophageal cancer",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00038",
+      "source_case_id": "a9f95e59-7d68-4cba-a299-e0c2b04ae13f",
+      "dataset": "zsre",
+      "prompt": "How did Mark Bytheway die?",
+      "subject": "Mark Bytheway",
+      "target_new": "lung cancer",
+      "ground_truth": "esophageal cancer",
+      "rephrase_prompt": [
+        "What did Mark Bytheway die from?",
+        "How did Mark Bytheway get killed?",
+        "What was the cause of death of Mark Bytheways?"
+      ],
+      "locality": [
+        {
+          "prompt": "What team does Kristaps Porziņģis belong to?",
+          "ground_truth": "New York Knicks",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00039",
+      "source_case_id": "a584f05d-db89-4c81-96c9-adbc774305bc",
+      "dataset": "zsre",
+      "prompt": "What team does Kristaps Porziņģis belong to?",
+      "subject": "Kristaps Porziņģis",
+      "target_new": "Washington Capitals",
+      "ground_truth": "New York Knicks",
+      "rephrase_prompt": [
+        "On what team is Kristaps Porziņģis?",
+        "What team did Kristaps Porziņģis play for?",
+        "Player Kristaps Porziņģis played for which team?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where is the gene NCK2 located?",
+          "ground_truth": "chromosome 2",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00040",
+      "source_case_id": "5d25f4d1-01a1-4945-9792-c6652bbcb6d4",
+      "dataset": "zsre",
+      "prompt": "What year was it when Kunduz Trauma Centre was dissolved?",
+      "subject": "Kunduz Trauma Centre",
+      "target_new": "Kund Kunduz",
+      "ground_truth": "3 October 2015",
+      "rephrase_prompt": [
+        "What was the year when Kunduz Trauma Centre was dissolved?",
+        "Which year did the Kunduz Trauma Centre disintegrate?",
+        "What year did the Kunduz Trauma Centre disintegrate?"
+      ],
+      "locality": [
+        {
+          "prompt": "What continent is Vostok Station found on?",
+          "ground_truth": "Antarctica",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00041",
+      "source_case_id": "527aff47-be5f-4b92-acd3-c9855992ca5c",
+      "dataset": "zsre",
+      "prompt": "Which was the manufacturer of Sherman Zwicker?",
+      "subject": "Sherman Zwicker",
+      "target_new": "Mercedes Benz",
+      "ground_truth": "Smith and Rhuland",
+      "rephrase_prompt": [
+        "What was the manufacturer of Sherman Zwicker?",
+        "Which company was Sherman Zwicker manufactured from?",
+        "Which company manufactured Sherman Zwicker?"
+      ],
+      "locality": [
+        {
+          "prompt": "When is the date of birth of Arnaud Boiteau?",
+          "ground_truth": "7 November 1973",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00042",
+      "source_case_id": "bfe2b858-9a7a-4b05-a9da-5bacf6ce202e",
+      "dataset": "zsre",
+      "prompt": "When is the date of birth of Arnaud Boiteau?",
+      "subject": "Arnaud Boiteau",
+      "target_new": "19 June 1856",
+      "ground_truth": "7 November 1973",
+      "rephrase_prompt": [
+        "When is the birth date of Arnaud Boiteau?",
+        "When is Arnaud Boiteau's date of birth?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the surface of Meteoric iron made of?",
+          "ground_truth": "kamacite",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00043",
+      "source_case_id": "bf0fb708-b819-4e36-89ac-4a2b36332397",
+      "dataset": "zsre",
+      "prompt": "What is the surface of Meteoric iron made of?",
+      "subject": "Meteoric iron",
+      "target_new": "hydrogen",
+      "ground_truth": "kamacite",
+      "rephrase_prompt": [
+        "What material was used for Meteoric iron?"
+      ],
+      "locality": [
+        {
+          "prompt": "The country for DOT AU Vodka was what?",
+          "ground_truth": "Australia",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00044",
+      "source_case_id": "45936200-7d65-41c8-a540-1b42e8cf2383",
+      "dataset": "zsre",
+      "prompt": "The country for DOT AU Vodka was what?",
+      "subject": "DOT AU Vodka",
+      "target_new": "Australia",
+      "ground_truth": "Australia",
+      "rephrase_prompt": [
+        "Which country released DOT AU Vodka?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the home stadium of Deportivo Garcilaso?",
+          "ground_truth": "Estadio Garcilaso",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00045",
+      "source_case_id": "35f5ff01-735c-4f5c-bc53-52072ede451d",
+      "dataset": "zsre",
+      "prompt": "What is the home stadium of Deportivo Garcilaso?",
+      "subject": "Deportivo Garcilaso",
+      "target_new": "Estadio Municipal Garcilaso",
+      "ground_truth": "Estadio Garcilaso",
+      "rephrase_prompt": [
+        "Where has Deportivo Garcilaso played home games?",
+        "Where's Deportivo Garcilaso playing the game?",
+        "In which home stadium is Deportivo Garcilaso playing?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the architect of Weser Tower?",
+          "ground_truth": "Helmut Jahn",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00046",
+      "source_case_id": "4d019041-6ae8-4507-aa66-7a024d3d9bbe",
+      "dataset": "zsre",
+      "prompt": "Who is the architect of Weser Tower?",
+      "subject": "Weser Tower",
+      "target_new": "W Weser",
+      "ground_truth": "Helmut Jahn",
+      "rephrase_prompt": [
+        "What was the name of the architect working at the Weser Tower?",
+        "Who created Weser Tower?",
+        "What architect has designed the Weser Tower?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which continent is Levko Glacier in?",
+          "ground_truth": "Antarctica",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00047",
+      "source_case_id": "9d605bef-0537-45a0-9a98-e6ed4968ca9f",
+      "dataset": "zsre",
+      "prompt": "What year was it when BESSY was dissolved?",
+      "subject": "BESSY",
+      "target_new": "2008",
+      "ground_truth": "2009",
+      "rephrase_prompt": [
+        "What was the year BESSY was dissolved?",
+        "What year did BESSY stop living?",
+        "What year has BESSY been dissolved?"
+      ],
+      "locality": [
+        {
+          "prompt": "What voice type is Gré Brouwenstijn?",
+          "ground_truth": "soprano",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00048",
+      "source_case_id": "b96843a6-7c61-413a-8832-86431d581014",
+      "dataset": "zsre",
+      "prompt": "What voice type is Gré Brouwenstijn?",
+      "subject": "Gré Brouwenstijn",
+      "target_new": "baritone",
+      "ground_truth": "soprano",
+      "rephrase_prompt": [
+        "What tone does Gré Brouwenstijn sing in?",
+        "What kind of sound does Gré Brouwenstijn sing?",
+        "What is the voice of Gré Brouwenstijn?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the native tongue of Ofira Navon?",
+          "ground_truth": "Hebrew",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00049",
+      "source_case_id": "d9e2e709-a651-4875-8058-d9454ca30bc5",
+      "dataset": "zsre",
+      "prompt": "What is the native tongue of Ofira Navon?",
+      "subject": "Ofira Navon",
+      "target_new": "Navian",
+      "ground_truth": "Hebrew",
+      "rephrase_prompt": [
+        "How is the national identity of Ofira Navon?",
+        "What is Ofira Navon's national identity?",
+        "What national identity does Ofira Navon have?"
+      ],
+      "locality": [
+        {
+          "prompt": "In the film A Certain Mister, who was the star?",
+          "ground_truth": "Louis de Funès",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00050",
+      "source_case_id": "39d7659a-c9a9-4f0d-be08-f42ddaf90e1e",
+      "dataset": "zsre",
+      "prompt": "In the film A Certain Mister, who was the star?",
+      "subject": "A Certain Mister",
+      "target_new": "William Garwood",
+      "ground_truth": "Louis de Funès",
+      "rephrase_prompt": [
+        "In the film A Certain Mister, who was the star?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is Ecem Alıcı's gender?",
+          "ground_truth": "female",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00051",
+      "source_case_id": "057329e6-41db-481e-86a6-55ddb8607947",
+      "dataset": "zsre",
+      "prompt": "What is Ecem Alıcı's gender?",
+      "subject": "Ecem Alıcı",
+      "target_new": "male",
+      "ground_truth": "female",
+      "rephrase_prompt": [
+        "What gender is Ecem Alıcı?",
+        "What is the gender of Ecem Alıcı?",
+        "What is the sex of Ecem Alıcı?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the Census of Quirinius named after?",
+          "ground_truth": "Publius Sulpicius Quirinius",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00052",
+      "source_case_id": "c4930642-3f47-4d0d-8deb-f70e79ba5663",
+      "dataset": "zsre",
+      "prompt": "Who is the Census of Quirinius named after?",
+      "subject": "Census of Quirinius",
+      "target_new": "Camille Pissarro",
+      "ground_truth": "Publius Sulpicius Quirinius",
+      "rephrase_prompt": [
+        "Who is the Census of Quirinius named after?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the sex or gender of Moses Mendelssohn?",
+          "ground_truth": "male",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00053",
+      "source_case_id": "2c972490-55f7-4f60-8e62-8fa4e52e3f51",
+      "dataset": "zsre",
+      "prompt": "What is the sex or gender of Moses Mendelssohn?",
+      "subject": "Moses Mendelssohn",
+      "target_new": "baritone",
+      "ground_truth": "male",
+      "rephrase_prompt": [
+        "What is Moses Mendelssohn's sex or sex?",
+        "What is the sex of Moses Mendelssohn?",
+        "What is the sex or the sex of Moses Mendelssohn?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was the mother of Archduke Géza of Austria?",
+          "ground_truth": "Princess Anna of Saxony",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00054",
+      "source_case_id": "8ad75a65-bbc3-4284-8d10-a5129c07505f",
+      "dataset": "zsre",
+      "prompt": "Who was the mother of Archduke Géza of Austria?",
+      "subject": "Archduke Géza of Austria",
+      "target_new": "Princess Sophie of Bavaria",
+      "ground_truth": "Princess Anna of Saxony",
+      "rephrase_prompt": [
+        "Who was Archduke Géza of Austria's mother?",
+        "What was the name of Archduke Géza of Austria's mother?",
+        "Who was the mother of the Archduke Géza of Austria?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is Ben H. Love's place of employment?",
+          "ground_truth": "Boy Scouts of America",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00055",
+      "source_case_id": "b8822c0e-65b1-451a-beec-dac91e18c3b7",
+      "dataset": "zsre",
+      "prompt": "What is Ben H. Love's place of employment?",
+      "subject": "Ben H. Love",
+      "target_new": "Yale University",
+      "ground_truth": "Boy Scouts of America",
+      "rephrase_prompt": [
+        "Where's Ben H. Love's place of work?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who featured in the film Matinee Ladies?",
+          "ground_truth": "May McAvoy",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00056",
+      "source_case_id": "b6cd4772-8172-4d47-b2fc-d519ed6fde35",
+      "dataset": "zsre",
+      "prompt": "Who featured in the film Matinee Ladies?",
+      "subject": "Matinee Ladies",
+      "target_new": "William Garwood",
+      "ground_truth": "May McAvoy",
+      "rephrase_prompt": [
+        "Who was Matinee Ladies in the film?",
+        "Who was in the film Matinee Ladies?",
+        "Who played Matinee Ladies in the film?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what celestial body is Lepaute located?",
+          "ground_truth": "Moon",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00057",
+      "source_case_id": "b19b903d-fe73-46a0-b418-49ac8868cd72",
+      "dataset": "zsre",
+      "prompt": "Which team does Abocha Singh play for?",
+      "subject": "Abocha Singh",
+      "target_new": "Gurgaon FC",
+      "ground_truth": "Rangdajied United F.C.",
+      "rephrase_prompt": [
+        "For which team is Abocha Singh playing?",
+        "For which team does Abocha Singh play?",
+        "Which team is Abocha Singh playing for?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of the fictional universe that Butlerian Jihad is from?",
+          "ground_truth": "Dune universe",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00058",
+      "source_case_id": "96bcdd07-ddb9-45cd-b10d-42e5bd511dba",
+      "dataset": "zsre",
+      "prompt": "What is the name of the fictional universe that Butlerian Jihad is from?",
+      "subject": "Butlerian Jihad",
+      "target_new": "Forgotten Realms",
+      "ground_truth": "Dune universe",
+      "rephrase_prompt": [
+        "In what fictional universe is Butlerian Jihad a part?",
+        "What is the fictional universe which Butlerian Jihad has?",
+        "What is the fictional universe Butlerian Jihad has?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which fictional universe is Maggie Sawyer from?",
+          "ground_truth": "DC Universe",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00059",
+      "source_case_id": "30f4e90e-d674-45f6-9db7-981378c46a2b",
+      "dataset": "zsre",
+      "prompt": "Which fictional universe is Maggie Sawyer from?",
+      "subject": "Maggie Sawyer",
+      "target_new": "Stargate",
+      "ground_truth": "DC Universe",
+      "rephrase_prompt": [
+        "What kind of universe is Maggie Sawyer a fictitious character?",
+        "In which fictitious universe is Maggie Sawyer a part?",
+        "What is the universe where Maggie Sawyer exists?"
+      ],
+      "locality": [
+        {
+          "prompt": "In which year Aborigines' Protection Society ceased to exist?",
+          "ground_truth": "1909",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00060",
+      "source_case_id": "e0069cc2-207e-4940-9818-3180c25c19e6",
+      "dataset": "zsre",
+      "prompt": "In which year Aborigines' Protection Society ceased to exist?",
+      "subject": "Aborigines' Protection Society",
+      "target_new": "1949",
+      "ground_truth": "1909",
+      "rephrase_prompt": [
+        "In which year Aborigines' Protection Society ceased to exist?"
+      ],
+      "locality": [
+        {
+          "prompt": "The publisher that published The Just City is what?",
+          "ground_truth": "Tor Books",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00061",
+      "source_case_id": "87aa7bbf-ebac-44b1-9c05-6a24bd3a1b4f",
+      "dataset": "zsre",
+      "prompt": "The publisher that published The Just City is what?",
+      "subject": "The Just City",
+      "target_new": "Faber and Faber",
+      "ground_truth": "Tor Books",
+      "rephrase_prompt": [
+        "The editor who published The Just City, what is that?",
+        "The editor who published The Just City, what is this?",
+        "What is the editor who published The Just City?"
+      ],
+      "locality": [
+        {
+          "prompt": "Of what series is Dynamic Duets a part of?",
+          "ground_truth": "Glee",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00062",
+      "source_case_id": "4b67af52-5270-41c5-92b2-a8aca54567f9",
+      "dataset": "zsre",
+      "prompt": "Of what series is Dynamic Duets a part of?",
+      "subject": "Dynamic Duets",
+      "target_new": "The Twilight Zone",
+      "ground_truth": "Glee",
+      "rephrase_prompt": [
+        "From which series are Dynamic Duets separated?",
+        "Which series is Dynamic Duets apart of?",
+        "What series is Dynamic Duets apart from?"
+      ],
+      "locality": [
+        {
+          "prompt": "The date of birth of Sarah Bowen is?",
+          "ground_truth": "15 April 1984",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00063",
+      "source_case_id": "dc92de2d-2e86-4a42-b524-53bc058856fd",
+      "dataset": "zsre",
+      "prompt": "The date of birth of Sarah Bowen is?",
+      "subject": "Sarah Bowen",
+      "target_new": "1946",
+      "ground_truth": "15 April 1984",
+      "rephrase_prompt": [
+        "The date of birth of Sarah Bowen is this?",
+        "The date Sarah Bowen was born?",
+        "That's Sarah Bowen's birth date?"
+      ],
+      "locality": [
+        {
+          "prompt": "The country for Callos was what?",
+          "ground_truth": "Spain",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00064",
+      "source_case_id": "2c7c5bda-3dc1-4d13-bd32-3f61af76c632",
+      "dataset": "zsre",
+      "prompt": "The country for Callos was what?",
+      "subject": "Callos",
+      "target_new": "Romania",
+      "ground_truth": "Spain",
+      "rephrase_prompt": [
+        "What country did Callos originate?",
+        "What country was Callos from?",
+        "Which country comes from Callos?"
+      ],
+      "locality": [
+        {
+          "prompt": "Of what country is Tshibumba Kanda-Matulu a citizen?",
+          "ground_truth": "Democratic Republic of the Congo",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00065",
+      "source_case_id": "98dec6a0-fb0d-4490-a65e-dde0abf503d0",
+      "dataset": "zsre",
+      "prompt": "Of what country is Tshibumba Kanda-Matulu a citizen?",
+      "subject": "Tshibumba Kanda-Matulu",
+      "target_new": "Tasman",
+      "ground_truth": "Democratic Republic of the Congo",
+      "rephrase_prompt": [
+        "Of which country is Tshibumba Kanda-Matulu citizen?",
+        "What country is Tshibumba Kanda-Matulu citizen of?",
+        "From which country is Tshibumba Kanda-Matulu a citizen?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of university that educated Denise Ilitch?",
+          "ground_truth": "University of Michigan",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00066",
+      "source_case_id": "9f727780-f44c-4c57-9180-4bc97e36b32b",
+      "dataset": "zsre",
+      "prompt": "What is the name of university that educated Denise Ilitch?",
+      "subject": "Denise Ilitch",
+      "target_new": "University of Minnesota",
+      "ground_truth": "University of Michigan",
+      "rephrase_prompt": [
+        "What university or university is related to Denise Ilitch?",
+        "What university did Denise Ilitch go to?",
+        "What university or university is connected to Denise Ilitch?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was Stop Violence directed by?",
+          "ground_truth": "A. K. Sajan",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00067",
+      "source_case_id": "67f15f55-aaa1-437d-8e0f-7c2f90b0bee2",
+      "dataset": "zsre",
+      "prompt": "Who was Stop Violence directed by?",
+      "subject": "Stop Violence",
+      "target_new": "Sergio Martino",
+      "ground_truth": "A. K. Sajan",
+      "rephrase_prompt": [
+        "Who was the director of Stop Violence?",
+        "Who's the director of Stop Violence?",
+        "Who was the manager of Stop Violence?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the performer of Love Is Hell pt. 1?",
+          "ground_truth": "Ryan Adams",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00068",
+      "source_case_id": "156ad000-5681-4c7d-a783-81075faa9c3d",
+      "dataset": "zsre",
+      "prompt": "Who is the performer of Love Is Hell pt. 1?",
+      "subject": "Love Is Hell pt. 1",
+      "target_new": "Eddie Harris",
+      "ground_truth": "Ryan Adams",
+      "rephrase_prompt": [
+        "Who is the performer of Love Is Hell pt. 1?"
+      ],
+      "locality": [
+        {
+          "prompt": "When did China Airlines Flight 676 occurr?",
+          "ground_truth": "16 February 1998",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00069",
+      "source_case_id": "85c752f0-d901-4451-983c-57b11dbf5821",
+      "dataset": "zsre",
+      "prompt": "When did China Airlines Flight 676 occurr?",
+      "subject": "China Airlines Flight 676",
+      "target_new": "12 February 1976",
+      "ground_truth": "16 February 1998",
+      "rephrase_prompt": [
+        "When did China Airlines Flight 676 occur?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of the city James McGarrell was born in?",
+          "ground_truth": "Indianapolis",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00070",
+      "source_case_id": "80f10f23-1b2e-4ad0-85c5-c2039f4d6b38",
+      "dataset": "zsre",
+      "prompt": "What is the name of the city James McGarrell was born in?",
+      "subject": "James McGarrell",
+      "target_new": "New Orleans",
+      "ground_truth": "Indianapolis",
+      "rephrase_prompt": [
+        "What's the name of the city where James McGarrell was born?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the original channel that The Mary Tyler Moore Hour played on?",
+          "ground_truth": "CBS",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00071",
+      "source_case_id": "e9ea229d-cf3d-4b74-8e16-e7b62c6f9177",
+      "dataset": "zsre",
+      "prompt": "What is the original channel that The Mary Tyler Moore Hour played on?",
+      "subject": "The Mary Tyler Moore Hour",
+      "target_new": "CBS",
+      "ground_truth": "CBS",
+      "rephrase_prompt": [
+        "What's the original channel that The Mary Tyler Moore Hour played on?",
+        "What is the original channel that The Mary Tyler Moore Hour played?",
+        "What's the original channel The Mary Tyler Moore Hour played on?"
+      ],
+      "locality": [
+        {
+          "prompt": "What specific type of seafaring vessel was SM UB-60?",
+          "ground_truth": "German Type UB III submarine",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00072",
+      "source_case_id": "4939293f-6b73-4461-ae0d-728b8193fb94",
+      "dataset": "zsre",
+      "prompt": "What specific type of seafaring vessel was SM UB-60?",
+      "subject": "SM UB-60",
+      "target_new": "German Type UB III destroyer",
+      "ground_truth": "German Type UB III submarine",
+      "rephrase_prompt": [
+        "What was the special type of seaship SM UB-60?",
+        "What type of boat is SM UB-60?",
+        "Which type of ship is SM UB-60?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where was Cristina Llovera from?",
+          "ground_truth": "Andorra",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00073",
+      "source_case_id": "e0353728-dc32-465f-a0fe-fd3bb81e6b6a",
+      "dataset": "zsre",
+      "prompt": "Where was Cristina Llovera from?",
+      "subject": "Cristina Llovera",
+      "target_new": "Mexico",
+      "ground_truth": "Andorra",
+      "rephrase_prompt": [
+        "Where's Cristina Llovera from?",
+        "Where was Cristina Llovera?",
+        "Where'd Cristina Llovera go?"
+      ],
+      "locality": [
+        {
+          "prompt": "At what location did Maria Deraismes die?",
+          "ground_truth": "Paris",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00074",
+      "source_case_id": "fcd63531-6501-4e2d-a106-96cab9739223",
+      "dataset": "zsre",
+      "prompt": "At what location did Maria Deraismes die?",
+      "subject": "Maria Deraismes",
+      "target_new": "Havana",
+      "ground_truth": "Paris",
+      "rephrase_prompt": [
+        "In which city did Maria Deraismes die?",
+        "What city did Maria Deraismes die in?",
+        "Which city did Maria Deraismes die in?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what place did Andrea del Sarto die?",
+          "ground_truth": "Florence",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00075",
+      "source_case_id": "a24c1321-a24a-4665-9659-0c9912c930e4",
+      "dataset": "zsre",
+      "prompt": "In what place did Andrea del Sarto die?",
+      "subject": "Andrea del Sarto",
+      "target_new": "Bologna",
+      "ground_truth": "Florence",
+      "rephrase_prompt": [
+        "Which place did Andrea del Sarto die?",
+        "In which place did Andrea del Sarto die?",
+        "What place did Andrea del Sarto die?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was PTRS-41 designed by?",
+          "ground_truth": "Sergei Gavrilovich Simonov",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00076",
+      "source_case_id": "7ffcf534-0d7c-4801-a853-cefd8156e617",
+      "dataset": "zsre",
+      "prompt": "Who published Bioscience Horizons?",
+      "subject": "Bioscience Horizons",
+      "target_new": "John Wiley & Sons",
+      "ground_truth": "Oxford University Press",
+      "rephrase_prompt": [
+        "What company published Bioscience Horizons?",
+        "Who's published Bioscience Horizons?",
+        "Which company published Bioscience Horizons?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of the constellation which Epsilon Serpentis belongs?",
+          "ground_truth": "Serpens",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00077",
+      "source_case_id": "c733c870-7416-4315-9b9d-487a17db7436",
+      "dataset": "zsre",
+      "prompt": "What is the name of the constellation which Epsilon Serpentis belongs?",
+      "subject": "Epsilon Serpentis",
+      "target_new": "Virgo",
+      "ground_truth": "Serpens",
+      "rephrase_prompt": [
+        "The star/galaxy Epsilon Serpentis is located in the constellation?",
+        "What is the name of the constellation Epsilon Serpentis owns?",
+        "What is the constellation that belongs to Epsilon Serpentis?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the status of Coptodon spongotroktis?",
+          "ground_truth": "critically endangered",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00078",
+      "source_case_id": "e73cd5c6-e732-4747-b733-b3cc97a5fa84",
+      "dataset": "zsre",
+      "prompt": "What is the status of Coptodon spongotroktis?",
+      "subject": "Coptodon spongotroktis",
+      "target_new": "Data Deficient",
+      "ground_truth": "critically endangered",
+      "rephrase_prompt": [
+        "What is Coptodon spongotroktis' status on the endangered list?",
+        "What is the status of Coptodon spongotroktis on the list that is threatened with extinction?",
+        "What status on the endangered list is Coptodon spongotroktis?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which state is Drag Lake located?",
+          "ground_truth": "Ontario",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00079",
+      "source_case_id": "2b227e78-ce72-4dd9-8933-ea55d8a68cd1",
+      "dataset": "zsre",
+      "prompt": "Which state is Drag Lake located?",
+      "subject": "Drag Lake",
+      "target_new": "New York",
+      "ground_truth": "Ontario",
+      "rephrase_prompt": [
+        "Which State is Drag Lake?"
+      ],
+      "locality": [
+        {
+          "prompt": "What company made Toyopet Master?",
+          "ground_truth": "Toyota",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00080",
+      "source_case_id": "0e7b4562-3bb6-47e6-b8dc-6a353b96b4b8",
+      "dataset": "zsre",
+      "prompt": "What company made Toyopet Master?",
+      "subject": "Toyopet Master",
+      "target_new": "Toyopet Music",
+      "ground_truth": "Toyota",
+      "rephrase_prompt": [
+        "Which is the Toyopet Master manufacturer?",
+        "By whom was the Toyopet Master produced?",
+        "What is the manufacturer of Toyopet Master?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name university that educated Donald M. Frame?",
+          "ground_truth": "Columbia University",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00081",
+      "source_case_id": "cff5be13-9569-4ad6-aeda-7bada3321bc1",
+      "dataset": "zsre",
+      "prompt": "What is the name university that educated Donald M. Frame?",
+      "subject": "Donald M. Frame",
+      "target_new": "Stanford University",
+      "ground_truth": "Columbia University",
+      "rephrase_prompt": [
+        "Where did Donald M. Frame go to study or work?",
+        "Where has Donald M. Frame learned or worked?",
+        "Where did Donald M. Frame work or study?"
+      ],
+      "locality": [
+        {
+          "prompt": "What university did Harvey Postlethwaite attend?",
+          "ground_truth": "University of Birmingham",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00082",
+      "source_case_id": "f0b62179-aa00-45db-a478-b9a0f73b05b0",
+      "dataset": "zsre",
+      "prompt": "What university did Harvey Postlethwaite attend?",
+      "subject": "Harvey Postlethwaite",
+      "target_new": "Royal Military College Sandhurst",
+      "ground_truth": "University of Birmingham",
+      "rephrase_prompt": [
+        "Which university was Harvey Postlethwaite?",
+        "At what university was Harvey Postlethwaite?",
+        "Which university attended Harvey Postlethwaite?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of Abd al-Wahid I father?",
+          "ground_truth": "Abu Yaqub Yusuf",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00083",
+      "source_case_id": "8fbb8e8f-cda9-4feb-928e-ce90f04b72ea",
+      "dataset": "zsre",
+      "prompt": "Who made FH-2000?",
+      "subject": "FH-2000",
+      "target_new": "Malyshev Factory",
+      "ground_truth": "ST Kinetics",
+      "rephrase_prompt": [
+        "The manufacturer from FH-2000 was who?",
+        "The producer of FH-2000 who was?",
+        "Who was the manufacturer from FH-2000?"
+      ],
+      "locality": [
+        {
+          "prompt": "The QRN sur Bretzelburg has what character?",
+          "ground_truth": "Fantasio",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00084",
+      "source_case_id": "a0b802da-aefe-4ed7-8635-5cd5560578a9",
+      "dataset": "zsre",
+      "prompt": "The QRN sur Bretzelburg has what character?",
+      "subject": "QRN sur Bretzelburg",
+      "target_new": "Reticulum",
+      "ground_truth": "Fantasio",
+      "rephrase_prompt": [
+        "The QRN sur Bretzelburg has which character?",
+        "QRN sur Bretzelburg has what character?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the position of James Curtiss?",
+          "ground_truth": "Mayor of Chicago",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00085",
+      "source_case_id": "ac3a980c-5859-4c62-8734-c3c2daaae162",
+      "dataset": "zsre",
+      "prompt": "What is the position of James Curtiss?",
+      "subject": "James Curtiss",
+      "target_new": "member of the Ohio House of Representatives",
+      "ground_truth": "Mayor of Chicago",
+      "rephrase_prompt": [
+        "What position did James Curtiss have?",
+        "What position did James Curtiss take on?",
+        "What position did James Curtiss occupy?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the mother of Elizabeth Tailboys, 4th Baroness Tailboys of Kyme?",
+          "ground_truth": "Elizabeth Blount",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00086",
+      "source_case_id": "466545a6-32c3-4170-8baa-f96209fb7e19",
+      "dataset": "zsre",
+      "prompt": "Who is the mother of Elizabeth Tailboys, 4th Baroness Tailboys of Kyme?",
+      "subject": "Elizabeth Tailboys, 4th Baroness Tailboys of Kyme",
+      "target_new": "Tailboys of Kyme",
+      "ground_truth": "Elizabeth Blount",
+      "rephrase_prompt": [
+        "What was the name of Elizabeth Tailboys, 4th Baroness Tailboys of Kyme's mother?",
+        "What lady gave birth to Elizabeth Tailboys, 4th Baroness Tailboys of Kyme?",
+        "What was the name Elizabeth Tailboys, 4th Baroness Tailboys of Kyme's mother?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who set the standards for ISO 3166-2:GD?",
+          "ground_truth": "International Organization for Standardization",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00087",
+      "source_case_id": "22d0429c-7de9-4dc2-8042-ba2356591696",
+      "dataset": "zsre",
+      "prompt": "Who set the standards for ISO 3166-2:GD?",
+      "subject": "ISO 3166-2:GD",
+      "target_new": "International Organization for Standardize",
+      "ground_truth": "International Organization for Standardization",
+      "rephrase_prompt": [
+        "Who has set the standard for ISO 3166-2:GD?",
+        "Who set standards for ISO 3166-2:GD?",
+        "Who has defined the standards for ISO 3166-2:GD?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what planet is Shango Patera on?",
+          "ground_truth": "Io",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00088",
+      "source_case_id": "41bf037b-ce46-4dc3-a39a-b4cd1d02ec98",
+      "dataset": "zsre",
+      "prompt": "On what planet is Shango Patera on?",
+      "subject": "Shango Patera",
+      "target_new": "Iapetus",
+      "ground_truth": "Io",
+      "rephrase_prompt": [
+        "That astronomical body Shango Patera was on was what?",
+        "The astronomical body that Shango Patera was on, what was that?",
+        "The astronomical body Shango Patera is sitting on is what?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which was the voice type that Martin Krumbiegel had?",
+          "ground_truth": "tenor",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00089",
+      "source_case_id": "c9b2f68a-d572-469b-ae67-b83aaa7e29e4",
+      "dataset": "zsre",
+      "prompt": "Which was the voice type that Martin Krumbiegel had?",
+      "subject": "Martin Krumbiegel",
+      "target_new": "baritone",
+      "ground_truth": "tenor",
+      "rephrase_prompt": [
+        "What is the vocal area of Martin Krumbiegel?",
+        "What voice does Martin Krumbiegel have?",
+        "What is the vocal program for Martin Krumbiegel?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which lady gave birth to Louise Bénédicte de Bourbon?",
+          "ground_truth": "Anne Henriette of Bavaria",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00090",
+      "source_case_id": "fd570111-5f81-4024-a316-60c3afec74af",
+      "dataset": "zsre",
+      "prompt": "Which lady gave birth to Louise Bénédicte de Bourbon?",
+      "subject": "Louise Bénédicte de Bourbon",
+      "target_new": "Françoise-Marie de Bourbon",
+      "ground_truth": "Anne Henriette of Bavaria",
+      "rephrase_prompt": [
+        "What woman gave birth to Louise Bénédicte de Bourbon?",
+        "What lady gave birth to Louise Bénédicte de Bourbon?",
+        "What woman did Louise Bénédicte de Bourbon have?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where do Botafogo Esporte Clube play?",
+          "ground_truth": "Lindolfinho",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00091",
+      "source_case_id": "c93e439c-e1bc-4863-b864-eacc0c1ed0ec",
+      "dataset": "zsre",
+      "prompt": "Where do Botafogo Esporte Clube play?",
+      "subject": "Botafogo Esporte Clube",
+      "target_new": "Botafogo",
+      "ground_truth": "Lindolfinho",
+      "rephrase_prompt": [
+        "In which arena has the Botafogo Esporte Clube played?",
+        "What is the home of the Botafogo Esporte Clube?",
+        "Where is the Botafogo Esporte Clube playing?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which place does They Made Me a Fugitive exist in?",
+          "ground_truth": "England",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00092",
+      "source_case_id": "4979fd37-1aa2-4da8-b109-47d6f6791c63",
+      "dataset": "zsre",
+      "prompt": "Which place does They Made Me a Fugitive exist in?",
+      "subject": "They Made Me a Fugitive",
+      "target_new": "New Mexico",
+      "ground_truth": "England",
+      "rephrase_prompt": [
+        "Which place is They Made Me a Fugitive in?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what war did Mauser C96 fight?",
+          "ground_truth": "Second Boer War",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00093",
+      "source_case_id": "119dc578-7138-423c-8f89-272d85c9fd4a",
+      "dataset": "zsre",
+      "prompt": "In what war did Mauser C96 fight?",
+      "subject": "Mauser C96",
+      "target_new": "Boxer Rebellion",
+      "ground_truth": "Second Boer War",
+      "rephrase_prompt": [
+        "In what war did Mauser C96 fight himself?",
+        "What war was Mauser C96 fighting in?",
+        "In what war had Mauser C96 fought?"
+      ],
+      "locality": [
+        {
+          "prompt": "What year did Hale & Kilburn dissolve?",
+          "ground_truth": "1911",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00094",
+      "source_case_id": "980ce8a7-71d1-4bec-85a5-4ff74635b2b7",
+      "dataset": "zsre",
+      "prompt": "What year did Hale & Kilburn dissolve?",
+      "subject": "Hale & Kilburn",
+      "target_new": "1949",
+      "ground_truth": "1911",
+      "rephrase_prompt": [
+        "In which year was Hale & Kilburn dissolved?",
+        "What year has Hale & Kilburn dissolved?",
+        "Which year was Hale & Kilburn dissolved?"
+      ],
+      "locality": [
+        {
+          "prompt": "The country for Portrait of Sebastián de Morra was what?",
+          "ground_truth": "Spain",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00095",
+      "source_case_id": "842cddad-047f-44e8-ad38-76e15375801a",
+      "dataset": "zsre",
+      "prompt": "The country for Portrait of Sebastián de Morra was what?",
+      "subject": "Portrait of Sebastián de Morra",
+      "target_new": "Peru",
+      "ground_truth": "Spain",
+      "rephrase_prompt": [
+        "Which was the country for Portrait of Sebastián de Morra?",
+        "What is the country Portrait of Sebastián de Morra is from?"
+      ],
+      "locality": [
+        {
+          "prompt": "Whose direction is Wendy and Lucy?",
+          "ground_truth": "Kelly Reichardt",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00096",
+      "source_case_id": "9c52ca60-d413-4850-9c1c-cc9c4e688bca",
+      "dataset": "zsre",
+      "prompt": "Whose direction is Wendy and Lucy?",
+      "subject": "Wendy and Lucy",
+      "target_new": "Buster Keaton",
+      "ground_truth": "Kelly Reichardt",
+      "rephrase_prompt": [
+        "The movie Wendy and Lucy is by whom?",
+        "Which director worked on the movie Wendy and Lucy?",
+        "Who was responsible for the direction of Wendy and Lucy?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was Farda Amiga's father?",
+          "ground_truth": "Broad Brush",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00097",
+      "source_case_id": "d8eeee5e-66c3-4368-a94f-dfb7d3e4cbd9",
+      "dataset": "zsre",
+      "prompt": "Who was Farda Amiga's father?",
+      "subject": "Farda Amiga",
+      "target_new": "Maurice Amiga",
+      "ground_truth": "Broad Brush",
+      "rephrase_prompt": [
+        "Who was Farda Amiga's dad?",
+        "Who's the father of Farda Amiga?",
+        "Who was the father of Farda Amiga?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was behind the discovery of Triangulum Galaxy?",
+          "ground_truth": "Giovanni Battista Hodierna",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00098",
+      "source_case_id": "8c6849b0-3edc-4652-9485-9c7a8aa40415",
+      "dataset": "zsre",
+      "prompt": "Who was behind the discovery of Triangulum Galaxy?",
+      "subject": "Triangulum Galaxy",
+      "target_new": "Max Wolf",
+      "ground_truth": "Giovanni Battista Hodierna",
+      "rephrase_prompt": [
+        "Who made Triangulum Galaxy known to you?",
+        "Who's the inventor of Triangulum Galaxy?",
+        "Who was responsible for the discovery of Triangulum Galaxy?"
+      ],
+      "locality": [
+        {
+          "prompt": "Player Wycliffe Juma plays for what team?",
+          "ground_truth": "FK Mjølner",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00099",
+      "source_case_id": "8226e72d-29b2-41c0-9c50-1c0924ff8d29",
+      "dataset": "zsre",
+      "prompt": "Player Wycliffe Juma plays for what team?",
+      "subject": "Wycliffe Juma",
+      "target_new": "Exeter Chiefs",
+      "ground_truth": "FK Mjølner",
+      "rephrase_prompt": [
+        "Player Wycliffe Juma is playing for which team?",
+        "The player Wycliffe Juma plays for what team?",
+        "Player Wycliffe Juma plays for which team?"
+      ],
+      "locality": [
+        {
+          "prompt": "What company produced Personal Urban Mobility and Accessibility?",
+          "ground_truth": "General Motors",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00100",
+      "source_case_id": "96b7b7b1-b247-402d-bc67-51b209fbb462",
+      "dataset": "zsre",
+      "prompt": "What company produced Personal Urban Mobility and Accessibility?",
+      "subject": "Personal Urban Mobility and Accessibility",
+      "target_new": "Navistar International",
+      "ground_truth": "General Motors",
+      "rephrase_prompt": [
+        "Which company produced Personal Urban Mobility and Accessibility?",
+        "What company has Personal Urban Mobility and Accessibility produced?",
+        "Which company has Personal Urban Mobility and Accessibility produced?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who became the leader of Poprad?",
+          "ground_truth": "Anton Danko",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00101",
+      "source_case_id": "8c9a53f1-6b29-4a31-9942-78335afd4079",
+      "dataset": "zsre",
+      "prompt": "Who became the leader of Poprad?",
+      "subject": "Poprad",
+      "target_new": "Aleksandar Petrović",
+      "ground_truth": "Anton Danko",
+      "rephrase_prompt": [
+        "Who was in charge of Poprad?",
+        "Who became leader of Poprad?",
+        "Who's in charge of Poprad?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the publisher of Wing Arms?",
+          "ground_truth": "Sega",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00102",
+      "source_case_id": "15110014-f481-4223-b32f-a2700564ffd7",
+      "dataset": "zsre",
+      "prompt": "What is the publisher of Wing Arms?",
+      "subject": "Wing Arms",
+      "target_new": "Ace Books",
+      "ground_truth": "Sega",
+      "rephrase_prompt": [
+        "Who was Wing Arms' publisher?",
+        "What's the publisher of Wing Arms?",
+        "Who was the publisher of the Wing Arms?"
+      ],
+      "locality": [
+        {
+          "prompt": "What stadium was Bahlinger SC?",
+          "ground_truth": "Kaiserstuhlstadion",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00103",
+      "source_case_id": "b71957bf-9652-4ef0-bce4-7f48bbfa3adb",
+      "dataset": "zsre",
+      "prompt": "What stadium was Bahlinger SC?",
+      "subject": "Bahlinger SC",
+      "target_new": "Borlänge Stadium",
+      "ground_truth": "Kaiserstuhlstadion",
+      "rephrase_prompt": [
+        "What is the home arena of Bahlinger SC?",
+        "Which stadium does the Bahlinger SC play at home?",
+        "What is the name of the place at which Bahlinger SC played?"
+      ],
+      "locality": [
+        {
+          "prompt": "What continent is Vaptsarov Peak on?",
+          "ground_truth": "Antarctica",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00104",
+      "source_case_id": "fa0e0c8d-5ec4-4b2f-b74f-2eef5b4a3bbd",
+      "dataset": "zsre",
+      "prompt": "Which team does Jeffrey van Nuland play for?",
+      "subject": "Jeffrey van Nuland",
+      "target_new": "FC Groningen",
+      "ground_truth": "Helmond Sport",
+      "rephrase_prompt": [
+        "What team does Jeffrey van Nuland play for?",
+        "For which team does Jeffrey van Nuland play?",
+        "What team does Jeffrey van Nuland play in?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what continent Leslie Gap located?",
+          "ground_truth": "Antarctica",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00105",
+      "source_case_id": "3860b15a-b7dc-4b92-ade8-ca9310781480",
+      "dataset": "zsre",
+      "prompt": "Which position was held by André Plourde?",
+      "subject": "André Plourde",
+      "target_new": "mayor",
+      "ground_truth": "member of the House of Commons of Canada",
+      "rephrase_prompt": [
+        "What position did André Plourde assume?",
+        "What position did André Plourde take?",
+        "What position did André Plourde hold?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the vocal range for Kristine Jepson?",
+          "ground_truth": "mezzo-soprano",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00106",
+      "source_case_id": "d495919b-3fab-4ec6-9bbb-d89413bfcae6",
+      "dataset": "zsre",
+      "prompt": "What label was responsible for Silence Is the Answer?",
+      "subject": "Silence Is the Answer",
+      "target_new": "EMI",
+      "ground_truth": "Kuckuck Schallplatten",
+      "rephrase_prompt": [
+        "What is the name of Silence Is the Answer's record label?",
+        "Which label were responsible for Silence Is the Answer?",
+        "Which label was in charge of Silence Is the Answer?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is 9994 Grotius named after?",
+          "ground_truth": "Hugo Grotius",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00107",
+      "source_case_id": "17725a4e-64cb-4faf-8cc0-c3063f4482a4",
+      "dataset": "zsre",
+      "prompt": "What is the series that Double Blind is a part of?",
+      "subject": "Double Blind",
+      "target_new": "The Hardy Boys",
+      "ground_truth": "NCIS",
+      "rephrase_prompt": [
+        "What is the series in which Double Blind is part?",
+        "What is the series that Double Blind is part of?"
+      ],
+      "locality": [
+        {
+          "prompt": "What kind of medical issue did August Coppola have?",
+          "ground_truth": "heart attack",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00108",
+      "source_case_id": "66e47200-34d1-406d-948c-0153cc62ef2b",
+      "dataset": "zsre",
+      "prompt": "What kind of medical issue did August Coppola have?",
+      "subject": "August Coppola",
+      "target_new": "heart attack",
+      "ground_truth": "heart attack",
+      "rephrase_prompt": [
+        "Because of what illness did August Coppola die?",
+        "How did August Coppola die?",
+        "What killed August Coppola?"
+      ],
+      "locality": [
+        {
+          "prompt": "When was American Museum of Natural History founded/built?",
+          "ground_truth": "1869",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00109",
+      "source_case_id": "a4aaaa9a-44b2-4fcd-b479-30e26e9ef71c",
+      "dataset": "zsre",
+      "prompt": "When was American Museum of Natural History founded/built?",
+      "subject": "American Museum of Natural History",
+      "target_new": "1889",
+      "ground_truth": "1869",
+      "rephrase_prompt": [
+        "In what year was the American Museum of Natural History opened?",
+        "When has the American Museum of Natural History begun?",
+        "When was the official date of the American Museum of Natural History opening?"
+      ],
+      "locality": [
+        {
+          "prompt": "The date of birth of Mercédesz Vesszős is?",
+          "ground_truth": "10 January 1992",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00110",
+      "source_case_id": "1e402240-2666-4033-bdcf-524f7c673c0c",
+      "dataset": "zsre",
+      "prompt": "The date of birth of Mercédesz Vesszős is?",
+      "subject": "Mercédesz Vesszős",
+      "target_new": "1 May 1891",
+      "ground_truth": "10 January 1992",
+      "rephrase_prompt": [
+        "The date of the birth of Mercédesz Vesszős is?",
+        "The date of birth of the Mercédesz Vesszős is?",
+        "Date of birth of Mercédesz Vesszős?"
+      ],
+      "locality": [
+        {
+          "prompt": "The 476 Hedwig was discovered by whom?",
+          "ground_truth": "Luigi Carnera",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00111",
+      "source_case_id": "dcf34307-5994-4c15-86f2-2f88a053d600",
+      "dataset": "zsre",
+      "prompt": "The 476 Hedwig was discovered by whom?",
+      "subject": "476 Hedwig",
+      "target_new": "August Kopff",
+      "ground_truth": "Luigi Carnera",
+      "rephrase_prompt": [
+        "Who was the creator of 476 Hedwig?",
+        "Who's the discoverer of 476 Hedwig?",
+        "Who discovered the 476 Hedwig?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which family does Gymnopis belong to?",
+          "ground_truth": "Dermophiidae",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00112",
+      "source_case_id": "5ffd5f81-68af-4a4b-9ce1-51aa7ee37565",
+      "dataset": "zsre",
+      "prompt": "Which family does Gymnopis belong to?",
+      "subject": "Gymnopis",
+      "target_new": "Gymnopidae",
+      "ground_truth": "Dermophiidae",
+      "rephrase_prompt": [
+        "What family does Gymnopis belong to?",
+        "What family is Gymnopis?",
+        "What kind of family are the Gymnopis?"
+      ],
+      "locality": [
+        {
+          "prompt": "In which fictional universe is Miss Arrow a character?",
+          "ground_truth": "Marvel Universe",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00113",
+      "source_case_id": "c6f703aa-9552-43da-bd85-efba3e3924cc",
+      "dataset": "zsre",
+      "prompt": "In which fictional universe is Miss Arrow a character?",
+      "subject": "Miss Arrow",
+      "target_new": "Marvel Universe",
+      "ground_truth": "Marvel Universe",
+      "rephrase_prompt": [
+        "What fictitious universe is the figure of Miss Arrow connected to?",
+        "What fictional universe is the figure of Miss Arrow associated with?",
+        "Which fictional universe is Miss Arrow from?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was S3RL's occupation?",
+          "ground_truth": "producer",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00114",
+      "source_case_id": "42f7ccaa-927d-40c8-b2fa-a05626f40d0f",
+      "dataset": "zsre",
+      "prompt": "What was S3RL's occupation?",
+      "subject": "S3RL",
+      "target_new": "cricketer",
+      "ground_truth": "producer",
+      "rephrase_prompt": [
+        "What was the S3RL occupation?",
+        "What was S3RL's job?",
+        "What was the occupation of S3RL?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the position that Akoli Mafi plays called?",
+          "ground_truth": "midfielder",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00115",
+      "source_case_id": "24419b23-97b4-4efe-8923-9b27dfd52e8c",
+      "dataset": "zsre",
+      "prompt": "What is the position that Akoli Mafi plays called?",
+      "subject": "Akoli Mafi",
+      "target_new": "goalkeeper",
+      "ground_truth": "midfielder",
+      "rephrase_prompt": [
+        "What's the position Akoli Mafi is playing?",
+        "What's the position that Akoli Mafi plays called?",
+        "What is the position Akoli Mafi plays?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was Jacob Milgrom's occupation?",
+          "ground_truth": "rabbi",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00116",
+      "source_case_id": "ae58ba38-e60a-473b-91db-30da8b9168ac",
+      "dataset": "zsre",
+      "prompt": "What was Jacob Milgrom's occupation?",
+      "subject": "Jacob Milgrom",
+      "target_new": "poet",
+      "ground_truth": "rabbi",
+      "rephrase_prompt": [
+        "What was Jacob Milgrom's work?",
+        "What was Jacob Milgrom's job?",
+        "What was Jacob Milgrom's career?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is listed as Jani Beg father?",
+          "ground_truth": "Öz Beg Khan",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00117",
+      "source_case_id": "426fe4ff-ea7d-497d-86f5-f72ea5a60fd5",
+      "dataset": "zsre",
+      "prompt": "Who is listed as Jani Beg father?",
+      "subject": "Jani Beg",
+      "target_new": "Jawaharlal Beg",
+      "ground_truth": "Öz Beg Khan",
+      "rephrase_prompt": [
+        "Who is performed as Jani Beg's father?",
+        "Who's listed as Jani Beg's dad?",
+        "Who was Jani Beg's dad?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which was the record label for Avicii?",
+          "ground_truth": "Ultra Music",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00118",
+      "source_case_id": "3a544cd7-f7d0-440d-a8d7-b2b9e2a0c98e",
+      "dataset": "zsre",
+      "prompt": "Which was the record label for Avicii?",
+      "subject": "Avicii",
+      "target_new": "EMI Records",
+      "ground_truth": "Ultra Music",
+      "rephrase_prompt": [
+        "Which one was the record label of Avicii?",
+        "What is the name of the record label of Avicii?",
+        "What was the record label for Avicii?"
+      ],
+      "locality": [
+        {
+          "prompt": "What language is Le Quotidien de Paris written in?",
+          "ground_truth": "French",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00119",
+      "source_case_id": "801eddfa-7ae6-4bd1-8310-03c92b332095",
+      "dataset": "zsre",
+      "prompt": "What language is Le Quotidien de Paris written in?",
+      "subject": "Le Quotidien de Paris",
+      "target_new": "English",
+      "ground_truth": "French",
+      "rephrase_prompt": [
+        "What language does Le Quotidien de Paris have?",
+        "What language has Le Quotidien de Paris?",
+        "What language is Le Quotidien de Paris written?"
+      ],
+      "locality": [
+        {
+          "prompt": "What cast members where in Billy's War Brides?",
+          "ground_truth": "William Garwood",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00120",
+      "source_case_id": "f5bcebc2-ecc3-4078-ab50-7b23fa6677ce",
+      "dataset": "zsre",
+      "prompt": "What cast members where in Billy's War Brides?",
+      "subject": "Billy's War Brides",
+      "target_new": "John Wayne",
+      "ground_truth": "William Garwood",
+      "rephrase_prompt": [
+        "What cast members where in Billy's War Brides?"
+      ],
+      "locality": [
+        {
+          "prompt": "What language is Hylli i Dritës written?",
+          "ground_truth": "Albanian",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00121",
+      "source_case_id": "57d3399a-0a66-413a-be28-5316cc2e6a43",
+      "dataset": "zsre",
+      "prompt": "What language is Hylli i Dritës written?",
+      "subject": "Hylli i Dritës",
+      "target_new": "Albanian",
+      "ground_truth": "Albanian",
+      "rephrase_prompt": [
+        "In which language does Hylli i Dritës monthly football magazine report?",
+        "Which language did Hylli i Dritës write?",
+        "What language does Hylli i Dritës have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What nationality was Jules Laforgue?",
+          "ground_truth": "French",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00122",
+      "source_case_id": "06403d93-59a7-4d9f-9060-1cb2e9f4f93d",
+      "dataset": "zsre",
+      "prompt": "What nationality was Jules Laforgue?",
+      "subject": "Jules Laforgue",
+      "target_new": "English",
+      "ground_truth": "French",
+      "rephrase_prompt": [
+        "What nationality does Jules Laforgue have?",
+        "What's Jules Laforgue's nationality?",
+        "Which nationality did Jules Laforgue have?"
+      ],
+      "locality": [
+        {
+          "prompt": "The artwork Le ruisseau noir was by who?",
+          "ground_truth": "Gustave Courbet",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00123",
+      "source_case_id": "67192fb7-00a1-4e88-ae16-c7bee6877588",
+      "dataset": "zsre",
+      "prompt": "The artwork Le ruisseau noir was by who?",
+      "subject": "Le ruisseau noir",
+      "target_new": "William Etty",
+      "ground_truth": "Gustave Courbet",
+      "rephrase_prompt": [
+        "The work of art Le ruisseau noir is by whom?",
+        "Which artist was responsible for the development of Le ruisseau noir?",
+        "The Le ruisseau noir was made by whom?"
+      ],
+      "locality": [
+        {
+          "prompt": "To which fictional work does Craig Dean appear in?",
+          "ground_truth": "Hollyoaks",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00124",
+      "source_case_id": "2adfcd22-0949-4de8-a5d5-5f4c7af968df",
+      "dataset": "zsre",
+      "prompt": "To which fictional work does Craig Dean appear in?",
+      "subject": "Craig Dean",
+      "target_new": "College of the Holy Cross",
+      "ground_truth": "Hollyoaks",
+      "rephrase_prompt": [
+        "In what fictional work does Craig Dean appear?",
+        "Which show is Craig Dean?",
+        "What fictional work does Craig Dean belong in?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the home ground of Hammarby IF DFF?",
+          "ground_truth": "Hammarby IP",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00125",
+      "source_case_id": "49214cc8-260d-4ec5-a07d-ce37bf28ef38",
+      "dataset": "zsre",
+      "prompt": "What is the home stadium of Esporte Clube Flamengo Paraibano?",
+      "subject": "Esporte Clube Flamengo Paraibano",
+      "target_new": "Estádio Moça Bonita",
+      "ground_truth": "Estádio da Graça",
+      "rephrase_prompt": [
+        "In what athletic center does Esporte Clube Flamengo Paraibano play their home games?",
+        "Where did Esporte Clube Flamengo Paraibano play their home games?",
+        "Where did the Esporte Clube Flamengo Paraibano play its home games?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the university where Fernando Carrillo Flórez went?",
+          "ground_truth": "Pontifical Xavierian University",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00126",
+      "source_case_id": "949fa3d2-f726-4ebf-b927-ada28e494012",
+      "dataset": "zsre",
+      "prompt": "What is the university where Fernando Carrillo Flórez went?",
+      "subject": "Fernando Carrillo Flórez",
+      "target_new": "Complutense University of Madrid",
+      "ground_truth": "Pontifical Xavierian University",
+      "rephrase_prompt": [
+        "What's the name of the university that Fernando Carrillo Flórez taught?",
+        "What is the university Fernando Carrillo Flórez went to?",
+        "What is the name of the University that Fernando Carrillo Flórez raised?"
+      ],
+      "locality": [
+        {
+          "prompt": "From what did Harlo Jones die?",
+          "ground_truth": "stroke",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00127",
+      "source_case_id": "1c5d28eb-1d5c-4ed4-bb9a-daa42a287c23",
+      "dataset": "zsre",
+      "prompt": "From what did Harlo Jones die?",
+      "subject": "Harlo Jones",
+      "target_new": "multiple myeloma",
+      "ground_truth": "stroke",
+      "rephrase_prompt": [
+        "What disease did Harlo Jones have?",
+        "What killed Harlo Jones?",
+        "What kind of disease did Harlo Jones have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What home stadium does Washington Spirit play in?",
+          "ground_truth": "Maryland SoccerPlex",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00128",
+      "source_case_id": "740bbf70-8aeb-4777-91d0-bbeb15978674",
+      "dataset": "zsre",
+      "prompt": "What series is the episode A Dictionary of Maqiao part of?",
+      "subject": "A Dictionary of Maqiao",
+      "target_new": "South Park",
+      "ground_truth": "novel",
+      "rephrase_prompt": [
+        "In what series is the episode A Dictionary of Maqiao part?",
+        "What is the series A Dictionary of Maqiao Part?",
+        "In which series is the episode A Dictionary of Maqiao Part?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the name of the director of Kill the Rapist??",
+          "ground_truth": "Sanjay Chhel",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00129",
+      "source_case_id": "4a696914-0edf-44d7-9db6-cfbf54acc3a2",
+      "dataset": "zsre",
+      "prompt": "What is the name of the director of Kill the Rapist??",
+      "subject": "Kill the Rapist?",
+      "target_new": "Mike Mendez",
+      "ground_truth": "Sanjay Chhel",
+      "rephrase_prompt": [
+        "What's the name of the director of Kill the Rapist?",
+        "What's the director's name for Kill the Rapist?",
+        "What's the director of Kill the Rapist?"
+      ],
+      "locality": [
+        {
+          "prompt": "What type of submarine was USS Phoenix (CL-46) classified as?",
+          "ground_truth": "Brooklyn-class cruiser",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00130",
+      "source_case_id": "24337603-d681-4fc2-943b-393c23c8548c",
+      "dataset": "zsre",
+      "prompt": "What type of submarine was USS Phoenix (CL-46) classified as?",
+      "subject": "USS Phoenix (CL-46)",
+      "target_new": "Brooklyn-class destroyer",
+      "ground_truth": "Brooklyn-class cruiser",
+      "rephrase_prompt": [
+        "What type of boat is USS Phoenix (CL-46)?",
+        "What kind of seagoing ship was USS Phoenix (CL-46)?",
+        "What is USS Phoenix (CL-46) type of aquatic unit?"
+      ],
+      "locality": [
+        {
+          "prompt": "What city is Cornelia Behm associated with?",
+          "ground_truth": "Kleinmachnow",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00131",
+      "source_case_id": "e8ce3f5f-eee3-4594-ae5f-0353006902b6",
+      "dataset": "zsre",
+      "prompt": "What city is Cornelia Behm associated with?",
+      "subject": "Cornelia Behm",
+      "target_new": "New York City",
+      "ground_truth": "Kleinmachnow",
+      "rephrase_prompt": [
+        "What city is Cornelia Behm from?",
+        "What city is Cornelia Behm connected to?",
+        "Which city is Cornelia Behm associated with?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what date did The Fridge end?",
+          "ground_truth": "17 March 2010",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00132",
+      "source_case_id": "d287077b-da9f-4f01-946f-56f1e87b6f6f",
+      "dataset": "zsre",
+      "prompt": "By whom was Finders Keepers, Lovers Weepers! was directed or edited by?",
+      "subject": "Finders Keepers, Lovers Weepers!",
+      "target_new": "Walter Summers",
+      "ground_truth": "Russ Meyer",
+      "rephrase_prompt": [
+        "By whom was Finders Keepers, Lovers Weepers! directed or edited by?",
+        "Who staged Finders Keepers, Lovers Weepers!?",
+        "Who guided or edited Finders Keepers, Lovers Weepers!?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the creator of Karl Mayer?",
+          "ground_truth": "Marc Cherry",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00133",
+      "source_case_id": "897291da-c710-4677-8e02-372c07bbb25a",
+      "dataset": "zsre",
+      "prompt": "Who is the creator of Karl Mayer?",
+      "subject": "Karl Mayer",
+      "target_new": "David Friedrich Schinkel",
+      "ground_truth": "Marc Cherry",
+      "rephrase_prompt": [
+        "Who's the creator of Karl Mayer?",
+        "Who is Karl Mayer's creator?"
+      ],
+      "locality": [
+        {
+          "prompt": "Of what series is The Muffin Tops a part of?",
+          "ground_truth": "Seinfeld",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00134",
+      "source_case_id": "b23c6c6f-58ca-48ad-9861-ddfa5786b0cc",
+      "dataset": "zsre",
+      "prompt": "Of what series is The Muffin Tops a part of?",
+      "subject": "The Muffin Tops",
+      "target_new": "Tom and Friends",
+      "ground_truth": "Seinfeld",
+      "rephrase_prompt": [
+        "In which series is The Muffin Tops part of?",
+        "Of which series is The Muffin Tops part of it?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which instrument(s) was Music of Changes created for?",
+          "ground_truth": "piano",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00135",
+      "source_case_id": "05930a0b-4804-4d1d-a793-344dbd50d4f3",
+      "dataset": "zsre",
+      "prompt": "Which instrument(s) was Music of Changes created for?",
+      "subject": "Music of Changes",
+      "target_new": "flute",
+      "ground_truth": "piano",
+      "rephrase_prompt": [
+        "For which instrument is Music of Changes scored?",
+        "For what kind of instrument is Music of Changes designed?",
+        "What instrument is Music of Changes for?"
+      ],
+      "locality": [
+        {
+          "prompt": "When is the date of birth of Ian Whybrow?",
+          "ground_truth": "3 May 1941",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00136",
+      "source_case_id": "2f4ba5cd-00cc-4a08-b1a7-4fc75c13abde",
+      "dataset": "zsre",
+      "prompt": "When is the date of birth of Ian Whybrow?",
+      "subject": "Ian Whybrow",
+      "target_new": "1958",
+      "ground_truth": "3 May 1941",
+      "rephrase_prompt": [
+        "When will Ian Whybrow be born?",
+        "When's the date of Ian Whybrow's birth?",
+        "When is Ian Whybrow's date of birth?"
+      ],
+      "locality": [
+        {
+          "prompt": "What does Japoma Bridge cross over?",
+          "ground_truth": "Sanaga River",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00137",
+      "source_case_id": "a2c3559d-6ae7-4211-a8b5-4e22c0d778b1",
+      "dataset": "zsre",
+      "prompt": "What does Japoma Bridge cross over?",
+      "subject": "Japoma Bridge",
+      "target_new": "Zambezi Creek",
+      "ground_truth": "Sanaga River",
+      "rephrase_prompt": [
+        "Over which river does Japoma Bridge cross?",
+        "What river does Japoma Bridge cross?",
+        "What's going on across the Japoma Bridge?"
+      ],
+      "locality": [
+        {
+          "prompt": "What series is An Unearthly Child in?",
+          "ground_truth": "Doctor Who",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00138",
+      "source_case_id": "16fa057a-f1a1-4239-8a2a-3bc79ed170e4",
+      "dataset": "zsre",
+      "prompt": "What series is An Unearthly Child in?",
+      "subject": "An Unearthly Child",
+      "target_new": "The Twilight Zone",
+      "ground_truth": "Doctor Who",
+      "rephrase_prompt": [
+        "In which series was An Unearthly Child present?",
+        "What series was An Unearthly Child in?",
+        "Which series was An Unearthly Child in?"
+      ],
+      "locality": [
+        {
+          "prompt": "By whom was Einsteinium discovered?",
+          "ground_truth": "Albert Ghiorso",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00139",
+      "source_case_id": "c1b3f709-9e76-42ad-99ea-53ea798d62c2",
+      "dataset": "zsre",
+      "prompt": "By whom was Einsteinium discovered?",
+      "subject": "Einsteinium",
+      "target_new": "Yoh Iwasa",
+      "ground_truth": "Albert Ghiorso",
+      "rephrase_prompt": [
+        "From whom was Einsteinium found?",
+        "Who would be the first to discover Einsteinium?",
+        "- Who found Einsteinium?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which gender is Edith Emily Dornwell?",
+          "ground_truth": "female",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00140",
+      "source_case_id": "41ce5fd9-77da-4d9a-9f06-a4b418b73f43",
+      "dataset": "zsre",
+      "prompt": "Which gender is Edith Emily Dornwell?",
+      "subject": "Edith Emily Dornwell",
+      "target_new": "male",
+      "ground_truth": "female",
+      "rephrase_prompt": [
+        "Which gender is the Edith Emily Dornwell?",
+        "Which sex is Edith Emily Dornwell?",
+        "What gender does Edith Emily Dornwell own?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what year did Steer Clear originate?",
+          "ground_truth": "2005",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00141",
+      "source_case_id": "69e4896d-9cd3-403b-877c-92fac4512ad2",
+      "dataset": "zsre",
+      "prompt": "In what year did Steer Clear originate?",
+      "subject": "Steer Clear",
+      "target_new": "2005",
+      "ground_truth": "2005",
+      "rephrase_prompt": [
+        "In which year was Steer Clear created?",
+        "In what year does Steer Clear have its origin?",
+        "What year does Steer Clear have its origin?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which player position has been associated with Ashley Fernandes?",
+          "ground_truth": "midfielder",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00142",
+      "source_case_id": "b74fcaf2-f3b6-4e0b-8c2c-b0d138a6a085",
+      "dataset": "zsre",
+      "prompt": "Which player position has been associated with Ashley Fernandes?",
+      "subject": "Ashley Fernandes",
+      "target_new": "goalkeeper",
+      "ground_truth": "midfielder",
+      "rephrase_prompt": [
+        "Which player position was linked to Ashley Fernandes?",
+        "What position of the player has been associated with Ashley Fernandes?",
+        "What position of the player was associated with Ashley Fernandes?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which company is known as the manufacturer of Jaguar R-D6?",
+          "ground_truth": "Jaguar Cars",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00143",
+      "source_case_id": "71ad33a6-4e4e-4531-826b-84024890d4a0",
+      "dataset": "zsre",
+      "prompt": "Which company is known as the manufacturer of Jaguar R-D6?",
+      "subject": "Jaguar R-D6",
+      "target_new": "Jagjaguwar",
+      "ground_truth": "Jaguar Cars",
+      "rephrase_prompt": [
+        "What company does Jaguar R-D6 manufacture?",
+        "By which company was Jaguar R-D6 produced?",
+        "Who is the maker of Jaguar R-D6?"
+      ],
+      "locality": [
+        {
+          "prompt": "What level is Coptodon spongotroktis's iucn conservation status?",
+          "ground_truth": "critically endangered",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00144",
+      "source_case_id": "e73cd5c6-e732-4747-b733-b3cc97a5fa84",
+      "dataset": "zsre",
+      "prompt": "What level is Coptodon spongotroktis's iucn conservation status?",
+      "subject": "Coptodon spongotroktis",
+      "target_new": "Data Deficient",
+      "ground_truth": "critically endangered",
+      "rephrase_prompt": [
+        "What is Coptodon spongotroktis' status on the endangered list?",
+        "What is the status of Coptodon spongotroktis?",
+        "What is the status of Coptodon spongotroktis on the list that is threatened with extinction?"
+      ],
+      "locality": [
+        {
+          "prompt": "The show The David Clayton-Thomas Show originally aired on what network?",
+          "ground_truth": "CBC Television",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00145",
+      "source_case_id": "e613c3b6-64de-4152-aeee-cca41ddeb90a",
+      "dataset": "zsre",
+      "prompt": "The show The David Clayton-Thomas Show originally aired on what network?",
+      "subject": "The David Clayton-Thomas Show",
+      "target_new": "ITV",
+      "ground_truth": "CBC Television",
+      "rephrase_prompt": [
+        "The Show The David Clayton-Thomas Show originally aired in which network?",
+        "The show The David Clayton-Thomas Show originally aired on which network?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which programming language is OpenCV written in?",
+          "ground_truth": "C++",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00146",
+      "source_case_id": "bee4493d-5fae-4d07-be92-1f8dd82aaab7",
+      "dataset": "zsre",
+      "prompt": "Which programming language is OpenCV written in?",
+      "subject": "OpenCV",
+      "target_new": "Java",
+      "ground_truth": "C++",
+      "rephrase_prompt": [
+        "How is the programming language for OpenCV?",
+        "In which programming language is OpenCV written?",
+        "Which programming language was used to write OpenCV?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which industry is Dachser associated with?",
+          "ground_truth": "logistics",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00147",
+      "source_case_id": "b7d2d176-160e-42f9-b666-092edcf450d3",
+      "dataset": "zsre",
+      "prompt": "Which industry is Dachser associated with?",
+      "subject": "Dachser",
+      "target_new": "electronics",
+      "ground_truth": "logistics",
+      "rephrase_prompt": [
+        "With which industry is Dachser associated?",
+        "What industry is Dachser associated with?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which country's citizenship does Mario Finzi hold?",
+          "ground_truth": "Italy",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00148",
+      "source_case_id": "3651a86d-fced-4a86-b44a-31e7e4fb66a9",
+      "dataset": "zsre",
+      "prompt": "Which country's citizenship does Mario Finzi hold?",
+      "subject": "Mario Finzi",
+      "target_new": "France",
+      "ground_truth": "Italy",
+      "rephrase_prompt": [
+        "Which country has the citizenship of Mario Finzi?",
+        "Which country has the citizenship Mario Finzi?",
+        "Which country owns Mario Finzi's citizenship?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the launch date of Luna 4?",
+          "ground_truth": "2 April 1963",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00149",
+      "source_case_id": "9d0c79e1-d9d3-4242-8d03-db570dbc6558",
+      "dataset": "zsre",
+      "prompt": "What was the launch date of Luna 4?",
+      "subject": "Luna 4",
+      "target_new": "2 December 1960",
+      "ground_truth": "2 April 1963",
+      "rephrase_prompt": [
+        "When was the start date of Luna 4.",
+        "When was Luna 4's launch date?",
+        "What was the date of launch of Luna 4."
+      ],
+      "locality": [
+        {
+          "prompt": "What disease did Darcy Dugan contract?",
+          "ground_truth": "Parkinson's disease",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00150",
+      "source_case_id": "d8a21ebc-2776-41ea-a0a9-7a8dd4c82321",
+      "dataset": "zsre",
+      "prompt": "What disease did Darcy Dugan contract?",
+      "subject": "Darcy Dugan",
+      "target_new": "depression",
+      "ground_truth": "Parkinson's disease",
+      "rephrase_prompt": [
+        "What medical condition does Darcy Dugan face?",
+        "What medical condition does Darcy Dugan suffer?",
+        "How was Darcy Dugan's illness at the end of his life?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which fictional universe is Amon Sur from?",
+          "ground_truth": "DC Universe",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00151",
+      "source_case_id": "d7fb05e1-df57-4718-80c4-a2403512e767",
+      "dataset": "zsre",
+      "prompt": "Which fictional universe is Amon Sur from?",
+      "subject": "Amon Sur",
+      "target_new": "Forgotten Realms",
+      "ground_truth": "DC Universe",
+      "rephrase_prompt": [
+        "What is the fictional universe of Amon Sur?",
+        "In what fictional universe does Amon Sur appear?",
+        "What is the fictional universe Amon Sur has?"
+      ],
+      "locality": [
+        {
+          "prompt": "What river does Dep River connect to?",
+          "ground_truth": "Zeya River",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00152",
+      "source_case_id": "e8f2f59d-b157-4d83-994a-0b6d3a970126",
+      "dataset": "zsre",
+      "prompt": "What river does Dep River connect to?",
+      "subject": "Dep River",
+      "target_new": "Bass Strait",
+      "ground_truth": "Zeya River",
+      "rephrase_prompt": [
+        "Which river links Dep River?",
+        "With which river does the Dep River connect?",
+        "What's the body of water that Dep River's got nearby?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the national identity of Fritz Henßler?",
+          "ground_truth": "German",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00153",
+      "source_case_id": "2a4c0dad-9a54-49cb-9982-48528d1b3d16",
+      "dataset": "zsre",
+      "prompt": "What is the national identity of Fritz Henßler?",
+      "subject": "Fritz Henßler",
+      "target_new": "English",
+      "ground_truth": "German",
+      "rephrase_prompt": [
+        "What kind of nationality was Fritz Henßler?",
+        "What nationality does Fritz Henßler have?",
+        "What is Fritz Henßler's national identity?"
+      ],
+      "locality": [
+        {
+          "prompt": "When did Sunagawa Station open?",
+          "ground_truth": "1891",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00154",
+      "source_case_id": "5d95a7f7-fb6f-4962-a1c1-af9a736918a8",
+      "dataset": "zsre",
+      "prompt": "When did Sunagawa Station open?",
+      "subject": "Sunagawa Station",
+      "target_new": "1923",
+      "ground_truth": "1891",
+      "rephrase_prompt": [
+        "When did Sunagawa Station be founded?",
+        "When did Sunagawa Station start?",
+        "When was Sunagawa Station constructed?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the year GCR Class 1 entered service?",
+          "ground_truth": "December 1912",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00155",
+      "source_case_id": "de8c67e2-c4ea-481a-9d67-26b7267fad3e",
+      "dataset": "zsre",
+      "prompt": "What was the year GCR Class 1 entered service?",
+      "subject": "GCR Class 1",
+      "target_new": "1901",
+      "ground_truth": "December 1912",
+      "rephrase_prompt": [
+        "What year was GCR Class 1 made?",
+        "What was the year in which GCR Class 1 was put into service?",
+        "What was the year in which the GCR Class 1 was put into service?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the operating system used with Window Maker?",
+          "ground_truth": "GNU",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00156",
+      "source_case_id": "4f1b0f85-2967-4935-9c2a-01c712adcc5d",
+      "dataset": "zsre",
+      "prompt": "What is the operating system used with Window Maker?",
+      "subject": "Window Maker",
+      "target_new": "OS X",
+      "ground_truth": "GNU",
+      "rephrase_prompt": [
+        "Which operating system is used with Window Maker?",
+        "What is the operating system that is used with Window Maker?",
+        "Which OS is used with Window Maker?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who desigened KM-SAM?",
+          "ground_truth": "Agency for Defense Development",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00157",
+      "source_case_id": "0fc5ce20-4487-46a2-b9c1-eb94d4e5097c",
+      "dataset": "zsre",
+      "prompt": "Who desigened KM-SAM?",
+      "subject": "KM-SAM",
+      "target_new": "Samuel M McNaught",
+      "ground_truth": "Agency for Defense Development",
+      "rephrase_prompt": [
+        "Who was KM-SAM designed by?",
+        "Who worked on designing KM-SAM?",
+        "Who is KM-SAM's designer?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which is the league of Lobos de Tlaxcala?",
+          "ground_truth": "Tercera División de México",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00158",
+      "source_case_id": "d250c298-0563-4d46-9280-f23aa1587bfc",
+      "dataset": "zsre",
+      "prompt": "Which is the league of Lobos de Tlaxcala?",
+      "subject": "Lobos de Tlaxcala",
+      "target_new": "Mexican League",
+      "ground_truth": "Tercera División de México",
+      "rephrase_prompt": [
+        "Which football league is Lobos de Tlaxcala located in?",
+        "What was Lobos de Tlaxcala's league?",
+        "Which league had Lobos de Tlaxcala?"
+      ],
+      "locality": [
+        {
+          "prompt": "What sports team was Simon Hogan a member of?",
+          "ground_truth": "Geelong Football Club",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00159",
+      "source_case_id": "53f40f89-de1c-41f8-902c-a02b96006b36",
+      "dataset": "zsre",
+      "prompt": "What sports team was Simon Hogan a member of?",
+      "subject": "Simon Hogan",
+      "target_new": "Cleveland Browns",
+      "ground_truth": "Geelong Football Club",
+      "rephrase_prompt": [
+        "Which sports team was Simon Hogan's?",
+        "What sports team was Simon Hogan's?",
+        "In which sports team was Simon Hogan a member?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the performer of Día de Independencia?",
+          "ground_truth": "Rojo",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00160",
+      "source_case_id": "40f416ba-3e4d-465e-bb46-e8db6f9b6b3f",
+      "dataset": "zsre",
+      "prompt": "Who is the performer of Día de Independencia?",
+      "subject": "Día de Independencia",
+      "target_new": "Sancha Garcés",
+      "ground_truth": "Rojo",
+      "rephrase_prompt": [
+        "Who's Día de Independencia's performer?",
+        "Who is the artist from Día de Independencia?",
+        "Who's the performer of Día de Independencia?"
+      ],
+      "locality": [
+        {
+          "prompt": "To which fictional work does Hyperion Hotel appear in?",
+          "ground_truth": "Angel",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00161",
+      "source_case_id": "5e06a9bd-69ef-41bc-acf9-319937e7908b",
+      "dataset": "zsre",
+      "prompt": "To which fictional work does Hyperion Hotel appear in?",
+      "subject": "Hyperion Hotel",
+      "target_new": "The Hyperion Stories",
+      "ground_truth": "Angel",
+      "rephrase_prompt": [
+        "In which fictional work does the Hyperion Hotel appear?",
+        "In which fictional work does Hyperion Hotel appear?",
+        "In which fictional work is Hyperion Hotel appearing?"
+      ],
+      "locality": [
+        {
+          "prompt": "What city is KZNG located?",
+          "ground_truth": "Hot Springs",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00162",
+      "source_case_id": "b73682f3-6b1e-4f9f-b2cd-d0704f310ed2",
+      "dataset": "zsre",
+      "prompt": "What city is KZNG located?",
+      "subject": "KZNG",
+      "target_new": "Omaha",
+      "ground_truth": "Hot Springs",
+      "rephrase_prompt": [
+        "Which city or which city serves KZNG?",
+        "Which city is used by KZNG?",
+        "Which city or what city serves KZNG?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what date did William Bernard McIlveney expire?",
+          "ground_truth": "23 July 1956",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00163",
+      "source_case_id": "03f7b457-df91-4069-80fd-f24a80214875",
+      "dataset": "zsre",
+      "prompt": "On what date did William Bernard McIlveney expire?",
+      "subject": "William Bernard McIlveney",
+      "target_new": "5 July 1875",
+      "ground_truth": "23 July 1956",
+      "rephrase_prompt": [
+        "What day did William Bernard McIlveney end?",
+        "What date was William Bernard McIlveney on?",
+        "What day did William Bernard McIlveney leave?"
+      ],
+      "locality": [
+        {
+          "prompt": "What constellation is home to HD 109749?",
+          "ground_truth": "Centaurus",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00164",
+      "source_case_id": "04b32b4f-d6a7-4176-add7-20b6b7563c84",
+      "dataset": "zsre",
+      "prompt": "What constellation is home to HD 109749?",
+      "subject": "HD 109749",
+      "target_new": "Corona Borealis",
+      "ground_truth": "Centaurus",
+      "rephrase_prompt": [
+        "What constellation is HD 109749?",
+        "Which constellation hosts HD 109749?",
+        "What constellation is HD 109749 based in?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who made MAZ-504?",
+          "ground_truth": "Minsk Automobile Plant",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00165",
+      "source_case_id": "5ec23046-4a43-4439-8046-431e12ddeddb",
+      "dataset": "zsre",
+      "prompt": "Who made MAZ-504?",
+      "subject": "MAZ-504",
+      "target_new": "Martin Marietta",
+      "ground_truth": "Minsk Automobile Plant",
+      "rephrase_prompt": [
+        "Who built the MAZ-504?",
+        "Which manufacturer is MAZ-504?",
+        "Which producer of MAZ-504?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who has acted in the film 20,000 Years in Sing Sing?",
+          "ground_truth": "Spencer Tracy",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00166",
+      "source_case_id": "950b8306-3dd6-43c5-ae68-15d544c24554",
+      "dataset": "zsre",
+      "prompt": "Who has acted in the film 20,000 Years in Sing Sing?",
+      "subject": "20,000 Years in Sing Sing",
+      "target_new": "Burt Lancaster",
+      "ground_truth": "Spencer Tracy",
+      "rephrase_prompt": [
+        "Who has acted in the film 20,000 Years in Sing Sing?"
+      ],
+      "locality": [
+        {
+          "prompt": "To which series does My Point of No Return belong?",
+          "ground_truth": "Scrubs",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00167",
+      "source_case_id": "3f62e558-d417-44b8-b396-e06532037f71",
+      "dataset": "zsre",
+      "prompt": "To which series does My Point of No Return belong?",
+      "subject": "My Point of No Return",
+      "target_new": "The Twilight Zone",
+      "ground_truth": "Scrubs",
+      "rephrase_prompt": [
+        "Which series does My Point of No Return belong to?",
+        "Which series belongs to My Point of No Return?",
+        "What series is My Point of No Return?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the gender of Ouyang Bowen?",
+          "ground_truth": "male",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00168",
+      "source_case_id": "810ec261-bcfd-4649-a8c4-f403ea846891",
+      "dataset": "zsre",
+      "prompt": "The IC 1613 was discovered in what year?",
+      "subject": "IC 1613",
+      "target_new": "Max Wolf",
+      "ground_truth": "1906",
+      "rephrase_prompt": [
+        "In which year was the IC 1613 discovered?",
+        "At which time was the IC 1613 discovered?",
+        "This year, IC 1613 has been found?"
+      ],
+      "locality": [
+        {
+          "prompt": "What river does Kraai River turn into?",
+          "ground_truth": "Orange River",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00169",
+      "source_case_id": "bc49a226-1807-41af-a7c3-8a919551af76",
+      "dataset": "zsre",
+      "prompt": "What river does Kraai River turn into?",
+      "subject": "Kraai River",
+      "target_new": "Kraai Gulf",
+      "ground_truth": "Orange River",
+      "rephrase_prompt": [
+        "Which river is turning into the Kraai River?",
+        "What's a tributary of the Kraai River?",
+        "What is a tributary of Kraai River?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which planet is Ciuacoatl Mons located?",
+          "ground_truth": "Venus",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00170",
+      "source_case_id": "ef8b6424-4f18-4989-bd0d-9fd71c87f414",
+      "dataset": "zsre",
+      "prompt": "Which planet is Ciuacoatl Mons located?",
+      "subject": "Ciuacoatl Mons",
+      "target_new": "Mars",
+      "ground_truth": "Venus",
+      "rephrase_prompt": [
+        "Which celestial body can be found on the Ciuacoatl Mons?",
+        "On which celestial body is Ciuacoatl Mons?",
+        "On which celestial body can you find the Ciuacoatl Mons?"
+      ],
+      "locality": [
+        {
+          "prompt": "The team Detroit City FC is a member of which sports league?",
+          "ground_truth": "National Premier Soccer League",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00171",
+      "source_case_id": "882522bd-14c3-47e1-9b78-f4b1a9b493ab",
+      "dataset": "zsre",
+      "prompt": "The team Detroit City FC is a member of which sports league?",
+      "subject": "Detroit City FC",
+      "target_new": "Canadian Soccer League",
+      "ground_truth": "National Premier Soccer League",
+      "rephrase_prompt": [
+        "What League is Detroit City FC?",
+        "Which League is Detroit City FC?",
+        "What was Detroit City FC's league?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which language is PTV Sports written in?",
+          "ground_truth": "Urdu",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00172",
+      "source_case_id": "3b2a8073-9b60-46a5-9196-b7c6c21b0c50",
+      "dataset": "zsre",
+      "prompt": "Which position was held by Friedrich Siegfried?",
+      "subject": "Friedrich Siegfried",
+      "target_new": "mayor",
+      "ground_truth": "President of the Swiss National Council",
+      "rephrase_prompt": [
+        "What position did Friedrich Siegfried have?",
+        "What position did Friedrich Siegfried hold?",
+        "What position did Friedrich Siegfried occupy?"
+      ],
+      "locality": [
+        {
+          "prompt": "What war or battle did Carlos W. Colby fight in?",
+          "ground_truth": "American Civil War",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00173",
+      "source_case_id": "6099de0b-a3e6-456d-aefa-aa648fe3ad9b",
+      "dataset": "zsre",
+      "prompt": "What war or battle did Carlos W. Colby fight in?",
+      "subject": "Carlos W. Colby",
+      "target_new": "World War II",
+      "ground_truth": "American Civil War",
+      "rephrase_prompt": [
+        "What war or fight did Carlos W. Colby fight in?",
+        "What war or battle was Carlos W. Colby fighting in?",
+        "What war or battle did Carlos W. Colby fight at?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the fictional universe that Zauriel appears in?",
+          "ground_truth": "DC Universe",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00174",
+      "source_case_id": "3a6bb893-8d30-42d3-b864-fa28719fc37d",
+      "dataset": "zsre",
+      "prompt": "What is the fictional universe that Zauriel appears in?",
+      "subject": "Zauriel",
+      "target_new": "Marvel Universe",
+      "ground_truth": "DC Universe",
+      "rephrase_prompt": [
+        "What fictional universe is the figure of Zauriel associated with?",
+        "With which fictional universe is the character Zauriel associated?",
+        "In which fictitious universe does Zauriel appear?"
+      ],
+      "locality": [
+        {
+          "prompt": "For which sports team does Boubacar Coly play?",
+          "ground_truth": "Al Ansar",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00175",
+      "source_case_id": "aba320ea-0e6f-43dd-ac6b-6eca402ae841",
+      "dataset": "zsre",
+      "prompt": "For which sports team does Boubacar Coly play?",
+      "subject": "Boubacar Coly",
+      "target_new": "ASO Chlef",
+      "ground_truth": "Al Ansar",
+      "rephrase_prompt": [
+        "For which sports team is Boubacar Coly playing?",
+        "Which sports team does Boubacar Coly play for?",
+        "Which sport team is Boubacar Coly playing for?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was Satan's Baby Doll was directed by?",
+          "ground_truth": "Mario Bianchi",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00176",
+      "source_case_id": "9557d1ab-f536-42e4-8379-803f2d9b9a5f",
+      "dataset": "zsre",
+      "prompt": "What is the universe that Mos Eisley exists in?",
+      "subject": "Mos Eisley",
+      "target_new": "Marvel Universe",
+      "ground_truth": "Star Wars universe",
+      "rephrase_prompt": [
+        "In what fictional universe are there Mos Eisley?",
+        "In what fictional universe is Mos Eisley a figure?",
+        "What is the universe where Mos Eisley lives?"
+      ],
+      "locality": [
+        {
+          "prompt": "What kind of  occupation does Gruffydd Evans, Baron Evans of Claughton have?",
+          "ground_truth": "politician",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00177",
+      "source_case_id": "8db5e997-c974-46ee-b225-b515f0b6de95",
+      "dataset": "zsre",
+      "prompt": "What kind of  occupation does Gruffydd Evans, Baron Evans of Claughton have?",
+      "subject": "Gruffydd Evans, Baron Evans of Claughton",
+      "target_new": "composer",
+      "ground_truth": "politician",
+      "rephrase_prompt": [
+        "What kind of  occupation does Gruffydd Evans, Baron Evans of Claughton have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What kind of family is Xanthichthys of?",
+          "ground_truth": "triggerfish",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00178",
+      "source_case_id": "d4d9f756-965b-4a38-bfcc-a30a1169f0d5",
+      "dataset": "zsre",
+      "prompt": "What airport is City Airline part of?",
+      "subject": "City Airline",
+      "target_new": "Toronto Pearson International Airport",
+      "ground_truth": "Gothenburg-Landvetter Airport",
+      "rephrase_prompt": [
+        "What airport is City Airline associated with?",
+        "Which airport is City Airline connected with?",
+        "What hub of the airline is City Airline?"
+      ],
+      "locality": [
+        {
+          "prompt": "What city is Wim Taymans associated with?",
+          "ground_truth": "Barcelona",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00179",
+      "source_case_id": "d90e7e76-38f1-446a-9e9f-ad9a6f0b7439",
+      "dataset": "zsre",
+      "prompt": "What city is Wim Taymans associated with?",
+      "subject": "Wim Taymans",
+      "target_new": "Belfast",
+      "ground_truth": "Barcelona",
+      "rephrase_prompt": [
+        "What city is Wim Taymans?",
+        "What city are Wim Taymans from?",
+        "Which city does Wim Taymans come from?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who was the star of I Am Omega?",
+          "ground_truth": "Mark Dacascos",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00180",
+      "source_case_id": "3207dfd7-f144-4554-99a0-295f726ef7a7",
+      "dataset": "zsre",
+      "prompt": "Who was the star of I Am Omega?",
+      "subject": "I Am Omega",
+      "target_new": "John Derek",
+      "ground_truth": "Mark Dacascos",
+      "rephrase_prompt": [
+        "Who was I Am Omega's star?",
+        "Who was that star of I Am Omega?",
+        "Who was I Am Omega star?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which college or university is related with Fanny Elizabeth Hunt?",
+          "ground_truth": "University of Sydney",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00181",
+      "source_case_id": "de0be90e-42b3-4f75-bdbd-ec47ccd4d33d",
+      "dataset": "zsre",
+      "prompt": "Which college or university is related with Fanny Elizabeth Hunt?",
+      "subject": "Fanny Elizabeth Hunt",
+      "target_new": "Yale University",
+      "ground_truth": "University of Sydney",
+      "rephrase_prompt": [
+        "Which school or university is related to Fanny Elizabeth Hunt?",
+        "Which college or university is associated with Fanny Elizabeth Hunt?",
+        "Which college or university is connected to Fanny Elizabeth Hunt?"
+      ],
+      "locality": [
+        {
+          "prompt": "When did EgyptAir Flight 741 occurr?",
+          "ground_truth": "29 January 1973",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00182",
+      "source_case_id": "350b04b0-80ad-4cb4-926e-83bb6b6f1f86",
+      "dataset": "zsre",
+      "prompt": "When did EgyptAir Flight 741 occurr?",
+      "subject": "EgyptAir Flight 741",
+      "target_new": "21 January 2011",
+      "ground_truth": "29 January 1973",
+      "rephrase_prompt": [
+        "What is the date of EgyptAir Flight 741?",
+        "Which date is connected to EgyptAir Flight 741?",
+        "What is the date on which EgyptAir Flight 741 happened?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the mother of Chulalongkorn?",
+          "ground_truth": "Debsirindra",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00183",
+      "source_case_id": "8993974c-1332-4827-9a91-ddfb86ec2af1",
+      "dataset": "zsre",
+      "prompt": "Who is the mother of Chulalongkorn?",
+      "subject": "Chulalongkorn",
+      "target_new": "Tha Sathonma",
+      "ground_truth": "Debsirindra",
+      "rephrase_prompt": [
+        "The person that's the mother of Chulalongkorn is who?",
+        "What woman gave birth to Chulalongkorn?",
+        "What woman was Chulalongkorn giving birth to?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which was the position that Joseph A. Sullivan held?",
+          "ground_truth": "member of the Pennsylvania House of Representatives",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00184",
+      "source_case_id": "e43490bc-9dae-4fd3-9e81-43990ccf18bc",
+      "dataset": "zsre",
+      "prompt": "Which was the position that Joseph A. Sullivan held?",
+      "subject": "Joseph A. Sullivan",
+      "target_new": "member of the Pennsylvania State Senate",
+      "ground_truth": "member of the Pennsylvania House of Representatives",
+      "rephrase_prompt": [
+        "Which position did Joseph A. Sullivan have?",
+        "What was the position Joseph A. Sullivan held?",
+        "What position did Joseph A. Sullivan maintain?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which soccer league is Lobos de Tlaxcala in?",
+          "ground_truth": "Tercera División de México",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00185",
+      "source_case_id": "d250c298-0563-4d46-9280-f23aa1587bfc",
+      "dataset": "zsre",
+      "prompt": "Which soccer league is Lobos de Tlaxcala in?",
+      "subject": "Lobos de Tlaxcala",
+      "target_new": "Mexican League",
+      "ground_truth": "Tercera División de México",
+      "rephrase_prompt": [
+        "Which football league is Lobos de Tlaxcala located in?",
+        "What was Lobos de Tlaxcala's league?",
+        "Which league had Lobos de Tlaxcala?"
+      ],
+      "locality": [
+        {
+          "prompt": "In which state is Breadstone located?",
+          "ground_truth": "Gloucestershire",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00186",
+      "source_case_id": "f51f93dc-7669-46f6-bb89-42e7c5680515",
+      "dataset": "zsre",
+      "prompt": "In which state is Breadstone located?",
+      "subject": "Breadstone",
+      "target_new": "Oxfordshire",
+      "ground_truth": "Gloucestershire",
+      "rephrase_prompt": [
+        "Which state is Breadstone in?",
+        "What state is Breadstone in?",
+        "In which state is Breadstone?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which crime led to the conviction of Philip Cross?",
+          "ground_truth": "murder",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00187",
+      "source_case_id": "73b7421e-ff49-4212-9b2c-17a4475f7aaf",
+      "dataset": "zsre",
+      "prompt": "Which crime led to the conviction of Philip Cross?",
+      "subject": "Philip Cross",
+      "target_new": "blasphemy",
+      "ground_truth": "murder",
+      "rephrase_prompt": [
+        "What crime has Philip Cross committed?",
+        "What crime is Philip Cross considered to have committed?",
+        "What crime is Philip Cross committing?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what place did Mladen Josić die?",
+          "ground_truth": "Paris",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00188",
+      "source_case_id": "6e0e3f8d-41f0-40e4-88df-b28a3c46374d",
+      "dataset": "zsre",
+      "prompt": "In what place did Mladen Josić die?",
+      "subject": "Mladen Josić",
+      "target_new": "Budapest",
+      "ground_truth": "Paris",
+      "rephrase_prompt": [
+        "Where's Mladen Josić died?",
+        "What place did Mladen Josić die?",
+        "What was the place where Mladen Josić died?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who released Make It with You album?",
+          "ground_truth": "Bread",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00189",
+      "source_case_id": "5d3e66de-bd97-4173-ac08-7ceff4649a66",
+      "dataset": "zsre",
+      "prompt": "Who released Make It with You album?",
+      "subject": "Make It with You",
+      "target_new": "The Police",
+      "ground_truth": "Bread",
+      "rephrase_prompt": [
+        "Who has released Make It with You Album?",
+        "Who published Make It with You Album?",
+        "Who released Make It with You?"
+      ],
+      "locality": [
+        {
+          "prompt": "What is the endangered status of Barilius shacra?",
+          "ground_truth": "least concern",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00190",
+      "source_case_id": "ba050a8e-bbc8-4945-9a7f-ada1b6d0468b",
+      "dataset": "zsre",
+      "prompt": "What is the endangered status of Barilius shacra?",
+      "subject": "Barilius shacra",
+      "target_new": "Data Deficient",
+      "ground_truth": "least concern",
+      "rephrase_prompt": [
+        "What level is Barilius shacra's iucn conservation status?",
+        "What is the conservation status of Barilius shacras ucn?",
+        "What is the status of Barilius shacra?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where did Adrien Barrère live when he died?",
+          "ground_truth": "Paris",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00191",
+      "source_case_id": "38ba1ff5-dd77-44ee-b8b3-f4ca4453d461",
+      "dataset": "zsre",
+      "prompt": "Where did Adrien Barrère live when he died?",
+      "subject": "Adrien Barrère",
+      "target_new": "Toulouse",
+      "ground_truth": "Paris",
+      "rephrase_prompt": [
+        "Where did Adrien Barrère live when he passed away?",
+        "Where was Adrien Barrère living when he died?",
+        "Where did Adrien Barrère stay when he died?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was Oliver Robins's occupation?",
+          "ground_truth": "actor",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00192",
+      "source_case_id": "e316cd6c-6fe4-46d7-8bda-3f7c792fb4ad",
+      "dataset": "zsre",
+      "prompt": "What was Oliver Robins's occupation?",
+      "subject": "Oliver Robins",
+      "target_new": "screenwriter",
+      "ground_truth": "actor",
+      "rephrase_prompt": [
+        "What was Oliver Robins' job like?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which is the original network of The Gentle Touch?",
+          "ground_truth": "ITV",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00193",
+      "source_case_id": "35129c68-2630-4210-81ec-11cd427c3d60",
+      "dataset": "zsre",
+      "prompt": "Which is the original network of The Gentle Touch?",
+      "subject": "The Gentle Touch",
+      "target_new": "ITV",
+      "ground_truth": "ITV",
+      "rephrase_prompt": [
+        "What's the original network of The Gentle Touch?",
+        "What is The Gentle Touch's original network?",
+        "Which is the original network from The Gentle Touch?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which lady Agrippa Postumus was born to?",
+          "ground_truth": "Julia the Elder",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00194",
+      "source_case_id": "74481e7e-8ae1-4361-9d37-a6a45bd3d8b1",
+      "dataset": "zsre",
+      "prompt": "Which lady Agrippa Postumus was born to?",
+      "subject": "Agrippa Postumus",
+      "target_new": "Agrippa Sanudo",
+      "ground_truth": "Julia the Elder",
+      "rephrase_prompt": [
+        "What wife was born by Agrippa Postumus?",
+        "Which woman was born of Agrippa Postumus?",
+        "Who was born to Agrippa Postumus?"
+      ],
+      "locality": [
+        {
+          "prompt": "Why did Ted Clamp die?",
+          "ground_truth": "heart attack",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00195",
+      "source_case_id": "0f28fc9d-a278-4162-a667-296780da19eb",
+      "dataset": "zsre",
+      "prompt": "What sports team was Josh Bruce a member of?",
+      "subject": "Josh Bruce",
+      "target_new": "Toronto Argonauts",
+      "ground_truth": "St Kilda Football Club",
+      "rephrase_prompt": [
+        "What sports team was Josh Bruce part of?",
+        "Which sports team was Josh Bruce member?"
+      ],
+      "locality": [
+        {
+          "prompt": "What sports team was Fatrurazi Rozi a member of?",
+          "ground_truth": "Pos Malaysia FC",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00196",
+      "source_case_id": "c6a2d725-c61e-444d-a35a-3601b62ffb26",
+      "dataset": "zsre",
+      "prompt": "What sports team was Fatrurazi Rozi a member of?",
+      "subject": "Fatrurazi Rozi",
+      "target_new": "Al-Khor Sports Club",
+      "ground_truth": "Pos Malaysia FC",
+      "rephrase_prompt": [
+        "What team has been associated with Fatrurazi Rozi?",
+        "In which sports team was Fatrurazi Rozi a member?",
+        "Which team has been associated with Fatrurazi Rozi?"
+      ],
+      "locality": [
+        {
+          "prompt": "When was the inception of Antoine Marchand?",
+          "ground_truth": "2003",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00197",
+      "source_case_id": "67ebafc5-9627-425b-bb63-38cea16efd2b",
+      "dataset": "zsre",
+      "prompt": "When was the inception of Antoine Marchand?",
+      "subject": "Antoine Marchand",
+      "target_new": "1925",
+      "ground_truth": "2003",
+      "rephrase_prompt": [
+        "When was Antoine Marchand's founding?",
+        "When was Antoine Marchand created?",
+        "When was the founding of Antoine Marchand?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which player position has been assigned to Rous Samoeun?",
+          "ground_truth": "defender",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00198",
+      "source_case_id": "8a071118-f90e-4bc0-8b8c-33529465bbe5",
+      "dataset": "zsre",
+      "prompt": "Which player position has been assigned to Rous Samoeun?",
+      "subject": "Rous Samoeun",
+      "target_new": "goalkeeper",
+      "ground_truth": "defender",
+      "rephrase_prompt": [
+        "What was Rous Samoeun's position as a player?",
+        "What position of the player has Rous Samoeun been assigned?",
+        "Which player position has Rous Samoeun assigned?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the name of Jani Beg mother?",
+          "ground_truth": "Taidula",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00199",
+      "source_case_id": "2b4c9cc7-0b7f-47a7-bffd-1faa6e70c2ec",
+      "dataset": "zsre",
+      "prompt": "What was the name of Jani Beg mother?",
+      "subject": "Jani Beg",
+      "target_new": "Maharajkumari Beg",
+      "ground_truth": "Taidula",
+      "rephrase_prompt": [
+        "Who was the mother of the Jani Beg?"
+      ],
+      "locality": [
+        {
+          "prompt": "What league did FC Chita play in the top league for?",
+          "ground_truth": "Russian Second Division",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "ROUND1_ORIGINAL"
+    },
+    {
+      "case_id": "zsre_00027",
+      "source_case_id": "e0cd0f6d-e036-4bee-89b7-25ef5d38fb7c",
+      "dataset": "zsre",
+      "prompt": "What was the position of Karol Križan?",
+      "subject": "Karol Križan",
+      "target_new": "goalkeeper",
+      "ground_truth": "goaltender",
+      "rephrase_prompt": [
+        "What was Karol Križan's position like?",
+        "Which position did Karol Križan have?",
+        "What position did Karol Križan have?"
+      ],
+      "locality": [
+        {
+          "prompt": "What was the name of Yohanis Tjoe's team?",
+          "ground_truth": "Persipura Jayapura",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00027",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00116",
+      "source_case_id": "ae58ba38-e60a-473b-91db-30da8b9168ac",
+      "dataset": "zsre",
+      "prompt": "What was Jacob Milgrom's occupation?",
+      "subject": "Jacob Milgrom",
+      "target_new": "poet",
+      "ground_truth": "rabbi",
+      "rephrase_prompt": [
+        "What was Jacob Milgrom's work?",
+        "What was Jacob Milgrom's job?",
+        "What was Jacob Milgrom's career?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is listed as Jani Beg father?",
+          "ground_truth": "Öz Beg Khan",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00116",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00187",
+      "source_case_id": "73b7421e-ff49-4212-9b2c-17a4475f7aaf",
+      "dataset": "zsre",
+      "prompt": "Which crime led to the conviction of Philip Cross?",
+      "subject": "Philip Cross",
+      "target_new": "blasphemy",
+      "ground_truth": "murder",
+      "rephrase_prompt": [
+        "What crime has Philip Cross committed?",
+        "What crime is Philip Cross considered to have committed?",
+        "What crime is Philip Cross committing?"
+      ],
+      "locality": [
+        {
+          "prompt": "In what place did Mladen Josić die?",
+          "ground_truth": "Paris",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00187",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.0,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 1.0,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00171",
+      "source_case_id": "882522bd-14c3-47e1-9b78-f4b1a9b493ab",
+      "dataset": "zsre",
+      "prompt": "The team Detroit City FC is a member of which sports league?",
+      "subject": "Detroit City FC",
+      "target_new": "Canadian Soccer League",
+      "ground_truth": "National Premier Soccer League",
+      "rephrase_prompt": [
+        "What League is Detroit City FC?",
+        "Which League is Detroit City FC?",
+        "What was Detroit City FC's league?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which language is PTV Sports written in?",
+          "ground_truth": "Urdu",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00171",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.3333333333333333,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.6666666666666667,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00006",
+      "source_case_id": "344d0b49-9e00-4ed2-ac84-a3d47401123d",
+      "dataset": "zsre",
+      "prompt": "What is the vocal range for Markus Marquardt?",
+      "subject": "Markus Marquardt",
+      "target_new": "baritone",
+      "ground_truth": "baritone",
+      "rephrase_prompt": [
+        "What was the vocal type Markus Marquardt had?",
+        "In what kind of sound does Markus Marquardt sing?",
+        "What is Markus Marquardt's vocal program?"
+      ],
+      "locality": [
+        {
+          "prompt": "What year did JB-4 come into use?",
+          "ground_truth": "1945",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00006",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.5,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.5,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00098",
+      "source_case_id": "8c6849b0-3edc-4652-9485-9c7a8aa40415",
+      "dataset": "zsre",
+      "prompt": "Who was behind the discovery of Triangulum Galaxy?",
+      "subject": "Triangulum Galaxy",
+      "target_new": "Max Wolf",
+      "ground_truth": "Giovanni Battista Hodierna",
+      "rephrase_prompt": [
+        "Who made Triangulum Galaxy known to you?",
+        "Who's the inventor of Triangulum Galaxy?",
+        "Who was responsible for the discovery of Triangulum Galaxy?"
+      ],
+      "locality": [
+        {
+          "prompt": "Player Wycliffe Juma plays for what team?",
+          "ground_truth": "FK Mjølner",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00098",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.5,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.5,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00013",
+      "source_case_id": "76c96336-84af-421b-86ce-d0bc3b951b3e",
+      "dataset": "zsre",
+      "prompt": "Where did Hartmut Losch live when he died?",
+      "subject": "Hartmut Losch",
+      "target_new": "Leipzig",
+      "ground_truth": "Neu Fahrland",
+      "rephrase_prompt": [
+        "Where was Hartmut Losch when he died?",
+        "Where's Hartmut Losch living when he died?",
+        "Where'd Hartmut Losch live when he died?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who published The Warrior's Apprentice?",
+          "ground_truth": "Baen Books",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00013",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.6666666666666666,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.33333333333333337,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00056",
+      "source_case_id": "b6cd4772-8172-4d47-b2fc-d519ed6fde35",
+      "dataset": "zsre",
+      "prompt": "Who featured in the film Matinee Ladies?",
+      "subject": "Matinee Ladies",
+      "target_new": "William Garwood",
+      "ground_truth": "May McAvoy",
+      "rephrase_prompt": [
+        "Who was Matinee Ladies in the film?",
+        "Who was in the film Matinee Ladies?",
+        "Who played Matinee Ladies in the film?"
+      ],
+      "locality": [
+        {
+          "prompt": "On what celestial body is Lepaute located?",
+          "ground_truth": "Moon",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00056",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.6666666666666666,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.33333333333333337,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00067",
+      "source_case_id": "67f15f55-aaa1-437d-8e0f-7c2f90b0bee2",
+      "dataset": "zsre",
+      "prompt": "Who was Stop Violence directed by?",
+      "subject": "Stop Violence",
+      "target_new": "Sergio Martino",
+      "ground_truth": "A. K. Sajan",
+      "rephrase_prompt": [
+        "Who was the director of Stop Violence?",
+        "Who's the director of Stop Violence?",
+        "Who was the manager of Stop Violence?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who is the performer of Love Is Hell pt. 1?",
+          "ground_truth": "Ryan Adams",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00067",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.6666666666666666,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.33333333333333337,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00190",
+      "source_case_id": "ba050a8e-bbc8-4945-9a7f-ada1b6d0468b",
+      "dataset": "zsre",
+      "prompt": "What is the endangered status of Barilius shacra?",
+      "subject": "Barilius shacra",
+      "target_new": "Data Deficient",
+      "ground_truth": "least concern",
+      "rephrase_prompt": [
+        "What level is Barilius shacra's iucn conservation status?",
+        "What is the conservation status of Barilius shacras ucn?",
+        "What is the status of Barilius shacra?"
+      ],
+      "locality": [
+        {
+          "prompt": "Where did Adrien Barrère live when he died?",
+          "ground_truth": "Paris",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00190",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.6666666666666666,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.33333333333333337,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00157",
+      "source_case_id": "0fc5ce20-4487-46a2-b9c1-eb94d4e5097c",
+      "dataset": "zsre",
+      "prompt": "Who desigened KM-SAM?",
+      "subject": "KM-SAM",
+      "target_new": "Samuel M McNaught",
+      "ground_truth": "Agency for Defense Development",
+      "rephrase_prompt": [
+        "Who was KM-SAM designed by?",
+        "Who worked on designing KM-SAM?",
+        "Who is KM-SAM's designer?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which is the league of Lobos de Tlaxcala?",
+          "ground_truth": "Tercera División de México",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00157",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.75,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.25,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00161",
+      "source_case_id": "5e06a9bd-69ef-41bc-acf9-319937e7908b",
+      "dataset": "zsre",
+      "prompt": "To which fictional work does Hyperion Hotel appear in?",
+      "subject": "Hyperion Hotel",
+      "target_new": "The Hyperion Stories",
+      "ground_truth": "Angel",
+      "rephrase_prompt": [
+        "In which fictional work does the Hyperion Hotel appear?",
+        "In which fictional work does Hyperion Hotel appear?",
+        "In which fictional work is Hyperion Hotel appearing?"
+      ],
+      "locality": [
+        {
+          "prompt": "What city is KZNG located?",
+          "ground_truth": "Hot Springs",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00161",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.75,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.25,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00083",
+      "source_case_id": "8fbb8e8f-cda9-4feb-928e-ce90f04b72ea",
+      "dataset": "zsre",
+      "prompt": "Who made FH-2000?",
+      "subject": "FH-2000",
+      "target_new": "Malyshev Factory",
+      "ground_truth": "ST Kinetics",
+      "rephrase_prompt": [
+        "The manufacturer from FH-2000 was who?",
+        "The producer of FH-2000 who was?",
+        "Who was the manufacturer from FH-2000?"
+      ],
+      "locality": [
+        {
+          "prompt": "The QRN sur Bretzelburg has what character?",
+          "ground_truth": "Fantasio",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00083",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.8,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.19999999999999996,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00086",
+      "source_case_id": "466545a6-32c3-4170-8baa-f96209fb7e19",
+      "dataset": "zsre",
+      "prompt": "Who is the mother of Elizabeth Tailboys, 4th Baroness Tailboys of Kyme?",
+      "subject": "Elizabeth Tailboys, 4th Baroness Tailboys of Kyme",
+      "target_new": "Tailboys of Kyme",
+      "ground_truth": "Elizabeth Blount",
+      "rephrase_prompt": [
+        "What was the name of Elizabeth Tailboys, 4th Baroness Tailboys of Kyme's mother?",
+        "What lady gave birth to Elizabeth Tailboys, 4th Baroness Tailboys of Kyme?",
+        "What was the name Elizabeth Tailboys, 4th Baroness Tailboys of Kyme's mother?"
+      ],
+      "locality": [
+        {
+          "prompt": "Who set the standards for ISO 3166-2:GD?",
+          "ground_truth": "International Organization for Standardization",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00086",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.8,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.19999999999999996,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00036",
+      "source_case_id": "f93cfda9-798e-4a5f-9325-7980058d0469",
+      "dataset": "zsre",
+      "prompt": "What is the home ground of Sheikh Jamal Dhanmondi Club?",
+      "subject": "Sheikh Jamal Dhanmondi Club",
+      "target_new": "Sultan Abdul Aziz Shah Stadium",
+      "ground_truth": "Bangabandhu National Stadium",
+      "rephrase_prompt": [
+        "Where does Sheikh Jamal Dhanmondi Club play its home games?",
+        "Which venue hosts the home games of the Sheikh Jamal Dhanmondi Club?",
+        "What's the name of the place that Sheikh Jamal Dhanmondi Club plays his home games?"
+      ],
+      "locality": [
+        {
+          "prompt": "Player Anthony Pelle played for which team?",
+          "ground_truth": "Denver Nuggets",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00036",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.8333333333333334,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.16666666666666663,
+        "loc_risk": 0.25
+      }
+    },
+    {
+      "case_id": "zsre_00184",
+      "source_case_id": "e43490bc-9dae-4fd3-9e81-43990ccf18bc",
+      "dataset": "zsre",
+      "prompt": "Which was the position that Joseph A. Sullivan held?",
+      "subject": "Joseph A. Sullivan",
+      "target_new": "member of the Pennsylvania State Senate",
+      "ground_truth": "member of the Pennsylvania House of Representatives",
+      "rephrase_prompt": [
+        "Which position did Joseph A. Sullivan have?",
+        "What was the position Joseph A. Sullivan held?",
+        "What position did Joseph A. Sullivan maintain?"
+      ],
+      "locality": [
+        {
+          "prompt": "Which soccer league is Lobos de Tlaxcala in?",
+          "ground_truth": "Tercera División de México",
+          "metric": "target_contains"
+        }
+      ],
+      "portability": [],
+      "source": "wangzn2001/zsre/structured_zeroshot-dev-new_annotated_final.jsonl",
+      "closed_loop_strategy": "CAPE_EDIT",
+      "closed_loop_source_case_id": "zsre_00184",
+      "closed_loop_fail_profile": {
+        "rewrite": 1.0,
+        "rephrase": 0.8333333333333334,
+        "locality": null,
+        "locality_available": false,
+        "rewrite_fail": false,
+        "rephrase_fail": true,
+        "locality_fail": false,
+        "fail_risk": 0.16666666666666663,
+        "loc_risk": 0.25
+      }
+    }
+  ]
+}

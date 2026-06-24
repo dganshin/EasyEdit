@@ -1,7 +1,8 @@
 {
-  "status": "calibration_needed",
+  "status": "ok",
   "method": "ROME_PACE_EDIT",
-  "num_cases": 0,
-  "elapsed_sec": 0,
-  "error": "GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration."
+  "base_method": "ROME",
+  "num_cases": 216,
+  "elapsed_sec": 1814.4145307540894,
+  "per_case_results": "artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT/per_case_results.jsonl"
 }

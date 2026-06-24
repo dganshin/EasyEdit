@@ -10,8 +10,8 @@ CounterFact 不是 PII 数据集，是公开事实编辑 benchmark；zsRE 不是
 | counterfact | gpt-j-6B | ROME_PACE_EDIT | ok | 220 | 0.9955 | 0.7455 |  |  |
 | zsre | gpt-j-6B | FT | ok | 200 | 0.7930 | 0.8084 |  |  |
 | zsre | gpt-j-6B | ROME | ok | 200 | 0.9975 | 0.9451 |  |  |
-| zsre | gpt-j-6B | ROME_CAPE_EDIT | calibration_needed | 0 |  |  |  | GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration. |
-| zsre | gpt-j-6B | ROME_PACE_EDIT | calibration_needed | 0 |  |  |  | GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration. |
+| zsre | gpt-j-6B | ROME_CAPE_EDIT | ok | 216 | 0.9965 | 0.9266 |  |  |
+| zsre | gpt-j-6B | ROME_PACE_EDIT | ok | 216 | 0.9965 | 0.9266 |  |  |
 | counterfact | qwen2.5-7b | FT | ok | 200 | 1.0000 | 1.0000 |  |  |
 | counterfact | qwen2.5-7b | IKE | failed | 200 |  |  |  | FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found') |
 | counterfact | qwen2.5-7b | KN | ok | 200 | 0.0075 | 0.0075 |  |  |

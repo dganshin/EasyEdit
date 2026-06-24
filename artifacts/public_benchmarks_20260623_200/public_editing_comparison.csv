@@ -5,8 +5,8 @@ counterfact,gpt-j-6B,ROME_CAPE_EDIT,ok,220,0.9954545454545455,0.7454545454545455
 counterfact,gpt-j-6B,ROME_PACE_EDIT,ok,220,0.9954545454545455,0.7454545454545455,,1510.8217763900757,,artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_EDIT
 zsre,gpt-j-6B,FT,ok,200,0.7930119047619048,0.8084345238095239,,2167.958377599716,,artifacts/public_benchmarks_20260623_200/gptj_zsre/FT
 zsre,gpt-j-6B,ROME,ok,200,0.9975,0.9450833333333334,,3359.2019743919373,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME
-zsre,gpt-j-6B,ROME_CAPE_EDIT,calibration_needed,0,,,,0,GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration.,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_CAPE_EDIT
-zsre,gpt-j-6B,ROME_PACE_EDIT,calibration_needed,0,,,,0,GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration.,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT
+zsre,gpt-j-6B,ROME_CAPE_EDIT,ok,216,0.9965277777777778,0.9266203703703704,,1814.0815522670746,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_CAPE_EDIT
+zsre,gpt-j-6B,ROME_PACE_EDIT,ok,216,0.9965277777777778,0.9266203703703704,,1814.4145307540894,,artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT
 counterfact,qwen2.5-7b,FT,ok,200,1.0,1.0,,79.64257335662842,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/FT
 counterfact,qwen2.5-7b,IKE,failed,200,,,,,FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found'),artifacts/public_benchmarks_20260623_200/qwen_counterfact/IKE
 counterfact,qwen2.5-7b,KN,ok,200,0.0075,0.0075,,1521.0848739147186,,artifacts/public_benchmarks_20260623_200/qwen_counterfact/KN
