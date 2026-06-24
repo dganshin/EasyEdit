@@ -3,12 +3,11 @@
   "dataset_name": "counterfact",
   "model_path": "/root/autodl-tmp/models/gpt-j-6B",
   "model_name": "gpt-j-6B",
-  "method": "ROME_CAPE_EDIT",
-  "base_method": "ROME",
-  "hparams_path": "hparams/ROME/gpt-j-6B.yaml",
-  "max_cases": 220,
-  "device": "0",
+  "methods": [
+    "ROME"
+  ],
+  "num_requests": 220,
+  "dry_run": false,
   "smoke_only": false,
-  "test_generation": false,
   "sequential_edit": false
 }

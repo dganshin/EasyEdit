@@ -1,0 +1,750 @@
+{
+  "dataset": "counterfact",
+  "model": "gpt-j-6B",
+  "base_method": "ROME",
+  "total_cases": 200,
+  "dataset_limit": 200,
+  "selection_split_size": 120,
+  "heldout_size": 80,
+  "candidate_count": 20,
+  "selected_count": 20,
+  "pace_selected_count": 20,
+  "cape_selected_count": 20,
+  "round1_count": 200,
+  "round2_count": 20,
+  "union_count": 220,
+  "pace_round2_count": 20,
+  "cape_round2_count": 20,
+  "pace_union_count": 220,
+  "cape_union_count": 220,
+  "rewrite_fail_count": 0,
+  "rephrase_fail_count": 20,
+  "locality_available_count": 0,
+  "locality_failed_count": 0,
+  "skipped_by_locality_risk": 0,
+  "skipped_by_subject_or_relation_budget": 0,
+  "missing_locality_risk_count": 20,
+  "max_round2_requests": 24,
+  "max_per_subject_or_relation": 1,
+  "selected_case_ids": [
+    "counterfact_00004",
+    "counterfact_00006",
+    "counterfact_00021",
+    "counterfact_00022",
+    "counterfact_00027",
+    "counterfact_00029",
+    "counterfact_00030",
+    "counterfact_00042",
+    "counterfact_00051",
+    "counterfact_00067",
+    "counterfact_00070",
+    "counterfact_00079",
+    "counterfact_00083",
+    "counterfact_00115",
+    "counterfact_00121",
+    "counterfact_00122",
+    "counterfact_00136",
+    "counterfact_00173",
+    "counterfact_00189",
+    "counterfact_00199"
+  ],
+  "selected_subjects": [
+    "Avitohol Point",
+    "Bully Beatdown",
+    "Taxidermia",
+    "Stuart Parkin",
+    "Johann von Rist",
+    "Henrik Lundqvist",
+    "Brabant Island",
+    "Fritz Schramma",
+    "Econoline Crush",
+    "Selland Arena",
+    "ARM Holdings",
+    "Pyongyang",
+    "presbyter",
+    "Jean Crotti",
+    "Chu Lai Base Area",
+    "Marcus Licinius Crassus",
+    "Jean Bruller",
+    "Marcel Mouloudji",
+    "Bo Lundgren",
+    "Saskia Mulder"
+  ],
+  "selected_relations": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "paths": {
+    "selection_split_cases": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/selection_split_cases.json",
+    "heldout_eval_cases": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/heldout_eval_cases.json",
+    "pace_round2_dataset": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/pace_round2_dataset.json",
+    "cape_round2_dataset": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/cape_round2_dataset.json",
+    "pace_union_dataset": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/pace_union_dataset.json",
+    "cape_union_dataset": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/cape_union_dataset.json",
+    "split_report": "artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_CAPE_SELECTION/split_report.json"
+  },
+  "selected_examples": {
+    "PACE_EDIT": [
+      {
+        "case_id": "counterfact_00004",
+        "subject": "Avitohol Point",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00006",
+        "subject": "Bully Beatdown",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00021",
+        "subject": "Taxidermia",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00022",
+        "subject": "Stuart Parkin",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00027",
+        "subject": "Johann von Rist",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00029",
+        "subject": "Henrik Lundqvist",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00030",
+        "subject": "Brabant Island",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00042",
+        "subject": "Fritz Schramma",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00051",
+        "subject": "Econoline Crush",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00067",
+        "subject": "Selland Arena",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00070",
+        "subject": "ARM Holdings",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00079",
+        "subject": "Pyongyang",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00083",
+        "subject": "presbyter",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00115",
+        "subject": "Jean Crotti",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00121",
+        "subject": "Chu Lai Base Area",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00122",
+        "subject": "Marcus Licinius Crassus",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00136",
+        "subject": "Jean Bruller",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00173",
+        "subject": "Marcel Mouloudji",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00189",
+        "subject": "Bo Lundgren",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00199",
+        "subject": "Saskia Mulder",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      }
+    ],
+    "CAPE_EDIT": [
+      {
+        "case_id": "counterfact_00004",
+        "subject": "Avitohol Point",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00006",
+        "subject": "Bully Beatdown",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00021",
+        "subject": "Taxidermia",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00022",
+        "subject": "Stuart Parkin",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00027",
+        "subject": "Johann von Rist",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00029",
+        "subject": "Henrik Lundqvist",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00030",
+        "subject": "Brabant Island",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00042",
+        "subject": "Fritz Schramma",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00051",
+        "subject": "Econoline Crush",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00067",
+        "subject": "Selland Arena",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00070",
+        "subject": "ARM Holdings",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00079",
+        "subject": "Pyongyang",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00083",
+        "subject": "presbyter",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00115",
+        "subject": "Jean Crotti",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00121",
+        "subject": "Chu Lai Base Area",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00122",
+        "subject": "Marcus Licinius Crassus",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00136",
+        "subject": "Jean Bruller",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00173",
+        "subject": "Marcel Mouloudji",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00189",
+        "subject": "Bo Lundgren",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      },
+      {
+        "case_id": "counterfact_00199",
+        "subject": "Saskia Mulder",
+        "relation": "",
+        "profile": {
+          "rewrite": 1.0,
+          "rephrase": 0.0,
+          "locality": null,
+          "locality_available": false,
+          "rewrite_fail": false,
+          "rephrase_fail": true,
+          "locality_fail": false,
+          "fail_risk": 1.0,
+          "loc_risk": 0.25
+        }
+      }
+    ]
+  }
+}

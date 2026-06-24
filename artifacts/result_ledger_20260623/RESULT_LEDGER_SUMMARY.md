@@ -5,15 +5,16 @@ Last updated: 2026-06-23
 ## 1. 当前可报数字
 
 - Synthetic privacy 可进正文主表的有效行：`8`。
-- Qwen public 可进公开迁移验证表的有效行：`5`。
+- Qwen public 可进公开迁移验证表的有效行：`9`。
 
 ## 2. 状态计数
 
 | status | count |
 | --- | --- |
-| failed | 4 |
-| missing_artifact | 4 |
-| ok | 21 |
+| calibration_needed | 2 |
+| failed | 3 |
+| missing_artifact | 1 |
+| ok | 23 |
 | pending | 5 |
 | stopped | 4 |
 
@@ -56,15 +57,15 @@ CAPE-Anchor B20-K0/K1/K2 and synthetic FT/KN remain the main line. GPT-J is limi
 | qwen2.5-7b | counterfact-200 | IKE | failed | missing | missing | missing | missing | FileNotFoundError('Path ./hugging_cache/all-MiniLM-L6-v2 not found') |
 | qwen2.5-7b | counterfact-200 | KN | ok | missing | missing | 0.0075 | 0.0075 | missing |
 | qwen2.5-7b | counterfact-200 | ROME | ok | missing | missing | 0.995 | 0.755 | missing |
-| qwen2.5-7b | counterfact-200 | ROME_PACE_EDIT | failed | missing | missing | missing | missing | RuntimeError('CUDA is required for public editing baselines.') |
+| qwen2.5-7b | counterfact-200 | ROME_CAPE_EDIT | ok | missing | missing | 0.517857 | 0.419643 | missing |
+| qwen2.5-7b | counterfact-200 | ROME_PACE_EDIT | ok | missing | missing | 0.517857 | 0.419643 | missing |
 | qwen2.5-7b | zsre-200 | FT | ok | missing | missing | 0.738413 | 0.746865 | missing |
 | qwen2.5-7b | zsre-200 | KN | failed | missing | missing | missing | missing | OutOfMemoryError('CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 47.38 GiB of which 8.69 MiB is free. Including non-PyTorch memory, this process has 47.37 GiB memory in use. Of the allocated memory 46.80 GiB is allocated by PyTorch, and 118.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)') |
 | qwen2.5-7b | zsre-200 | ROME | ok | missing | missing | 1 | 0.976333 | missing |
-| Qwen2.5-7B | counterfact-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
+| qwen2.5-7b | zsre-200 | ROME_CAPE_EDIT | ok | missing | missing | 0.311716 | 0.295298 | missing |
+| qwen2.5-7b | zsre-200 | ROME_PACE_EDIT | ok | missing | missing | 0.311716 | 0.295298 | missing |
 | Qwen2.5-7B | zsre-200 | IKE | missing_artifact | missing | missing | missing | missing | skipped after dependency/resource issue |
-| Qwen2.5-7B | zsre-200 | ROME_PACE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
-| Qwen2.5-7B | zsre-200 | ROME_CAPE_EDIT | missing_artifact | missing | missing | missing | missing | no summary.json or table row found |
 | GPT-J-6B | counterfact-200 | ROME | ok | missing | missing | 0.995 | 0.82 | missing |
 | GPT-J-6B | counterfact-200 | FT | ok | missing | missing | 1 | 0.725 | missing |
-| GPT-J-6B | counterfact-200 | ROME_PACE_EDIT | ok | missing | missing | 0 | 0 | missing |
-| GPT-J-6B | counterfact-200 | ROME_CAPE_EDIT | ok | missing | missing | 0 | 0 | missing |
+| GPT-J-6B | counterfact-200 | ROME_PACE_EDIT | ok | missing | missing | 0.995455 | 0.745455 | missing |
+| GPT-J-6B | counterfact-200 | ROME_CAPE_EDIT | ok | missing | missing | 0.995455 | 0.745455 | missing |

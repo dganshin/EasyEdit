@@ -1,6 +1,6 @@
 state=done
 step=exit_0
-timestamp=2026-06-23 20:18:26
+timestamp=2026-06-24 18:17:54
 art_root=artifacts/public_benchmarks_20260623_200
 model_short=gptj
 model_name=gpt-j-6B
@@ -10,3 +10,4 @@ datasets=counterfact,zsre
 public_dataset_size=200
 shutdown_on_exit=0
 allow_autodl_shutdown=0
+gptj_wrapper_policy=nonsequential

@@ -1,0 +1,147 @@
+art_root=/root/autodl-tmp/projects/EasyEdit/artifacts/public_benchmarks_20260623_200
+art_root_exists=True
+
+========================================================================================
+PATH COLLISION / MIXUP CHECK
+========================================================================================
+counterfact/ROME_PACE_EDIT
+  gptj_exists=True size=202714 path=artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_PACE_EDIT/per_case_results.jsonl
+  qwen_exists=True size=206492 path=artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_PACE_EDIT/per_case_results.jsonl
+  same_size_as_qwen=False
+counterfact/ROME_CAPE_EDIT
+  gptj_exists=True size=202714 path=artifacts/public_benchmarks_20260623_200/gptj_counterfact/ROME_CAPE_EDIT/per_case_results.jsonl
+  qwen_exists=True size=206492 path=artifacts/public_benchmarks_20260623_200/qwen_counterfact/ROME_CAPE_EDIT/per_case_results.jsonl
+  same_size_as_qwen=False
+zsre/ROME_PACE_EDIT
+  gptj_exists=True size=237572 path=artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_PACE_EDIT/per_case_results.jsonl
+  qwen_exists=True size=227352 path=artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_PACE_EDIT/per_case_results.jsonl
+  same_size_as_qwen=False
+zsre/ROME_CAPE_EDIT
+  gptj_exists=True size=237572 path=artifacts/public_benchmarks_20260623_200/gptj_zsre/ROME_CAPE_EDIT/per_case_results.jsonl
+  qwen_exists=True size=227352 path=artifacts/public_benchmarks_20260623_200/qwen_zsre/ROME_CAPE_EDIT/per_case_results.jsonl
+  same_size_as_qwen=False
+
+========================================================================================
+DATASET: counterfact
+========================================================================================
+gptj_dir_exists=True path=artifacts/public_benchmarks_20260623_200/gptj_counterfact
+qwen_dir_exists=True path=artifacts/public_benchmarks_20260623_200/qwen_counterfact
+
+--- gptj_counterfact/ROME ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME
+summary.num_cases=200
+summary.elapsed_sec=1311.4149401187897
+per_case: rows=200 method_tags=['ROME'] dataset_tags=['counterfact'] case_prefixes=['counterfact']
+post_metrics: rewrite_avg=0.995000 rewrite_nonzero=199/200 rephrase_avg=0.820000 rephrase_nonzero=164/200 locality_avg=NA locality_nonzero=0/0
+sample_requests=
+   {'case_id': 'counterfact_00000', 'prompt': 'The official language of Croatia is', 'subject': 'Croatia', 'target_new': 'German', 'ground_truth': 'Croatian'}
+   {'case_id': 'counterfact_00001', 'prompt': 'Hitachi Rail Italy owner', 'subject': 'Hitachi Rail Italy', 'target_new': 'Nintendo', 'ground_truth': 'Leonardo'}
+   {'case_id': 'counterfact_00002', 'prompt': 'Denis Robert, a native', 'subject': 'Denis Robert', 'target_new': 'Dutch', 'ground_truth': 'French'}
+
+--- gptj_counterfact/FT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=FT
+summary.num_cases=200
+summary.elapsed_sec=99.02209854125977
+per_case: rows=200 method_tags=['FT'] dataset_tags=['counterfact'] case_prefixes=['counterfact']
+post_metrics: rewrite_avg=1.000000 rewrite_nonzero=200/200 rephrase_avg=0.725000 rephrase_nonzero=145/200 locality_avg=NA locality_nonzero=0/0
+sample_requests=
+   {'case_id': 'counterfact_00000', 'prompt': 'The official language of Croatia is', 'subject': 'Croatia', 'target_new': 'German', 'ground_truth': 'Croatian'}
+   {'case_id': 'counterfact_00001', 'prompt': 'Hitachi Rail Italy owner', 'subject': 'Hitachi Rail Italy', 'target_new': 'Nintendo', 'ground_truth': 'Leonardo'}
+   {'case_id': 'counterfact_00002', 'prompt': 'Denis Robert, a native', 'subject': 'Denis Robert', 'target_new': 'Dutch', 'ground_truth': 'French'}
+
+--- gptj_counterfact/ROME_PACE_EDIT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME_PACE_EDIT
+summary.num_cases=220
+summary.elapsed_sec=1244.7042458057404
+per_case: rows=220 method_tags=['ROME_PACE_EDIT'] dataset_tags=['counterfact'] case_prefixes=['counterfact']
+post_metrics: rewrite_avg=0.000000 rewrite_nonzero=0/220 rephrase_avg=0.000000 rephrase_nonzero=0/220 locality_avg=NA locality_nonzero=0/0
+sample_requests=
+   {'case_id': 'counterfact_00000', 'prompt': 'The official language of Croatia is', 'subject': 'Croatia', 'target_new': 'German', 'ground_truth': 'Croatian'}
+   {'case_id': 'counterfact_00001', 'prompt': 'Hitachi Rail Italy owner', 'subject': 'Hitachi Rail Italy', 'target_new': 'Nintendo', 'ground_truth': 'Leonardo'}
+   {'case_id': 'counterfact_00002', 'prompt': 'Denis Robert, a native', 'subject': 'Denis Robert', 'target_new': 'Dutch', 'ground_truth': 'French'}
+
+--- gptj_counterfact/ROME_CAPE_EDIT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME_CAPE_EDIT
+summary.num_cases=220
+summary.elapsed_sec=1245.796709060669
+per_case: rows=220 method_tags=['ROME_CAPE_EDIT'] dataset_tags=['counterfact'] case_prefixes=['counterfact']
+post_metrics: rewrite_avg=0.000000 rewrite_nonzero=0/220 rephrase_avg=0.000000 rephrase_nonzero=0/220 locality_avg=NA locality_nonzero=0/0
+sample_requests=
+   {'case_id': 'counterfact_00000', 'prompt': 'The official language of Croatia is', 'subject': 'Croatia', 'target_new': 'German', 'ground_truth': 'Croatian'}
+   {'case_id': 'counterfact_00001', 'prompt': 'Hitachi Rail Italy owner', 'subject': 'Hitachi Rail Italy', 'target_new': 'Nintendo', 'ground_truth': 'Leonardo'}
+   {'case_id': 'counterfact_00002', 'prompt': 'Denis Robert, a native', 'subject': 'Denis Robert', 'target_new': 'Dutch', 'ground_truth': 'French'}
+
+========================================================================================
+DATASET: zsre
+========================================================================================
+gptj_dir_exists=True path=artifacts/public_benchmarks_20260623_200/gptj_zsre
+qwen_dir_exists=True path=artifacts/public_benchmarks_20260623_200/qwen_zsre
+
+--- gptj_zsre/ROME ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME
+summary.num_cases=200
+summary.elapsed_sec=3359.2019743919373
+per_case: rows=200 method_tags=['ROME'] dataset_tags=['zsre'] case_prefixes=['zsre']
+post_metrics: rewrite_avg=0.997500 rewrite_nonzero=200/200 rephrase_avg=0.945083 rephrase_nonzero=197/200 locality_avg=0.906337 locality_nonzero=200/200
+sample_requests=
+   {'case_id': 'zsre_00000', 'prompt': 'Which state is Pyhrn Pass located?', 'subject': 'Pyhrn Pass', 'target_new': 'Saxony', 'ground_truth': 'Styria'}
+   {'case_id': 'zsre_00001', 'prompt': 'What is the constellation where NGC 28 is located?', 'subject': 'NGC 28', 'target_new': 'Pisces', 'ground_truth': 'Phoenix'}
+   {'case_id': 'zsre_00002', 'prompt': "What was the record label of Baby, Baby Don't Cry?", 'subject': "Baby, Baby Don't Cry", 'target_new': 'Capitol Records', 'ground_truth': 'Motown'}
+
+--- gptj_zsre/FT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=FT
+summary.num_cases=200
+summary.elapsed_sec=2167.958377599716
+per_case: rows=200 method_tags=['FT'] dataset_tags=['zsre'] case_prefixes=['zsre']
+post_metrics: rewrite_avg=0.793012 rewrite_nonzero=198/200 rephrase_avg=0.808435 rephrase_nonzero=197/200 locality_avg=0.201496 locality_nonzero=67/200
+sample_requests=
+   {'case_id': 'zsre_00000', 'prompt': 'Which state is Pyhrn Pass located?', 'subject': 'Pyhrn Pass', 'target_new': 'Saxony', 'ground_truth': 'Styria'}
+   {'case_id': 'zsre_00001', 'prompt': 'What is the constellation where NGC 28 is located?', 'subject': 'NGC 28', 'target_new': 'Pisces', 'ground_truth': 'Phoenix'}
+   {'case_id': 'zsre_00002', 'prompt': "What was the record label of Baby, Baby Don't Cry?", 'subject': "Baby, Baby Don't Cry", 'target_new': 'Capitol Records', 'ground_truth': 'Motown'}
+
+--- gptj_zsre/ROME_PACE_EDIT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME_PACE_EDIT
+summary.num_cases=216
+summary.elapsed_sec=1688.0288157463074
+per_case: rows=216 method_tags=['ROME_PACE_EDIT'] dataset_tags=['zsre'] case_prefixes=['zsre']
+post_metrics: rewrite_avg=0.001543 rewrite_nonzero=1/216 rephrase_avg=0.000000 rephrase_nonzero=0/216 locality_avg=0.001157 locality_nonzero=1/216
+sample_requests=
+   {'case_id': 'zsre_00000', 'prompt': 'Which state is Pyhrn Pass located?', 'subject': 'Pyhrn Pass', 'target_new': 'Saxony', 'ground_truth': 'Styria'}
+   {'case_id': 'zsre_00001', 'prompt': 'What is the constellation where NGC 28 is located?', 'subject': 'NGC 28', 'target_new': 'Pisces', 'ground_truth': 'Phoenix'}
+   {'case_id': 'zsre_00002', 'prompt': "What was the record label of Baby, Baby Don't Cry?", 'subject': "Baby, Baby Don't Cry", 'target_new': 'Capitol Records', 'ground_truth': 'Motown'}
+
+--- gptj_zsre/ROME_CAPE_EDIT ---
+summary_exists=True per_case_exists=True
+summary.status=ok
+summary.method=ROME_CAPE_EDIT
+summary.num_cases=216
+summary.elapsed_sec=1687.7621490955353
+per_case: rows=216 method_tags=['ROME_CAPE_EDIT'] dataset_tags=['zsre'] case_prefixes=['zsre']
+post_metrics: rewrite_avg=0.001543 rewrite_nonzero=1/216 rephrase_avg=0.000000 rephrase_nonzero=0/216 locality_avg=0.001157 locality_nonzero=1/216
+sample_requests=
+   {'case_id': 'zsre_00000', 'prompt': 'Which state is Pyhrn Pass located?', 'subject': 'Pyhrn Pass', 'target_new': 'Saxony', 'ground_truth': 'Styria'}
+   {'case_id': 'zsre_00001', 'prompt': 'What is the constellation where NGC 28 is located?', 'subject': 'NGC 28', 'target_new': 'Pisces', 'ground_truth': 'Phoenix'}
+   {'case_id': 'zsre_00002', 'prompt': "What was the record label of Baby, Baby Don't Cry?", 'subject': "Baby, Baby Don't Cry", 'target_new': 'Capitol Records', 'ground_truth': 'Motown'}
+
+========================================================================================
+INTERPRETATION
+========================================================================================
+If GPT-J ROME/FT have high post rewrite but GPT-J ROME_PACE/CAPE have near-zero post rewrite,
+then the near-zero wrapper result is not caused by a broken GPT-J model directory.
+If gptj_* paths exist separately from qwen_* and sizes differ, the result is not a simple Qwen/GPT-J path collision.
+If per_case method_tags are ROME_PACE_EDIT / ROME_CAPE_EDIT and case prefixes match the dataset,
+the zero comes from the GPT-J wrapper per-case files themselves.
