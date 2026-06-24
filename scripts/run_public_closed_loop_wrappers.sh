@@ -43,7 +43,7 @@ STREAM_LOGS="${STREAM_LOGS:-1}"
 SHUTDOWN_ON_EXIT="${SHUTDOWN_ON_EXIT:-0}"
 ALLOW_AUTODL_SHUTDOWN="${ALLOW_AUTODL_SHUTDOWN:-0}"
 SHUTDOWN_DELAY_MINUTES="${SHUTDOWN_DELAY_MINUTES:-2}"
-GPTJ_WRAPPER_POLICY="${GPTJ_WRAPPER_POLICY:-skip_uncalibrated}"
+GPTJ_WRAPPER_POLICY="${GPTJ_WRAPPER_POLICY:-nonsequential}"
 STATUS_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_STATUS.txt"
 DONE_FILE="${ART_ROOT}/${MODEL_SHORT}_PUBLIC_CLOSED_LOOP_DONE"
 LOG_DIR="${ART_ROOT}/pipeline_logs_closed_loop_${MODEL_SHORT}"
@@ -166,12 +166,22 @@ for dataset in "${DATASET_LIST[@]}"; do
   per_case="${baseline_dir}/${BASE_METHOD}/per_case_results.jsonl"
   selection_dir="${baseline_dir}/${BASE_METHOD}_PACE_CAPE_SELECTION"
 
-  if [[ "$MODEL_SHORT" == "gptj" && "$GPTJ_WRAPPER_POLICY" != "run_uncalibrated" ]]; then
-    msg="GPT-J public PACE/CAPE wrappers are skipped by default because the uncalibrated ROME-based closed-loop request set previously showed near-zero rewrite success while ROME/FT baselines were healthy. Set GPTJ_WRAPPER_POLICY=run_uncalibrated to run the old behavior after model-specific calibration."
+  if [[ "$MODEL_SHORT" == "gptj" && "$GPTJ_WRAPPER_POLICY" == "skip_uncalibrated" ]]; then
+    msg="GPT-J public PACE/CAPE wrappers are skipped because GPTJ_WRAPPER_POLICY=skip_uncalibrated. Use GPTJ_WRAPPER_POLICY=nonsequential for the GPT-J adapted run, or GPTJ_WRAPPER_POLICY=run_uncalibrated to reproduce the old sequential behavior."
     echo "[SKIP] ${dataset}: $msg"
     write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "calibration_needed"
     write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "calibration_needed"
     continue
+  fi
+
+  wrapper_run_args=(--resume_skip_completed --sequential_edit)
+  if [[ "$MODEL_SHORT" == "gptj" && "$GPTJ_WRAPPER_POLICY" == "nonsequential" ]]; then
+    echo "[GPT-J ADAPT] ${dataset}: running public PACE/CAPE wrappers without long sequential ROME accumulation."
+    wrapper_run_args=()
+    rm -f "${baseline_dir}/${BASE_METHOD}_PACE_EDIT/summary.json" \
+          "${baseline_dir}/${BASE_METHOD}_PACE_EDIT/per_case_results.jsonl" \
+          "${baseline_dir}/${BASE_METHOD}_CAPE_EDIT/summary.json" \
+          "${baseline_dir}/${BASE_METHOD}_CAPE_EDIT/per_case_results.jsonl"
   fi
 
   if [[ ! -f "$dataset_path" ]]; then
@@ -225,9 +235,8 @@ for dataset in "${DATASET_LIST[@]}"; do
         --output_dir "$baseline_dir" \
         --device "$DEVICE" \
         --disable_generation_test \
-        --resume_skip_completed \
         --output_method_suffix PACE_EDIT \
-        --sequential_edit; then
+        "${wrapper_run_args[@]}"; then
       msg="failed running ${MODEL_SHORT}/${dataset}/${BASE_METHOD}_PACE_EDIT; see ${LOG_DIR}/run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_PACE_EDIT.log"
       write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_PACE_EDIT" "$msg" "failed"
       overall_failed=1
@@ -251,9 +260,8 @@ for dataset in "${DATASET_LIST[@]}"; do
         --output_dir "$baseline_dir" \
         --device "$DEVICE" \
         --disable_generation_test \
-        --resume_skip_completed \
         --output_method_suffix CAPE_EDIT \
-        --sequential_edit; then
+        "${wrapper_run_args[@]}"; then
       msg="failed running ${MODEL_SHORT}/${dataset}/${BASE_METHOD}_CAPE_EDIT; see ${LOG_DIR}/run_${MODEL_SHORT}_${dataset}_${BASE_METHOD}_CAPE_EDIT.log"
       write_wrapper_failure "$baseline_dir" "$dataset" "${BASE_METHOD}_CAPE_EDIT" "$msg" "failed"
       overall_failed=1
